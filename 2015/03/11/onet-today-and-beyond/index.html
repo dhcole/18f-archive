@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/03/11/onet-today-and-beyond/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/03/11/onet-today-and-beyond/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; O*NET today and beyond</title>
+  <meta property="og:title" content="O*NET today and beyond" />
+
+
+  <meta name="description" content="The de facto source of skills information, both inside and outside the federal government, is O*NET - the Occupational Information Network, a data collection program that populates and maintains a current database of the detailed characteristics of workers, occupations, and skills.">
+  <meta property="og:description" content="The de facto source of skills information, both inside and outside the federal government, is O*NET - the Occupational Information Network, a data collection program that populates and maintains a current database of the detailed characteristics of workers, occupations, and skills." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.govonet/image01.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/03/11/onet-today-and-beyond/">O*NET today and beyond</a></h1>
+
+      <time datetime="2015-03-11T00:00:00+00:00" itemprop="datePublished">March 11, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/pif">pif</a>
+            /
+          
+            <a href="/tags/department-of-labor">department of labor</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author tgrandison" style="color: #000">
+    Tyrone Grandison
+  </span>
+</p>
+
+
+      <p><em>Note: The opinions expressed within this post represent only the views
+of the author and not any person or organization</em></p>
+
+<p>As a Presidential Innovation Fellow, I’ve had the pleasure of working
+with some of the most brilliant, forward-thinking minds in the
+workforce. During the past few months, my work has focused more
+specifically on skills and training arenas, and one thing that struck me
+is that the skills ecosystem is the entire economy. Its success will
+lead to a thriving and solid economic base.</p>
+
+<p>It’s one thing to make this realization; translating this realization
+into action is quite another. The problem of understanding the skills
+space and iterating on it to produce the system that its users ‚—i.e.
+job seekers, employers, colleges, workforce investment boards, etc.
+—need is a very important one. Related, it’s one that will require the
+participation of many more people.</p>
+
+<p>Before we delve too deeply into this issue, let’s cover a few basics.
+The de facto source of skills information, both inside and outside the
+federal government, is <a href="http://www.onetonline.org/"><em>O*NET</em></a> - the
+Occupational Information Network.</p>
+
+<h2 id="what-is-o*net?">What is O*NET?</h2>
+
+<p>O*NET is a data collection program that populates and maintains a
+current database of the detailed characteristics of workers,
+occupations, and skills.</p>
+
+<p>Currently, O*NET contains information on 974 detailed occupations. This
+information is gathered from a sample of national surveys of businesses
+and workers. For each of these 974 occupations, O*NET collects data on
+250 occupational descriptors.</p>
+
+<p>As you might guess, O*NET is intended to be a definitive source for
+persistent occupation data — in other words, data on stable occupations
+that have existed (and will continue to exist) in the medium term.
+Examples of some such occupations include firefighter, teacher, and
+lawyer, to name a few.</p>
+
+<p><img src="/assets/blog/onet/image01.jpg" alt="The O*Net Content model takes many sources to identify detailed occupations."></p>
+
+<p><em>Fig. 1: O*NET content model</em></p>
+
+<p>O*NET supersedes the U.S. Department of Labor’s (DOL’s) <em>Dictionary of
+Occupational Titles</em> (DOT) and provides additional occupational
+requirements not available in the DOT. The DOT is no longer supported by
+DOL.</p>
+
+<p>O*NET uses an occupational taxonomy, the O*NET-SOC, which is based on
+the 2010 version of the Standard Occupational Classification (SOC)
+mandated by Office of Management and Budget (OMB) for use by all federal
+agencies collecting occupational and labor market information (LMI).</p>
+
+<h2 id="what-is-o*net-good-at?">What Is O*NET good at?</h2>
+
+<p>O*NET is the bedrock of occupational data — some users think of it as a
+one-stop shop for data on occupations that have existed (and will exist)
+for some time. In a phrase, it is the <em>gold standard</em> of data on
+occupational skills – data upon which laws are created and an economic
+ecosystem can be built.</p>
+
+<h2 id="how-often-does-o*net-data-get-updated?">How often does O*NET data get updated?</h2>
+
+<p>The O*NET data set gets updated once a year. Currently, this is the
+fastest that comprehensive, consistent, representative, user-centered
+data, which complies with OMB’s Information Quality Guidelines and data
+collection requirements, can be gathered and processed.</p>
+
+<h2 id="how-does-o*net-collect-its-data,-anyway?">How does O*NET collect its data, anyway?</h2>
+
+<p>Data collection operations are conducted by RTI International at its
+Operations Center in Raleigh, North Carolina, and at its Survey Support
+Department, also located in Raleigh.</p>
+
+<p>O*NET uses a two-stage sample — first businesses in industries that
+employ the type of worker are sampled and contacted — then when it is
+confirmed that they employ those workers and will participate — a random
+sample of their workers in the occupation receive the O*NET survey form
+and respond directly.</p>
+
+<p>When necessary, this method may be supplemented with a sample selected
+from additional sources, such as professional and trade association
+membership lists, resulting in a dual-frame approach.</p>
+
+<p>An alternative method, based on sampling from lists of identified
+occupation experts, is used for occupations for which the primary method
+is inefficient. This method is reserved for selected occupations, such
+as those with small employment scattered among many industries and those
+for which no employment data currently exist on which to base a sample,
+such as new and emerging occupations.</p>
+
+<p>At the current funding level \$6.2 million for PY 14 the O*NET grantee
+updates slightly more than 100 occupations per year with new survey
+data.</p>
+
+<h2 id="why-use-sampling-and-surveys?">Why use sampling and surveys?</h2>
+
+<p>O*NET currently uses sampling and surveys to gather its massive amounts
+of data because these are the best techniques that also comply with the
+OMB Information Quality Guidelines (IQG). These guidelines identify
+procedures for ensuring and maximizing the quality, objectivity,
+utility, and integrity of Federal information before that information is
+distributed. OMB defines objectivity as a measure of whether
+disseminated information is accurate, reliable, and unbiased.
+Additionally, this information has to be presented in an accurate,
+complete manner, and it’s subject to quality control or other review
+measures.</p>
+
+<p>O*NET was designed specifically to address OMB IQG, including OMB
+information collection request standards, and to correct some fairly
+serious limitations in the Dictionary of Occupational Titles.</p>
+
+<h2 id="what-are-other-foundational-principles-of-o*net?">What are other foundational principles of O*NET?</h2>
+
+<p>In addition to serving as a comprehensive database of occupational data
+and promoting the integrity of said data, O*NET upholds several other
+principles. These include the following:</p>
+
+<ol>
+<li> <strong>Comprehensiveness</strong> — O*NET data covers the entire economy, offering information from all occupations in the labor market.</li>
+<li> <strong>Consistency</strong> — O*NET describes each and every occupation consistently, which helps facilitate analysis of skill transferability.</li>
+<li> <strong>Broadly representative</strong> — O*NET’s data is sampled from across the labor market, the nation, and employing industries.</li>
+<li> <strong>User-centered</strong> — Incumbent workers or occupational experts are the primary respondents to O*NET’s surveys.</li>
+</ol>
+
+<h2 id="why-does-o*net-only-contain-survey-based-data?">Why does O*NET only contain survey-based data?</h2>
+
+<p>Using survey-based data enables O*NET to have comprehensive coverage,
+be very representative, enable the data to be validated and cleaned
+relatively easily, enable the statistical calculation of margin of
+variance or error, and to meet the OMB data collection requirements.
+Even though this type of data tends to be higher cost than other data
+types, survey-based data results in average or mean values (by design).</p>
+
+<h2 id="what-about-other-types-of-data?">What about other types of data?</h2>
+
+<p>There are two other primary types of data that could be included in the
+O*NET data set — transactional data and crowdsourced data.</p>
+
+<p>Transactional data tends to be privately owned and have a potential for
+response bias. Currently, occupational and industry coverage is limited,
+e.g. in certain industries, online job postings are the norm and in
+others, it is not. Also, the use of online job postings vary with the
+size of the firm — smaller employers are less likely to post job
+openings online. Finally, many postings don’t specify the information
+desired by O*NET curators.</p>
+
+<p>Crowdsourced data tends to the least representative of the set, has the
+greatest potential for response bias, can be very difficult to validate
+independently and can easily capture leading or emerging variations.</p>
+
+<p>Both transactional and crowdsourced data would require significant
+investments in curation and management for them to satisfy the OMB
+Information Quality Guidelines and the O*NET Foundational Principles,
+which are intended to fix the problems with the DOT.</p>
+
+<h2 id="what-is-the-biggest-misconception-about-o*net?">What is the biggest misconception about O*NET?</h2>
+
+<p>“<em>Why isn’t Python an O*NET Skill?</em>”, “<em>Why is Active Listening an
+O*NET Skill?</em>”, “<em>Why are O*NET Skills so broad and generic?</em>”</p>
+
+<p>Members of the O*NET team hear these and similar questions with
+relative frequency. The above questions echo one primary misconception
+about O*NET, which is O*NET Skills are too general.</p>
+
+<p>What many users don’t realize is that O*NET skills — for example,
+active learning and programming — refer to cross-cutting competencies
+fundamental to a given occupation. More specific descriptors (such as
+systems, platforms, and other job-specific tools) are captured under the
+Tools &amp; Technology section of an occupational profile.</p>
+
+<p>O*NET Skills, as perceived by most of the public, are actually a
+combination of what we describe in the Tools &amp; Technology, Detailed Work
+Activity, Abilities, Tasks, Skills and Knowledge sections of an O*NET
+occupational profile. In short, Skills are just the tip of the
+occupational iceberg.</p>
+
+<h2 id="what-are-the-issues-that-you-hear-voiced-most-about-o*net?">What are the issues that you hear voiced most about O*NET?</h2>
+
+<p>The current set of concerns with the O*NET program include:</p>
+
+<ol>
+<li><p>Frequency – updating the O*NET database once a year is simply not
+acceptable in an era where the Internet is accelerating change
+every one to three months.</p></li>
+<li><p>Relevance and Recency – the exclusion of current professions and
+fields from the O*NET database reduces its usefulness to me.</p></li>
+</ol>
+
+<p>The update frequency is in large part a function of the data collection
+and quality constraints on O*NET. A possible solution is the creation
+of skills technology pipeline that can be incubated outside of O*NET.
+Once proven, these technologies may be evaluated for transition into the
+program.</p>
+
+<p>Official datasets from the Federal government are constructed to be a
+stable, steady base upon which more transitional elements can exist.
+This stability is designed to ensure that the American people see a
+consistent face when dealing with their government.</p>
+
+<p>For this reason, jobs that appear and disappear within the space of
+months or a few years, like Chief Fun Officer or Growth Hacker, are not
+immediately included in the O*NET database. Only occupations that have
+stood the test of time should be included in an authoritative source;
+upon which regulatory decisions are made.</p>
+
+<h2 id="how-do-we-solve-these-issues?">How do we solve these issues?</h2>
+
+<p>A public-private partnership that produces a Skills Market Platform
+(SMP) (Fig. 2), which is an open, dynamic, growing, standards-based,
+public-facing platform for skills data.</p>
+
+<p><img src="/assets/blog/onet/image00.png" alt="Reference architecture for a skills market platform"></p>
+
+<p><em>Fig. 2: reference architecture for a Skills Market Platform (SMP)</em></p>
+
+<p>The SMP should be run by a nonprofit that will handle the data curation,
+quality control, analytics and the public application programming
+interface (API).</p>
+
+<p>It is assumed that all contributions to the SMP will be tagged with
+skills from the Skills Data Standard (SDS) – a standard that is
+currently being developed.</p>
+
+<p>Employers can provide tagged job descriptions. Job seekers can tag their
+resumes using the SDS taxonomy or import their skills using OpenBadges
+(or similar) framework. Colleges can tag their courses with the imbued
+skills. Certification bodies can tag their programs with the delivered
+skills.</p>
+
+<p>The core idea behind the SMP is to conceptualize, design, and build a
+national skills platform — which would be populated with data over time.
+Federal government information and existing taxonomies would provide the
+foundational structure and bring data from O*NET, from the Bureau of
+Labor Statistics, Commerce data from the Census, the American Community
+Survey, and the Longitudinal Employer-Household Dynamics data sets.
+Other partners would be able to upload additional data—such as a college
+course catalog, or the competencies imparted by a specific
+certification—or data mined from tagged job postings or resumes.</p>
+
+<p>Local areas where community colleges and the workforce system are
+already collaborating closely with business — such that curriculum is
+closely tied to employer skills demand could upload information on the
+linkages between employer skill demand and specific competency-based
+education modules. Such early adopters would be able to demonstrate the
+utility of such a platform and build a community to further build out
+and participate in the SMP.</p>
+
+<p>The ultimate goal is for the Federal government to facilitate the
+creation of the innovation platform for skills; enabling any American to
+freely and openly leverage a common language and knowledge base.</p>
+
+<p><strong>What needs to be done</strong></p>
+
+<p>The Skills Market Platform relies on an existing:</p>
+
+<ol>
+<li><p>Skills Data Standard (SDS) - that defines the basic element of the
+system - a Universal Skill Unit (USU) - and its components and
+dependencies.</p></li>
+<li><p>Skills Network Protocol (SNP) - that enables skill units and their
+underlying data to operate dynamically across networks and to
+interact with other data systems such as O*NET and commercial
+systems that might be used by employers.</p></li>
+<li><p>Skills Innovation Layer (SIL) that allows experimentation with the
+SDS and SNP and enables innovations on top of it.</p></li>
+</ol>
+
+<h2 id="call-to-action">Call to action</h2>
+
+<p>Ever wondered what skills a particular certification course gives you?
+Ever debated the true skills details of a job description? Are you
+passionate about skills, competencies, abilities and knowledge?
+Contribute to this effort. Spend some time helping us create the Skills
+Data Standard. Donate some programming and design cycles to implementing
+the Skills Network Protocol and or the Skills Innovation Layer. Help
+change the world as we know it.</p>
+
+<p><a href="mailto:openinnovationhrs@dol.gov"><img src="/assets/blog/onet/image02.gif" alt="Send an email to get involved."></a></p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/03/10/Labor-Category-Descriptions-for-Agile-Procurements/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;Labor category descriptions for agile procurements&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/03/12/day-in-the-life-of-an-18F-content-designer/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;A day in the life of an 18F content designer&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/09/22/usa-gov-launches-vote-usa-gov-to-help-citizens-register-and-connect-with-states/' class='related_posts'>&ldquo;USA.gov launches vote.USA.gov to help citizens register and connect with states&rdquo;</a></li><li><a href='/2015/08/18/pif-made-permanent/' class='related_posts'>&ldquo;President Obama makes innovation fellowship program permanent&rdquo;</a></li><li><a href='/2015/03/02/cos-post/' class='related_posts'>&ldquo;New resources at CareerOneStop&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-03-11-onet-today-and-beyond.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

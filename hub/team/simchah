@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="canonical" href="https://hub.18f.gov/team/simchah/" />
+<link rel="vcs-git" href="https://github.com/18F/hub" title="18F Hub code repository" />
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Public Hub" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://hub.18f.gov" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; Simchah Suveyke-Bogin &mdash; 18F Public Hub</title>
+  <meta property="og:title" content="Simchah Suveyke-Bogin &amp;mdash; 18F Public Hub" />
+
+
+
+  <meta name="description" content="The go-to place for all team information ">
+  <meta property="og:description" content="The go-to place for all team information " />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <!-- until Twitter's card approver fixes itself, need to use summary_large_image here too because we can't get approved for both -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://hub.18f.gov/images/logo-18f.png" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/hub/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/hub/assets/images/favicons/favicon.png" />
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/hub/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/hub/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/hub/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/hub/assets/images/favicons/18f-center-144.png">
+
+<!-- CSS
+================================================== -->
+<style>/*! normalize.css v3.0.1 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:0.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace, monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+
+@font-face{font-family:"18f";src:url("/assets/fonts/18f-font.eot");src:url("/assets/fonts/18f-font.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/18f-font.woff") format("woff"),url("/assets/fonts/18f-font.ttf") format("truetype"),url("/assets/fonts/18f-font.svg#untitled-font-1") format("svg");font-weight:normal;font-style:normal}[data-icon]:before{font-family:"18f" !important;content:attr(data-icon);font-style:normal !important;font-weight:normal !important;font-variant:normal !important;text-transform:none !important;speak:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}[class^="icon-"]:before,[class*=" icon-"]:before{font-family:"18f" !important;font-style:normal !important;font-weight:normal !important;font-variant:normal !important;text-transform:none !important;speak:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icon-lightbulb:before{content:"a"}.icon-github1:before{content:"b"}.icon-github2:before{content:"c"}.icon-github3:before{content:"d"}.icon-18f-logo:before{content:"e"}.icon-camera:before{content:"f"}.icon-twitter:before{content:"g"}.icon-spinner:before{content:"l"}.icon-email:before{content:"h"}.icon-lastfm:before{content:"i"}.icon-linkedin:before{content:"j"}.icon-anchor:before{content:"k"}body{font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-weight:300;line-height:1.8em}h1,h2,h3,h4,h5,h6{font-family:'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-weight:600}a{color:#06d;text-decoration:underline}a:hover{color:#c21}.icon-spin{display:inline-block;-webkit-animation:spin 2s infinite linear;-moz-animation:spin 2s infinite linear;-o-animation:spin 2s infinite linear;animation:spin 2s infinite linear}@-webkit-keyframes spin{0%{-webkit-transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg)}}@-moz-keyframes spin{0%{-moz-transform:rotate(0deg)}100%{-moz-transform:rotate(359deg)}}@-o-keyframes spin{0%{-o-transform:rotate(0deg)}100%{-o-transform:rotate(359deg)}}@-ms-keyframes spin{0%{-ms-transform:rotate(0deg)}100%{-ms-transform:rotate(359deg)}}@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(359deg)}}
+
+.hll{background-color:#f8f8f8;border:1px solid #ccc;padding:6px 10px;border-radius:3px}.c{color:#999988;font-style:italic}.err{color:#a61717;background-color:#e3d2d2}.k{font-weight:bold}.o{font-weight:bold}.cm{color:#999988;font-style:italic}.cp{color:#999999;font-weight:bold}.c1{color:#999988;font-style:italic}.cs{color:#999999;font-weight:bold;font-style:italic}.gd{color:#000000;background-color:#ffdddd}.gd .x{color:#000000;background-color:#ffaaaa}.ge{font-style:italic}.gr{color:#aa0000}.gh{color:#999999}.gi{color:#000000;background-color:#ddffdd}.gi .x{color:#000000;background-color:#aaffaa}.go{color:#888888}.gp{color:#555555}.gs{font-weight:bold}.gu{color:#800080;font-weight:bold}.gt{color:#aa0000}.kc{font-weight:bold}.kd{font-weight:bold}.kn{font-weight:bold}.kp{font-weight:bold}.kr{font-weight:bold}.kt{color:#445588;font-weight:bold}.m{color:#009999}.s{color:#dd1144}.n{color:#333333}.na{color:teal}.nb{color:#0086b3}.nc{color:#445588;font-weight:bold}.no{color:teal}.ni{color:purple}.ne{color:#990000;font-weight:bold}.nf{color:#990000;font-weight:bold}.nn{color:#555555}.nt{color:navy}.nv{color:teal}.ow{font-weight:bold}.w{color:#bbbbbb}.mf{color:#009999}.mh{color:#009999}.mi{color:#009999}.mo{color:#009999}.sb{color:#dd1144}.sc{color:#dd1144}.sd{color:#dd1144}.s2{color:#dd1144}.se{color:#dd1144}.sh{color:#dd1144}.si{color:#dd1144}.sx{color:#dd1144}.sr{color:#009926}.s1{color:#dd1144}.ss{color:#990073}.bp{color:#999999}.vc{color:teal}.vg{color:teal}.vi{color:teal}.il{color:#009999}.gc{color:#999;background-color:#EAF2F5}
+
+</style>
+<link href="/hub/assets/css/styles.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,700%7COpen+Sans:300,400,700" rel="stylesheet" type="text/css">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/hub/hub/assets/ie8/html5shiv-a6f919e96ff9d9ae496cc35446be9fcb.js"></script>
+  <script src="/hub/hub/assets/ie8/respond-7afbda70eacd53d5a5e496cca095fb7f.js"></script>
+  <link href="/hub/hub/assets/ie8/ie-bb34db8e6b885fd6bb7c6d98f5046703.css" rel="stylesheet">
+<![endif]-->
+
+<script>
+// export some helpful site-wide variables
+window.site = {
+  baseurl: "/hub"
+};
+</script>
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="skip-nav">
+    <a href="#anchor">Skip to main content</a>
+  </div>
+
+  <div class="stage-bug">
+    <span>This site is in alpha. <a href="https://18f.gsa.gov/dashboard/stages/"><span class="sr-only">This site is in alpha.</span>Learn more here.</a></span>
+  </div>
+
+<nav class="nav">
+  <ul>
+    <a href="/hub/">
+      <img src="/hub/assets/images/18f-logo-small.png" alt="18F logo">
+    </a>
+    <li>
+      <a href="/hub/onboarding">New to 18F?</a>
+    </li>
+    <li>
+      <a href="/hub/how-to">How to...</a>
+    </li>
+    
+    <li>
+      <a href="/hub/team">Team</a>
+    </li>
+    <li>
+      <a href="/hub/projects">Projects</a>
+    </li>
+    <li>
+      <a href="/hub/guidelines">Guidelines</a>
+    </li>
+    <li>
+      <a href="/hub/about">About the Hub</a>
+    </li>
+  </ul>
+</nav>
+
+
+
+<section class="container bare">
+  <div ng-controller="SearchController" class="bare-content" ng-strict-di>
+  <div class="search-interface skip-nav-anchor" id="anchor" tabindex="-1">
+    <label for="search1" class="sr-only">Search - click or press '/'</label>
+    <live-search id="search1" type="text"
+      live-search-callback="searchCallback"
+      live-search-item-template="<a href='{{result.page.url}}'>{{result.page.title || result.page.url}}</a>"
+      live-search-select="displayTitle"
+      live-search-max-result-size="20"
+      ng-model="searchText"
+      ng-keydown="searchKeyDown($event)"
+      placeholder="Search – click or press '/'"
+      aria-autocomplete="list"
+      aria-activedescendant="search_result_0"
+      aria-haspopup="true"
+    ></live-search>
+  </div>
+  <div ng-hide="searchText"></div>
+</div>
+
+  <div class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+    
+<div class="team-member">
+
+  <img class="img-circle team-img bio-clip" src="/hub/assets/images/team/logo-18f.jpg" alt="Photo of Simchah Suveyke-Bogin">
+  <h1>Simchah Suveyke-Bogin</h1>
+  <p>
+    
+    
+    
+    location: <a href="/hub/locations#DCA">DCA</a><br/>
+    
+    
+  </p>
+
+  
+
+  
+
+  <div class="skills-block">
+    
+  </div>
+  <script type="text/template" class="template-skills">
+    <h2>Skills</h2>
+    <% _(skills).each(function(skill) { %>
+    <a href="/hub/skills/?<%= encodeURIComponent(skill) %>"><%= skill %></a><br/>
+    <% }); %>
+  </script>
+
+  <div class="interests-block">
+    
+  </div>
+  <script type="text/template" class="template-interests">
+    <h2>Interests</h2>
+    <% _(interests).each(function(interest) { %>
+    <a href="/hub/interests/?<%= encodeURIComponent(interest) %>"><%= interest %></a><br/>
+    <% }); %>
+  </script>
+
+  
+
+</div>
+
+<script>
+
+// Data for team members
+MEMBERS = [
+  {
+    email: null,
+    skills: null,
+    interests: null,
+    location: "DCA",
+    image: "assets/images/team/logo-18f.jpg",
+    name: "simchah",
+    full_name: "Simchah Suveyke-Bogin"
+  }
+];
+
+// Merge local data with team member's Midas profile
+MIDAS = {
+  url: 'https://openopps.digitalgov.gov'
+};
+
+// Page category
+CATEGORY = 'profile';
+
+</script>
+
+
+    <hr/>
+    
+  <div class="edit-info">
+    
+    <p><a href="https://github.com/18F/hub/edit/master/team/simchah/index.html">Edit this page</a></p>
+  </div>
+
+
+  </div>
+</section>
+
+  <footer class="footer">
+  <div class="container">
+    <ul>
+      <li>
+        <a href="/hub/team/">Team</a>
+      </li>
+      <li>
+        <a href="/hub/projects/">Projects</a>
+      </li>
+      <li>
+        <a href="https://pages.18f.gov/guides/">Guides</a>
+      </li>
+      <li>
+        <a href="/hub/how-to/">How to...</a>
+      </li>
+      <li>
+        <a href="/hub/onboarding/">Onboarding guide</a>
+      </li>
+      <li>
+        <a href="/hub/about/">About the Hub</a>
+      </li>
+    </ul>
+
+    <img src="/hub/assets/images/logo-gsa.png" alt="GSA logo"/>
+  </div>
+</footer>
+
+
+</body>
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+  
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+<script src="/hub/assets/js/jquery-2.1.1.min.js"></script>
+<script>
+  SITE_BASEURL = '/hub';
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/hub/assets/18f-67b55d918e46df6a7cd7086cd00e8ed5.js"></script>
+
+
+<script src="/hub/assets/js/vendor/underscore.min.js"></script>
+<script src="/hub/assets/js/team.js"></script>
+
+<script>SEARCH_BASEURL = '/hub';</script>
+<script async src="/hub/assets/js/search-bundle.js"></script>
+
+</html>

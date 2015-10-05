@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/08/28/announcing-the-agile-BPA-awards/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/08/28/announcing-the-agile-BPA-awards/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; Announcing the Agile BPA awards: A conversation about the process</title>
+  <meta property="og:title" content="Announcing the Agile BPA awards: A conversation about the process" />
+
+
+  <meta name="description" content="As the first Agile BPA awards are now being issued, we asked three members of the team about the process and the lessons they’ve learned so far.">
+  <meta property="og:description" content="As the first Agile BPA awards are now being issued, we asked three members of the team about the process and the lessons they’ve learned so far." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <!-- until Twitter's card approver fixes itself, need to use summary_large_image here too because we can't get approved for both -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/images/18f-share-image.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/08/28/announcing-the-agile-BPA-awards/">Announcing the Agile BPA awards: A conversation about the process</a></h1>
+
+      <time datetime="2015-08-28T00:00:00+00:00" itemprop="datePublished">August 28, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/agile">agile</a>
+            /
+          
+            <a href="/tags/procurement">procurement</a>
+            /
+          
+            <a href="/tags/18f-consulting">18f consulting</a>
+            /
+          
+            <a href="/tags/federal-acquisitions">federal acquisitions</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author vdavez" style="color: #000">
+    <a href=/team/vdavez>V. David Zvenyach</a>, 
+  
+  <span class="author kedelman" style="color: #000">
+    <a href=/team/kedelman>Kathryn Edelman</a>, 
+  
+  <span class="author chrisc" style="color: #000">
+    <a href=/team/chrisc>Chris Cairns</a>,  and 
+  
+  <span class="author melody" style="color: #000">
+    <a href=/team/melody>Melody Kramer</a>
+  </span>
+</p>
+
+
+      <p>In January, 18F Consulting
+<a href="https://18f.gsa.gov/2015/01/08/creating-a-federal-marketplace-for-agile-delivery-services/">announced</a>
+a new kind of process for vendors to compete for software acquisition
+contracts. The Agile Blanket Purchase Agreement (BPA) process would be
+open to existing vendors on Schedule 70, and require vendors to submit a
+working prototype based on a public dataset — and then show their work
+in a publicly available git repository.</p>
+
+<p>A number of decision factors led to the <a href="https://www.fbo.gov/index?s=opportunity&amp;mode=form&amp;tab=core&amp;id=e0807fc8a69115f0e352f6f0c135697a">request for
+information</a>
+(RFI) and then the <a href="https://18f.gsa.gov/2015/06/15/agile-bpa-is-here/">request for
+quotation</a> (RFQ).
+Over the last few months, the demand for 18F to build products for
+agencies has been explosive. To meet this demand, we realized that we
+needed help from outside vendors who work the way we do — using
+techniques like agile development cycles and user-centered design
+processes. We’ve also identified the need for a contract vehicle through
+which agencies can gain access to a pool of vendors that work in this
+way as well.</p>
+
+<p>Our partner throughout this project has been the Federal Acquisition
+Service (FAS), and before we talk about the BPA process, we want to
+acknowledge how much we learned from FAS, and how grateful we are for
+the time and effort they have put into this award process. Though 18F
+served as the requirements owner of this effort, the <a href="http://www.gsa.gov/portal/content/105150">Integrated
+Technology Services</a> (ITS)
+office within FAS executed the contracting work through the award phase
+and the Assisted Acquisition Services (AAS) office will handle
+post-award task orders and management. Throughout this process, we
+worked closely with a number of people at GSA’s Southeast Sunbelt
+Region, including our contracting officer and his team, to help make the
+Agile BPA happen. Going forward, FAS officers in GSA’s Pacific Rim
+Region will be issuing the task orders on the BPA. These awards could
+not have been issued without them. We want to thank them, and are
+looking forward to working with them again in the future.</p>
+
+<p>The vendors are:</p>
+
+<ol>
+<li><a href="https://github.com/AcumenSolutions/acumen-gsa-agile-prototype">Acumen Solutions Inc</a></li>
+<li><a href="https://github.com/AppliedIS/AgileBPA.git">Applied Information Sciences Inc</a></li>
+<li><a href="https://github.com/booz-allen-agile-delivery/ads-final.git">Booz Allen Hamilton Inc</a></li>
+<li><a href="https://github.com/DSoftTechnology/ADS-FDA-Pool3.git">DSoft Technology Company</a></li>
+<li><a href="https://github.com/esridc/openfda.git">Environmental Systems Research Institute Inc.</a></li>
+<li><a href="https://github.com/flexion/flexion-ads-18f-response.git">Flexion Inc.</a></li>
+<li><a href="https://github.com/nci-ats/agile-bpa.git">NCI Information Systems Inc</a></li>
+<li><a href="https://github.com/rxpectations/18f.git">PricewaterhouseCoopers Public Sector LLP</a></li>
+<li><a href="https://github.com/semanticbits/label-priv.git">SemanticBits</a></li>
+<li><a href="https://github.com/TFlowGit/tf-ads-bpa.git">TechFlow Inc</a></li>
+<li><a href="https://github.com/TeraLogics/TotalBriecall.git">TeraLogics LLC</a></li>
+<li><a href="https://bitbucket.org/msneenTW/agilegsa.git">Three Wire Systems LLC</a></li>
+<li><a href="https://github.com/bmallred/truetandem-gsa.git">True Tandem LLC</a></li>
+<li><a href="https://github.com/vencoreinc/18FAGILEPROTOTYPE.git">Vencore Services and Solutions Inc</a></li>
+<li><a href="https://github.com/akulasainath/18frepo.git">Ventera Corporation</a></li>
+<li><a href="https://github.com/dwafler/gsa_2015.git">World Wide Technology</a></li>
+</ol>
+
+<p>They represent large companies and small businesses, from all over the
+country. But the unifying theme amongst them is that they delivered
+amazing, working software in response to our RFQ.</p>
+
+<p>As the first set of awards (Pool Three) are now being issued, we asked
+three members of the 18F Consulting team to sit down together and share
+what they’ve learned throughout the process.</p>
+
+<p><strong>The panel:</strong></p>
+
+<ul>
+<li><p>Chris Cairns, Director, 18F Consulting</p></li>
+<li><p>Dave Zvenyach, Director of Acquisition Management, 18F Consulting</p></li>
+<li><p>Kathryn Edelman, Consultant, 18F Consulting</p></li>
+</ul>
+
+<h2 id="a-look-into-the-bpa-process">A look into the BPA process</h2>
+
+<p><strong>You’ve been working non-stop on the Agile BPA process for the past six
+months. This is the week the awards are coming out. What are you doing
+this week and how do you feel?</strong></p>
+
+<p>We’re currently moving slowly through the process to make sure we are
+doing all of the right things to make this BPA good for the federal
+government.</p>
+
+<p>One thing to emphasize: while we’re incredibly excited about the award
+of the Agile BPA, getting to this point is actually just the first step.
+We think we were successful in demonstrating some solid innovation with
+the award process, but we’ve got a long way to go now before we can
+declare success on what really matters: demonstrating the ability to
+partner with industry to deliver successful digital services to our
+customers using agile delivery practices.</p>
+
+<p>In other words, as with the rest of 18F, delivery is the strategy, and
+now we’re looking forward to shipping under the BPA.</p>
+
+<p><strong>What were you expecting or hoping to see from vendors after you
+announced the Agile BPA process?</strong></p>
+
+<p>We weren’t totally sure what we’d get. We knew that there was a lot of
+interest, but we weren’t sure whether that would translate into
+submissions. We ultimately hoped that there would be great vendors out
+there who could ship solid, working software in a short amount of time.
+We also hoped that vendors would be excited to show us their
+capabilities rather than describe them.</p>
+
+<p><strong>I saw many vendors working in public online. Could you point to some
+examples of what you saw throughout the process?</strong></p>
+
+<p>We were completely blown away by certain unexpected and awesome things.
+We saw many independent creations of GitHub repos by vendors — and we
+even saw someone who was outside the award process, who created <a href="https://github.com/LinuxBozo/18f-bpa-repos">a
+repo</a> to track vendor
+submissions as they came in. We saw tweets, blog posts, and even live
+video of vendors working together on code. Dave remembers chatting with
+a colleague about how there was all of this activity going on for a
+<em>government contract</em>, and that’s when he realized that this was
+definitely different from other procurements.</p>
+
+<p><strong>The deadline for the Agile BPA was pushed back several times because
+vendors had questions about the process. What were they asking?</strong></p>
+
+<p>Before we answer this, it’s important to understand how RFQs generally
+work. After an RFQ is issued, there’s usually an official question and
+answer period for vendors to ask questions about the project.</p>
+
+<p>Before the RFQ release, we held a pre-solicitation conference so we
+could preview the RFQ to vendors and answer questions, with the goal of
+reducing the questions during the official Q&amp;A period. Despite that,
+after the release, hundreds more questions still poured in — mostly on
+technical or contracting issues. To respond to this volume, we missed
+our own answer deadline, and that ended up pushing back the vendors’
+deadline to respond.</p>
+
+<p>To be honest, the delay was something that, at the time, really
+frustrated the team. But, in hindsight, one of the things we’re most
+proud of is how both we learned from the process and plan to be smarter
+about it next time around. Our partner FAS helped us move the process
+along. By dividing the questions between the contracting officer and the
+technical team, we were able to give precise answers — it just took more
+time than we expected.</p>
+
+<p>Based on this experience, we learned ways to be smarter about how we
+structure the question-and-answer process. We also learned that we could
+have done a better job communicating what was going on during that
+process. We’re excited for the next round, and will improve on the
+experience.</p>
+
+<p><strong>What can you tell us about the review process itself? Was there
+anything special about how you approached the technical evaluations?</strong></p>
+
+<p>In some respects, this was our favorite part of the process. Our
+evaluation team worked through the proposals with the contracting
+officer and his team.</p>
+
+<p>Because we had some of 18F’s own top technical talent involved, we were
+able to automate some elements of the technical evaluation that enabled
+a faster, more efficient, and more accurate review process for everyone
+involved. We’ve also learned a lot about what contracting officers and
+other officials — not to mention vendors — experience and hope to
+continue to build on some of the things we did in the BPA evaluation
+process to make the process easier for everyone.</p>
+
+<p><strong>Now that awards have been made, what should those companies expect
+from 18F?</strong></p>
+
+<p>First, they should soon expect to begin seeing opportunities to do what
+they do best: deliver working solutions to government customers that
+showcase the ability of agile processes to transform the way we buy and
+build digital services.</p>
+
+<p>Second, they should expect to maintain an ongoing dialogue with us about
+what works and what doesn’t on a project-by-project basis. We view the
+vendor community as “users” of the Agile BPA, and their feedback,
+knowledge, and insight will help us continue to find ways to innovate
+and improve the acquisition process.</p>
+
+<p>Third, they should expect to see us continue to experiment with ways to
+improve the procurement process. Our end goal is to reduce the friction
+associated with doing business with the government. This allows delivery
+teams to focus on the end user experience, driving better solutions at
+lower costs.</p>
+
+<p><strong>What about vendors who did not receive awards? Is that it for them?</strong></p>
+
+<p>Not at all. We hope to build in a mechanism to “on-ramp” new vendors who
+are interested and able to perform and <em>“</em>off-ramp<em>”</em> vendors who may no
+longer be a good fit<em>.</em> This is one of the many concepts that we hope to
+test out in the alpha phase, to figure out what makes sense for vendors,
+while ensuring that 18F and our customers are getting the highest
+quality vendors in the marketplace.</p>
+
+<p><strong>How will the first projects or clients use the vendors that were
+awarded the Agile BPA?</strong></p>
+
+<p>Because we still have a lot to learn, we want to start with a few
+smaller-scale projects out of the gate, where we can work closely with
+our customer agencies and the vendors to observe and measure what works
+and what doesn’t throughout the full life cycle of each project. We’ll
+gradually expand the number and type of projects to meet demand.</p>
+
+<p><strong>When will the process start?</strong></p>
+
+<p>It’s already started! As any government contracting officer will tell
+you, it’s never too early to start good acquisition planning, and we’ve
+been doing just that: talking to our in-house delivery and consulting
+teams and our agency partners to identify projects that we think are a
+good fit.</p>
+
+<p><strong>What are your metrics to measure whether or not the Agile BPA is
+successful?</strong></p>
+
+<p>The 18F mantra of “always be shipping” applies here as well. We hope to
+see usable code out in the world quickly on all of our projects, which
+shows that vendors are using agile principles and methodologies to
+deliver stuff their customers want and can use.</p>
+
+<p>Second, we expect to see demand from the marketplace for the Agile BPA
+services grow over time.</p>
+
+<h2 id="how-the-bpa-works">How the BPA works</h2>
+
+<p><strong>Why was the BPA competed among existing vendors on GSA IT Schedule
+70?</strong></p>
+
+<p>In order to establish a marketplace, we needed access to a broad pool of
+vendors, and IT Schedule 70, which sits in FAS ITS, has thousands of
+vendors.</p>
+
+<p>A BPA under Schedule 70 gave us significant flexibility to create the
+type of contract vehicle we thought we’d want to work with: one that
+could be awarded relatively quickly, that would provide for a more
+efficient and streamlined ordering process, and that can provide
+continued flexibility down the road as we test out what does and doesn’t
+work.</p>
+
+<p><strong>As fully envisioned, with this BPA in place, what will it do for
+agencies? In other words, how will agencies use it and how will it
+benefit them?</strong></p>
+
+<p>Agencies will have access to vendors who use agile practices and focus
+on user needs. In our work, we’ve demonstrated that using agile
+practices creates more usable and customer-valued software, gives
+agencies more flexibility to respond to changes in business priorities
+and technology, and is a more efficient use of taxpayer dollars.</p>
+
+<p>We didn’t invent these practices. The industry has been using them
+successfully for over a decade. What we’re doing is creating a contract
+vehicle featuring agile delivery vendors who can support the IT
+acquisition needs of buyers across the federal government.</p>
+
+<p><strong>As it stands now, how does an agency go about finding and purchasing
+agile services?</strong></p>
+
+<p>Based on what we’ve seen in the marketplace to date, agencies typically
+create new or use existing vehicles local to their organization or
+department. This can mean using their own BPAs, or other similar
+contract options to get things done. We sometimes describe this as using
+their existing “acquisition stack” to figure out what tools are at their
+disposal.</p>
+
+<p><strong>And what would the process be if I work at an agency and want to use
+the Agile BPA?</strong></p>
+
+<p>Right now, we’re managing this the same as other prospective 18F
+projects via our intake team. Agencies should email us at
+<a href="mailto:inquiries18f@gsa.gov">inquiries18f@gsa.gov</a> with information
+about their problem or project. As we learn more about how to work with
+other agencies on the BPA, we will refine the process.</p>
+
+<p><strong>And what’s the process if I’m a vendor and want to get on this Agile
+BPA? What can I do?</strong></p>
+
+<p>Please stay tuned! We know you’re out there, and as we get this thing
+off the ground, we’ll keep everyone posted on what the on-ramping
+process will look like once we’re ready for it.</p>
+
+<p><strong>What sort of companies was the Agile BPA aimed at?</strong></p>
+
+<p>This was aimed at companies that work the way 18F does — in an agile,
+user-centered fashion. We were looking for design firms that could turn
+around a prototype in just a few weeks, user researchers that could
+survey users to provide information before an opening sprint, and
+developers that use open source code rather than “reinventing the
+wheel.”</p>
+
+<h2 id="a-collaborative-effort-looks-ahead">A collaborative effort looks ahead</h2>
+
+<p><strong>How did 18F work with its sister offices within the General Services
+Administration (GSA) on this initiative?</strong></p>
+
+<p>18F and the Federal Acquisition Service (FAS) are partners in this
+endeavor, but support for this initiative spans up, down, and across the
+organization. We worked closely with a number of people at GSA’s
+Southeast Sunbelt Region, including our contracting officer and his
+team, to help make the Agile BPA happen. Going forward, FAS contracting
+officers in GSA’s Pacific Rim Region will be issuing the task orders on
+the BPA. FAS has been talking about the need for federal IT to transform
+its approach from waterfall to agile for quite a while.The Agile BPA,
+combined with other 18F and FAS procurements, is our to bid make this
+change happen on a large scale.</p>
+
+<p><strong>What was FAS’s reaction to some of the things you wanted to do in the
+BPA?</strong></p>
+
+<p>We really think that our contracting officer deserves a great deal of
+credit for the BPA. He recognized at an early stage that this was going
+to be unusual in many respects. Rather than shut it down, though, he
+worked hard to understand our goals and to help <em>us</em> understand the
+constraints and options. In the end, there were definitely lessons
+learned on both sides, but it’s safe to say we could not have done this
+without our contracting officer’s willingness to be open and receptive
+to our way of doing things.</p>
+
+<p><strong>Could you talk a little bit about how you make the <a href="https://pages.18f.gov/ads-bpa/buyers/">procurements
+themselves reflect agile development
+practices</a>?</strong></p>
+
+<p>Sure. There are at least three specific examples. First, we expect to be
+iterative and test, learn, and refine as we go. Second, we plan to focus
+on continuous improvement, and use retrospectives with vendors and
+agencies to ensure great results. And third, internally, we’re using
+small, cross-functional teams in the preparation of an acquisition under
+the BPA through final delivery of the software.</p>
+
+<p><strong>Three years from now, what would be your dream scenario?</strong></p>
+
+<p>A couple of things: that we have a proven track record under the BPA, or
+other vehicles, of successful agile delivery projects completed and
+available for the world to see and judge for themselves. That we’ve
+identified at least a few more successful recipes in the agile delivery
+and acquisition cookbook that agencies can implement successfully on
+their own. And that we’ve busted at least a few of the myths that the
+federal government isn’t a home for digital innovation.</p>
+
+<p><strong>Lastly, why is this important for FAS and 18F?</strong></p>
+
+<p>It’s important for 18F and FAS because it gives us another way to
+deliver value for our partner agencies. We recognized at the outset that
+the demand for transformative digital services would outpace our ability
+to hire people into 18F, and that we’d want to work with industry, an
+incredible source of innovation, to help us ship. But, it’s also
+important because we have a lot empathy for industry, who are trying to
+ship quality software for agency partners, too. By working together, we
+can build a contract vehicle that meets our needs, but also aligns with
+our vendors’ expectations of how to get things done.</p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/08/26/aaron-gustafson-beyond-responsive-design/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;Making websites more like M&Ms&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/08/31/how-playing-with-legos-taught-executives-agile/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;How 90 minutes with Lego bricks taught these executives agile&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/09/09/how-a-two-day-spring-moved-an-agency-twenty-years-forward/' class='related_posts'>&ldquo;How a two-day sprint moved an agency twenty years forward&rdquo;</a></li><li><a href='/2015/08/31/how-playing-with-legos-taught-executives-agile/' class='related_posts'>&ldquo;How 90 minutes with Lego bricks taught these executives agile&rdquo;</a></li><li><a href='/2015/06/15/agile-bpa-is-here/' class='related_posts'>&ldquo;The Agile Delivery BPA is here!&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-08-28-announcing-the-agile-BPA-awards.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

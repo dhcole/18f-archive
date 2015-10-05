@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2014/05/29/announcing-the-developer-program-a-new-hub-for/" />
+<link rel="canonical" href="https://18f.gsa.gov/2014/05/29/announcing-the-developer-program-a-new-hub-for/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; Announcing the /Developer Program: a new hub for federal API creators</title>
+  <meta property="og:title" content="Announcing the /Developer Program: a new hub for federal API creators" />
+
+
+  <meta name="description" content="We recently launched our /Developer Program (pronounced &quot;slash developer&quot;) to help federal agencies develop useful, robust APIs. The Program is a collection of educational resources, opportunities to engage the community for help and feedback, and tools that can help you build APIs — essentially an ever-growing knowledge base curated by 18F. We affectionately named the /Developer Program after the common practice of providing API documentation and links on government websites at website.gov/developer.">
+  <meta property="og:description" content="We recently launched our /Developer Program (pronounced &quot;slash developer&quot;) to help federal agencies develop useful, robust APIs. The Program is a collection of educational resources, opportunities to engage the community for help and feedback, and tools that can help you build APIs — essentially an ever-growing knowledge base curated by 18F. We affectionately named the /Developer Program after the common practice of providing API documentation and links on government websites at website.gov/developer." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2014/05/29/announcing-the-developer-program-a-new-hub-for/">Announcing the /Developer Program: a new hub for federal API creators</a></h1>
+
+      <time datetime="2014-05-29T21:15:00+00:00" itemprop="datePublished">May 29, 2014 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/developer">/developer</a>
+            /
+          
+            <a href="/tags/api">api</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author leah" style="color: #000">
+    <a href=/team/leah>Leah Bannon</a>,  and 
+  
+  <span class="author gray" style="color: #000">
+    <a href=/team/gray>Gray Brooks</a>
+  </span>
+</p>
+
+
+      <p>We recently launched our <a href="https://18f.github.io/API-All-the-X">/Developer Program</a> (pronounced "slash developer") to help federal agencies develop useful, robust APIs. The Program is a collection of educational resources, opportunities to engage the community for help and feedback, and tools that can help you build APIs — essentially an ever-growing knowledge base curated by 18F.</p>
+
+<!-- more -->
+
+<p>
+We affectionately named the /Developer Program after the <a href="https://www.google.com/#q=site:.gov+/developer">common practice</a> of providing API documentation and links on government websites at website.gov/developer<a href="#footnote-1" id="back-1"><sup>1</sup></a>.
+</p>
+
+<p>We use the term "launched" liberally though, because this has been a labor of love over the past year or more for the digital gov community. APIs are basically a way for two programs to share information or perform an action<a href="#footnote-2" id="back-2"><sup>2</sup></a>, and they continue to play an <a href="http://www.programmableweb.com/api-research">increasingly fundamental</a> role across the web. There are now almost 100 developer hubs that provide access to hundreds of web services across government.</p>
+
+<h3>Education</h3>
+
+<p>Whether you're new to APIs or have years of experience, the site's list of <a href="https://18f.github.io/API-All-the-X/pages/education">educational resources</a> can help you better understand the role that APIs can play for your agency as well as explain them to your colleagues. These resources include API definitions and analogies, training, best practices, talking points, FAQs, and case studies in case you need inspiration or examples.</p>
+
+<h3>Community and collaboration</h3>
+
+<p>The best way to improve and promote your agency's APIs is to get involved with API producers at other agencies and the developers who use your APIs. The site offers links to meetups and other API events, as well as our <a href="https://18f.github.io/API-Usability-Testing/">API Usability Testing</a> program where agencies demo their APIs to real users and customers to get their feedback. We also provide examples of excellent government APIs, sample policy and contract language for building APIs, and links to good API standards and guidelines.</p>
+
+<h3>Tools and resources</h3>
+
+<p>We are compiling a <a href="https://18f.github.io/API-All-the-X/pages/resources">list of open source tools and resources</a> to help you actually build your APIs, including data converters, standards, developer kits, and more. There are hosted tools that can take data in a spreadsheet file and instantly make it available as a RESTful API. For enterprise needs, a <a href="https://api.data.gov/">powerful API proxy</a> offers key management and analytics functionality for any agency's use.</p>
+
+<p>Please feel free to <a href="https://github.com/18F/API-All-the-X/issues?state=open">provide feedback and suggest additional resources</a>; the entire /Developer Program is an <a href="https://github.com/18F/API-All-the-X">open source project on GitHub</a>.</p>
+
+<p><a href="#back-1" id="footnote-1">1:</a><a></a> This was recommended in the <a href="https://www.whitehouse.gov/sites/default/files/omb/egov/digital-government/digital-government.html#open-data-default">Digital Government Strategy</a>.</p>
+
+<p><a href="#back-2" id="footnote-2">2:</a> Credit: <a href="https://twitter.com/svt827">@svt827</a></p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2014/05/19/packaging-up-api-usability-testing-for-agency-re-use/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;Packaging up API usability testing for agency reuse&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2014/06/25/intro-to-apis-working-with-urls-json-apis-and-open/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;Intro to APIs: Working with URLs, JSON, APIs, and Open Data — without writing any code&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2014/07/23/take-a-gander-at-our-developer-page/' class='related_posts'>&ldquo;Take a gander at our /Developer page&rdquo;</a></li><li><a href='/2015/09/14/college-scorecard-launch/' class='related_posts'>&ldquo;Behind the scenes: Building a new College Scorecard with students&rdquo;</a></li><li><a href='/2015/07/15/openfec-api-update/' class='related_posts'>&ldquo;67 million more Federal Election Commission records at your fingertips&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2014-05-29-announcing-the-developer-program-a-new-hub-for.html" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/04/21/hackathons-not-just-for-folks-who-code/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/04/21/hackathons-not-just-for-folks-who-code/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; Hackathons: not just for folks who code</title>
+  <meta property="og:title" content="Hackathons: not just for folks who code" />
+
+
+  <meta name="description" content="A few members of the 18F team recently published an excellent guide on welcoming new coders to civic hackathons. In the same vein, we’d like to offer a list of strategies for including non-technical folks in your hackathons.">
+  <meta property="og:description" content="A few members of the 18F team recently published an excellent guide on welcoming new coders to civic hackathons. In the same vein, we’d like to offer a list of strategies for including non-technical folks in your hackathons." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/blog/how-to-github/image.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/04/21/hackathons-not-just-for-folks-who-code/">Hackathons: not just for folks who code</a></h1>
+
+      <time datetime="2015-04-21T00:00:00+00:00" itemprop="datePublished">April 21, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/hackathons">hackathons</a>
+            /
+          
+            <a href="/tags/events">events</a>
+            /
+          
+            <a href="/tags/how-we-work">how we work</a>
+            /
+          
+            <a href="/tags/howto">howto</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author kate" style="color: #000">
+    <a href=/team/kate>Kate Garklavs</a>
+  </span>
+</p>
+
+
+      <p>A few weeks back, my colleague <a href="https://twitter.com/ultrasaurus">Sarah Allen</a> asked me to volunteer at
+<a href="https://18f.gsa.gov/2015/04/02/govtechhack-hacking-for-civic-improvement/"><strong>GovTechHack</strong></a>,
+a hackathon in promotion of civic good. Stoked on lending a hand, I
+agreed, but I harbored secret concerns about the extent to which I’d be
+able to contribute. I’m not, after all, a developer.</p>
+
+<p>Confession time: Prior to this event, I held the unfortunate prejudice
+that less-than-techy folk like myself couldn’t make a substantial
+contribution at a hackathon. Fortunately, I was wrong.</p>
+
+<p>When organized conscientiously, <strong>hackathons aren’t just for folks who
+code</strong> — and they’re more impactful as a result. Hack-event organizers
+everywhere would do well to recognize that encouraging a diversity of
+skills at their events benefits not just project or team leads, but
+volunteers and their larger communities. When people with diverse
+talents contribute to a unified cause, the outcome is more complex — and
+more likely to succeed.</p>
+
+<h2 id="getting-started">Getting started</h2>
+
+<p>My first night at the two-day event, I demoed
+<a href="https://18f.gsa.gov/2014/07/16/midas-a-marketplace-for-innovation-in-government/">Midas</a>
+and <a href="https://midas.18f.us/">Open Opportunities</a> to interested
+parties. (For context, Midas is a crowdsourcing platform that fosters
+cross-team and cross-agency collaboration worldwide, and Open
+Opportunities is a task-based network that allows federal employees to
+collaborate across agencies.) Having written content for both projects,
+I’m familiar with the platforms and can walk potential users through the
+basic task flows. Earlier that day, Sarah had reassured me that people
+wouldn’t ask me technical questions. “They’ll mostly want to see the
+platforms and how they work,” she said.</p>
+
+<p>Most people were interested in the projects in a high-level sense, but
+some of them were curious about topics I couldn’t speak to — what sorts
+of development needs the project had, for instance. Unable to answer
+these questions with the precision I’d prefer, I referred the inquirers
+to folks who could answer. Still, my confidence was rattled.</p>
+
+<p>As we left the event, my colleague <a href="https://twitter.com/phirefly">Raphy
+Villas</a> asked how my night had gone. I
+confided to him that, happy though I was to be volunteering, I was
+afraid I wasn’t offering that much. “Now, if anyone had any content
+needs,” I said, trailing off and looking meaningfully into the distance.</p>
+
+<p>“Content needs?” Raphy confirmed. “We’ve got ‘em. Come to the
+<a href="https://speakerdeck.com/18f/cap-communicart-18f-demo-day-9-may-2014"><strong>Communicart</strong></a>
+table tomorrow and we’ll get you set up. We’d love it if you worked with
+our team.”</p>
+
+<p>Like that, I’d found a way I could participate in the way I do best — by
+creating content.</p>
+
+<h2 id="increase-involvement">Increase involvement</h2>
+
+<p>The next morning, coffee in hand, I wandered over to the Communicart
+station. Raphy paired me up with Brad, a sales rep for a major CRM
+company. Together, we did a quick critique of the current Communicart
+front page, identifying elements that were working well and those that
+could use improvement (or total redesign).</p>
+
+<p>Keeping in mind our intended audience (people involved in the
+acquisition and procurement processes) and desired tone (professional,
+reassuring, and a hair more casual than formal), we set to work crafting
+the copy for a new front page. Tough though it can be to wield the
+metaphorical red pen, we kept <em>only</em> the text elements that would
+contribute to the front page’s purpose: to communicate Communicart’s
+unique benefits and inspire the visitor to try it out.</p>
+
+<p>One of the most invigorating aspects of content design is to take an
+idea — half-baked or fully formed — and, with that idea as inspiration,
+rapidly generate an entire body of copy. Be that text a new front page
+for a government procurement tool or the draft of a prose poem, the
+thrill exists unfettered. As Brad and I put the finishing touches on our
+call to action, we stepped back from the monitor and smiled. Working
+together and channeling the positive, competitive energy of the group,
+we’d made a meaningful contribution to Communicart — and, by extension,
+the government.</p>
+
+<h2 id="replicate-the-good-vibes">Replicate the good vibes</h2>
+
+<p>Perhaps my favorite part of this anecdote is that Brad’s and my
+experience is far from unique: Everywhere you go, you’ll find talented
+salespeople, marketers, and content designers and strategists eager to
+lend their skills to the cause of civic good. The primary hurdles
+hackathon organizers face are recruiting these folks and making them
+feel at home. Fortunately, these hurdles are easily cleared with the
+right mindset and approach.</p>
+
+<p>The benefits of such inclusivity are mighty. Yes, your featured projects
+will benefit from fuller-spectrum development, speeding production. This
+inclusivity also strengthens the symbolic bond between developers and
+folks in other areas, stressing the interconnectedness of all elements
+of a project, and growing stronger civic hacking communities. It follows
+that a person who feels welcomed to and included in an event would be
+far likelier to invite their talented friends to the next such event.</p>
+
+<p>A few members of the <a href="https://www.google.com/url?q=https%3A%2F%2F18f.gsa.gov%2F&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHBRoB0dN_9W5ZL3iUuABvRxQjYxg">18F
+team</a>
+recently published an excellent guide on <a href="https://18f.gsa.gov/2015/04/03/how-to-welcome-new-coders-to-a-civic-hackathon/">welcoming new coders to
+civic
+hackathons</a>.
+In the same vein, we’d like to offer a list of strategies for including
+non-technical folks in your hackathons. We’d like to thank Leah Bannon,
+a product lead at 18F, for generating this list of strategies.</p>
+
+<p>The following are our tips on including non-coders to your next
+hackathon.</p>
+
+<h2 id="tips-for-hackathon-organizers">Tips for hackathon organizers</h2>
+
+<h3 id="advertise-to-non-developers-first">Advertise to non-developers first</h3>
+
+<p>Before promoting your event through all the typical channels (and to
+your typical audience of developers), first reach out to content
+designers, visual designers, marketers, sales reps — anyone you’d like
+to include who might not ordinarily be looking for hackathons to attend.</p>
+
+<p>Advertising to non-developers first will ensure you have time to answer
+questions before the event, put these folks in touch with previous
+hackathon participants, and forward any training materials they might
+find helpful.</p>
+
+<h3 id="send-lots-of-actual-emails-to-individual-people">Send lots of actual emails to individual people</h3>
+
+<p>On the topic of event promotion, send lots of personalized emails to
+people you know. Yes, it’s high-touch — and that’s why it works.</p>
+
+<p>People who don’t consider themselves part of the hackathon community are
+already at a bit of a disadvantage: They don’t identify as your target
+audience, which means they have a greater cognitive burden to overcome
+in order to feel comfortable participating in your event.</p>
+
+<p>Help them overcome that burden. Email them directly and let them know
+what to expect and why you’d like them to participate — what unique
+skills they can share and what they may take away from the experience.</p>
+
+<h3 id="explain-how-the-day-will-work">Explain how the day will work</h3>
+
+<p>Familiarity encourages comfort. In many cases, newcomers’ fear of the
+unknown might dissuade them from participating in your hackathon. Help
+new participants scale this hurdle by letting them know how the
+hackathon will play out.</p>
+
+<p>An easy (and effective) way to do this is to distribute a schedule
+before the event. Not only will this give participants a handle on
+what’s to come, but it will also help them identify the sessions
+(activities?) that appeal most to them, letting them make the best use
+of their time.</p>
+
+<h3 id="include-contact-info-for-questions">Include contact info for questions</h3>
+
+<p>On that note, make yourself available to answer questions. Include your
+contact information in pre-event communications, and respond to
+inquiries promptly.</p>
+
+<h3 id="draw-parallels-between-the-hackathon-and-your-team">Draw parallels between the hackathon and your team</h3>
+
+<p>Leah Bannon highly recommends this strategy. “I like to talk about how
+the goal of a hackathon or hack night is to build a website or digital
+service — the same goal that many companies have,” Leah says. “In the
+real world, the creation of these products takes the effort of whole
+teams: developers, designers, comms people, UX testers, and so on, and
+the same is true at hackathons.”</p>
+
+<h3 id="state-repeatedly-that-newbies-are-welcome">State repeatedly that newbies are welcome</h3>
+
+<p>Want to know a great way to help newcomers feel welcome at your
+hackathon? Tell them. Make it a point to approach and engage people who
+look adrift or aren’t participating. Ask them about their background,
+what brought them to the event, and what they’d love to accomplish
+there. Kindness and communication go a long way in helping folks feel
+like they’re integral to a team.</p>
+
+<h3 id="offer-training-concurrent-to-the-hackathon">Offer training concurrent to the hackathon</h3>
+
+<p>One way to entice unlikely participants to your hackathon is to offer
+training sessions during the event. Providing channels for participants
+to learn new skills — or develop existing ones — is a great way to
+promote your event’s attendance.</p>
+
+<p>Case in point: Brad spent part of Saturday afternoon learning the basics
+of
+<a href="http://www.google.com/url?q=http%3A%2F%2Fgitref.org%2Findex.html&amp;sa=D&amp;sntz=1&amp;usg=AFQjCNHFIp1aeG5QbF6bT7sZK0-4q8t24A">Git</a>.
+With those under his belt, he bootstrapped a new responsive front-page
+design by the end of the afternoon.</p>
+
+<h3 id="follow-up-after-the-event-to-see-what-you-could-have-done-differently">Follow up after the event to see what you could have done differently</h3>
+
+<p>Even the most conscientious hackathon organizers have room for
+improvement. As soon as possible after your event, send a satisfaction
+survey to participants. As concisely as you can, ask them what worked
+well, what didn’t, whether they’d recommend your event to a friend, and
+what changes they’d like to see in future events. More importantly,
+<em>act</em> on this feedback — simply collecting it isn’t enough.</p>
+
+<p>For more tips and tricks, check out
+<a href="https://18f.github.io/hackathontrainingday/">these</a>
+<a href="http://techladyhackathon.org/">links</a>.</p>
+
+<p>Have additional tips to add to the list? <a href="http://techladyhackathon.org/">We’d love to hear them.</a></p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/04/20/act-iac-event-on-devops-in-the-government/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;ACT-IAC event on DevOps in the government&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/04/23/coming-soon-the-agile-delivery-services-soliciatation/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;Coming soon: the agile delivery services solicitation&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/06/11/18f-at-national-civic-hacking-day/' class='related_posts'>&ldquo;Where we were for the National Day of Civic Hacking&rdquo;</a></li><li><a href='/2015/04/07/icymi-a11yhack-accessibility-awareness-hackathon/' class='related_posts'>&ldquo;In case you missed it: #a11yhack, an accessibility hackathon&rdquo;</a></li><li><a href='/2015/04/03/how-to-welcome-new-coders-to-a-civic-hackathon/' class='related_posts'>&ldquo;How to welcome new coders to a civic hackathon&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-04-21-hackathons-not-just-for-folks-who-code.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

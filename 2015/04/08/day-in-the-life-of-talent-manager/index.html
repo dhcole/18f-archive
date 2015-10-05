@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/04/08/day-in-the-life-of-talent-manager/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/04/08/day-in-the-life-of-talent-manager/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; A day in the life of an 18F talent manager</title>
+  <meta property="og:title" content="A day in the life of an 18F talent manager" />
+
+
+  <meta name="description" content="For this month&#39;s installment of our Day in the Life series, Talent Manager Jamie Albrecht shares the ins and outs of her day — and her power song.">
+  <meta property="og:description" content="For this month&#39;s installment of our Day in the Life series, Talent Manager Jamie Albrecht shares the ins and outs of her day — and her power song." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/blog/talent-manager/Jamie.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/04/08/day-in-the-life-of-talent-manager/">A day in the life of an 18F talent manager</a></h1>
+
+      <time datetime="2015-04-08T00:00:00+00:00" itemprop="datePublished">April 8, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/18f">18f</a>
+            /
+          
+            <a href="/tags/day-in-the-life">day in the life</a>
+            /
+          
+            <a href="/tags/culture">culture</a>
+            /
+          
+            <a href="/tags/how-we-work">how we work</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author jamie" style="color: #000">
+    <a href=/team/jamie>Jamie Albrecht</a>
+  </span>
+</p>
+
+
+      <p>A little more than a year ago, I came to 18F as a Returned Peace Corps Volunteer (RPCV El Salvador 2011-2013) and joined the team as one of the first Operations Specialists. At the time, 18F was still in its infancy; actually, we weren’t even 18F yet. Besides lacking a formal name, we were also light on staff — in terms of numbers, that is. At that time, we had just ten big-hearted problem solvers who believed they could transform government. Though they were small in number, their spirit was invigorating and I knew I had to join them.</p>
+
+<p><img alt="Jamie Albrecht" src="/assets/blog/talent-manager/Jamie.jpg" class="align-left" /></p>
+
+<p>I spent my first few months at 18F on the Operations Team — the heart and soul of our organization, in my very biased opinion. I focused on asking lots of questions and attempting to figure out how to operationalize a new office inside the federal government. The Ops Team tackled everything from hiring to budget to purchase requests to securing space for our then upcoming offices, like San Francisco, Chicago, and New York. In short, we took care of all the things that needed to happen for 18F to work, in a very practical sense.</p>
+
+<p>Somewhere along the way, I became the go-to gal for all things “hiring.” Thankfully, in recent months, we’ve hired a bunch of fantastic new people and now there’s a whole team — <strong>Team Talent</strong> — dedicated to recruiting and workforce planning. With most of TT holding down the fort in DC, I figured it was time to give SF some love (both professionally and personally).</p>
+
+<p>Today, I am a talent manager in our San Francisco office, and this is a day in my life.</p>
+
+<p><strong>5:30 a.m.</strong>: Forget those West Coast stereotypes! Ever since my Peace Corps days of waking up with the animals, I haven’t been able to sleep in much. This bodes well for never feeling behind my East Coast counterparts. Heck, I sometimes beat some of them to the office.</p>
+
+<p>My morning routine is easy, quick, and simple. The only things I take too seriously at this hour are tea, fruit, and yogurt. I’m out the door and walking to work by 6:00 a.m.</p>
+
+<p><img alt="My morning walk to work" src="/assets/blog/talent-manager/morningwalk.JPG" class="align-left" /></p>
+
+<p><strong>7:00 a.m.</strong>: Wednesday is farmers&#39; market day at 50 UN Plaza, which means breakfast (part two) is too many free samples of chocolate almond brittle. At this hour, no one else is around, so I crank up our Bose speakers and unleash DJ JME. I make all my co-workers listen to <a href="https://www.youtube.com/watch?v=sZ-D4jmkUiQ">this song</a> at least once. You should listen, too. It helps me work through my priority inbox and prepare my notes for my morning meetings.</p>
+
+<p>At <strong>8:00 a.m.</strong>, I join Jen and Shawnique for the Team Talent stand up. We use this time together to walk through our candidate tracker. The hiring process here is longer than most, so we have to stay on top of each person’s route to Day 1. We also use this time to plan our next interview day (every other Friday), and discuss any other current challenges.</p>
+
+<p>At <strong>9:00 a.m.</strong>, I start to assemble folders of the necessary documents from the candidates we’ve most recently asked to join 18F. Each candidate’s folder includes: a comprehensive resume (usually multiple pages), salary documentation for the previous two years, background-check-related forms, and additional memos related to location (if you are not in DC or San Francisco) and salary (if you’re coming in above the first salary level). Those memos I mentioned require two signatures, so I send those off for approval before submitting the complete folders to GSA Human Resources (HR).</p>
+
+<p>At <strong>10:00 a.m.</strong> I check in with our main GSA HR point of contact. We talk daily. Once the 18F team selects someone for hire, their folder must go through GSA HR proper to be found officially qualified for the position (including GS and Step level confirmation), then through security for the background check, and then back to HR to set up start dates and orientation. This is a long process — it takes between four and six weeks — and one that requires a lot of attention from all sides (Team Talent, GSA support offices, and the candidate).</p>
+
+<p><strong>11:00 a.m.:</strong> I hop on a list of calls with these individuals. As you may have inferred from above, the hiring process has a lot of steps. I do my best to outline them via email, but sometimes you’ve gotta go the old fashioned route and actually talk to people. Call me crazy, but I kind of like it. It helps me get to know everyone before their first day. For this reason, many of my colleagues refer to me as the “face” of 18F. I do my best to put on a good face, but I hope more than anything that future 18F team members see me as their buddy, a resource they can count on as they navigate the world of federal employment here.</p>
+
+<p>By <strong>noon</strong>, I am ready for a break. My SF officemates know that my lunch habits are typically atrocious, and they often chastise me. Today, I wander the farmer’s market eating pretzel M&amp;Ms, gathering samples of apples and oranges, buying dates (the fruit, not the social event), and of course stopping for another round of almond brittle.</p>
+
+<p><img alt="SF on a sunny day" src="/assets/blog/talent-manager/sfview.JPG" class="align-right" /></p>
+
+<p><strong>1:00 p.m.</strong>: I make my way back inside and settle in to review resumes. This task is fairly simple: input names and other pertinent information into our candidate tracker, separate applicants into the appropriate <a href="https://18f.gsa.gov/2015/03/10/Labor-Category-Descriptions-for-Agile-Procurements/">buckets</a>, and then send the resumes out  for evaluation. Each resume is reviewed by at least two subject matter experts (SMEs) on our team.</p>
+
+<p><strong>2:00 p.m.</strong>: I step away from the computer to hop on the phone again. I’ve scheduled a few 30-minute phone screens (in terms of the hiring process, this happens post resume review) with potential operations specialists and talent coordinators.  Most of these positions are filled via a special hiring authority granted to Returned Peace Corps/Americorps/Vista Volunteers. I am biased, but Peace Corps Volunteers are incredible humans. We’ve got a lot of them here at 18F and we’d love many, many more. If you know someone that fits that bill, tell them to <a href="http://www.peacecorps.gov/resources/returned/careercen/careerlink/jobs/7702/">apply</a>!</p>
+
+<p><strong>3:30 p.m.</strong>: After three phone calls, I am ready for my mid-afternoon break. I like to hula-hoop around the office. I’ve made it my mission to teach the rest of the office. Luckily, this is a receptive bunch – they are always down for some learnin’.</p>
+
+<p><img alt="Hula hooping" src="/assets/blog/talent-manager/hulahoop.JPG" class="align-left" /></p>
+
+<p><strong>4:00 p.m.</strong>: I take a good portion of the rest of the day to sit down and tackle my inbox and other small tasks; since I used to be one of the only Operations Specialists, I am still somehow involved in all of the things. It is quiet(er) in DC at this point, so I can focus on these items with fewer disruptions. If you must know, I have an inbox zero policy, and finagling my inbox to zero takes longer than I like to admit out loud.</p>
+
+<p><strong>6:00 p.m.</strong>: I start my walk home listening to my wonderfully (well, depends on who you ask) crafted playlist of the day. I try and take new walking paths as much as possible – this city is still new to me, after all.</p>
+
+<p>That’s what makes me happy here at 18F, too – something and someone new to learn from and about each day. I joined 18F because of that small group of 10 people here in the beginning and I stay here for the 100+ that have joined since then.</p>
+
+<p><strong>Update:</strong></p>
+
+<p>A <a href="https://twitter.com/Shahryar/status/585884382621229056">tweet</a> from @Shahryar said, &quot;Wow, nice read, but am I reading this correctly - are you doing an 11.5 hour work day every day?&quot;</p>
+
+<p>The answer is nope! This post is an exaggerated look at my work day — it was the only way to capture all of the hula hooping I do every hour! (<a href="https://twitter.com/jmealbrecht/status/585887525643821056">This was my response</a> on Twitter.)</p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/04/07/icymi-a11yhack-accessibility-awareness-hackathon/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;In case you missed it: #a11yhack, an accessibility hackathon&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/04/09/flexibility-when-releasing-a-new-product-peace-corps-new-donation-platform/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;Flexibility when releasing a new product: Peace Corps' new donations platform&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/06/16/fast-company-story/' class='related_posts'>&ldquo;Making sense of Washington’s tech landscape&rdquo;</a></li><li><a href='/2015/05/21/TockingTime/' class='related_posts'>&ldquo;Tocking time&rdquo;</a></li><li><a href='/2015/05/19/five-questions-with-dan-brown/' class='related_posts'>&ldquo;Five questions with Dan Brown&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-04-06-day-in-the-life-of-talent-manager.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

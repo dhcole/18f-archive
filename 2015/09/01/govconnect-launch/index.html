@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/09/01/govconnect-launch/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/09/01/govconnect-launch/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; Building the next generation federal workforce</title>
+  <meta property="og:title" content="Building the next generation federal workforce" />
+
+
+  <meta name="description" content="We recently began our partnership with the Office of Personnel Management (OPM) on the GovConnect initiative, which helps agencies create a culture of excellence based on collaboration and teamwork.">
+  <meta property="og:description" content="We recently began our partnership with the Office of Personnel Management (OPM) on the GovConnect initiative, which helps agencies create a culture of excellence based on collaboration and teamwork." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <!-- until Twitter's card approver fixes itself, need to use summary_large_image here too because we can't get approved for both -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/images/18f-share-image.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/09/01/govconnect-launch/">Building the next generation federal workforce</a></h1>
+
+      <time datetime="2015-09-01T00:00:00+00:00" itemprop="datePublished">September 1, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/our-projects">our projects</a>
+            /
+          
+            <a href="/tags/midas">midas</a>
+            /
+          
+            <a href="/tags/proactive-federal-partner">proactive federal partner</a>
+            /
+          
+            <a href="/tags/operational-excellence">operational excellence</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author bradnunnally" style="color: #000">
+    <a href=/team/bradnunnally>Brad Nunnally</a>,  and 
+  
+  <span class="author sarah" style="color: #000">
+    <a href=/team/sarah>Sarah Allen</a>
+  </span>
+</p>
+
+
+      <p>We recently began our partnership with the Office of Personnel
+Management (OPM) on the <a href="http://www.fedtechmagazine.com/article/2014/10/govconnect-makes-employee-passion-projects-reality">GovConnect
+initiative</a>,
+which helps agencies create a culture of excellence based on
+collaboration and teamwork.</p>
+
+<p>To develop federal talent that can work and learn across boundaries, we
+need new practices and technologies. GovConnect helps agencies test and
+scale these approaches so we can build a 21st-century system that will
+better respond to demands and handle cross-agency program and policy
+challenges. It will do all this without the unnecessary limitation of
+organizational silos by implementing a new model of a mobile, agile,
+innovative, and skilled federal workforce. The OPM team, which includes
+staff trained by the OPM Innovation Lab and Stanford’s d.school, will
+develop this model in collaboration with other agencies.</p>
+
+<p>18F signed onto this initiative to innovate the federal workforce, a
+goal that complements the General Services Administration’s belief that
+long-term success requires a strong, diverse, and optimized workforce.</p>
+
+<p>We’re most well known for delivering digital services, which sometimes
+leads people to believe our team is composed purely of technologists who
+write code. However, some of our toughest challenges are understanding
+the problems facing our agency partners and the people they seek to
+positively impact. Thoroughly researching a problem can lead to new
+approaches or the identification of existing solutions that can be
+scaled or augmented with technology. Like OPM’s Innovation Lab, we
+investigate problems with a human-centered design approach, starting
+each project with a “discovery” phase to deeply understand how people
+work, the challenges they face, and what their needs are.</p>
+
+<p>The discovery phase includes a mix of face-to-face interviews, remote
+collaboration, shadowing, and participatory workshops intended to engage
+the user with the design problem. We do all this in collaboration with
+our agency partners. Throughout discovery, design, and development, we
+work to validate our assumptions by always including the people who will
+use the services. We’re excited to work with OPM, which has been an
+active leader of the federal “design thinking” community with their
+Innovation Lab program.</p>
+
+<p>The GovConnect initiative is a fascinating laboratory for research into
+the challenges of developing and attracting talent in the federal
+workforce. Our current government model was designed for a different
+kind of work and predates current technology and management practices.
+GovConnect is applying human-centered design methods to reframe the
+experience of working and learning in the federal government.</p>
+
+<h2 id="the-story-so-far">The story so far</h2>
+
+<p>One goal of
+<a href="https://www.whitehouse.gov/blog/2013/07/08/smarter-more-innovative-government-american-people">President Obama’s second-term management agenda</a>
+is to improve the effectiveness of the federal workforce - a workforce
+that makes up almost 3 million civilian employees across the world.
+Reaching this goal will increase employee engagement, raise
+productivity, and potentially attract a new generation of public
+servants.</p>
+
+<p>Several successful initiatives provided early proof of a new
+collaborative model of workforce development: <a href="http://www.digitalgov.gov/join-digitalgov/open-opportunities-in-digitalgov/">Open Opportunities</a>
+(developed by GSA’s Office of Citizen Services and Innovative
+Technologies),
+the Environmental Protection Agency’s (EPA) <a href="http://www.fedmanager.com/news/2063-epa-professional-development">Skills
+Marketplace</a>,
+the White House’s <a href="https://www.whitehouse.gov/blog/2014/12/02/designing-citizen-science-and-crowdsourcing-toolkit-federal-government">Innovation
+Toolkit</a>,
+and the Department of Housing and Urban Development&#39;s <a href="http://www.washingtonpost.com/politics/federal_government/engaging-new-employees-to-improve-huds-workplace-and-operations/2013/06/24/8d442838-dd20-11e2-bd83-e99e43c336ed_story.html">Innovation
+Time</a>.
+Each of these efforts seek to tap the passion, energy, and ingenuity of
+federal employees and allow people to develop their professional skills
+by tackling problems that face federal agencies.</p>
+
+<p>Thanks to the success of these initiatives and the passion of our
+partners at the Office of Personnel Management (OPM), GovConnect was
+born. GovConnect is an agile workforce initiative sponsored by OPM and
+co-led by EPA to encourage agencies to think differently about work, one
+that develops and connects the federal workforce, encourages innovation,
+and helps develop critical skills and build professional networks across
+the government to where and when they’re needed. GovConnect is a network
+of existing and new programs that seek to achieve this goal.</p>
+
+<h2 id="govconnect-phase-one">GovConnect phase one</h2>
+
+<p>In April 2014, OPM&#39;s <a href="https://www.chcoc.gov/content/govconnect-expo-follow-identifying-volunteer-pilot-agencies">call for
+participation</a>
+led to the selection of a cohort of pilot agencies to explore activating
+their own workforce through new approaches to work. Based on interviews
+with existing programs, the GovConnect team identified three models:</p>
+
+<p><strong>GovProject</strong> — Employees can develop professional skills and expertise
+on a part-time basis (for example, up to 20 percent time) to support
+project opportunities within the employee’s agency or in another
+government agency. This model would also support the rapid deployment of
+cross-agency tiger teams to respond to complex problems or
+time-sensitive needs.</p>
+
+<p><strong>GovStart</strong> — Employees can work on innovative initiatives on a
+part-time basis (for example, up to 20 percent time) and develop
+professional networks within and across agencies. These micro-projects
+are grassroots employee driven as opposed to management driven.</p>
+
+<p><strong>GovCloud</strong> — Employees are hired by one agency and are detailed out to
+agencies on a project-by-project basis to address critical skills gaps.
+GovCloud employees may work on one project at a time or work on multiple
+projects at once.</p>
+
+<p>For the past year, pilot agencies have made progress on diverse
+initiatives. A GovConnect pilot does not require technology to get
+started and could be as simple as a conference room with whiteboards and
+sticky notes, or be driven by Google Forms and email, or include
+postings on a pre-existing WordPress blog or SharePoint site.</p>
+
+<p>In addition, some mentor programs have flourished. EPA’s Skills
+Marketplace has become established within the EPA as an effective
+resource for managers. Open Opportunities has grown dramatically and is
+now open to all federal employees.</p>
+
+<p>18F has developed the Midas software platform that fuels the Open
+Opportunities program. We believe that many of the successful pilots
+could be scaled with software and will use the research to improve the
+Midas platform. However, the GovConnect primary researcher will work
+separately from the Midas team and 18F is open to learning from their
+research.</p>
+
+<h2 id="what-will-18f-do?">What will 18F do?</h2>
+
+<p>18F researchers have already started connecting with pilot mentors,
+pilot agencies, and private sector and nonprofit firms. The goal of this
+research is to learn what patterns of success, and failure, might exist
+and what have been the growing pains of successful initiatives. Initial
+research will be conducted in the form of one-on-one interviews, as well
+as reviewing metrics and other research already conducted by the
+GovConnect teams. By working directly with agencies who are developing
+pilots, have launched successful programs, or who have run into barriers
+to adoption, 18F will take a human-centered approach to developing the
+next step in the GovConnect solution.</p>
+
+<p>The outcome of this discovery phase will be the production of a Starter
+Kit with proven techniques from other agencies, including non-technical,
+real-world approaches as well as technical solutions that can help
+programs scale.</p>
+
+<p>If you’d like to learn more about this research, or if you have
+information to share from potential initiatives of your own, feel free
+to contact us at
+<a href="mailto:18f-govconnect@gsa.gov">18f-govconnect@gsa.gov</a>.</p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/08/31/how-playing-with-legos-taught-executives-agile/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;How 90 minutes with Lego bricks taught these executives agile&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/09/03/every-kid-in-a-park/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;How to design a government site for kids&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/09/28/web-design-standards/' class='related_posts'>&ldquo;Introducing the U.S. Web Design Standards&rdquo;</a></li><li><a href='/2015/09/21/new-citizenship-resources/' class='related_posts'>&ldquo;New citizenship resources demystify the naturalization process&rdquo;</a></li><li><a href='/2015/09/15/federalist-platform-launch/' class='related_posts'>&ldquo;New Federalist platform lets agencies quickly launch websites&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-09-01-govconnect-launch.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

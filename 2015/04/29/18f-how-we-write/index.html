@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/04/29/18f-how-we-write/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/04/29/18f-how-we-write/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; 18F: a great place to write</title>
+  <meta property="og:title" content="18F: a great place to write" />
+
+
+  <meta name="description" content="We collaborate on much of what we do at 18F, from the way we work on code to the way we write our blog. Though we have a small editorial team, the blog — and our writing process — extends ownership to the entire 18F team.">
+  <meta property="og:description" content="We collaborate on much of what we do at 18F, from the way we work on code to the way we write our blog. Though we have a small editorial team, the blog — and our writing process — extends ownership to the entire 18F team." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/blog/how-we-write/sarah.png" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/04/29/18f-how-we-write/">18F: a great place to write</a></h1>
+
+      <time datetime="2015-04-29T00:00:00+00:00" itemprop="datePublished">April 29, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/18f">18f</a>
+            /
+          
+            <a href="/tags/open-source">open source</a>
+            /
+          
+            <a href="/tags/how-we-work">how we work</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author melody" style="color: #000">
+    <a href=/team/melody>Melody Kramer</a>
+  </span>
+</p>
+
+
+      <p>We collaborate on much of what we do at 18F, from the way we work on code to the way we write our blog. Though we have a small editorial team, the blog — and our writing process — extends ownership to the entire 18F team.</p>
+
+<p>This collaboration begins during the generative stage of the drafting process. Anyone on the 18F team can suggest an idea for a blog post. We collect these ideas as issues in a private GitHub repository and open each issue up to feedback from the entire team. For example, Sarah Allen, a developer at 18F, suggested writing the post you are reading right now:</p>
+
+<p><img src="/assets/blog/how-we-write/sarah.png" alt="Screen shot of a GitHub thread from Sarah Allen: IDEA: we should write a blog post about how we create transparency and alignment within our organization with our blogging process, where anyone on the whole team can chime in on blog posts I was telling some friends about our process and how we use github (or used to?) tagging drafts with idea, draft, ready and approved -- I don&#39;t see these labels now. I wanted to share our README from this repo, but its private. I would love to have a written reference to our process -- I think other orgs could learn from it, and would help prospective candidates understand how we work."></p>
+
+<p>This isn’t the only way we come up with our post ideas. Sometimes, we’ll overhear a great conversation — or witness one in our chat program — and realize that it would make an equally great post. In these cases, one of us will reach out to the conversation participants and ask if they’d like to write a post based on their discussion. If they’re not free or willing to write it, a member of the editorial team will offer to create a GitHub issue and work up the first draft.</p>
+
+<p>Once an idea is posted, members of our editorial team immediately jump in on the thread to help flesh out the idea and find out whether the person submitting the idea needs any support. We also add tags to the post — things like “how we work,” or “our culture” — so that we know how to categorize the blog post once we publish it to the 18F site.</p>
+
+<blockquote>
+<p>Love this idea, Sarah. We have gotten away from our habits of tagging blog posts with status but I&#39;m trying to get better about it. And I was also just today thinking about turning all the site-related documentation over to the public version of the hub. - Greg Boone.</p>
+</blockquote>
+
+<p>We also ask our teammates if they have thoughts on a post date and who, in addition to GSA’s communications team, needs to approve the post before it goes live. (If we’re writing a post about our work with another agency, we want to make sure they aren’t surprised when it comes out, so we give them a heads up.)</p>
+
+<p>Sometimes we hold posts to coincide with a product launch. In both of these cases, we ask the project leads for their thoughts and make sure that they’re added to the GitHub issue, as well. This ensures that all the relevant information is collected in one place, and makes it easy for  anyone who needs to weigh in before publication to do so.</p>
+
+<p><img src="/assets/blog/how-we-write/kate2.png" alt="Screen shot of another GitHub thread: Kate: Sarah, Also love this idea — when would you like to publish?"></p>
+
+<p>In addition to the editorial team, anyone from 18F is encouraged to enter the GitHub thread and offer feedback or suggest copy for the actual blog post itself. Even if someone may not have time to write an entire post, they can contribute and receive a byline for their efforts. This allows our teammates who are busy coding or designing projects to write about their process and work, without requiring them to sit down and write hundreds of words. (We also have a weekly blog “huddle” with the editorial team, where anyone from 18F can talk about works-in-progress, ask for help, or find collaborators.)</p>
+
+<p>For the post you’re reading right now, we asked the 18F team what they thought we should share about our blogging process with an external audience. Eric Mill, a developer and frequent blog contributor, noted that we offer 18F members complete autonomy to pitch and flesh out a blog post, and that the blog supports syntax highlighting, which allows our devs to share code easily. He also noted:</p>
+
+<blockquote>
+<p>So I think the strongest form of this post includes some nods to the other things that help make our blog a Great Place to Write: authorial autonomy, infrastructure to support technical blog posts (e.g. syntax highlighting), immediate deployment from GitHub, a commitment to writing in a natural human voice, and an ongoing persistent invitation to all staff to be a part of the authorship. Other <img class='emoji' title=':+1:' alt=':+1:' src='/assets/images/emoji/unicode/1f44d.png' height='20' width='20' align='absmiddle' /> points: a strong tendency to use individual human bylines for all involved in a post, and a very light-touch approach to scheduling (I&#39;d characterize it as, once approved, it&#39;s good to go ASAP as long as it&#39;s not slammed at the moment). - Eric Mill</p>
+</blockquote>
+
+<p>You’ll notice emoji in the comments Eric wrote above. Our team has started using emoji like a <img class='emoji' title=':thumbsup:' alt=':thumbsup:' src='/assets/images/emoji/unicode/1f44d.png' height='20' width='20' align='absmiddle' /> or +100 to posts as a way to agree and keep the conversation light and fun. Here&#39;s another example from the conversation that led to this post:</p>
+
+<p>Kate:</p>
+
+<blockquote>
+<p>Eric +100 — encouragement of authorial autonomy can&#39;t be overstated. Another aspect I&#39;d like to emphasize is our collective revision process (and the speed/enthusiasm with which folks offer their input).</p>
+</blockquote>
+
+<p>Becky:</p>
+
+<blockquote>
+<p>As someone who hopes to one day write on the 18F blog, I love this discussion. Having a documented process that&#39;s consistently followed will make it easier for folks not on the official blogging team to jump in.</p>
+</blockquote>
+
+<p>Melody:</p>
+
+<blockquote>
+<p>if you ever want to bounce ideas around for a post, come to the blog huddle, come chat in #blog, or make a post here! We&#39;re happy to help and would love to see your byline.</p>
+</blockquote>
+
+<p>Keep in mind, at this point, not a single sentence has been written in a word processing program. We’re still tossing ideas back and forth, hearing from all members of the team, and allowing everyone to share ideas.</p>
+
+<p>Writing this way allows us to collectively revise our work. After everyone has had a chance to voice their opinion, someone volunteers — or is encouraged — to write a draft of the post, incorporating the thoughts from the GitHub issue.</p>
+
+<p>The draft is also open to the entire 18F team. Feedback is once again shared, and the post is then deployed from GitHub. (We wrote a <a href="https://18f.gsa.gov/2015/03/03/how-to-use-github-and-the-terminal-a-guide/">detailed tutorial</a> on how we use GitHub and the terminal to write blog posts, if you’d like to know more.) We also often open up another issue on the GitHub repository for our blog, for feedback from readers.</p>
+
+<h2 id="read-our-readme">Read Our README</h2>
+
+<p>Our README in our private blog-drafts repo has <a href="https://18f.gsa.gov/hub/blogging/">the following instructions</a> to make our process clear to the whole team. We keep our blog-drafts repo private so that people feel comfortable sharing ideas and giving feedback. Once the blog post is published, all of the text and code lives in the <a href="https://github.com/18F/18f.gsa.gov/">same repo as our site.</a></p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/04/28/intersection-of-art-and-technology/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;The intersection of art and technology&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/05/04/pair-programming-why-two-heads-are-better-than-one/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;Pair programming: Why two heads are better than one&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/06/16/fast-company-story/' class='related_posts'>&ldquo;Making sense of Washington’s tech landscape&rdquo;</a></li><li><a href='/2015/05/21/TockingTime/' class='related_posts'>&ldquo;Tocking time&rdquo;</a></li><li><a href='/2015/05/19/five-questions-with-dan-brown/' class='related_posts'>&ldquo;Five questions with Dan Brown&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-04-29-18f-how-we-write.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/04/02/govtechhack-hacking-for-civic-improvement/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/04/02/govtechhack-hacking-for-civic-improvement/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; GovTechHack: hacking for civic improvement</title>
+  <meta property="og:title" content="GovTechHack: hacking for civic improvement" />
+
+
+  <meta name="description" content="On a recent breezy San Francisco evening, groups of developers, designers, marketing folks, and others convened for GovTechHack — a hackathon for civic good. The event’s premise was simple: To bring together people interested in improving the accessibility and transparency of federal digital resources for a two-day work session.">
+  <meta property="og:description" content="On a recent breezy San Francisco evening, groups of developers, designers, marketing folks, and others convened for GovTechHack — a hackathon for civic good. The event’s premise was simple: To bring together people interested in improving the accessibility and transparency of federal digital resources for a two-day work session." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/blog/govtechhack/IMG_4015.JPG" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/04/02/govtechhack-hacking-for-civic-improvement/">GovTechHack: hacking for civic improvement</a></h1>
+
+      <time datetime="2015-04-02T00:00:00+00:00" itemprop="datePublished">April 2, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/18f">18f</a>
+            /
+          
+            <a href="/tags/events">events</a>
+            /
+          
+            <a href="/tags/hackathons">hackathons</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author kate" style="color: #000">
+    <a href=/team/kate>Kate Garklavs</a>
+  </span>
+</p>
+
+
+      <p><img alt="Hackathon prizes" src="/assets/blog/govtechhack/IMG_4015.JPG" class="align-left" /></p>
+
+<p>On a recent breezy San Francisco evening, groups of developers,
+designers, marketing folks, and others convened for
+<a href="http://www.eventbrite.com/e/gov-tech-hack-by-the-people-for-the-people-tickets-16135863803">GovTechHack</a>
+— a hackathon for civic good. The event’s premise was simple: To bring
+together people interested in improving the accessibility and
+transparency of federal digital resources for a two-day work session.</p>
+
+<p>Led by Cat Posey’s <a href="http://www.techsuperwomensummit.com/">Tech
+Superwomen</a> and hosted by
+<a href="https://www.capitalone.com/">Capital One</a>, the event was also
+supported by a coalition of nonprofits:
+<a href="http://www.code2040.org/">Code2040</a>, the <a href="http://anitaborg.org/">Anita Borg
+Institute</a>, <a href="http://www.codeforamerica.org/">Code for
+America</a>, and the <a href="http://presidentialinnovation.org/">Presidential
+Innovation Fellows Foundation</a>.
+More than 75 individuals came prepared to share their time and skills in
+the name of civic improvement, and their achievements were nothing short
+of remarkable.</p>
+
+<p>18F supported the event by identifying the open source projects to be
+hacked. These projects’ contributors were on-hand during the hackathon
+to answer questions, and also made themselves available before and after
+the event to answer questions and accept pull requests. We at 18F would
+be delighted to collaborate with any group looking for a way to
+contribute — you can find us and other active open source teams on
+<a href="mailto:government-open-source@googlegroups.com">government open source email
+list</a>.</p>
+
+<h2 id="how-it-worked">How it worked</h2>
+
+<p><img alt="The crowd listens to opening day presentations" src="/assets/blog/govtechhack/IMG_3998.JPG" class="align-left" /></p>
+
+<p><strong>Day one:</strong> The two-day event kicked off on a sunny Friday evening.
+Participants arrived promptly at 6:00 p.m., which gave them plenty of time
+to get settled and introduce themselves to their fellow hackers.</p>
+
+<p>Around 6:30, the evening’s kickoff presentation began. Former
+Presidential Innovation Fellow and current 18F team member <strong>Sarah
+Allen</strong> introduced the event and fellow speakers. <strong>Cat Posey</strong> shared
+her inspirational story of how she found community in tech, and <strong>Jazmyn
+Latimer</strong> described how she transitioned from psychology to the tech
+world — and how she finds inspiration in working for Code for America.</p>
+
+<p><img alt="Todd Park addresses the crowd" src="/assets/blog/govtechhack/IMG_3995.JPG" class="align-right" /></p>
+
+<p><strong>Todd Park</strong> thanked the crowd for their investment in civic tech and
+stressed the importance of those contributions; he also imparted to the
+room some of his tremendous energy and enthusiasm. Finally, five
+presenters shared overviews of the five projects to be hacked the
+following day. These projects included:</p>
+
+<ul>
+<li><p><a href="https://github.com/18F/midas"><strong>Midas</strong></a> — A platform that facilitates collaborative work
+worldwide. Individuals can create projects, propose working
+groups, or assemble &quot;tiger teams&quot; to act on their ideas.</p></li>
+<li><p><a href="http://cfpb.github.io/eRegulations/"><strong>eRegs</strong></a> — An application that makes federal regulations easier to
+find, read, and understand</p></li>
+<li><p><a href="https://18f.gsa.gov/dashboard/project/C2/"><strong>Communicart</strong></a> — A simplified, email-based purchasing approval tool
+for purchase card holders authorized to buy office supplies for
+the government</p></li>
+<li><p><a href="https://github.com/dlapiduz/govcode.org"><strong>GovCode</strong></a> — A service consolidating open source government
+projects, making participation easier than ever</p></li>
+<li><p><a href="http://energy.gov/eere/sunshot/sunshot-initiative"><strong>Solar Data Sets</strong></a> — The Department of Energy’s SunShot Initiative
+seeks to inspire more people to create software solutions to the
+challenge of increasing our use of solar energy.</p></li>
+</ul>
+
+<p><strong>Day two</strong>: Bright and early Saturday morning, participants reconvened at
+the cafe, eager to work. The previous evening, each group had outlined
+its priorities. While most of San Francisco slept, these groups tackled
+design, development, and marketing issues within the five aforementioned
+projects.</p>
+
+<p>The groups worked from 9:00 a.m. until 4:00 p.m., taking a quick lunch break
+and also stopping for snacks. As afternoon slid into evening, the groups
+presented their work to a panel of judges, highlighting the bugs they’d
+fixed and recommendations they’d made.</p>
+
+<p><img alt="The eRegs group hard at work" src="/assets/blog/govtechhack/IMG_4014.JPG" class="align-left" /></p>
+
+<h2 id="how-did-we-do?">How did we do?</h2>
+
+<p>Each project had unique pain points, and each self-selected team had a
+different skill set. Even so, each team enjoyed considerable success.
+Here’s a recap of what they accomplished:</p>
+
+<ul>
+<li><p><strong>Midas teams</strong> generated 11 pull requests. They also created a new
+design ideation that will make it easier for Midas users to
+navigate the site and find talent to claim their tasks. With three
+teams participating, one was awarded best bug fix, and another
+people’s choice for design inspiration.</p></li>
+<li><p><strong>Team eRegs</strong> worked on developer usability, winnowing a two-hour
+setup time to a mere 15 minutes. This team won the award for
+biggest impact.</p></li>
+<li><p><strong>Team Communicart</strong> created a fully responsive <a href="http://bradleyherman.com/communicart/">design
+proposal</a> (and more) for
+their new reporting feature.</p></li>
+<li><p>Two teams worked on projects that will contribute to the Dept. of
+Energy’s <strong>Solar Data Sets</strong> (and will help prep for the
+<a href="http://www.eventbrite.com/e/sfuncube-solar-hackathon-2015-hackthesun-tickets-15720907658">Solar hackathon</a>, April 17-18 in Oakland, CA).</p></li>
+<li><p><a href="https://github.com/tldrCongress/app">One team</a> integrated <strong>MyUSA</strong> authentication, and also made pull
+requests on the passport npm module to improve Node.js
+integration.</p></li>
+<li><p>And last but not least, all the teams used <strong>GovCode</strong> to explore
+projects to which they could contribute at the event — and in the
+future.</p></li>
+</ul>
+
+<p>Remote contributors to the projects supported the event via a
+govtechhack slack instance which was created especially for the event.
+There were even remote participants who were able to join teams and help
+out even though they could not be there in person</p>
+
+<h2 id="want-to-help?">Want to help?</h2>
+
+<p>The success of
+<a href="https://twitter.com/search?f=realtime&amp;q=%23GovTechHack&amp;src=typd">GovTechHack</a>
+— the bugs fixed, features improved, and awareness raised — was not only
+inspiring, but it made substantial contributions to the five projects
+featured. In fact, three of these five projects are live, meaning
+they’ll benefit immediately from participants’ contributions.</p>
+
+<p>These projects (and others!) could use some additional TLC, though. If
+you have extra time and want to help your country from the comfort of
+your home (or favorite coffee shop), visit
+<a href="https://www.govcode.org/">GovCode</a>, where you’ll find a host of
+federal projects you can work on.</p>
+
+<p>You can also visit <a href="https://github.com/18F">18F’s GitHub page</a> and
+filter issues by the Help Wanted tag, which will bring up (you guessed
+it) tasks each project needs help with.</p>
+
+<p>Thanks to all the participants — both in San Francisco and those who
+participated from New York and Michigan — who made GovTechHack an
+enormous success. We&#39;ll see you at the next hackathon!</p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/03/31/focus-on-accessibility/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;Focus on accessibility&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/04/03/18f-discussion-should-project-teams-code-first-or-design-first/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;18F discussion: Should project teams code first or design first?&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/06/16/fast-company-story/' class='related_posts'>&ldquo;Making sense of Washington’s tech landscape&rdquo;</a></li><li><a href='/2015/05/21/TockingTime/' class='related_posts'>&ldquo;Tocking time&rdquo;</a></li><li><a href='/2015/05/19/five-questions-with-dan-brown/' class='related_posts'>&ldquo;Five questions with Dan Brown&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-04-01-govtechhack-hacking-for-civic-improvement.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/01/06/protosketch/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/01/06/protosketch/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; Sketching with code: protosketching</title>
+  <meta property="og:title" content="Sketching with code: protosketching" />
+
+
+  <meta name="description" content="Meetings are boring. Prototypes are cool. Use the meeting to build the prototype. We call building a prototype in three hours or less &quot;protosketching.&quot;">
+  <meta property="og:description" content="Meetings are boring. Prototypes are cool. Use the meeting to build the prototype. We call building a prototype in three hours or less &quot;protosketching.&quot;" />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/images/2014/12/protosketch.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/01/06/protosketch/">Sketching with code: protosketching</a></h1>
+
+      <time datetime="2015-01-06T00:00:00+00:00" itemprop="datePublished">January 6, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/protosketching">protosketching</a>
+            /
+          
+            <a href="/tags/18f-consulting">18f consulting</a>
+            /
+          
+            <a href="/tags/how-we-work">how we work</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author alan" style="color: #000">
+    <a href=/team/alan>Alan deLevie</a>,  and 
+  
+  <span class="author robert" style="color: #000">
+    Dr. Robert L. Read
+  </span>
+</p>
+
+
+      <p><em>Giving program managers the freedom to sleep at night</em></p>
+
+<p>Meetings are boring. Prototypes are cool. Use the meeting to
+build the prototype. We call building a prototype in three hours or less
+<em>protosketching</em>.</p>
+
+<!-- more -->
+
+<p>Developers and designers working in bureaucratic organizations can astonish
+their colleagues by building clickable prototypes in a one-to-three hour
+meeting. Designers often sketch on paper and developers often prototype with
+code. We argue that you should sometimes sketch in code — protosketching.
+Being able to do this within a meeting sparks the imagination. Even if the
+protosketch is wrong, it gives you something concrete to review and elevates
+the discussion to issues of data, design, and functionality. In the words of
+Ward Cunningham,</p>
+
+<blockquote>
+<p>“The best way to get the right answer on the Internet is not to ask a
+question, it&#39;s to post the wrong answer.”</p>
+</blockquote>
+
+<p>Why not be wrong with your protosketch in the meeting, and turn the meeting
+into something that gives you the right answer?</p>
+
+<p>Agile and lean methodologies focus on testing hypotheses as quickly as
+possible-—<strong>protosketching allows us to rapidly create hypotheses designed
+with engaged stakeholders.</strong> Agile works in timeboxes called “sprints,”
+which are usually a few weeks long. Sometimes agile practitioners work even
+faster, on often but not always throwaway experiments called
+<a href="http://www.extremeprogramming.org/rules/spike.html">spikes</a>. Protosketching
+is just a spike limited to the timebox of a single sales, design, or
+brainstorming meeting. This short timebox guarantees that you are making a
+cheap gamble that liberates you from any commitment to try to recover the
+sunk cost of your short investment. In our experience, this immediate
+exploration is game-changing for federal agencies.</p>
+
+<p>The goal isn&#39;t to produce anything close to production-ready software, but
+rather to use a clickable prototype to get closer to user needs and
+functions. Since the goal is to learn about stakeholder understanding of
+user needs, there shouldn&#39;t be much thought given to choosing programming
+languages, databases, or design frameworks. Just go with what will quickly
+get a clickable page into the hands of the end-user in order to get
+feedback, because the protosketch is just part of the process.</p>
+
+<h2 id="why-to-protosketch-in-the-government">Why to Protosketch In the Government</h2>
+
+<p>The fundamental reason to protosketch is to have fewer sleepless nights.</p>
+
+<p>Agile and lean methodologies promote continuous learning. This fundamentally
+reduces risk by allowing bad ideas to be tested by the end-user and
+discarded quickly—rather than surviving deep into the final production
+process. Protosketching demonstrates this in a shorter time frame.</p>
+
+<p>In the federal government, this speed has historically been an unattainable
+experience. Many agencies do not have the technical resources in-house. They
+may wish to employ outside resources to perform this experimentation and
+testing, but may be stymied by the delay imposed of the procurement process.</p>
+
+<p>Imagine how liberating it would be to many executives and program managers
+to have protosketching services available on demand to test out ideas in a
+single hour or afternoon as part of a user-centered design process? This may
+prevent months of errant planning caused by not interacting with the
+end-user early enough in the program. More importantly, it may allow
+opportunities to be discovered that might not have been discovered until
+years later.</p>
+
+<p>Every agency deserves this ability to realize its mission more effectively
+and to save taxpayer money.</p>
+
+<h2 id="de-risking-the-procurement-process">De-risking The Procurement Process</h2>
+
+<p>In a typical procurement setting, prospective contractors might be the most
+technical voices in the room, creating a risk of technical asymmetry. A
+protosketcher, whether they are from <a href="https://18f.gsa.gov/consulting">18F
+Consulting</a> or from within the agency,
+should act as a trusted technical adviser to the program manager. A meeting
+with a protosketcher will significantly mitigate any asymmetry in technical
+expertise between the agency and prospective contractors by demonstrating
+technical possibilities and the ease of various solutions. The program
+manager will better understand what they want to get out of an RFP and be
+empowered to write on based on a more certain understanding of the problem
+and possible solutions. Contractors will find this specificity and clarity
+refreshing and produce lower, more accurate bids. The American people will
+be rewarded with less vendor lock-in, more cost effective maintenance, and
+effectively evolving digital services. Oh and better digital experiences!</p>
+
+<h2 id="protosketching-in-the-wild:-actual-experience">Protosketching in the Wild: Actual Experience</h2>
+
+<p>At <a href="https://18f.gsa.gov/">18F</a>, we have protosketched for prospective
+clients in three meetings and also for our audience at the last 18F Demo
+Day.</p>
+
+<p>At a three-hour meeting with the Department of Labor (DOL), we protosketched a
+mobile application for Investigators to use in the field. With great
+foresight, the DOL had brought actual Investigators (the end-user for this
+case) into the meeting. The DOL was seeking to streamline workflows for
+their investigators who often found themselves spending precious time on
+redundant and often non-user-friendly data entry. For example, it was common
+for investigators to keep track of data on a highly specialized spreadsheet
+template which could later be uploaded to a DOL case management system.
+While one member of the 18F team discussed project goals and explained the
+benefits of a modular, API-driven system architecture, the other 18F staff
+members protosketched a user interface made possible by such an
+architecture.</p>
+
+<p>Several investigators at the meeting were able to provide dynamic feedback
+as they interacted with the mobile application on their own smartphones. A
+technology stack comprised of Ruby, Sinatra, and Bootstrap made it easy to
+rapidly create clickable forms and sortable tables. Because Bootstrap is a
+responsive layout, the protosketches were just as compelling on the
+investigators’ mobile phones as they were on the projector. This was an
+initial step in design process which led to wireframes and more extensive
+prototypes.</p>
+
+<p>We recently did a very similar three-hour session with the U.S. Navy Reserve. In a
+world where agencies are used to having to go through a lengthy procurement
+process and a requirements writing phase in order to see any design or
+prototype at all, this is a game-changer.</p>
+
+<p><img src="/assets/images/2014/12/protosketch.jpg" class="align-left" alt="A
+protosketch running on a phone" /></p>
+
+<p>At another protosketch meeting, this time with GSA Human Resources, we
+protosketched a human resources dashboard which simulated combining several
+siloed data sources. We <a href="https://github.com/18F/aaa-exp-proto1">built</a> a
+<a href="https://18f.github.io/aaa-exp-proto1/">sample dashboard</a> with
+<a href="http://jquery.com/">jQuery</a>, static <a href="http://www.json.org/">JSON</a> files,
+<a href="http://getbootstrap.com/">Bootstrap</a>, and were able to preview it via
+<a href="https://pages.github.com/">GitHub pages</a>. As the sample dashboard was
+displayed on the projector, participants quickly pointed out fields that
+they’d like to see included, excluded, or modified. Even better than that,
+though, was the lively discussion between participants. Seeing a clickable,
+interactive demo helped them test out hypotheses as a team about the
+features they needed most.</p>
+
+<h2 id="summary-of-our-technique:-reuse-on-steroids">Summary of our technique: reuse on steroids</h2>
+
+<p>Do these successes prove how smart we are?</p>
+
+<p>No.</p>
+
+<p>They prove that we know how to reuse work that others have spent
+person-years, sometimes person-centuries, making freely available for
+everyone to reuse (see our upcoming post, “How to Protosketch”). We are also
+reusing our own experience with these systems. We are practiced at quickly
+installing, configuring, and in some cases, programming, powerful systems.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>If you are a leading a project, ask for a protosketch. If you are a
+developer, learn to protosketch. Create imagination-sparking moments, <em>in
+the meeting</em>. Give your team the freedom to play — with ideas, code and
+data. Minimize risk to your project and the American taxpayer by quickly
+testing ideas with the end-user in a vivid, clickable form. Develop and
+evaluate hypotheses on the fly. Protosketch to delight your team, your boss,
+and your customers.  </p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2014/12/23/hub/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;The 18F Hub&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/01/08/creating-a-federal-marketplace-for-agile-delivery-services/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;Creating a federal marketplace for agile delivery services&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/03/13/how-to-protosketch/' class='related_posts'>&ldquo;How to protosketch&rdquo;</a></li><li><a href='/2015/09/04/what-is-technical-debt/' class='related_posts'>&ldquo;What is technical debt?&rdquo;</a></li><li><a href='/2015/08/31/how-playing-with-legos-taught-executives-agile/' class='related_posts'>&ldquo;How 90 minutes with Lego bricks taught these executives agile&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2014-12-22-protosketch.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

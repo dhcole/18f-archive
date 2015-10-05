@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; Dashboard</title>
+  <meta property="og:title" content="Dashboard" />
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+  
+    <meta name="description" content="18F builds effective, user-centric digital services focused on the interaction between government and the people and businesses it serves.">
+    <meta property="og:description" content="18F builds effective, user-centric digital services focused on the interaction between government and the people and businesses it serves." />
+  
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <!-- until Twitter's card approver fixes itself, need to use summary_large_image here too because we can't get approved for both -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="/images/logo-18f.png" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/dashboard/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/dashboard/assets/images/favicons/favicon.png" />
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/dashboard/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/dashboard/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/dashboard/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/dashboard/assets/images/favicons/18f-center-144.png">
+
+<!-- CSS
+================================================== -->
+<link href='//fonts.googleapis.com/css?family=Raleway:400,700|Open+Sans:400,700' rel='stylesheet' type='text/css'>
+<link href="/dashboard/assets/css/fonts.css" rel="stylesheet">
+<link href="/dashboard/assets/css/normalize.css" rel="stylesheet">
+<link href="/dashboard/assets/css/styles.css" rel="stylesheet">
+<!-- Remove FontAwesome later, add specific icons to cleaned 18F font instead -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- JS
+================================================== -->
+<script src="/dashboard/assets/js/jquery-2.1.1.min.js"></script>
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/dashboard/assets/js/ie8/html5shiv.js"></script>
+  <script src="/dashboard/assets/js/ie8/respond.js"></script>
+  <link href="/dashboard/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at join18f@gsa.gov. Additional information about hiring is here: https://pages.18f.gov/joining-18f/how-to-apply/.
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<!-- stage notice -->
+<div class="stage-bug">
+  <span>This site is in <a href="/dashboard/stages/">alpha</a>. The content contained is not final.</span>
+</div>
+
+<section class="container bare">
+
+  <div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"></i>
+      <span class="accessible-not-visible">18f Home</span>
+    </a>
+  </div>
+
+  <div class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+    
+
+
+
+
+<section class="dashboard">
+  <h1>Dashboard</h1>
+  <p class="lead">We are building digital services for the American people. Follow our progress and get involved here.</p>
+  <ul class="dashboard-overview">
+    <a href="/dashboard/stages/#discovery">
+      <li class="discovery"><span class="status">discovery</span>
+        <p class="status-description">User needs are researched and identified.</p>
+        <p class="dashboard-overview-numbers">3</p>
+      </li>
+    </a>
+    <a href="/dashboard/stages/#alpha">
+      <li class="alpha"><span class="status alpha">alpha</span>
+        <p class="status-description">A prototype is built to meet the main user needs.</p>
+        <p class="dashboard-overview-numbers">8</p>
+      </li>
+    </a>
+    <a href="/dashboard/stages/#beta">
+      <li class="beta"><span class="status beta">beta</span>
+        <p class="status-description">The service is improved, then tested in public.</p>
+        <p class="dashboard-overview-numbers">11</p>
+      </li>
+    </a>
+    <a href="/dashboard/stages/#live">
+      <li class="live"><span class="status live">live</span>
+        <p class="status-description">The service is public and works well.</p>
+        <p class="dashboard-overview-numbers">9</p>
+      </li>
+    </a>
+  </ul>
+
+  <section class="dashboard-projects">
+    <div>
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/about_yml"><h1>.about.yml gem <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status discovery">discovery</span></h1></a>
+          </div>
+          <div>
+            <p>A gem for the .about.yml project metadata schema and tools
+</p>
+          </div>
+
+          <div>
+
+            <p>Partners: Coming soon</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/about_yml">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/about_yml">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/developer-program"><h1>/Developer Program <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status live">live</span></h1></a>
+          </div>
+          <div>
+            <p>A suite of tools, resources, and consulting services to assist agencies in the production and management of government APIs.  This two-year-old program was adopted by 18F to scale out its impact and to grow the government’s API portfolio.</p>
+          </div>
+
+          <div>
+
+            <p>Partner: <strong><a href="  http://gsa.gov              ">General Services Administration</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/API-All-the-X">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/developer-program">Metrics</a> / </p>
+
+            
+            
+            
+              <p>
+                <i class="fa fa-newspaper-o"></i> /
+                <span class="blog-tags" itemprop="keywords">
+                  
+                    <a href="https://18f.gsa.gov/tags//developer">News</a>
+                    /
+                  
+                </span>
+              </p>
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/edu"><h1>18F Edu <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status alpha">alpha</span></h1></a>
+          </div>
+          <div>
+            <p>18F Edu is the self-guided training component of the 18F Learn initiative. It aims to supplement the 18F Guides with hands-on exercises that can solidify your grasp of those materials. The combined body of 18F Guides and 18F Edu training modules aim to support the concepts promoted in the U.S. Digital Services Playbook.
+</p>
+          </div>
+
+          <div>
+
+            <p>Partners: Coming soon</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/edu">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/edu">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/hub"><h1>18F Hub <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status alpha">alpha</span></h1></a>
+          </div>
+          <div>
+            <p>The 18F Hub is a Jekyll-based documentation platform that aims to help 18F and other development teams organize and easily share their information, and to enable easy exploration of the connections between team members, projects, and skill sets. It aims to serve as the go-to place for all of a team's working information, whether that information is integrated into the Hub directly or provided as links to other sources. It also serves as a lightweight tool that other teams can experiment with and deploy with a minimum of setup.
+</p>
+          </div>
+
+          <div>
+
+            <p>Partners: Coming soon</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/hub">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/hub">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/18f-site"><h1>18f.gsa.gov <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status live">live</span></h1></a>
+          </div>
+          <div>
+            <p>The official website of 18F.
+</p>
+          </div>
+
+          <div>
+
+            <p>Partners: Coming soon</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/18f.gsa.gov">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/18f-site">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/dap"><h1>Analytics.USA.gov <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status beta">beta</span></h1></a>
+          </div>
+          <div>
+            <p>A lightweight dashboard that shows web traffic across the .gov domain.</p>
+          </div>
+
+          <div>
+
+            <p>Partner: <strong><a href="  http://gsa.gov              ">General Services Administration</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/gsa/analytics.usa.gov">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/dap">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/api-data-gov"><h1>api.data.gov <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status beta">beta</span></h1></a>
+          </div>
+          <div>
+            <p>A hosted, shared-service that provides an API key, analytics, and proxy solution for government web services. We are currently accepting clients for this free service: contact us to learn more.</p>
+          </div>
+
+          <div>
+
+            <p>Partners: <strong><a href="        http://census.gov        ">Census, </a></strong><strong><a href="         http://fcc.gov       ">FCC, </a></strong><strong><a href="          http://fda.gov      ">FDA, </a></strong><strong><a href=" http://gsa.gov               ">GSA, </a></strong><strong><a href="           http://nrel.gov     ">NREL, </a></strong><strong><a href="             http://regulations.gov   ">Regulations.gov, </a></strong><strong><a href="            http://usda.gov    ">USDA</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/api.data.gov">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/api-data-gov">Metrics</a> / </p>
+
+            
+            
+            
+              <p>
+                <i class="fa fa-newspaper-o"></i> /
+                <span class="blog-tags" itemprop="keywords">
+                  
+                    <a href="https://18f.gsa.gov/tags/API">News</a>
+                    /
+                  
+                </span>
+              </p>
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/calc"><h1>CALC <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status live">live</span></h1></a>
+          </div>
+          <div>
+            <p>CALC is a tool to help contracting personnel estimate their per-hour labor costs for a contract, based on historical pricing information.</p>
+          </div>
+
+          <div>
+
+            <p>Partners: <strong><a href="  http://gsa.gov              ">General Services Administration</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/calc">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/calc">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/cloud.gov"><h1>cloud.gov Platform-As-A-Service <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status beta">beta</span></h1></a>
+          </div>
+          <div>
+            <p>cloud.gov takes care of infrastructure concerns so teams can focus all of their efforts on their app rather than fighting the environment</p>
+          </div>
+
+          <div>
+
+            <p>Partners: Coming soon</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/cf-landing">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/cloud.gov">Metrics</a> / </p>
+
+            
+            
+            
+              <p>
+                <i class="fa fa-newspaper-o"></i> /
+                <span class="blog-tags" itemprop="keywords">
+                  
+                    <a href="https://18f.gsa.gov/tags/https://cloud.18f.gov">News</a>
+                    /
+                  
+                </span>
+              </p>
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/collegescorecard"><h1>College Scorecard <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status live">live</span></h1></a>
+          </div>
+          <div>
+            <p>Engage and educate potential college students of any age or background and those who support and advise them, to find schools best suited to them.</p>
+          </div>
+
+          <div>
+
+            <p>Partners: Coming soon</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/college-choice">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/collegescorecard">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/C2"><h1>Communicart <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status live">live</span></h1></a>
+          </div>
+          <div>
+            <p>At the core, Communicart (a.k.a. C2) is simple tool to automate and manage approval workflows, with use cases implemented for GSA purchase approvals.</p>
+          </div>
+
+          <div>
+
+            <p>Partner: <strong><a href="  http://gsa.gov              ">General Services Administration</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/C2">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/C2">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/dashboard"><h1>Dashboard <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status live">live</span></h1></a>
+          </div>
+          <div>
+            <p>A site to track our projects' status, to provide transparency and insight
+into 18F work and values.
+</p>
+          </div>
+
+          <div>
+
+            <p>Partners: Coming soon</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/dashboard">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/dashboard">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/dataact"><h1>DATA Act <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status alpha">alpha</span></h1></a>
+          </div>
+          <div>
+            <p>Consulting engagement to advise on the federal spending data standards and corresponding pilot project mandated by the DATA Act.</p>
+          </div>
+
+          <div>
+
+            <p>Partner: <strong><a href="http://treasury.gov                ">U.S. Department of Treasury</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/fedspendingtransparency/fedspendingtransparency.github.io">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/dataact">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/methods"><h1>Design Methods <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status beta">beta</span></h1></a>
+          </div>
+          <div>
+            <p>A collection of design and research methods, including general descriptions and how-tos, to share how we work and build a common design vocabulary.</p>
+          </div>
+
+          <div>
+
+            <p>Partners: Coming soon</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/methods">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/methods">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/discovery"><h1>Discovery: OASIS Market Research Tool <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status beta">beta</span></h1></a>
+          </div>
+          <div>
+            <p>Market research tool for the OASIS procurement vehicle, which serves contracting specialists throughout the U.S. Federal Government.</p>
+          </div>
+
+          <div>
+
+            <p>Partner: <strong><a href="  http://gsa.gov              ">General Services Administration</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/discovery">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/discovery">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/doi-extractives-data"><h1>Extractive Industries Transparency Initiative <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status beta">beta</span></h1></a>
+          </div>
+          <div>
+            <p>This site and open data portal supports the President’s Open Gov Partnership National Action Plan commitment to the Extractive Industries Transparency Initiative.</p>
+          </div>
+
+          <div>
+
+            <p>Partner: <strong><a href="              http://interior.gov  ">Department of the Interior</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/doi-extractives-data">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/doi-extractives-data">Metrics</a> / </p>
+
+            
+            
+            
+              <p>
+                <i class="fa fa-newspaper-o"></i> /
+                <span class="blog-tags" itemprop="keywords">
+                  
+                    <a href="https://18f.gsa.gov/tags/eiti">News</a>
+                    /
+                  
+                </span>
+              </p>
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/fbopen"><h1>FBOpen <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status beta">beta</span></h1></a>
+          </div>
+          <div>
+            <p>FBOpen helps small businesses search for opportunities to work with the U.S. government.</p>
+          </div>
+
+          <div>
+
+            <p>Partners: Coming soon</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/fbopen">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/fbopen">Metrics</a> / </p>
+
+            
+            
+            
+              <p>
+                <i class="fa fa-newspaper-o"></i> /
+                <span class="blog-tags" itemprop="keywords">
+                  
+                    <a href="https://18f.gsa.gov/tags/fbopen">News</a>
+                    /
+                  
+                </span>
+              </p>
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/federalist"><h1>Federalist <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status alpha">alpha</span></h1></a>
+          </div>
+          <div>
+            <p>Federalist is a unified interface for publishing static government websites. It automates common tasks for integrating GitHub, Amazon Web Services and content editing to provide a simple way for developers to launch new websites or more easily manage existing ones.</p>
+          </div>
+
+          <div>
+
+            <p>Partners: Coming soon</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/federalist">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/federalist">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/foia"><h1>FOIA Modernization <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status alpha">alpha</span></h1></a>
+          </div>
+          <div>
+            <p>A new tool to search for the correct agency or office to make a FOIA request.</p>
+          </div>
+
+          <div>
+
+            <p>Partner: <strong><a href="                 ">Department of Justice</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/foia">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/foia">Metrics</a> / </p>
+
+            
+            
+            
+              <p>
+                <i class="fa fa-newspaper-o"></i> /
+                <span class="blog-tags" itemprop="keywords">
+                  
+                    <a href="https://18f.gsa.gov/tags/foia">News</a>
+                    /
+                  
+                </span>
+              </p>
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/hmac-authentication-npm"><h1>HMAC Authentication npm <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status discovery">discovery</span></h1></a>
+          </div>
+          <div>
+            <p>Signs and validates HTTP requests based on a shared-secret HMAC signature
+</p>
+          </div>
+
+          <div>
+
+            <p>Partners: Coming soon</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/hmac-authentication-npm">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/hmac-authentication-npm">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/midas"><h1>Midas <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status beta">beta</span></h1></a>
+          </div>
+          <div>
+            <p>A platform that facilitates collaborative work worldwide. Individuals can create projects, propose working groups, or assemble "tiger teams" to act on their ideas. Anyone can also post tasks online and people with the requisite skills can respond and complete the task.</p>
+          </div>
+
+          <div>
+
+            <p>Partners: <strong><a href="  http://gsa.gov              ">General Services Administration, </a></strong><strong><a href="               http://www.state.gov ">Department of State, </a></strong><strong><a href="                http://dhs.gov">Department of Health and Human Services</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/midas">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/midas">Metrics</a> / </p>
+
+            
+            
+            
+              <p>
+                <i class="fa fa-newspaper-o"></i> /
+                <span class="blog-tags" itemprop="keywords">
+                  
+                    <a href="https://18f.gsa.gov/tags/midas">News</a>
+                    /
+                  
+                </span>
+              </p>
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/myra"><h1>myRA <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status live">live</span></h1></a>
+          </div>
+          <div>
+            <p>Landing page design for Treasury’s My Retirement Account program, which will provide a simple, safe, and affordable way for individuals to start saving for retirement.</p>
+          </div>
+
+          <div>
+
+            <p>Partner: <strong><a href="http://treasury.gov                ">U.S. Department of Treasury</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/myra">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/myra">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/myusa"><h1>MyUSA <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status alpha">alpha</span></h1></a>
+          </div>
+          <div>
+            <p>A digital services platform for Americans to register, sign in, and manage ongoing transactions with U.S. Federal Government services.</p>
+          </div>
+
+          <div>
+
+            <p>Partners: <strong><a href="  http://gsa.gov              ">General Services Administration, </a></strong><strong><a href="     http://dhs.gov           ">Department of Homeland Security</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/myusa">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/myusa">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/openfec"><h1>OpenFEC <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status beta">beta</span></h1></a>
+          </div>
+          <div>
+            <p>Redesigning how the Federal Election Commission shares campaign finance information and regulations. This effort involves: <ul> <li>The <a href="https://api.open.fec.gov/developers">FEC’s first API</a></li> <li>A new campaign finance portal (Coming soon!)</li> <li>An eventual redesign of the agency’s website.</li> </ul>
+</p>
+          </div>
+
+          <div>
+
+            <p>Partner: <strong><a href="   http://fec.gov             ">Federal Election Commission</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/FEC">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/openfec">Metrics</a> / </p>
+
+            
+            
+            
+              <p>
+                <i class="fa fa-newspaper-o"></i> /
+                <span class="blog-tags" itemprop="keywords">
+                  
+                    <a href="https://18f.gsa.gov/tags/FEC">News</a>
+                    /
+                  
+                </span>
+              </p>
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/pages"><h1>Pages <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status live">live</span></h1></a>
+          </div>
+          <div>
+            <p>Publishing platform for 18F sites a la GitHub Pages</p>
+          </div>
+
+          <div>
+
+            <p>Partners: Coming soon</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/pages">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/pages">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/pages-server"><h1>Pages Server <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status live">live</span></h1></a>
+          </div>
+          <div>
+            <p>Static website publishing server for 18F Pages</p>
+          </div>
+
+          <div>
+
+            <p>Partners: Coming soon</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/pages-server">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/pages-server">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/peacecorps-site"><h1>PeaceCorps.gov <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status beta">beta</span></h1></a>
+          </div>
+          <div>
+            <p>A redesign of peacecorps.gov, offering a new, user-focused experience for users.</p>
+          </div>
+
+          <div>
+
+            <p>Partner: <strong><a href="       http://peacecorps.gov         ">Peace Corps</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/peacecorps-site">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/peacecorps-site">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/pulse"><h1>Pulse <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status beta">beta</span></h1></a>
+          </div>
+          <div>
+            <p>A lightweight dashboard that uses the official .gov domain list to measure HTTPS integration and participation in the Digital Analytics Program.</p>
+          </div>
+
+          <div>
+
+            <p>Partner: <strong><a href="  http://gsa.gov              ">General Services Administration</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/pulse">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/pulse">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/sbirez"><h1>SBIR-EZ <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status alpha">alpha</span></h1></a>
+          </div>
+          <div>
+            <p>An application to simplify, streamline, and unify the Small Business Innovation Research application process.</p>
+          </div>
+
+          <div>
+
+            <p>Partner: <strong><a href="    http://af.mil            ">Air Force</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/afsbirez">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/sbirez">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/team_api"><h1>Team API gem <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status discovery">discovery</span></h1></a>
+          </div>
+          <div>
+            <p>A gem for compiling information about team members, projects, etc. and exposing it via a JSON API.
+</p>
+          </div>
+
+          <div>
+
+            <p>Partners: Coming soon</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/18F/team_api">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/team_api">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+        
+        
+        <div class="dashboard-projects-content">
+          <div>
+            <a href="/dashboard/project/uscis"><h1>USCIS projects <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i><span class="status alpha">alpha</span></h1></a>
+          </div>
+          <div>
+            <p>We are helping to reimage and modernize immigration and visa processes: building tools that improve the applicant process, providing clear and simple information to the public, and creating new tools that make the processing of immigration forms faster and more efficient.</p>
+          </div>
+
+          <div>
+
+            <p>Partner: <strong><a href="                 ">U.S. Citizenship and Immigration Services</a></strong>
+</p>
+
+            <p><i class="fa fa-github-alt"></i> / <a class="github-url" href="https://github.com/">Code</a> / </p>
+
+            <p><i class="fa fa-bar-chart"></i> / <a href="/dashboard/project/uscis">Metrics</a> / </p>
+
+            
+            
+            
+
+          </div>
+        </div>
+        
+      
+    </div>
+  </section>
+
+  <section class="dashboard-contact">
+  <p>Questions? Feedback? Curious about getting a dashboard like this for your agency?</br> <a href="mailto:18f@gsa.gov">Email us</a> or <a href="https://github.com/18F/dashboard/issues/new">open an issue</a> on GitHub.</p>
+</section>
+
+</section>
+
+  </div>
+
+</section>
+
+  <footer class="footer">
+  <div class="container">
+    <div>
+      <img src="/dashboard/assets/images/logo-gsa.png" alt="GSA logo">
+    </div>
+    <div itemscope itemtype="http://schema.org/ContactPoint">
+      <h1>Contact Us</h1>
+      <a href="mailto:18f@gsa.gov" itemprop="email"><i class="icon-email"></i> 18F@gsa.gov</a>
+      <br/>
+      <a href="https://twitter.com/18F"><i class="icon-twitter"></i> @18F</a>
+    </div>
+    <div>
+      <h1>Fork Our Code</h1>
+      <a href="https://github.com/18f"><i class="icon-github2"></i> github.com/18F</a>
+      <br/>
+      <a href="https://github.com/presidential-innovation-fellows"><i class="icon-github2"></i> github.com/presidential-innovation-fellows</a>
+      <br/>
+      <a href="https://18f.gsa.gov/developer/">Developer resources</a>
+    </div>
+    <div>
+      <h1>Policies</h1>
+      <a href="https://18f.gsa.gov/linking-policy/">
+        Linking policy
+      </a>
+      <br/>
+      <a href="https://github.com/18F/open-source-policy">
+        Open source policy
+      </a>
+    </div>
+    <div>
+      <a href="https://github.com/18f"><img class="tagline" src="/dashboard/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+    </div>
+  </div>
+</footer>
+
+  <!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: http://stackoverflow.com/a/17099988
+ IE11 JS targeting: http://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/dashboard/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+  
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+  
+  ga('set', 'forceSSL', true);
+  
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

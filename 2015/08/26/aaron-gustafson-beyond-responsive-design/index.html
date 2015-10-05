@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/08/26/aaron-gustafson-beyond-responsive-design/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/08/26/aaron-gustafson-beyond-responsive-design/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; Making websites more like M&Ms</title>
+  <meta property="og:title" content="Making websites more like M&amp;Ms" />
+
+
+  <meta name="description" content="Web standards and accessibility expert Aaron Gustafson recently came to 18F to speak about progressive enhancement and to challenge designers to improve user experience across browsers and devices.">
+  <meta property="og:description" content="Web standards and accessibility expert Aaron Gustafson recently came to 18F to speak about progressive enhancement and to challenge designers to improve user experience across browsers and devices." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/blog/aaron-gustafson/mms-gustafson.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/08/26/aaron-gustafson-beyond-responsive-design/">Making websites more like M&Ms</a></h1>
+
+      <time datetime="2015-08-26T00:00:00+00:00" itemprop="datePublished">August 26, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/events">events</a>
+            /
+          
+            <a href="/tags/design">design</a>
+            /
+          
+            <a href="/tags/speaker-series">speaker series</a>
+            /
+          
+            <a href="/tags/operational-excellence">operational excellence</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author emileigh" style="color: #000">
+    <a href=/team/emileigh>Emileigh Barnes</a>,  and 
+  
+  <span class="author kate" style="color: #000">
+    <a href=/team/kate>Kate Garklavs</a>
+  </span>
+</p>
+
+
+      <p><img src="/assets/blog/aaron-gustafson/gustafson.jpg" alt="Aaron Gustafson gives a presentation at 18F">
+Web standards and accessibility expert Aaron Gustafson was working with
+a major drug store chain when he discovered they only tested their
+website on iPhones and iPads.</p>
+
+<p>Did they test their site on tablets, Gustafson asked. Specifically, did
+the chain know what their site looked like on the $50 tablet they sold
+in their own stores?</p>
+
+<p>The store’s response was, “we sell tablets?”</p>
+
+<p>That narrow understanding of the website’s look and feel is a common
+issue in contemporary design, and it was the subject of a presentation
+Gustafson gave at 18F.</p>
+
+<p><a href="https://youtu.be/Fu1L34TLUHM">Watch the entire presentation here.</a></p>
+
+<p>Gustafson hails from the web standards world. He wrote the book
+“Adaptive Web Design” and worked for A List Apart before joining
+Microsoft. During his talk, he underscored the issues that arise if we
+consider sites only through the lens of expensive technology — the
+nicest objects with excellent processors.</p>
+
+<p>“It gives us a myopic view of what the mobile web is like for people,”
+Gustafson said. “The reality is a lot more messy.”</p>
+
+<p>He challenged designers to improve user experience across browsers and
+devices. That means thinking about more than 1,000 different screen
+resolutions and a plethora of devices. But it’s an important task,
+because designers who think first about upscale cellphones and computers
+are forgetting about the web experiences of most Americans.</p>
+
+<p>For example, Pew research shows that smartphone users who make less than
+$30,000 a year encounter app errors 52 percent of the time. That means
+these users can download apps, but they often won’t open or don’t work.</p>
+
+<p>Gustafson’s solution is progressive enhancement.</p>
+
+<p>“It’s basically building the web, without putting any technical
+restrictions on it,” he explained.</p>
+
+<p>Progressive enhancement doesn’t demand that users have modern, updated
+browsers. Its only assumption is that website visitors have access to
+the internet and some way to read text — either visually or with a
+screen reader.</p>
+
+<p>Advanced functionality — like the stylings of CSS and the interactive
+features of Javascript — are built on top of that baseline, but they’re
+added to the site only when the browser can support it. That way, the
+page always works.</p>
+
+<p>“Progressive enhancement offers the user a customized, a la carte
+experience,” Gustafson said. “A dynamic web page can never break, it can
+only become a web page.”</p>
+
+<p>As an analogy, Gustafson compared progressive enhancement to a peanut
+M&amp;M.</p>
+
+<p>The text is the peanut, a fine snack on its own. But with chocolate
+(CSS), it’s tastier. And it’s best with colorful candy coating
+(Javascript). Ultimately, you can enjoy it at whatever step you get it.</p>
+
+<p><img src="/assets/blog/aaron-gustafson/mms-gustafson.jpg" alt="A peanut, a chocolate covered peanut, and a peanut M&amp;M">
+<em>Slide from <a href="http://www.slideshare.net/AaronGustafson/beyond-responsive-18f-2015">Gustafson’s
+presentation</a></em>.</p>
+
+<p>Alongside his presentation (<a href="http://www.slideshare.net/AaronGustafson/beyond-responsive-18f-2015">see the slides
+here</a>),
+we also had the chance for a more in-depth chat with Aaron (via email)
+about design-related topics, including maintaining awareness of our
+gadget obsession and recommendations for building a pattern library.
+Read on for more from our conversation.</p>
+
+<hr>
+
+<p><em>Note: This interview has been edited and condensed.</em></p>
+
+<p><strong>Kate Garklavs</strong>: What’s the number one obstacle folks encounter as
+they adapt their interfaces for mobile, and what actionable tips can you
+offer folks facing this challenge?</p>
+
+<p><strong>Aaron Gustafson</strong>: I think coming to terms with the fact that we can’t
+control everything is a struggle for many designers. The web is quite
+different from any other medium in that we have little to no control
+over how our content reaches our audiences. A number of factors affect
+the final product: the network, the browser, the device, screen size,
+amount of RAM, processor speed, assistive technology in use, and so on.
+When you begin to think of experience as a continuum rather than some
+monolithic ideal, you start to see these as constraints that help you
+focus on what matters rather than annoyances you have to work around.</p>
+
+<p><strong>Kate</strong>: <a href="http://webstandardssherpa.com/ask-the-sherpas/apple-products-and-mobile-assumptions">You’ve
+mentioned</a>
+that we (people working in tech) must remain aware of our fondness for
+the latest, greatest gadgets in order to design well for diverse
+audiences. How can people stress the importance of this outlook — and
+make sure it’s represented in workflows — in an organization that might
+not share this view?</p>
+
+<p><strong>Aaron</strong>: This is a real challenge for many organizations. It’s helpful
+to find real people (rather than avatars) to represent the different
+constituencies you’re trying to reach. Real people with real challenges
+are always more relatable and often foster more situational empathy.
+Beyond that, it’s sometimes helpful to overwhelm certain people with
+data regarding device proliferation and diversity. <a href="http://thenextweb.com/insider/2015/08/05/this-is-what-android-fragmentation-looks-like-in-2015/"><em>The Next
+Web’s</em>
+recent report on Android
+fragmentation</a>
+is a great example of this.</p>
+
+<p><strong>Kate:</strong> What recommendations would you give to someone building a
+pattern library for the first time?</p>
+
+<p><strong>Aaron</strong>: Start small. Look for simple, repeatable patterns and codify
+those first. Then add to the library bit by bit. In an ideal world, I
+like to have a large team working on the pattern library, with different
+team members responsible for a handful of patterns. If each pattern is
+&quot;owned&quot; by a small sub-team consisting of folks from different
+disciplines — content strategy, design, development — the end result is
+often better than if one person makes the patterns and other have to
+implement them. Ownership is important because it gets people invested
+in the library and ensures they’ll use it. And by having each small team
+focus on a handful of patterns, they can be on the constant lookout for
+ways to improve and iterate on them.</p>
+
+<p><strong>Kate</strong>: A more personal question: Do you apply principles of
+progressive enhancement to non-work aspects of your life?</p>
+
+<p><strong>Aaron</strong>: I think the most obvious way I apply progressive enhancement
+in my life is by trying to be as egalitarian as I can in the things I
+do. I think equality of opportunity is important, but so is the
+understanding that equality of outcome is not always possible or even
+desirable. It’s important to be adaptable and roll with the punches as
+it were. I’m a big fan of the saying, &quot;We cannot control what happens in
+this world, we can only control our reaction to it.&quot; Those are words I
+try to live by.</p>
+
+<p><strong>Kate</strong>: What sites, people or resources do you turn to for
+inspiration?</p>
+
+<p><strong>Aaron</strong>: I’m a big fan of Jeremy Keith’s work when it comes to
+big-picture web stuff. I also find Bruce Lawson, Christian Heilmann, and
+Tim Kadlec to be quite insightful. There’s really no beating Sara
+Soueidan when it comes to learning about SVG. I also love the
+presentations and writings of Stephen Hay, Zoe Mickley Gillenwater, and
+Lyza Danger Gardner.</p>
+
+<p><strong>Kate</strong>: Finally, what one piece of advice would you offer new
+designers?</p>
+
+<p><strong>Aaron</strong>: I can’t pick just one, so I’ll give you two: My first piece
+of advice is to take the time to really understand the web as a medium.
+It can take some time, but will make you a better designer. My second
+piece of advice is to be flexible, not only in the way you design but in
+how you think about your process and how you view the results of your
+work. These two pieces of advice will serve you well in the long run.</p>
+
+<p>Thanks again to Aaron for sharing these insights with us. If you’re
+interested in learning more of the specifics of his techniques
+(including sample code), <a href="https://www.youtube.com/watch?v=Fu1L34TLUHM">check a video of his
+presentation</a> or his
+<a href="http://is.gd/beyond_responsive_18F">slide deck</a>.</p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/08/18/pif-made-permanent/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;President Obama makes innovation fellowship program permanent&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/08/28/announcing-the-agile-BPA-awards/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;Announcing the Agile BPA awards: A conversation about the process&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/10/02/building-a-better-government-design-team/' class='related_posts'>&ldquo;Building a better government design team&rdquo;</a></li><li><a href='/2015/09/21/cfpb-design-speaker-series/' class='related_posts'>&ldquo;Four questions with the CFPB design team&rdquo;</a></li><li><a href='/2015/06/24/thomas-vander-wal-event/' class='related_posts'>&ldquo;Imagining a water cooler for the digital age&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-08-26-aaron-gustafson-beyond-responsive-design.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

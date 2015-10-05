@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/03/05/making-procurement-easier-some-questions-for-developer-kaitlin-devine/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/03/05/making-procurement-easier-some-questions-for-developer-kaitlin-devine/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; Making procurement easier: questions for developer Kaitlin Devine</title>
+  <meta property="og:title" content="Making procurement easier: questions for developer Kaitlin Devine" />
+
+
+  <meta name="description" content="We recently sat down with developer Kaitlin Devine and asked her a few questions about Discovery, a new product designed to make government procurement more efficient.">
+  <meta property="og:description" content="We recently sat down with developer Kaitlin Devine and asked her a few questions about Discovery, a new product designed to make government procurement more efficient." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/blog/discovery-launch/discovery-dashboard.png" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/03/05/making-procurement-easier-some-questions-for-developer-kaitlin-devine/">Making procurement easier: questions for developer Kaitlin Devine</a></h1>
+
+      <time datetime="2015-03-05T00:00:00+00:00" itemprop="datePublished">March 5, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/procurement">procurement</a>
+            /
+          
+            <a href="/tags/discovery">discovery</a>
+            /
+          
+            <a href="/tags/kaitlin-devine">kaitlin devine</a>
+            /
+          
+            <a href="/tags/user-research">user research</a>
+            /
+          
+            <a href="/tags/interview">interview</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author boone" style="color: #000">
+    <a href=/team/boone>Greg Boone</a>, 
+  
+  <span class="author elaine" style="color: #000">
+    <a href=/team/elaine>Elaine Kamlley</a>,  and 
+  
+  <span class="author melody" style="color: #000">
+    <a href=/team/melody>Melody Kramer</a>
+  </span>
+</p>
+
+
+      <p>We recently sat down with Developer Kaitlin Devine and asked her a few
+questions about 18F and government procurement. Not familiar with the term
+procurement? It basically means buying stuff. A self-described
+“procurement nerd,” Kaitlin has been working on a project to make the
+procurement process a lot more efficient within GSA. It’s called <a href="https://discovery.gsa.gov/">Discovery</a> and <a href="https://18f.gsa.gov/2015/03/04/annoucing-oasis-discovery-making-market-research-easier/">launched in March 2015</a>.</p>
+
+<p><strong>What do you do at 18F and why did you want to work here?</strong></p>
+
+<p>My name is Kaitlin Devine and I’m the director of engineering. I’m also
+a Python developer working on a few projects here. What I love most
+about working at 18F is that it’s very new and exciting and there’s a
+lot of opportunity to craft it in your own image if you can or are
+willing to.</p>
+
+<p><strong>What are you working on these days?</strong></p>
+
+<p>I’m working on a project called Discovery for a client called OASIS.
+(Learn more about OASIS
+<a href="http://www.gsa.gov/portal/content/161367"><em>here</em></a>.)</p>
+
+<p><strong>How would you describe Discovery to someone who doesn’t work in the
+government?</strong></p>
+
+<p>Probably my elevator pitch would be that it’s an Angie’s List for
+government contractors.</p>
+
+<p><img src="/assets/blog/discovery-launch/discovery-intro.gif" alt="Screen: Discovery Homepage"></p>
+
+<p><strong>So it’s a way for government contractors to find out information?</strong></p>
+
+<p>Discovery is a way for contracting officers to look for qualified
+vendors. In government, it’s important to see how many vendors there are
+with specific designations (such as being a small or veteran-owned
+business), who can perform the work that you need, and to make sure you
+have the minimum level of competition. If you don’t have three bids on a
+project, then you don’t have enough competition for it to be a
+competitive procurement.</p>
+
+<p><strong>So I’m working at GSA and I need to order pencils. Let’s say I need to
+order a whole slew of pencils for a project. So I would say “I need
+pencils” and would I put that on Discovery?</strong></p>
+
+<p>Discovery is actually specific to professional services.</p>
+
+<p><strong>Oh okay, so let’s say I need accountants.</strong></p>
+
+<p>Exactly. If you needed accountants, you would say “I need accountants.”
+And then you can restrict it even further, to different classifications.
+For example, you can restrict your search to small businesses or
+veteran-owned businesses. You can also easily see the number of
+contracts each vendor has formed in each business area.</p>
+
+<p><strong>Are there ways to review people?</strong></p>
+
+<p>That’s actually planned for one of our future releases of Discovery. So
+right now, there is a database called PPIRS (Past Performance
+Information Retrieval System) where contracting officers review and rate
+contractors who have done business with them before, and then the
+contractors have an avenue to dispute that, if they don’t think it was
+an accurate rating.</p>
+
+<p>Contracting officers are supposed to look in that database before they
+award contracts. However, after speaking with contracting officials,
+they said that the performance review data was both difficult to view
+and use. Discovery will incorporate that data and the historical
+contract information that we have now to make this kind of cohesive
+picture of who this contractor is, what their past experience is, what
+things they might be good at and what things they might not be so good
+at, all based on their past performance reviews.</p>
+
+<p><strong>So five years ago, if I were somebody going through this process, how
+would I have done it then?</strong></p>
+
+<p>Something totally manual, not automated at all -- very time consuming.
+It’s referred to as the market research process: you basically Google
+around for contractors or you call up contractors who had done some work
+for a fellow contracting officer and say, “Here’s what I need to
+contract out. Have you worked on this before?” It’s a very manual
+process and it’s one of the most time consuming parts of the procurement
+process.</p>
+
+<p>The idea is to also potentially reduce the need to issue an RFI, or
+request for information. That’s basically a broad call to all vendors
+which says ‘This is what we’re thinking of buying. What do you think?
+Are you capable of delivering on this? Would you consider bidding?’ --
+that kind of thing. And that process itself takes two months or so, at
+least. So the idea is to turn this manual process into a five minute
+process using Discovery.</p>
+
+<p><strong>What about the project do you think shows off what 18F does, or a part
+of 18F?</strong></p>
+
+<p>I think it’s a great showcase for our user research and user experience
+designers. The client originally had one thing in mind to build, but
+especially since no one on the team except for myself was familiar with
+procurement, we ended up interviewing users about the procurement
+process in general and about the entire lifecycle of procurement. We
+then tried to zero in on what their main pain points were. And then we
+winnowed down on this market research aspect of procurement and did more
+interviews just on that. And every sprint, we’ve tried to interview
+someone testing the current product at the end of the sprint and get
+feedback and incorporate that, and consistently question previous
+assumptions that we had made about what the user needs. So I think it’s
+a really great example of this whole discovery phase before you even
+write one line of code.</p>
+
+<p><strong>And what did the client want initially? You said you were able to
+pivot the project? What did they come in asking for?</strong></p>
+
+<p>They originally wanted something called a task order authoring system. A
+task order is just another word for contract and task order authoring
+refers to the drafting of what will become the final contract. But that
+step comes after the whole market research phase. But when we
+interviewed users, they said “Hmmm.” That wasn’t their biggest problem
+by a longshot.</p>
+
+<p>The market research is what really takes a long time and we needed the
+client to know that. We said ‘We’ve talked to a lot of users and this is
+what they need’ and added that when we talked to users, nobody was
+really that excited [about the task order authoring system]. Some people
+already have tools and said ‘We already have something for that.’ And
+luckily, we have a really great client who trusted us and saw the
+research and said ‘Alright, let’s do the [market research product].”</p>
+
+<p><strong>So you’ve mentioned the word discovery. I know you’ve touched upon it
+a little bit, but would you mind explaining what discovery means in this
+context and how it was applied to this project?</strong></p>
+
+<p>Basically we had this whole process that we did before starting on the
+project or coding it up. Research into procurement was our broad area of
+focus. First, we tried to interview a lot of people to get a snapshot of
+what the whole process was like, and then we did research into this
+particular vehicle, which caters to professional services. So we did
+even more discovery and more finetuning on that topic. In gaining both
+an understanding of the space and of user needs, we were able to say
+‘This is what we need to build. And not this other thing.”</p>
+
+<p><strong>What has the feedback been from the client? What have you heard since
+this has been released?</strong></p>
+
+<p>We actually did a demo day for 18F and this was one of the projects we
+demoed and people were really, really enthusiastic about it. One of
+GSA’s main business lines is procurement - we procure things for other
+agencies - so people were really excited about it, because even in it’s
+initial release, it takes something that takes several hours to do and
+you can do it in about four minutes. So people were like ‘Oh my gosh,
+this is amazing.” And we got a lot of feedback and people were really
+interested in it, and asking for different features. It was great
+because the well was going dry in terms of finding users to interview,
+so that helped us expand the pool to find people who could give us more
+feedback on it. The user feedback is the linchpin of this whole process.</p>
+
+<p><strong>How many people will use this tool once it’s out in the wild?</strong></p>
+
+<p>A lot? I don’t know. Probably thousands. It’s a procurement vehicle that
+is accessible to anyone in government, not just the GSA.</p>
+
+<p><strong>It sounds like it can also make it easier to find potential
+contractors that you didn’t know about.</strong></p>
+
+<p>Right. And you get to see a lot more information about them. In the
+Discovery search results, we order vendors by the number of contracts
+completed in the industrial category the user is searching in, so their
+level of experience in that particular area of work is obvious at first
+glance.</p>
+
+<p><strong>Oh okay. Can people sort in other ways too?</strong></p>
+
+<p>Yeah, so there’s the set-aside factors -- which are like veteran-owned
+businesses or women-owned businesses or service-disabled veteran-owned
+businesses. You can also see if various contractors have been suspended
+or debarred from doing business with the government. Contracting
+officials will see a big warning message in Discovery if the contractor
+they are looking at has been suspended or disbarred. We pull that
+information from another government database nightly so there’s no lag
+time between when their suspension is reported and when the contracting
+officer finds out.</p>
+
+<p><strong>Have you estimated how much money or time this will save people over a
+certain time span? What are your metrics for success and are those tied
+to revenue or savings?</strong></p>
+
+<p>We haven’t really estimated that. It would be estimating reduced labor
+hours contracting officers spend on this process more than anything
+else. But my guess is that our best metric will be adoption. In
+procurement, people do things in a lot of different ways and a lot of
+the time, it’s just based on what your mentor taught you when you came
+into government procurement. So I think if we can get more people to
+adopt it and we see increased usage over time, then that will be a
+really good metric.</p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/03/04/annoucing-oasis-discovery-making-market-research-easier/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;Announcing OASIS Discovery: making market research easier&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/03/06/ux-lessons-learned-from-a-procurement-project/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;UX lessons learned from a procurement project&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/08/28/announcing-the-agile-BPA-awards/' class='related_posts'>&ldquo;Announcing the Agile BPA awards: A conversation about the process&rdquo;</a></li><li><a href='/2015/08/06/communicart-tool-will-streamline-purchase-card-process/' class='related_posts'>&ldquo;Communicart tool will streamline purchase card process&rdquo;</a></li><li><a href='/2015/05/12/announcing-the-calc-tool/' class='related_posts'>&ldquo;Announcing the CALC tool: Making pricing research easier in federal procurement&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-02-27-making-procurement-easier-some-questions-for-developer-kaitlin-devine.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/08/10/18f-design-methods/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/08/10/18f-design-methods/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; Introducing 18F Design Methods</title>
+  <meta property="og:title" content="Introducing 18F Design Methods" />
+
+
+  <meta name="description" content="We’re thrilled to introduce the beta deck of 18F Design Methods, a collection of research and design practices that we use to better understand and serve the users of our products.">
+  <meta property="og:description" content="We’re thrilled to introduce the beta deck of 18F Design Methods, a collection of research and design practices that we use to better understand and serve the users of our products." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/blog/design-method-cards/method-cards-banner.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/08/10/18f-design-methods/">Introducing 18F Design Methods</a></h1>
+
+      <time datetime="2015-08-10T00:00:00+00:00" itemprop="datePublished">August 10, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/open-source">open source</a>
+            /
+          
+            <a href="/tags/how-we-work">how we work</a>
+            /
+          
+            <a href="/tags/guides">guides</a>
+            /
+          
+            <a href="/tags/documentation">documentation</a>
+            /
+          
+            <a href="/tags/design">design</a>
+            /
+          
+            <a href="/tags/operational-excellence">operational excellence</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author jeremy" style="color: #000">
+    <a href=/team/jeremy>Jeremy Canfield</a>, 
+  
+  <span class="author colin" style="color: #000">
+    Colin MacArthur, 
+  
+  <span class="author bradnunnally" style="color: #000">
+    <a href=/team/bradnunnally>Brad Nunnally</a>, 
+  
+  <span class="author jthibault" style="color: #000">
+    <a href=/team/jthibault>Jennifer Thibault</a>,  and 
+  
+  <span class="author russ" style="color: #000">
+    <a href=/team/russ>Russ Unger</a>
+  </span>
+</p>
+
+
+      <p><a href="https://methods.18f.gov/"><img src="/assets/blog/design-method-cards/method-cards-banner.jpg" alt="A sampling of the 18F Design Method cards"></a></p>
+
+<p>We’re thrilled to introduce the beta deck of <a href="https://methods.18f.gov/">18F Design
+Methods</a>, a collection of research and design
+practices that we use to better understand and serve the users of our
+products.</p>
+
+<p>It&#39;s amazing to think that this project started off as something folks
+did in their spare time — those odd minutes between meetings and at the
+end of the day — and to see how far it has come. What began as an
+opportunity for 18F to communicate more clearly across teams turned into
+something a little bigger. We realized that gathering and organizing our
+design methods could help us keep improving our shared understanding of
+how we work together.</p>
+
+<p>We realized, too, that these practices could benefit groups beyond 18F:
+our partners and clients within the federal government, state-level
+agencies practicing user-centered design, startups and businesses
+everywhere, and people interested in learning these techniques.
+Encouraged by the value this collection of methods can offer (and the
+further learning we hope they&#39;ll spark), we&#39;re sharing them as broadly
+as we can.</p>
+
+<h2 id="how-we-got-started">How we got started</h2>
+
+<p>When the research guild — a group of 18F’s user experience researchers
+and designers — first conceptualized these Design Methods, we had no
+idea what the project would become. The undertaking started as a
+“hackathon” project (something to be completed within a day or two) but
+evolved to become a four-month project with a rotating cast of team
+members contributing their efforts.</p>
+
+<p>We hoped the finished product would do the following:</p>
+
+<ul>
+<li>  Offer an easy introduction to some of our favorite research and design methods to everyone who’s interested (inside and outside 18F).</li>
+<li>  Create a shared vocabulary across designers and project teams, and eventually (we hope) across the federal government.</li>
+<li>  Show how government agencies — including those without dedicated design teams — can do quick, comparatively low-cost user research to understand what citizens need while respecting federal regulations, like the <a href="http://www.justice.gov/opcl/overview-privacy-act-1974-2015-edition">Privacy Act</a> and the <a href="http://www.gpo.gov/fdsys/pkg/PLAW-104publ13/html/PLAW-104publ13.htm">Paperwork Reduction Act</a>.</li>
+<li>  Remove barriers that prevent designers from including tested methods into their design process.</li>
+<li>  Provide just enough guidance to give designers the confidence to put a method into practice.</li>
+</ul>
+
+<h2 id="how-they-were-made">How they were made</h2>
+
+<p>The project was born from the realization that, while some of our team
+members have extensive knowledge of design methods, others have no idea
+where to start. Our initial intent was to create a tool to help people
+become more conversant in common design practices and start practicing
+them. Often knowing that a method exists, what it’s intent is, and how
+it’s done is enough to get started.</p>
+
+<p>To understand how method cards might help product teams, we conducted
+one-on-one interviews with design leads across roughly 10 projects. We
+asked them about the techniques they used and any changes they’d made to
+enable these to work within government. We also spoke with developers
+and product managers to get an understanding of how they thought about
+the design and research they conducted.</p>
+
+<p>Constantly shipping products and testing them out is part of how we
+work, so right away we designed and printed several
+<a href="https://methods.18f.gov/prototyping/">prototype</a> sets of alpha
+(initial-stage) method cards to get some quick feedback on our concept.
+The cards sat around our D.C. and San Francisco offices with signs
+asking colleagues to try them out and send us their feedback. We also
+conducted a few more formal <a href="https://methods.18f.gov/usability-testing/">usability
+tests</a> of the card decks,
+which led to some changes in the beta version.</p>
+
+<p>Beyond learning what people thought of the cards, we wanted to see how
+receiving a set would change people’s behavior. To find this out, we ran
+18F’s first randomized, controlled experiment to measure how receiving a
+set of method cards affected people&#39;s knowledge and comfort with our
+design methods. Our research showed that 18F teammates who received
+cards were slightly more knowledgeable and comfortable with methods than a
+control group whose members didn’t receive cards. (We’ll report more on
+this in a future blog post — stay tuned.)</p>
+
+<h2 id="get-your-own-deck">Get your own deck</h2>
+
+<p>Our design methods are available in two formats:</p>
+
+<ol>
+<li><strong>A <a href="https://methods.18f.gov/assets/downloads/18F-Method-Cards-beta-Preview.pdf">printed card deck</a> for quick reference.</strong> With printed cards, you can compare different methods side by side, and physically pull together the methods you’re interested in.</li>
+<li><strong>An <a href="https://methods.18f.gov/">online version</a> for more information.</strong> Our “alpha” digital version provides more details about each method, short stories about how we’ve used a given method in our work, and links to additional resources. You also download our <a href="https://methods.18f.gov/assets/downloads/18F-Method-Cards-beta-Template.zip">templates</a> and <a href="https://methods.18f.gov/assets/downloads/18F-Method-Cards-beta_Print.zip">printable PDFs</a>.</li>
+</ol>
+
+<p><a href="https://methods.18f.gov/"><img src="/assets/blog/design-method-cards/method-cards.png" alt="A screenshot of the Design Method Cards website"></a></p>
+
+<h2 id="principles-that-are-and-are-not-here">Principles that are and are not here</h2>
+
+<p>Every project has a different design process. Our method cards respect
+that. We’re purposely <strong>not</strong> offering a suggested order or set of
+methods. Rather, we’d like users to think of these cards as a palette of
+methods to pick and choose from. Both the online and print versions of
+the cards are grouped into phases. These aren’t a set of steps each our
+projects goes through sequentially, but modes that every projects goes
+in and out of. Bottom line: Use the cards in whatever way yields the
+greatest benefit to your team.</p>
+
+<p>There are several excellent decks of method cards out there, but none
+that we have found are tailored to doing design work in the government.
+Our cards offer guidance to anyone in the federal government wanting to
+do user-centered design. For the most part, the processes we use are the
+same as those used in the private sector. However, we have additional
+considerations, legal and otherwise. To stay on the happy side of the
+law, take a look at <a href="https://methods.18f.gov/recruiting/">Recruiting</a>,
+<a href="https://methods.18f.gov/incentives/">Incentives</a>, <a href="https://methods.18f.gov/informed-consent/">Informed
+consent</a>,
+<a href="https://methods.18f.gov/privacy/">Privacy</a>, and the <a href="https://methods.18f.gov/paperwork-reduction-act/">Paperwork
+Reduction Act</a>. No
+matter which methods we work with, these are the
+<a href="https://methods.18f.gov/fundamentals/">fundamentals</a> of our design
+research.</p>
+
+<p>Like everything we do at 18F, our method cards are entirely open source.
+That means you can <a href="https://github.com/18F/methods">clone, fork, modify, and
+improve</a> both the online and physical
+versions of the cards. If you have access to InDesign, you can also
+<a href="https://methods.18f.gov/assets/downloads/18F-Method-Cards-beta-Template.zip">customize our
+template</a>
+to fit your own needs and make your own card set. We can’t wait to see
+what you do with them!</p>
+
+<h2 id="what’s-next">What’s next</h2>
+
+<p>It’s our sincere hope that people will freely take and use the method
+cards we’ve created. Our team put a lot of care into this first release,
+and we look forward to collecting feedback that will help us continue
+the effort and allow us to improve our work as we go. We know we
+couldn’t include everything in this version — in fact, we’re just
+getting started. We’re incredibly proud of what our project team has
+researched, crafted, tested, and improved upon. Everyone pitched in when
+they could, and the output is something we are all proud of.</p>
+
+<p>To share your feedback with us, <a href="https://github.com/18F/method-cards/issues">open an
+issue</a> or pull request on
+our <a href="https://github.com/18F/method-cards">GitHub repository</a>. We’d
+love to hear how we could make the method cards even more useful to you.</p>
+
+<p>Project team:</p>
+
+<ul>
+<li><p><a href="https://18f.gsa.gov/team/jeremy/">Jeremy Canfield</a></p></li>
+<li><p><a href="https://18f.gsa.gov/team/egoodman/">Elizabeth Goodman</a></p></li>
+<li><p><a href="https://18f.gsa.gov/team/jameshupp/">James Hupp</a></p></li>
+<li><p><a href="https://18f.gsa.gov/team/jhunter/">Jeannine Hunter</a></p></li>
+<li><p><a href="https://18f.gsa.gov/team/colinmacarthur/">Colin MacArthur</a></p></li>
+<li><p><a href="https://18f.gsa.gov/team/andrewmaier/">Andrew Maier</a></p></li>
+<li><p><a href="https://18f.gsa.gov/team/bradnunnally/">Brad Nunnally</a></p></li>
+<li><p><a href="https://18f.gsa.gov/team/jthibault/">Jennifer Thibault</a></p></li>
+<li><p><a href="https://18f.gsa.gov/team/russ/">Russ Unger</a></p></li>
+<li><p><a href="https://18f.gsa.gov/team/victor/">Victor Zapanta</a></p></li>
+</ul>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/08/07/technical-debt-1/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;Don’t underestimate the danger of technical debt&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/08/18/pif-made-permanent/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;President Obama makes innovation fellowship program permanent&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/09/28/web-design-standards/' class='related_posts'>&ldquo;Introducing the U.S. Web Design Standards&rdquo;</a></li><li><a href='/2015/07/29/style-guide-for-open-source-documentation/' class='related_posts'>&ldquo;18F’s style guide for open source project documentation&rdquo;</a></li><li><a href='/2015/06/03/giving-back-to-open-source/' class='related_posts'>&ldquo;Giving back to open source: Everybody wins&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-08-10-18f-design-methods.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

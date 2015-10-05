@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/09/09/how-a-two-day-spring-moved-an-agency-twenty-years-forward/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/09/09/how-a-two-day-spring-moved-an-agency-twenty-years-forward/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; How a two-day sprint moved an agency twenty years forward</title>
+  <meta property="og:title" content="How a two-day sprint moved an agency twenty years forward" />
+
+
+  <meta name="description" content="At 18F Consulting, we experiment with ways to empower agencies to build cost-efficient, excellent digital solutions. Recently we partnered with the Department of Labor’s Wage and Hour Division to run a two day “Design/Dev Agile Sprint” to help them modernize their Field Operations Handbook.">
+  <meta property="og:description" content="At 18F Consulting, we experiment with ways to empower agencies to build cost-efficient, excellent digital solutions. Recently we partnered with the Department of Labor’s Wage and Hour Division to run a two day “Design/Dev Agile Sprint” to help them modernize their Field Operations Handbook." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/blog/labor-handbook/foh-screenshot.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/09/09/how-a-two-day-spring-moved-an-agency-twenty-years-forward/">How a two-day sprint moved an agency twenty years forward</a></h1>
+
+      <time datetime="2015-09-09T00:00:00+00:00" itemprop="datePublished">September 9, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/agile">agile</a>
+            /
+          
+            <a href="/tags/how-we-work">how we work</a>
+            /
+          
+            <a href="/tags/discovery">discovery</a>
+            /
+          
+            <a href="/tags/proactive-federal-partner">proactive federal partner</a>
+            /
+          
+            <a href="/tags/operational-excellence">operational excellence</a>
+            /
+          
+            <a href="/tags/our-projects">our projects</a>
+            /
+          
+            <a href="/tags/user-research">user research</a>
+            /
+          
+            <a href="/tags/consulting">consulting</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author jtag" style="color: #000">
+    <a href=/team/jtag>Jesse Taggert</a>
+  </span>
+</p>
+
+
+      <p>At 18F Consulting, we experiment with <a href="https://18f.gsa.gov/consulting/">ways to empower agencies
+</a>to build cost-efficient, excellent
+digital solutions. Recently we partnered with the Department of Labor’s
+Wage and Hour Division (WHD) to run a two day “Design/Dev Agile Sprint.”</p>
+
+<h2 id="background:-investigators-in-wage-and-hour-division">Background: Investigators in Wage and Hour Division</h2>
+
+<p>The Department of Labor’s Wage and Hour Division is responsible for
+enforcing a wide variety of federal labor laws, including those
+requiring the minimum wage, overtime, child labor protections, and
+family and medical leave laws. Over 1,000 investigators, working out of
+local offices nationwide, and often literally in the field, investigate
+employers to determine compliance with these laws. To gather the
+information they need, they travel to a wide variety of businesses,
+including farms, restaurants, hotels, retail shops, construction sites,
+hospitals, and many others.</p>
+
+<p>While conducting investigations, Labor employees often turn to the Field
+Operations Handbook (what they call the FOH) for guidance. The handbook
+is an operations manual that provides interpretations of the law,
+procedures for conducting investigations, and general administrative
+guidance. It reflects policies established through changes in
+legislation, regulations, significant court decisions, and the decisions
+and opinions of the WHD Administrator. The handbook is a critical tool
+for WHD staff.</p>
+
+<hr>
+
+<p style="text-align:center;"><strong>How might we help DOL’s Wage Hour Division move forward with a quick win that would demonstrate what modernization can mean in a
+meaningful, iterative way?</strong></p>
+
+<hr>
+
+<p><img src="/assets/blog/labor-handbook/field-team.jpg" alt="Two investigators and an 18F user researcher who is shadowing them">
+<em>Two investigators (left and right) and an 18F user researcher (center)
+who is shadowing them to understand how investigators use paper and
+digital methods to accomplish their job.</em></p>
+
+<h2 id="the-current-landscape:-publishing-in-the-21st-century">The current landscape: Publishing in the 21st century</h2>
+
+<p>The handbook consists of four five-inch-thick binders containing printed
+and photocopied pages. These binders are replicated and distributed
+across numerous regional and local offices. The handbook also exists as
+online PDFs, where each chapter or subsection is published as its own
+PDF. With these two options, investigators don’t have an easy way to
+quickly access and search for much-needed information that helps them
+complete investigations, particularly when they’re working out in the
+field.</p>
+
+<p><img src="/assets/blog/labor-handbook/handbook.jpg" alt="Three large binders of handbook materials"></p>
+
+<h2 id="the-challenge:-how-to-move-this-project-forward?">The challenge: How to move this project forward?</h2>
+
+<p>The division&#39;s modernization team wanted to bring the handbook into the
+21st century by placing it online and providing robust search
+capabilities. This was not a radical idea.</p>
+
+<p>Departments across the federal government often operate under three
+constraints that can make these projects a challenge:</p>
+
+<ul>
+<li><p>Lack of internal design and development staff dedicated to prototype or solve problems.</p></li>
+<li><p>An often arduous vendor solicitation process to hire the right team to help with such projects. (WHD is experimenting with using a <a href="https://18f.gsa.gov/2015/03/30/new-rfp-ghostwriting-service-to-improve-contract-success/">modular, agile contract strategy</a>.)</p></li>
+<li><p>Internal teams which may lack the time, tech literacy, or processes in place to support change. How do you support change you don’t quite understand?</p></li>
+</ul>
+
+<p>18F Consulting is already working with the division&#39;s modernization team
+on a much larger effort — the incremental modernization of an aging
+management and investigation system. While that was underway, we
+wondered, “How might we help the division move forward with a quick win
+that would demonstrate what modernization can mean in a meaningful,
+iterative way?” With the guidance of Tom Giancola, a WHD investigator,
+and other WHD stakeholders, we chose to build a proof of concept for
+modernizing the handbook.</p>
+
+<p>At 18F Consulting, <strong>“Prove by doing” is our motto.</strong></p>
+
+<h2 id="the-proof-of-concept-sprint:-from-design-to-prototype-in-days,-not-months">The proof of concept sprint: From design to prototype in days, not months</h2>
+
+<p>In this two day sprint, about eight of us gathered to:</p>
+
+<ul>
+<li><p>Prove that the division could produce a user-centered, technically feasible solution in days, not months.</p></li>
+<li><p>Model and invite WHD team participation in human-centered design and agile development practices.</p></li>
+<li><p>Produce a living, breathing pilot or minimum viable product (MVP) that the division could test with some of their investigators as they continue to build out this solution.</p></li>
+</ul>
+
+<h3 id="who-participated?">Who participated?</h3>
+
+<ul>
+<li><p>One designer and two developers from the 18F Consulting team</p></li>
+<li><p>One product owner from the WHD modernization team</p></li>
+<li><p>Three WHD Investigators who frequently use this handbook</p></li>
+<li><p>Three to five representatives from the division’s communications, policy, and document management teams. They helped us understand different use cases in the process and the current state of document creation, editing, and publication.</p></li>
+</ul>
+
+<h2 id="tuesday-morning:-kick-off!">Tuesday morning: Kick off!</h2>
+
+<p>We facilitated a two-hour kick-off meeting (sometimes called an
+Inception). It got the group aligned around the problem and to agree on
+a plan moving forward.</p>
+
+<p><img src="/assets/blog/labor-handbook/group-1.jpg" alt="The 18F and Labor team writes notes up on a large white board">
+<em>Kick off (Inception)</em></p>
+
+<p>During this Inception we:</p>
+
+<ul>
+<li><p>Identified the different types of <strong>users</strong> and prioritized which ones we’d focus on for our initial proof of concept.</p></li>
+<li><p>Listed the <strong>goals</strong> and <strong>non-goals</strong> of the project (non-goals are great for parking valuable points that are out of scope for the current iteration).</p></li>
+<li><p>Brainstormed ideas for <strong>initial features</strong> and prioritized them based on user value and build-feasibility.</p></li>
+<li><p>Ensured there were no <strong>timelines</strong> or <strong>stakeholder needs</strong> that would cause problems in the near future.</p></li>
+<li><p>Explored possible <strong>risks</strong> to the success of this project. We collaboratively grouped them by themes and discussed ways to reduce the risk moving forward.</p></li>
+</ul>
+
+<h2 id="tuesday-afternoon:-start-to-build">Tuesday afternoon: Start to build</h2>
+
+<p>The designer, developers, product owner, and investigators (our primary
+users) hunkered down in a work room to make the first-ever, living,
+modern digital version of the Field Operations Handbook (FOH)!</p>
+
+<p>We created an ad hoc project board to track: Backlog, Current, In
+Testing/Review, Finished. We used sticky notes to write <a href="http://en.wikipedia.org/wiki/User_story">user
+stories</a> and the wall of our
+workspace to place the sticky note in the correct column as it
+progressed. This helped the group understand our priorities for the two
+days we had and to know at any time the work in progress.</p>
+
+<p>We used this common user story format:</p>
+
+<p>As a __________, I want ____________, so that
+_____________.</p>
+
+<p>Examples of our user stories:</p>
+
+<ul>
+<li><p>As a Wage Hour Investigator, I want a place to view the FOH online so that I can access it. <em>(ensure a staging environment with working link)</em></p></li>
+<li><p>As an investigator, I want to search the FOH, so I can find answers to my questions. (<em>make Elasticsearch work, provide good search results page)</em></p></li>
+<li><p>As an investigator, I want to browse the FOH by chapter, so I can discover information by topic and adjacency. <em>(provide a good information architecture)</em></p></li>
+<li><p>As an investigator, I want inline links to other references so that I can make the best use of this body of knowledge. (<em>we automatically converted certain text standards into their corresponding links for hundreds of pages of documents)</em></p></li>
+<li><p>As an investigator, I want the FOH to be easy to read because past methods have been hard to read. <em>(provide good version 1 typography and design of this online resource)</em></p></li>
+</ul>
+
+<p><img src="/assets/blog/labor-handbook/group-2.jpg" alt="Developers, investigators, and product owners work together on day 2. The project&#39;s progress boards are taped to the windows.">
+<em>Day 2 of the team working out of the 18F common space. Developers on
+the left. Investigators (users) and product owners talking about needs
+on the right. Taped to the windows are the progress boards (Backlog,
+Current, Done).</em></p>
+
+<p>Tom, the product owner had already used optical character recognition
+(OCR) software to convert 100s of PDFs into MS Word documents. Microsoft
+styles and headings were applied to the content to begin to structure
+the data. (Aside: this is a perfect example of using the tools you know
+best to move a project forward!) With that in hand, our developer
+validated the technical feasibility of converting those Word documents
+to HTML pages that could be searched using Elasticsearch.</p>
+
+<p>By the end of Tuesday we had:</p>
+
+<ul>
+<li><p>As a group understood the needs and challenges of the handbook as a larger project and scoped out what could be accomplished in a couple days</p></li>
+<li><p>Demonstrated user story writing and how to use a simple agile or Kanban board</p></li>
+<li><p>Within four hours, had a rough application that could search 100s of pages of documents as live HTML text. The division staff in the room thought that would take months!</p></li>
+</ul>
+
+<h2 id="wednesday:-build-and-design.-get-feedback.-repeat.">Wednesday: Build and design. Get feedback. Repeat.</h2>
+
+<h3 id="build">Build</h3>
+
+<p>Coming into the sprint, we understood that one of the major constraints
+is that the handbook is created and maintained using Microsoft Word.
+Minimizing the effect on workflow was therefore a key part of any
+proposed technical solution. Fortunately, there are several open-source,
+publicly available tools that allow for automated conversion from Word
+files (.docx) into web-friendly files (.html), including
+<a href="http://pandoc.org/">pandoc</a>. So, first, we wrote a
+<a href="https://github.com/18F/dol-whd-foh/blob/master/src/build.js">script</a>
+that uses pandoc to automatically convert the Word files to HTML files.</p>
+
+<p>Then, to get the HTML files to be more usable, we wrote a <a href="https://github.com/18F/dol-whd-foh/blob/master/src/make.js">second
+script</a>
+that extracts the content from the HTML file, does some high-level
+parsing, creates a Table of Contents, establishes JSON objects for each
+part of the Chapter (along with associated metadata), loads the JSON
+objects into an Elasticsearch service, and rewrites each HTML file to
+include links to other government sources and internal links. Finally,
+the files and search results were served using NGINX as the application
+server (later, this was rewritten to work with Apache).</p>
+
+<hr>
+
+<p style="text-align:center;"><strong>"...we made so much progress in a short period of time! It’s searchable and you can actually read it." —Amy, Senior Advisor, Immigration and Farm Labor Branch </strong></p>
+
+<hr>
+
+<h3 id="design">Design</h3>
+
+<p>One of the great things about a cross-functional team in the same room
+for a sprint is you can use faster design tools. Instead of creating
+pixel perfect “mockups” of how navigation might work, or how a page
+might visually feel, we did quick pen sketches on paper, a rough color
+scheme in Illustrator and then went right into design and developer
+pairing. We discussed problems and opportunities on the spot and were
+empowered to move forward with our ideas.</p>
+
+<h3 id="feedback">Feedback</h3>
+
+<p>Actual investigators made this sprint a success. Working with them over
+the two days, we determined the best interface copy that would be clear
+and actionable to their peers. Seconds after code was pushed to the
+staging site, we observed how they used search and understood the search
+results pages. Feedback was immediately incorporated.</p>
+
+<p><img src="/assets/blog/labor-handbook/foh-screenshot.jpg" alt="Screenshots of the prototype for an online version of the handbook.">
+<em>Two days later we had a working prototype showing browsable chapters
+and a search results page.</em></p>
+
+<h2 id="what’s-next?">What’s next?</h2>
+
+<p>For many of us in the design and software development profession,
+building a working prototype is not a big deal. For the dedicated civil
+servants in the federal government, it can be. Over these two days we
+demonstrated that with the right support and the right people in the
+room, ideas can be tested, iterated upon, and realized without months of
+requirements gathering, large waterfall contractual agreements, and
+other impediments.</p>
+
+<p>This prototype, built over a two-day sprint, is still an internal proof
+of concept for the people responsible for improving the FOH. For
+important legal reasons, they are dedicated to ensuring the
+confidential, internal-facing guidelines are developed in a secure, yet
+accessible way. Our prototype used the public-facing portion of their
+guidelines to reduce that risk. In the next few months, they will pilot
+this with a few regions while they work on securing a development
+environment that can house the more useful internal-facing documents
+(helping government do that better is another story for another day).
+Meanwhile, for all future discussions, they have a working prototype,
+created with internal stakeholders in the room who helped build it!</p>
+
+<p>18F and GSA are committed to being proactive federal partners and
+providing operational excellence wherever we can. By working
+hand-in-hand with the WHD team, we’ve been able to show them what’s
+possible, and have given them the basic knowledge to ask the right
+questions to help them develop solutions in a cost-effective,
+user-centered way.</p>
+
+<p>If your agency has a project you’d like us to look at, please contact
+18F Consulting at <a href="mailto:inquiries18F@gsa.gov">inquiries18F@gsa.gov</a>.</p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/09/08/reimagining-the-immigration-process/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;Reimagining the immigration process&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/09/14/college-scorecard-launch/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;Behind the scenes: Building a new College Scorecard with students&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/08/31/how-playing-with-legos-taught-executives-agile/' class='related_posts'>&ldquo;How 90 minutes with Lego bricks taught these executives agile&rdquo;</a></li><li><a href='/2015/08/28/announcing-the-agile-BPA-awards/' class='related_posts'>&ldquo;Announcing the Agile BPA awards: A conversation about the process&rdquo;</a></li><li><a href='/2015/06/15/agile-bpa-is-here/' class='related_posts'>&ldquo;The Agile Delivery BPA is here!&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-09-09-how-a-two-day-spring-moved-an-agency-twenty-years-forward.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

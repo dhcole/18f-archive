@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/press/" />
+<link rel="canonical" href="https://18f.gsa.gov/press/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; 18F Press</title>
+  <meta property="og:title" content="18F Press" />
+
+
+  <meta name="description" content="18F builds effective, user-centric digital services focused on the interaction between government and the people and businesses it serves.">
+  <meta property="og:description" content="18F builds effective, user-centric digital services focused on the interaction between government and the people and businesses it serves." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <!-- until Twitter's card approver fixes itself, need to use summary_large_image here too because we can't get approved for both -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/images/18f-share-image.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage" id="18f-press">
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+<section class="container bare profile">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+  <div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  
+	
+	<header class="headline">
+		
+
+		
+		<h1>Press</h1>
+		<h2>Working on a story about 18F?</h2>
+		
+	</header>
+
+  <div class="content" role="main" id="top main" itemscope itemprop="mainContentOfPage">
+    <a href="#toc" class="skips">Table of contents</a>
+    <p>18F is a growing group of technologists, designers, and researchers from around the country who are committed to making government services simpler and easier to use. We put the needs of the American people first, we work in the open to make our products stronger, and we are design-centric, agile, open, and data-driven.</p>
+
+<p>&quot;If you have questions, we&#39;ve got answers.&quot;</p>
+
+<p><a href="mailto:media@gsa.gov?Subject=18F%20Media%20Query">media@gsa.gov</a></p>
+
+    
+      
+          <section>
+          <h2 id="what-18f-has-accomplished">	What 18F has accomplished </h2>
+          <p> <ul>
+<li><p>Launched the <a href="https://everykidinapark.gov/">Every Kid in a Park</a> website in collaboration with the U.S. Department of the Interior, The White House, and other federal agencies. The site helps U.S. fourth graders obtain their free pass to national lands and waters and is specially designed to be used by kids.</p></li>
+<li><p>Launched the <a href="https://collegescorecard.ed.gov/">College Scorecard</a> website and API to give students and their families access to a wealth of previously-unavailable data about colleges and universities. This was a joint project with the U.S. Digital Service and the Department of Education. </p></li>
+<li><p>Created the <a href="https://18f.gsa.gov/2015/09/15/federalist-platform-launch/">Federalist platform</a> to make it faster for government agencies to build websites that are secure, responsive, and accessible.</p></li>
+<li><p><a href="https://18f.gsa.gov/2015/01/08/creating-a-federal-marketplace-for-agile-delivery-services/">Piloted an agile delivery services Blaket Purchase Agreement</a> to explore a new way for the government to hire contractors that could reduce the cost and completion time of federal IT projects.  </p></li>
+<li><p><a href="https://18f.gsa.gov/2014/03/31/announcing-fbopen-government-opportunities-made-easier/">Beta launched FBOpen</a>, an API and search tool which helps small businesses find opportunities to work with the U.S. government.</p></li>
+<li><p><a href="https://18f.gsa.gov/2014/05/09/a-few-notes-on-notalone-gov/">Launched NotAlone.gov</a> in partnership with the White House Office of Science and Technology Policy and the Office of the Vice President. NotAlone.gov helps students and school administrators find resources on responding to and preventing sexual assault.</p></li>
+<li><p><a href="https://speakerdeck.com/18f/cap-communicart-18f-demo-day-9-may-2014">Launched Communicart</a>, a simplified, email-based purchasing approval tool for purchase card holders authorized to buy office supplies for the government. Over 200 users have been trained and are now using the tool for purchasing approval.</p></li>
+<li><p><a href="https://api.open.fec.gov/developers">Launched the first API</a> for the Federal Election Commission, which gives the public much better access to tens of millions of federal campaign finance records.</p></li>
+<li><p><a href="http://calc.gsa.gov">Launched CALC</a>, the Contract Awarded Labor Category tool, to help the federal contracting community make smarter, faster buying decisions.</p></li>
+<li><p>Piloted <a href="https://18f.gsa.gov/2014/07/16/midas-a-marketplace-for-innovation-in-government/">Midas</a> at the Department of Health and Human Services and the State Department. The “crowdwork” platform is now powering GSA’s microtasking platform, <a href="https://midas.18f.us/">Open Opportunities</a>.</p></li>
+<li><p>Alpha launched <a href="https://discovery.gsa.gov/">Discovery</a>, which makes it much easier for the government’s contracting officers to conduct market research and look for qualified vendors across a number of professional service categories.</p></li>
+<li><p>Doubled the size of the <a href="https://api.data.gov/">api.data.gov</a> program, with 13 APIs across seven agencies now using the shared service.</p></li>
+<li><p>Hit a <a href="https://18f.github.io/API-All-the-X/">/Developer Program</a> milestone of engagement with more than 100 API teams, providing training and direct support to help agencies build out web services and engage the developer community.</p></li>
+<li><p>Worked with the Digital Analytics Program and the White House to build <a href="https://analytics.usa.gov/">analytics.usa.gov</a>, a public dashboard for the US government’s web traffic.</p></li>
+<li><p>Developed the strongest <a href="https://github.com/18F/open-source-policy">open source policy</a> in the US government, setting a clear expectation to the outside and to our team that <a href="https://18f.gsa.gov/2014/07/31/working-in-public-from-day-1/">we work in public</a>, and leading to a <a href="http://gsablogs.gsa.gov/innovation/2014/08/01/our-guiding-principles/">GSA-wide “open source first” policy</a>.</p></li>
+<li><p>Developed a clear <a href="https://18f.gsa.gov/2014/11/13/why-we-use-https-in-every-gov-website-we-make/">HTTPS-only standard</a> for 18F’s work, <a href="https://18f.gsa.gov/2015/02/09/the-first-gov-domains-hardcoded-into-your-browser-as-all-https/">helped several agencies</a> meet the same standard, and <a href="https://18f.gsa.gov/2015/03/17/for-public-comment-the-https-only-standard/">supported the development of a government-wide HTTPS-only policy</a>.</p></li>
+<li><p>Launched <a href="https://pulse.cio.gov/">Pulse</a>, a <a href="https://18f.gsa.gov/2015/06/02/taking-the-pulse-of-the-federal-governments-web-presence/">monitoring tool for U.S. government websites</a> to see if they&#39;re following best web practices.</p></li>
+<li><p>Launched a <a href="https://github.com/18F/code-of-conduct">Code of Conduct</a> as well as guides for <a href="https://pages.18f.gov/accessibility/">accessibility</a>, <a href="https://pages.18f.gov/content-guide/">content</a>, and <a href="https://pages.18f.gov/open-source-guide/">how to construct an open source project</a>.</p></li>
+</ul>
+ </p>
+          <a href="#top">Back to top</a>
+          </section>
+      
+    
+      
+          <section>
+          <h2 id="18f-delivery-and-18f-consulting">	18F Delivery and 18F Consulting </h2>
+          <p> <p><a href="/delivery">18F Delivery</a> is the larger of our current service offerings. It&#39;s a collection of teams comprised of designers, developers, and product managers that work <em>for</em> and <em>with</em> other federal teams at agencies like the Federal Election Commission, the General Services Administration, and the Department of the Treasury (<a href="https://18f.gsa.gov/dashboard/">among many others</a>) where we build tools to improve government services.</p>
+
+<p><a href="https://18f.gsa.gov/consulting/">18F Consulting</a> helps agencies acquire better software by providing design thinking and technical acumen on a short-term, as-needed basis or as part of an extended project. The team offers a variety of services from knowledgeable and experienced software engineers and acquisition specialists.</p>
+ </p>
+          <a href="#top">Back to top</a>
+          </section>
+      
+    
+      
+          <section>
+          <h2 id="18f-projects-adapted-by-other-organizations">	18F projects adapted by other organizations </h2>
+          <p> <p>We publish our code repositories <a href="https://github.com/18F">on GitHub</a> and encourage the public to adapt our code and <a href="https://pages.18f.gov/guides/">guides</a> for their own projects.</p>
+
+<p>Here are some examples of how our projects have been adapted by others:</p>
+
+<ul>
+<li><p>The City of Philadelphia&#39;s <a href="http://analytics.phila.gov/">analytics dashboard</a> uses <a href="https://github.com/18f/analytics-reporter">code</a> that was developed by the <a href="https://www.digitalgov.gov/services/dap/">Digital Analytics Program</a> and built largely by 18F.</p></li>
+<li><p>Lovely, a real estate startup, created <a href="http://hub.livelovely.com.s3-website-us-east-1.amazonaws.com/">their documentation platform</a> by adapting <a href="https://github.com/18F/hub">the code created</a> for 18F&#39;s Hub. The Hub helps 18F organize our information and explore the connections between team members, projects, and skill sets. It serves as the go-to place for all team information.</p></li>
+</ul>
+ </p>
+          <a href="#top">Back to top</a>
+          </section>
+      
+    
+      
+          <section>
+          <h2 id="18f-s-relationship-with-the-rest-of-gsa">	18F’s relationship with the rest of GSA </h2>
+          <p> <p>18F is a startup inside the General Services Administration. We are part of the <a href="http://www.gsa.gov/portal/category/25729">Office of Citizen Services and Innovative Technologies</a>.</p>
+ </p>
+          <a href="#top">Back to top</a>
+          </section>
+      
+    
+      
+          <section>
+          <h2 id="18f-s-relationship-with-the-u-s-digital-service">	18F's relationship with the U.S. Digital Service </h2>
+          <p> <p>18F and the <a href="https://www.whitehouse.gov/digital/united-states-digital-service">U.S. Digital Service</a> are distinct groups working toward the same vision of better digital government. 18F is a digital consultancy in an independent agency (GSA) and provides products and services to federal entities on a fee-for-service basis. The U.S. Digital Service is part of the Executive Office of the President and the United States CIO, supporting and coordinating the work of various digital service teams housed in agencies across the federal government.</p>
+ </p>
+          <a href="#top">Back to top</a>
+          </section>
+      
+    
+      
+          <section>
+          <h2 id="basic-information-on-18f-s-history">	Basic information on 18F’s history </h2>
+          <p> <ul>
+<li><p>GSA launched 18F on March 19, 2014. The name is an abbreviation for GSA’s address — 1800 F St.</p></li>
+<li><p>The 18F team started with 15 full time staff. Our team has grown to over 100 as of January 2015, as 18F’s product and client work has increased.</p></li>
+<li><p>Our goal was (and is) to transform the way the U.S. government approaches problems. You can <a href="https://18f.gsa.gov/2015/03/20/one-year-in-and-looking-forward/">read more about our first year on our blog</a>.</p></li>
+</ul>
+ </p>
+          <a href="#top">Back to top</a>
+          </section>
+      
+    
+      
+          <section>
+          <h2 id="how-18f-works">	How 18F Works </h2>
+          <p> <p>18F works in partnership with agencies across government on a reimbursable basis. We delivering public-facing services via web applications, data and service Application Programming Interfaces (APIs), and platforms. 18F operates using three basic models:</p>
+
+<ul>
+<li><em>For you:</em> Building solutions for an agency</li>
+<li><em>With you:</em>   Integrating with an agency team to provide additional expertise or core capacity</li>
+<li><em>By you:</em> Advising an agency on how to build or buy user-centric digital services most effectively</li>
+</ul>
+
+<p>18F is an <a href="https://github.com/18F/open-source-policy">open source team</a>. It uses open source development to transparently promote the security, quality, and modularity of our code and to invite review, participation, and free and simple reuse of our efforts by government agencies, the business community, and the public.</p>
+ </p>
+          <a href="#top">Back to top</a>
+          </section>
+      
+    
+      
+          <section>
+          <h2 id="how-18f-is-funded">	How 18F is funded </h2>
+          <p> <p>18F is a cost-recoverable organization. We rely mostly on the following two channels for funding our work.</p>
+
+<ul>
+<li><p>GSA funds 18F through the <a href="http://www.gsa.gov/portal/content/182815">Acquisition Services Fund</a> (ASF), which allows for investment in the development and delivery of products and tools that will be used by other agencies on a reimbursable basis.</p></li>
+<li><p>The Economy Act allows 18F to be reimbursed for services provided to other agencies. Once an agreement is in place, we bill on a quarterly basis through <a href="https://www.fiscal.treasury.gov/fsservices/gov/acctg/ipac/ipac_home.htm">IPACS</a>.</p></li>
+</ul>
+ </p>
+          <a href="#top">Back to top</a>
+          </section>
+      
+    
+  </div>
+    
+
+
+
+
+<aside id="toc">
+	<h2>We get asked...</h2>
+		<ul>
+		
+		
+			
+			<li><a href="#what-18f-has-accomplished">What 18F has accomplished</a></li>
+		
+		
+		
+			
+			<li><a href="#18f-delivery-and-18f-consulting">18F Delivery and 18F Consulting</a></li>
+		
+		
+		
+			
+			<li><a href="#18f-projects-adapted-by-other-organizations">18F projects adapted by other organizations</a></li>
+		
+		
+		
+			
+			<li><a href="#18f-s-relationship-with-the-rest-of-gsa">18F’s relationship with the rest of GSA</a></li>
+		
+		
+		
+			
+			<li><a href="#18f-s-relationship-with-the-u-s-digital-service">18F's relationship with the U.S. Digital Service</a></li>
+		
+		
+		
+			
+			<li><a href="#basic-information-on-18f-s-history">Basic information on 18F’s history</a></li>
+		
+		
+		
+			
+			<li><a href="#how-18f-works">How 18F Works</a></li>
+		
+		
+		
+			
+			<li><a href="#how-18f-is-funded">How 18F is funded</a></li>
+		
+		
+	</ul>
+</aside>
+
+
+
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/pages/press/index.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

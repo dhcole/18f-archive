@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/05/04/pair-programming-why-two-heads-are-better-than-one/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/05/04/pair-programming-why-two-heads-are-better-than-one/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; Pair programming: Why two heads are better than one</title>
+  <meta property="og:title" content="Pair programming: Why two heads are better than one" />
+
+
+  <meta name="description" content="At 18F, we frequently use pair programming, a technique where two developers work together on one screen. We asked two developers at 18F how they pair program and why they find it useful.">
+  <meta property="og:description" content="At 18F, we frequently use pair programming, a technique where two developers work together on one screen. We asked two developers at 18F how they pair program and why they find it useful." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/blog/pair-programming/annalee.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/05/04/pair-programming-why-two-heads-are-better-than-one/">Pair programming: Why two heads are better than one</a></h1>
+
+      <time datetime="2015-05-04T00:00:00+00:00" itemprop="datePublished">May 4, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/developer">developer</a>
+            /
+          
+            <a href="/tags/coding">coding</a>
+            /
+          
+            <a href="/tags/how-we-work">how we work</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author melody" style="color: #000">
+    <a href=/team/melody>Melody Kramer</a>
+  </span>
+</p>
+
+
+      <div class="align-center" ><img style="margin-left: 30px;" alt="Annalee Flower Horne" src="/assets/blog/pair-programming/annalee.png" class="align-left" />
+<img style="margin-right: 30px;" alt="Catherine Devlin" src="/assets/blog/pair-programming/catherine.jpg" class="align-right" /></div>
+
+<p>Developers Annalee Flower Horne and Catherine Devlin worked together on
+<a href="https://github.com/18F/afsbirez">a project</a> to make it easier for
+small businesses to participate in the Department of Defense’s Small
+Business Innovation Research Program (SBIR-EZ.)</p>
+
+<p>Annalee and Catherine frequently pair program when writing their code.
+When developers pair program, they work together on one screen. One
+developer writes the code, while the other reviews each line of code as
+as it’s written and offers helpful suggestions while checking the code
+for errors.</p>
+
+<p>We asked Annalee and Catherine to talk about how they pair program and
+why they find it useful. Naturally, they did the interview together.</p>
+
+<p><strong>Melody Kramer: Could both of you talk about what pair programming is, and what
+benefits you get from pairing with each other?</strong></p>
+
+<p><strong>Catherine:</strong> &quot;Two brains, one keyboard.&quot; We spend a portion of the
+workday programming as a pilot and co-pilot, occasionally switching
+roles. It sounds counterintuitive — <strong>won’t you get half as much done
+that way?</strong> — but programming is always limited by our understanding,
+not speed of typing. A second perspective can cut through problems that
+could frustrate a single programmer for hours.</p>
+
+<p>Also, pair programming is naturally a communication activity. We need to
+explain each suggestion and each choice to each other as we go, which
+helps us clarify our thoughts and clarify the code that we’re writing.</p>
+
+<p>We live in different places, so we’ve needed to put some special effort
+into the mechanics of remote pairing. I’m not sure we’ve settled on our
+perfect environment yet, but we’ve found a few systems that allow us to
+work well together, despite our geographic distance.</p>
+
+<p><strong>Annalee:</strong> Developers have a joke about &quot;rubber ducking&quot; code, which
+comes from a story about a teacher’s aide who made students explain
+their problem to a rubber duck before they could ask the aide for help.
+Usually, in the course of explaining the problem to the duck, they’d
+figure out the solution.</p>
+
+<p>A lot of programming problems are like that — the hardest part is
+defining the problem. When pairing with someone, you and your partner
+are each others’ rubber ducks. As Catherine says, it really helps
+clarify our thinking, which in turn clarifies our code.</p>
+
+<p>The other advantage for me is that pairing really helps keep me on task.
+It’s easy to get distracted when you’re coding, because in the course of
+solving one problem, you’ll run across other things that can be fixed.
+When you’re with a partner, it’s a lot easier to say &quot;Okay, we agreed we
+were going to work on X, so we should stay on that, and take a look at Y
+and Z later.&quot;</p>
+
+<p><strong>MK: What do you use to make the distance easier?</strong></p>
+
+<p><strong>Annalee:</strong> We have a few tools we use. Remote pairing software helps
+keep us on the same digital page while we’re working. Video calling
+software with screen-sharing also comes in handy. Our usual setup is a
+phone call (with a headset) and remote pairing software.</p>
+
+<p><strong>MK: Was there a learning curve when you decided to try this?</strong></p>
+
+<p><strong>Annalee:</strong> I mostly learned to code by pairing. When you’re learning
+programming, there’s a big gap between finishing up a programming class
+and actually being ready to dive in on a real project, so I was always
+looking for people to pair with. I tend to think of pairing as a process
+that helped flatten out the learning curve on programming, rather than
+it being a learning curve of its own.</p>
+
+<p>With distance pairing, I wouldn’t say it was a learning curve, but we
+definitely had to figure out a technical setup that’d work for us. The
+first few times, it took us quite a while to get set up before we could
+get to work.</p>
+
+<p><strong>Catherine:</strong> Aside from the remote logistics problems, my only real
+learning curve was an ego one — learning to stop worrying about what
+somebody would think if they saw the stop-and-go, blunder-rich path my
+coding actually follows! Once I got the courage to actually sit down and
+do it, it turned out to be a very natural way to work.</p>
+
+<p><strong>MK: Does it ever make it harder because you pair program?</strong></p>
+
+<p><strong>Annalee:</strong> I can’t think of a time when pairing has made a task more
+difficult. For me, it almost always makes tasks easier and faster.
+That’s surprising to me, because I’m a huge introvert. If someone had
+told me before I started coding that I’d be at my most productive when
+working line-by-line with someone else, I’d have laughed.</p>
+
+<p>Part of that is probably learning how to pick good tasks for pairing.
+It’s not the right choice for every task.</p>
+
+<p><strong>MK: Are there certain tasks where it doesn’t make sense to pair?</strong></p>
+
+<p><strong>Annalee:</strong> For tasks where the problem is very well mapped out, it can
+be easier for one of us to just fix it rather than waiting for the other
+person to be available to pair. If you already know the solution and the
+other person’s not going to learn anything from being walked through it,
+there’s no reason to schedule it for pairing.</p>
+
+<p>The other end of the spectrum often isn’t good for pairing, either —
+where a problem is way too undefined to start work yet. Sometimes it can
+help to refine the problem together, but sometimes it’s just that
+someone needs to do some research. It doesn’t take two people to read a
+manual, and reading it out loud to each other isn’t going to make it go
+any quicker.</p>
+
+<p>There’s a goldilocks zone in the middle, where a problem is ready to be
+worked on but not yet solved. We usually hit it after one of us has
+tackled the problem and gotten stuck.</p>
+
+<p><strong>MK: If someone wanted to try this, how would you recommend getting
+started?</strong></p>
+
+<p><strong>Catherine:</strong> If none of your coworkers are interested, ask at your
+local programmers’ user group — they should have heard the buzz and be
+curious to try. If there’s a large experience difference between the two
+of you, the least experienced programmer should be the one on the
+keyboard — at least until you both appreciate the process enough to
+resist the temptation for the veteran to zoom along while the newbie
+tunes out.</p>
+
+<p><strong>MK: Do you have any rules that govern the rules of the pair programming
+relationship that you follow? For instance, Greg sits on his hands when
+he’s in the co-piloting position.</strong></p>
+
+<p><strong>Catherine:</strong> We noticed that we burn mental energy faster while we
+pair, so we semi-formalized an expectation not to do more than an hour
+or two at a time before returning to solo mode for a while.</p>
+
+<p>We also keep talking about what we’re doing, and why, while we’re doing
+it. That’s part of what brings the benefit — it makes reasoning explicit, putting
+everything to a real-time <a href="https://www.python.org/dev/peps/pep-0020/">&quot;Zen of
+Python&quot;</a> test (&quot;If the
+implementation is hard to explain, it’s a bad idea&quot;).</p>
+
+<p>There’s a pattern here — we haven’t really needed to make our practices
+into rules. Talking about what you’re doing, saying goodbye when you’re
+exhausted — these unspoken expectations of social interaction are
+actually good rules for pairing, too. Perhaps more adventuresome
+cross-cultural pairing would call for more explicit rules.</p>
+
+<p>--</p>
+
+<p>Pair programming is not for everyone. The sharing and teaching involved
+in pair programming helps us describe what we’re coding to agencies
+throughout the government in addition to improving the skills of our
+team members.</p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/04/29/18f-how-we-write/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;18F: a great place to write&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/05/08/layering-innovation/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;Layering innovation&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/05/11/moveforward/' class='related_posts'>&ldquo;The digital services flash mob&rdquo;</a></li><li><a href='/2015/05/08/layering-innovation/' class='related_posts'>&ldquo;Layering innovation&rdquo;</a></li><li><a href='/2015/04/23/the-dat-team-talks-data-streams/' class='related_posts'>&ldquo;The dat team talks data Streams&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-05-01-pair-programming-why-two-heads-are-better-than-one.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

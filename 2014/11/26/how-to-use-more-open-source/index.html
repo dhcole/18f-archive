@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2014/11/26/how-to-use-more-open-source/" />
+<link rel="canonical" href="https://18f.gsa.gov/2014/11/26/how-to-use-more-open-source/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; How to use more open source in your next federal IT aquisition</title>
+  <meta property="og:title" content="How to use more open source in your next federal IT aquisition" />
+
+
+  <meta name="description" content="The history of open source software is a record of steadily turning tremendously expensive custom-built solutions into freely available infrastructure that you can simply take for granted. What once were astoundingly sophisticated, expensive human endeavors have become open source tools you can drop into place in your project on a whim.">
+  <meta property="og:description" content="The history of open source software is a record of steadily turning tremendously expensive custom-built solutions into freely available infrastructure that you can simply take for granted. What once were astoundingly sophisticated, expensive human endeavors have become open source tools you can drop into place in your project on a whim." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2014/11/26/how-to-use-more-open-source/">How to use more open source in your next federal IT aquisition</a></h1>
+
+      <time datetime="2014-11-26T00:00:00+00:00" itemprop="datePublished">November 26, 2014 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/longread">longread</a>
+            /
+          
+            <a href="/tags/open-source">open source</a>
+            /
+          
+            <a href="/tags/federal-acquisitions">federal acquisitions</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author robert" style="color: #000">
+    Dr. Robert L. Read,  and 
+  
+  <span class="author eric" style="color: #000">
+    <a href=/team/eric>Eric Mill</a>
+  </span>
+</p>
+
+
+      <p>The history of open source software is a record of steadily turning tremendously expensive custom-built solutions into freely available infrastructure that you can simply take for granted. What once were astoundingly sophisticated, expensive human endeavors have become open source tools you can drop into place in your project on a whim.</p>
+
+<!-- more -->
+
+<p>Open source has changed what it means to make software today. As Gunnar Hellekson has <a href="https://atechnologyjobisnoexcuse.com/2014/08/an-agency-that-learns/">argued</a> &quot;You can&#39;t run an organization today without knowing how to use open source.&quot; It&#39;s important that every federal CIO, CTO, architect, and program manager seeking to build or procure new IT projects understand that open source exists, that it can be of high quality and highly reusable, and how to use it securely.</p>
+
+<p>In this post, we&#39;ll lay out the story of how software tools become open source commodities, how to make use of open source in your projects, and how to think about the security dynamics of open source software.</p>
+
+<h2 id="understanding-commoditization-trends">Understanding commoditization trends</h2>
+
+<p>The federal knowledge worker who shares responsibility for an IT project cannot escape the need to understand trends in the commoditization of information technology.</p>
+
+<p>By commoditization, we mean the relentless evolution of technology: from a unique idea, to custom-built usage, to a widely used Commercial Off-The Shelf (COTS) product, into a Free Open Source Software (FOSS) commodity. By commodity, we mean a product, function, or service that is broadly and cheaply available. It is natural for important software systems to eventually become commodities.</p>
+
+<p>The end point of this evolution is always a freely available, reliable, open source software project supported by a large, accommodating community. In other words, a broadly supported Free Open-Source Software (FOSS) project is the ultimate commoditization of a Commercial Off-The Shelf (COTS) project. FOSS is COTS, whether a firm ever offers paid support for it or not.</p>
+
+<p>As projects become more stable and widely used, they develop communities of supporters and users. These communities prevent the negative aspects of being dependent upon, or locked-in to, a single entity for support. No federal project should be handcuffed to a tiny, unproductive development community. The best way to harness the innovative effort of a large number of people is to use a mature, commoditized project that many people are actively contributing to---and that means using open source.</p>
+
+<p>Let us illustrate these evolutionary processes by considering specific examples of two of the most important tools in information technology: the relational database system and full-text search engines.</p>
+
+<h3 id="the-commoditization-of-relational-databases-and-full-text-search-engines-by-example">The commoditization of relational databases and full-text search engines by example</h3>
+
+<p>We can mark important events in the evolution of the relational database for end-users:</p>
+
+<ol>
+<li>1970: Codd published &quot;A relational model of data for large shared data banks.&quot;</li>
+<li>1985: Michael Stonebraker begins Postgres project.</li>
+<li>1992: Linux becomes available on x86 architecture.</li>
+<li>1996: Postgres95 becomes an open source project.</li>
+<li>2004: At least one firm provides commercial support.</li>
+<li>2007: PostgreSQL either comes with a Linux distribution or can be installed in 20 minutes.</li>
+<li>2014: PostgreSQL can be installed in five minutes, is more convenient to use, and is a common backbone of 18F&#39;s projects and many commercial firms.</li>
+</ol>
+
+<p><img alt="ThirtyYearHistoryOfPostgresAndLucene (1).png" src="/assets/images/2014/11/25/image00.png" style="width: 624.00px; height: 468.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></p>
+
+<p>The above graph shows our subjective evaluation of the usefulness of PostgreSQL relative to its total cost of ownership. This &quot;geometrically&quot; increasing usefulness is familiar from hardware performance curves plotted against time, but in this case owes very little to that phenomenon. Rather, it represents the typical commoditization of software. The community of users and developers drive important software tools from unique inventions to broadly available tools. Along the way, the tool usually becomes a commercial product, and then becomes available as an open source alternative.</p>
+
+<p>The same diagram also plots the even more rapid evolution of a an open source full-text search engine, called Lucene.</p>
+
+<ol>
+<li>1999: Doug Cutting writes Lucene and makes it available at SourceForge.</li>
+<li>2001: Lucene becomes part of Jakarta.</li>
+<li>2005: Lucene becomes top-level Apache Foundation project</li>
+<li>2008: SOLR 1.3 released</li>
+<li>2007: A firm begins providing commercial support for Lucene, SOLR, and related technology.</li>
+<li>2010: A different firm raises $10M in venture capital.</li>
+<li>2013: SOLR and ElasticSearch widely used by Presidential Innovation Fellows, the Consumer Financial Protection Bureau, and other government teams.</li>
+</ol>
+
+<p><a href="http://blog.gardeviance.org/">Simon Wardley</a> has articulated and popularized the <a href="http://blog.gardeviance.org/2013/03/basics-repeated-again.html">Wardley-Duncan map</a>, a visual representation of evolution and value for general systems. The Wardley-Duncan maps below subdivides the <strong>Evolution axis</strong> to reflect the general evolution and commoditization of open source software. We observe that software naturally evolves through stages, which in a federal context we name:</p>
+
+<ol>
+<li>Unique/agency owned</li>
+<li>Custom/contractor written and closed source</li>
+<li>Productized into COTS</li>
+<li>Commoditized FOSS, which is also a form COTS</li>
+<li>Broadly supported, meaning having commercial support or having a very large support communitymaking it practically risk-free and very convenient, or in other words, a utility</li>
+</ol>
+
+<p>On the <strong>Value Chain axis</strong>, we have inserted the <a href="https://en.wikipedia.org/wiki/Multitier_architecture">standard three-tier architecture</a>, consisting of a Persistence Layer, Business Logic Layer, and Presentation Layer.</p>
+
+<p><img alt="PostgresTemplateOpenSourceThreeLayerWithDecorations (1).png" src="/assets/images/2014/11/25/image03.png" style="width: 624.00px; height: 468.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></p>
+
+<p><em>The evolution of PostgreSQL</em></p>
+
+<p><img alt="LuceneTemplateOpenSourceThreeLayerWithDecorations (1).png" src="/assets/images/2014/11/25/image04.png" style="width: 624.00px; height: 468.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></p>
+
+<p><em>The evolution of Lucene</em></p>
+
+<p>We can now use these modified maps to understand the evolution of PostgreSQL and Lucene in greater detail, and therefore the evolution of relational databases and full-text search engines.</p>
+
+<h2 id="how-to-use-the-wardley-duncan-map">How to use the Wardley-Duncan map</h2>
+
+<p>Simon Wardley has written extensively about how business people can use maps to understand a competitive landscape and succeed at business. We now recap his basic approach, particularly aimed at the federal program manager, acquisition officer, or executive responsible for a software system.</p>
+
+<p><strong>First, identify the 10 most important software components of your system.</strong> Analyze them in terms of whether they are part of the Persistence, Business Logic, or Presentation layers. In messy legacy systems, a component might be smeared across several layers, which can be represented as an oval that touches several layers.</p>
+
+<p><strong>Now take each component and analyze it in terms of the evolution axis.</strong> That is, was it written by your agency, or by a contractor? Or are you using a COTS component which is not open source? Are you using open source components, and if so, are they broadly supported or not? In many systems, you will find a mix of these categories. For example, most systems will have a small amount of custom code. Systems vary widely in terms of how many open source components they utilize.</p>
+
+<p><strong>Now draw a draft Wardley-Duncan map of our your system.</strong> A large whiteboard with sticky notes is a convenient way to do this, but you can also print out our basic disposable diagram by following this <a href="https://18f.gsa.gov/consulting/docs/open_source_wardley_duncan_map_printable.pdf">link</a> to this diagram:</p>
+
+<p><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 468.00px;"><img alt="PrintableOpenSourceWardleyDuncanMap (2).png" src="/assets/images/2014/11/25/image02.png" style="width: 624.00px; height: 468.00px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
+
+<p>Now that you have analyzed your system, ask yourself if any &quot;moves&quot; are possible. A move would be a change to your system that changed the position of one of your components. For example, can you identify a part of your system which was written by a contractor whose function has now been mostly subsumed by the increasing power and commoditization of software? Are you using a product that has an open source equivalent? <strong>In general, any move to the right on this diagram represents a chance to make your system more secure, robust, easier to support, and to save the taxpayer money.</strong></p>
+
+<p>Often you can only &quot;make a move&quot; by splitting a component into two or more components. For example, you might currently have a search function which combines some sort of highly application-specific filtering with a word search that could be accomplished with a full-text search engine. If you split the search component into these two separate components, one of them could be moved to the right: the full-text search engine. Unfortunately, you can&#39;t split this node if you do not have someone technical enough to realize this possibility, and many program managers find themselves woefully understaffed of technical resources. 18F provides technical brainstorming services to assist with this through 18F Consulting</p>
+
+<p><strong>Another type of move is to move &quot;upward&quot; by offering new functionality which does not currently exist.</strong> For example, the FDA recently created an open API to its adverse drug effects database. This was the creation of a component or node at the Presentation Layer where none existed previously. The creation of GUIs for administration of relational databases and full-text search engines is another example of adding value.</p>
+
+<h2 id="if-you&#39;re-building-a-new-system">If you&#39;re building a new system</h2>
+
+<p>If you have the luxury of building a new, so-called &quot;green field&quot; system, try to keep each component of your system as highly evolved as possible. You can read more about this in the <a href="https://playbook.cio.gov/">US Digital Service Playbook</a> plays numbered <a href="https://playbook.cio.gov/#play5">5</a>, <a href="https://playbook.cio.gov/#play8">8</a>, and <a href="https://playbook.cio.gov/#play13">13</a>. <a href="https://playbook.cio.gov/#play9">Play #9</a>, &quot;Deploy in a flexible hosting environment&quot; can be seen as recommending the same thing in deployment environment by using &quot;cloud computing,&quot; which is really just the commoditization of <em>running</em> software systems, as opposed to the commoditization of software <em>programs.</em></p>
+
+<h2 id="a-checklist-of-highly-commoditized-components">A checklist of highly commoditized components</h2>
+
+<p>Take a full, uninterrupted afternoon to apply this checklist to your system. It will help if you have drawn a fully analyzed Wardley-Duncan map of your system, or at least a good list of your components. Ask yourself how each of the following highly commoditized technologies could be applied to your project, and how you can take advantage of the commoditization of each of these to lower costs and mitigate risk by using more evolved (read: open source) versions:</p>
+
+<ol>
+<li>The cloud (commoditized running computer systems)</li>
+<li>Content management Systems (for example, Drupal, WordPress, GitHub Pages)</li>
+<li>Full-text search engines (for example, SOLR, Elasticsearch, Lucene)</li>
+<li>GUI frameworks (for example, Bootstrap, PureCSS, Kube)</li>
+<li>Application frameworks (for example, Rails, Django, Express)</li>
+<li>No-SQL databases (for example, MongoDB, Redis)</li>
+<li>Relational databases (for example, Postgres, MySQL)</li>
+</ol>
+
+<p>If you have a legacy system, you may very well have to imagine decomposing one of your existing components into several components. For example, if you are storing documents in your relational database today, in order to take advantage of a Content Management System you might have to split your database into two components, one of which stores structured data, and the second of which may be implemented with a content management system.</p>
+
+<p>The cloud is just other people&#39;s computers. For operating computer systems, the end point of commoditization is cloud computing, or in other words, the convenient, elastically and inexpensively available computing resources in the form of complete running computers as a service. 18F is developing &quot;Infrastructure as a Service&quot; to make this even easier for Feds by reselling access to managed servers at cost.</p>
+
+<h2 id="using-more-open-source-software">Using more open source software</h2>
+
+<p>We have asserted that open source software represents the endpoint of a commoditization trend which must be reckoned with to properly serve the U.S. taxpayer.</p>
+
+<p>The open source community and the availability of open source code appears to be growing explosively. At the end of 2013, GitHub <a href="https://github.com/blog/1724-10-million-repositories">announced that they had 10 million repositories</a>, and published this chart:</p>
+
+<p><span style="overflow: hidden; display: inline-block; margin: 0.00px 0.00px; border: 0.00px solid #000000; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px); width: 624.00px; height: 349.33px;"><img alt="68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f343438332f313830333636372f62306564363634652d366332342d313165332d393535392d6535373032323135633437612e706e67 (1).png" src="/assets/images/2014/11/25/image01.png" style="width: 624.00px; height: 349.33px; margin-left: 0.00px; margin-top: 0.00px; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title=""></span></p>
+
+<p>However, in the words of Theodore Sturgeon defending science fiction, &quot;90% of everything is crud.&quot; Most of the repositories (or &quot;repos&quot;) at GitHub, are simple copies of more important repos. Moreover, most of the projects at GitHub do not have any great importance or an active enough community to be particularly noteworthy for our purposes. Nonetheless, the tiny fraction of these 10 million systems that remain are an enormous number of valuable projects which can be used as building blocks to construct larger systems. In a sense, this explosion of the number of combinable projects represents the fulfilment of the <a href="https://en.wikipedia.org/wiki/Unix_philosophy">Unix Philosophy</a>, which Doug McIlroy has expressed as:</p>
+
+<blockquote>
+<p>Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.</p>
+</blockquote>
+
+<p>Writing today in 2014, he might have written: &quot;Write programs to handle <a href="https://en.wikipedia.org/wiki/JSON">JSON</a>, which has now become a de facto standard for web APIs.&quot;</p>
+
+<p>The practice of programming at the enterprise or system level has changed since 30 years ago. Then, a programmer&#39;s primary job was to write algorithms and data structures. Today, we spend most of our time figuring out how to reuse code that other people wrote. In this way, the Unix Philosophy, or as we more colorfully prefer to think of it, the Coming Open Source Singularity (COSS), makes us more productive. We believe from personal experience that we and other open source programmers are becoming something like 20% more productive every year, precisely because of the evolution of the open source code which we are able to reuse. This increase in productivity occurs for other programmers not working so completely with open source, but at a lower rate.</p>
+
+<p>There is no more powerful force than compound interest. Twenty per-cent compounds explosively. The fact that the open source community is making each member of the community more productive so astoundingly rapidly impacts federal program managers and Acquisition Officers highly. Each year, the cost and time to develop software is going down, and the usefulness and reliability of this software is going up.</p>
+
+<p>It may be difficult to perceive this transition in federal IT for two main reasons. The most significant is the deep outsourcing of technical expertise. The second is the complex nature of acquisition practices, some of which are forced by law and regulation, and some by habit. But the use of more open source software in the federal government can help to offset these two problems, and as good stewards, it is our duty to do so where possible.</p>
+
+<p>There are two senses in which we may use open source in our programs.</p>
+
+<ol>
+<li>The first is to reuse open source software from established projects.</li>
+<li>The second is to make the software written on our behalf open source.</li>
+<li>Although in principle similar, in practice these two uses require distinct considerations.</li>
+</ol>
+
+<h3 id="how-to-reuse-open-source-software">How to reuse open source software</h3>
+
+<p>Clearly, reusing existing commoditized open source software can save the taxpayer&#39;s money, even if we purchase support from a commercial firm for the software. This is true whether the overall project is controlled directly by the agency, or, more commonly, the agency contracts outside firms to construct large programs.</p>
+
+<p>However, open source software should not be reused willy-nilly, or to prove that it can be done, or to lend panache to the project. A project should be reused specifically to accomplish some purpose, generally to save having to write code oneself. Moreover, reusing a project represents a risk of bugs, bloat, and maintenance cost, just as writing your own code does. In general, we do not reuse a project unless it saves us about 20 lines of code.</p>
+
+<p>Here are some rules of thumb to decide whether or not you should reuse a certain module, or insist that your contractors do so:</p>
+
+<ul>
+<li>Is the reuse saving us more than 20 lines of code?</li>
+<li>Is the project supported by a community whose size is proportional to the project size and complexity?</li>
+<li>If the project is on a socially-enable source code platform such as GitHub, look at its social activity: was it updated recently? Are there many contributors? Have many people &quot;starred&quot; the repository?</li>
+<li>Is it small enough that we can code review it ourselves, or is the community so large that we don&#39;t feel the need to directly code review it?</li>
+<li>Is it something which is unlikely to require frequent (more than a year) updates, and, if so, does it have a community which is producing updates in a disciplined way?</li>
+</ul>
+
+<p>In other words, taking note both of the minor expense of reusing the project and the major expense of writing lines of code ourselves: <strong>is the use of the project saving me time, risk, and money, rather than costing me time, risk and money?</strong></p>
+
+<p>Ben Balter has written a summary of the <a href="http://fcw.com/articles/2014/09/30/9-things-to-look-for-in-an-open-source-project.aspx">factors</a> <a href="http://ben.balter.com/2014/06/02/how-to-identify-a-strong-open-source-project/">to consider</a> in evaluating an open source project. OSS Watch has published on <a href="http://opensource.com/life/14/1/evaluate-sustainability-open-source-project">evaluating the sustainability</a> of an open source project. Although these considerations should be weighed and may seem difficult, it is important to note that with experience a software engineer can make a decision about a given open source module or repository in a few minutes. Such decisions can be easily reversed if new knowledge comes to light. The burden of deciding when to use an open-source module in your code is tiny compared to the coding time and bug fixing time that it saves you.</p>
+
+<h3 id="how-to-use-open-source-for-your-own-code">How to use open source for your own code</h3>
+
+<p>In practice, the code which your agency writes or contracts to be written indirectly must be considered separately from the reuse of previously existing projects.</p>
+
+<p>There are compelling security reasons that your application will be more secure if you insist that it be released to the public under an open source license from the time the <a href="https://18f.gsa.gov/2014/07/31/working-in-public-from-day-1/">first line is written</a>, which we discuss in the Security section below.</p>
+
+<p>However, even beyond security, there are several reasons to make your code open source:</p>
+
+<ul>
+<li>Code which is open source by definition is not the private property or even private expertise of a single vendor. Open source prevents vendor lock-in.</li>
+<li>Like it or not, you are writing the legacy system of a decade from now, and the cost of maintaining it and eventually rewriting it will be much, much lower if it is written as open source from the start. Any contract written for the future maintenance or modification of the code will be based on complete knowledge of the code, which decreases uncertainty and therefore the risk to the bidder.</li>
+<li>Programmers do a better job when they know that their code is essentially becoming a matter of public record. Everyone hates embarrassment, and most programmers wish to be seen as craftspersons who take pride in their work.</li>
+<li>Finally, the US Taxpayer deserves to see and reuse the code that they are paying for, if they choose to do so. Even if the chances that what you write will be reused by the public is low, we should let them be the judge or that.</li>
+</ul>
+
+<p>It is our hope that ten years from now there may be many people contributing to federal open source projects under tight code review.Today, the public is contributing more to libraries produced by the government than to applications.</p>
+
+<h2 id="security-and-open-source">Security and open source</h2>
+
+<blockquote>
+<p>&quot;System security should not depend on the secrecy of the implementation or its components.&quot;</p>
+</blockquote>
+
+<p>-- <a href="http://csrc.nist.gov/publications/nistpubs/800-123/SP800-123.pdf">Guide to General Server Security</a>, National Institute of Standards and Technology</p>
+
+<p>A codebase is a terrible secret.</p>
+
+<p>Because a codebase is so large, it cannot easily be changed. Furthermore, it must be known, or at least knowable, to the large number of people who work on it, so it cannot be kept secret very easily. This is represented at the bottom of figures two and three. Therefore &quot;<a href="https://en.wikipedia.org/wiki/Security_through_obscurity">security through obscurity</a>&quot; is a terrible idea when it comes to a codebase. In most cases your system will consist of code which you reuse as well as code that your write yourself. Therefore both of these types of code should be open.</p>
+
+<p>Of course, your system will have secrets in most cases -- keys, passwords, and the like -- but you should assume they have been discovered and change them often. We call these secrets a &quot;red thread&quot;, because, like a red thread in a white handkerchief, they should be as vivid and thin as possible. By making them thin, such as a single password, you make them very easy to change and keep secret. Although these secrets are tiny, they must be managed carefully and conscientiously. We believe this concept is so important that we have placed it on our reusable version of the Wardley-Duncan map linked to above.</p>
+
+<p>There are risks of defects and complexity associated with using open source modules indiscriminately. There are also security vulnerabilities to any system, either through negligence or by the intention of a bad actor. <strong>The key to preventing this is code review.</strong></p>
+
+<p>You must make sure that each component you use is code reviewed. In practice this means either that you must use very popular projects whose code is looked at by a large number of people on a regular basis, or you must use small projects which your team can code review itself. In practice, the criteria for making this decision for reused components is similar to the rules of thumb that we have already laid down for managing risk.However, you may need to adjust these rules of thumb based on how often you plan to update the component.</p>
+
+<p>For example, a small component which is very stable need not be updated at all. If it is small and you can code review it or pay a team to code review it, then you may use it. On the other hand if the project has frequent updates, your team will have to decide how to manage these updates. A large project may have both stable and experimental branches. In general your team will want to update as frequently as the major number of the branch. If the project is very active and many people are looking at it, this does not represent a security risk. If however a project is changing rapidly and producing many releases and your team does not have the resources to ensure that each new release is code reviewed and you do not trust the community to do so, then you probably should not use that component.</p>
+
+<p>With an open source component, it is at least possible to understand how much code review it is receiving.We know of no way to do this for closed source code kept as a secret.A firm which is asked to maintain the security of the code that it has written is placed in a conflict of interest. It isn&#39;t in its short-term interest to spend resources on this code review, and it is not in its short-term interest to admit defects.</p>
+
+<h3 id="security-of-your-own-code">Security of your own code</h3>
+
+<p>Make all your code open and examinable from the start. Moreover, it is best to encourage as many people to look at it, because the more people who seriously review the code the more likely a security flaw is to be found. Programmers will code more securely when theircode is in the public&#39;s eyefrom the beginning.</p>
+
+<p>Code that you write or contract to have written should be open source from the start, because it relieves you of the terrible risk and burden of maintaining the secrecy of the codebase. This means not only that it is published under an open source license as explained in our <a href="https://github.com/18F/open-source-policy/blob/master/policy.md">open source policy</a>, but that it is published in a <a href="http://ben.balter.com/2014/09/29/our-code-deserves-better/">modern source code control system</a>.</p>
+
+<h2 id="18f-consulting">18F Consulting</h2>
+
+<p>The key to reuse is simple, but beyond the scope of this article: a modular architecture. In recent years, much of the technical expertise has been outsourced from the federal government procurement process. We created <a href="https://18f.gsa.gov/consulting/">18F Consulting</a> to provide this much needed technical expertise on a consultative basis at cost to guide federal programs toward a modular architecture using agile methodologies. Please <a href="mailto:18f@gsa.gov">contact us</a> for more information.</p>
+
+<h2 id="glossary">Glossary</h2>
+
+<table cellpadding="0" cellspacing="0" class="c34">
+    <tbody>
+        <tr >
+            <td colspan="1" rowspan="1">18F</td>
+            <td colspan="1" rowspan="1">An <a href="https://18f.gsa.gov/">incubator</a> using modern software development techniques for the federal government.</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">18F Consulting</td>
+            <td colspan="1" rowspan="1">A <a href="https://18f.gsa.gov/consulting/">consultancy</a> within 18F that provides services to federal program managers and other leaders who need assistance with designing and managing software acquisitions that use modern development techniques (e.g., agile, lean, open source).</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">application framework</td>
+            <td colspan="1" rowspan="1">A software system that facilitates the construction of an application, such as a web application (e.g. <a href="http://rubyonrails.org">Rails</a>, <a href="https://www.djangoproject.com/">Django</a>, <a href="http://sailsjs.org/#/">Sails.js</a>.)</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">civic hacking</td>
+            <td colspan="1" rowspan="1"><a href="http://hackforchange.org">Programming</a> for the public good in <a href="http://www.huffingtonpost.com/lily-liu/when-hacking-is-actually-_b_3697642.html">cooperation</a> with government.</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">cloud computing</td>
+            <td colspan="1" rowspan="1"><a href="https://en.wikipedia.org/wiki/Cloud_computing">Using</a> other people's computers.</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">content management system</td>
+            <td colspan="1" rowspan="1">A <a href="https://en.wikipedia.org/wiki/Computer_program"></a><a href="https://en.wikipedia.org/wiki/Content_management_system"> computer application</a> that allows publishing,editing and modifying <a href="https://en.wikipedia.org/wiki/Content_%28media%29"></a>content, organizing, deleting as well as maintenance from a central interface.</span></p><p class="c0 c7"><span ></span></p>
+            </td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">Elasticsearch</td>
+            <td colspan="1" rowspan="1">Elasticsearch is a search server based on <a href="https://en.wikipedia.org/wiki/Lucene"></a><a href="https://en.wikipedia.org/wiki/Lucene">Lucene</a>.</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">FISMA</td>
+            <td colspan="1" rowspan="1">The <a href="https://en.wikipedia.org/wiki/Federal_Information_Security_Management_Act_of_2002">Federal Information Security Management Act of 2002</a>.</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">full-text search engine</td>
+            <td colspan="1" rowspan="1">A way to find things using <a href="https://en.wikipedia.org/wiki/Full_text_search">words </a>that occur in them.</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">GUI framework</td>
+            <td colspan="1" rowspan="1">A body of code which facilitates implementing a modern web-based and mobile interface (e.g. <a href="https://github.com/twbs/bootstrap">bootstrap</a>).</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">GitHub</td>
+            <td colspan="1" rowspan="1">GitHub is a <a href="https://en.wikipedia.org/wiki/Git_%28software%29"></a><a href="https://en.wikipedia.org/wiki/Git_%28software%29">Git </a>repository <a href="https://en.wikipedia.org/wiki/Shared_web_hosting_service"></a> <a href="https://en.wikipedia.org/wiki/Shared_web_hosting_service">web-based hosting service</a> which offers all of the <a href="https://en.wikipedia.org/wiki/Distributed_revision_control"></a><a href="https://en.wikipedia.org/wiki/Distributed_revision_control">distributed revision control</a> and <a href="https://en.wikipedia.org/wiki/Revision_control"></a><a href="https://en.wikipedia.org/wiki/Revision_control">source code management</a>(SCM).</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">green-field</td>
+            <td colspan="1" rowspan="1">A project <a href="https://en.wikipedia.org/wiki/Greenfield_project">unconstrained</a> by a legacy of past work.</td>
+
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">NoSQL database</td>
+            <td colspan="1" rowspan="1"><a href="https://en.wikipedia.org/wiki/NoSQL">(Not Only SQL)</a> Data retrieval not based strictly on tables, such as key-value pair look up.</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">Lucene</td>
+            <td colspan="1" rowspan="1">Apache <a href="https://en.wikipedia.org/wiki/Lucene">Lucene</a> is a free open source<a href="https://en.wikipedia.org/wiki/Information_retrieval"></a>full-text search engine.</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">open source</td>
+            <td colspan="1" rowspan="1"><a href="https://en.wikipedia.org/wiki/Open-source_software">Open source</a> software (OSS)is <a href="https://en.wikipedia.org/wiki/Software">computer software</a> with its <a href="https://en.wikipedia.org/wiki/Source_code">source code</a> made available with a <a href="https://en.wikipedia.org/wiki/Open-source_license">license</a> in which the <a href="https://en.wikipedia.org/wiki/Copyright">copyright</a> holder provides the rights to study, change and distribute the software to anyone and for any purpose</span></p><p class="c0 c7"><span ></td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">PostgreSQL</td>
+            <td colspan="1" rowspan="1">A widely used open source <a href="http://www.postgresql.org/about/history/">relational database management system</a>.</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">relational database</td>
+            <td colspan="1" rowspan="1">A <a href="https://en.wikipedia.org/wiki/Relational_database">relational database</a> stores information about both the data and how it isrelatedbased on tables.</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">SOLR</td>
+            <td colspan="1" rowspan="1"><a href="https://en.wikipedia.org/wiki/Apache_Solr">Solr</a> (pronounced "solar") is an <a href="https://en.wikipedia.org/wiki/Open-source_software">open source</a><a href="https://en.wikipedia.org/wiki/Enterprise_search"> enterprise search </a>platform from the Apache <a href="https://en.wikipedia.org/wiki/Lucene">Lucene</a> project.</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">SourceForge</td>
+            <td colspan="1" rowspan="1">A web-based source code sharing <a href="https://en.wikipedia.org/wiki/SourceForge">platform</a> of many project repositories.</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">TechFAR</td>
+            <td colspan="1" rowspan="1">A <a href="https://github.com/WhiteHouse/playbook/blob/gh-pages/_includes/techfar-online.md">Handbook</a> for procuring services using agile process</td>
+
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">Unix Philosophy</td>
+            <td colspan="1" rowspan="1"><a href="https://en.wikipedia.org/wiki/Unix_philosophy">Write</a> small, recombinable programs.</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">USDS</td>
+            <td colspan="1" rowspan="1">The <a href="http://www.washingtonpost.com/blogs/the-switch/wp/2014/08/11/white-house-launches-u-s-digital-service-with-healthcare-gov-fixer-at-the-helm/">U.S. Digital Service</a>, which seeks to drive innovation and technical excellence.</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">USDS playbook</td>
+            <td colspan="1" rowspan="1">A concise <a href="https://playbook.cio.gov/">guide</a> to best practices for federal program managers and acquisition officers.</td>
+        </tr>
+        <tr >
+            <td colspan="1" rowspan="1">Wardley-Duncan map</td>
+            <td colspan="1" rowspan="1">A <a href="http://blog.gardeviance.org/2013/03/basics-repeated-again.html">chart</a> of components using evolution and closeness to end-user as axes.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="further-reading">Further reading</h2>
+
+<ul>
+<li>Codd, E. F. (1970). <a href="http://www.seas.upenn.edu/%7Ezives/03f/cis550/codd.pdf">&quot;A relational model of data for large shared data banks&quot;</a>. Communications of the ACM13(6): 377.<a href="https://en.wikipedia.org/wiki/Digital_object_identifier">doi</a>: <a href="http://dx.doi.org/10.1145%2F362384.362685">10.1145/362384.362685</a>.</li>
+<li>Liu, Lily (2013) &quot;When Hacking is Actually a Good Thing: The Civic Hacking Movement&quot; <a href="http://www.huffingtonpost.com/lily-liu/when-hacking-is-actually-_b_3697642.html">http://www.huffingtonpost.com/lily-liu/when-hacking-is-actually-<em>b</em>3697642.html</a></li>
+<li>Lee, Gwanhoo, and Xia, Weidong (2010) &quot;Toward Agile: An Integrated Analysis of Quantitative and Qualitative Field Data on Software Development Agility&quot; MIS Quarterly Vol. 34 No. 1, pp. 87-114/March 2010</li>
+<li>Wardley, Simon (2013) &quot;Basics … repeated … again …&quot; <a href="http://blog.gardeviance.org/2013/03/basics-repeated-again.html">http://blog.gardeviance.org/2013/03/basics-repeated-again.html</a></li>
+<li>Balter, Ben (2011) &quot;Towards a More Agile Government&quot; <a href="http://ben.balter.com/2011/11/29/towards-a-more-agile-government/">http://ben.balter.com/2011/11/29/towards-a-more-agile-government/</a></li>
+<li>Balter, Ben (2014) &quot;Why Isn&#39;t All Government Open Source&quot; <a href="http://ben.balter.com/2014/08/03/why-isnt-all-government-software-open-source/">http://ben.balter.com/2014/08/03/why-isnt-all-government-software-open-source/</a></li>
+<li>Balter, Ben (2014)&quot;9 things to look for in an open-source project&quot; Federal Computer Weekly <a href="http://fcw.com/articles/2014/09/30/9-things-to-look-for-in-an-open-source-project.aspx">http://fcw.com/articles/2014/09/30/9-things-to-look-for-in-an-open-source-project.aspx</a>, September 30, 2014</li>
+<li>Hellekson, Gunnar (2014) &quot; An Agency that Learns&quot;, <a href="https://atechnologyjobisnoexcuse.com/2014/08/an-agency-that-learns/">https://atechnologyjobisnoexcuse.com/2014/08/an-agency-that-learns/</a>, August 14, 2014.</li>
+</ul>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2014/11/17/taking-control-of-our-website-with-jekyll-and-webhooks/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;Taking control of our website with Jekyll and webhooks&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2014/12/10/great-community-turnout-for-open-source-hack-night/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;Great community turnout for Midas open source hack night&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/02/11/a-story-of-an-agile-workshop/' class='related_posts'>&ldquo;A Story of an agile workshop&rdquo;</a></li><li><a href='/2015/09/28/web-design-standards/' class='related_posts'>&ldquo;Introducing the U.S. Web Design Standards&rdquo;</a></li><li><a href='/2015/08/10/18f-design-methods/' class='related_posts'>&ldquo;Introducing 18F Design Methods&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2014-11-26-how-to-use-more-open-source.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

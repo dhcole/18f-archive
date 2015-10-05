@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/06/02/taking-the-pulse-of-the-federal-governments-web-presence/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/06/02/taking-the-pulse-of-the-federal-governments-web-presence/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; Taking the pulse of the federal government's web presence</title>
+  <meta property="og:title" content="Taking the pulse of the federal government&#39;s web presence" />
+
+
+  <meta name="description" content="The U.S. federal government is launching a new project to monitor how it&#39;s doing at best practices on the web called Pulse, at pulse.cio.gov.">
+  <meta property="og:description" content="The U.S. federal government is launching a new project to monitor how it&#39;s doing at best practices on the web called Pulse, at pulse.cio.gov." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/blog/pulse/pulse.png" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/06/02/taking-the-pulse-of-the-federal-governments-web-presence/">Taking the pulse of the federal government's web presence</a></h1>
+
+      <time datetime="2015-06-02T00:00:00+00:00" itemprop="datePublished">June 2, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/pulse">pulse</a>
+            /
+          
+            <a href="/tags/analytics">analytics</a>
+            /
+          
+            <a href="/tags/https">https</a>
+            /
+          
+            <a href="/tags/dap">dap</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author eric" style="color: #000">
+    <a href=/team/eric>Eric Mill</a>, 
+  
+  <span class="author julia" style="color: #000">
+    <a href=/team/julia>Julia Elman</a>, 
+  
+  <span class="author gray" style="color: #000">
+    <a href=/team/gray>Gray Brooks</a>,  and 
+  
+  <span class="author jtindel" style="color: #000">
+    John Tindel
+  </span>
+</p>
+
+
+      <p>The U.S. federal government is launching a new project to monitor how it&#39;s doing at best practices on the web.</p>
+
+<p>A sort of health monitor for the U.S. government&#39;s websites, it&#39;s called <strong><a href="https://pulse.cio.gov">Pulse</a></strong>, and you can find it at <strong><a href="https://pulse.cio.gov">pulse.cio.gov</a></strong>.</p>
+
+<p><a href="https://pulse.cio.gov"><img src="/assets/blog/pulse/pulse.png" alt="pulse homepage"></a></p>
+
+<p><a href="https://pulse.cio.gov">Pulse</a> is a lightweight dashboard that uses the <a href="https://github.com/GSA/data/blob/gh-pages/dotgov-domains/2015-03-15-federal.csv">official .gov domain list</a> to measure two things:</p>
+
+<ul>
+<li><strong><a href="https://pulse.cio.gov/analytics/domains/">Analytics</a>:</strong> Whether federal executive branch domains are participating in the <a href="https://www.digitalgov.gov/services/dap/">Digital Analytics Program</a> that powers <a href="https://analytics.usa.gov">analytics.usa.gov</a>.</li>
+<li><strong><a href="https://pulse.cio.gov/https/domains/">HTTPS</a>:</strong> Whether federal domains have deployed the <a href="https://https.cio.gov/faq/">HTTPS protocol</a>, and how well they&#39;ve done it.</li>
+</ul>
+
+<p>These two things are just a start — there are a lot of other important things worth measuring! It&#39;s also important to note that Pulse is currently only measuring parent domains (e.g. <code>agency.gov</code>) and is <em>not</em> measuring subdomains (e.g. <code>portal.agency.gov</code>).</p>
+
+<p>The project will hopefully expand over time to measure more best practices and more websites. In the meantime, Pulse is a commitment by the U.S. government to build a world-class analytics program and to transition entirely to HTTPS.</p>
+
+<h2 id="background">Background</h2>
+
+<p><a href="https://pulse.cio.gov/analytics/agencies/"><img src="/assets/blog/pulse/analytics-agencies.png" alt="pulse screenshot of analytics"></a></p>
+
+<p>Pulse is a collaboration between 18F and the <a href="http://www.gsa.gov/portal/content/104550">Office of Government-wide Policy</a> (OGP).</p>
+
+<p>Like 18F, OGP is an office of the U.S. General Services Administration. Among many other things, OGP operates the <a href="https://www.dotgov.gov">.gov domain registry</a> and the <a href="https://cio.gov">CIO Council</a>, an interagency forum of Chief Information Officers.</p>
+
+<p>18F previously partnered with OGP in December to <a href="https://18f.gsa.gov/2014/12/18/a-complete-list-of-gov-domains/">release the complete .gov domain list</a>. Since then, 18F has worked with the Digital Analytics Program <a href="https://18f.gsa.gov/2015/03/19/how-we-built-analytics-usa-gov/">to build analytics.usa.gov</a>, and has coordinated with a number of agencies to <a href="https://18f.gsa.gov/2015/02/09/the-first-gov-domains-hardcoded-into-your-browser-as-all-https/">strengthen HTTPS for federal .gov domains</a>. We&#39;re deeply gratified that we&#39;ve had the opportunity to work with OGP to create a platform that continues this momentum.</p>
+
+<h2 id="how-pulse.cio.gov-works">How pulse.cio.gov works</h2>
+
+<p><a href="https://pulse.cio.gov/https/agencies/"><img src="/assets/blog/pulse/https-agencies.png" alt="pulse screenshot of https"></a></p>
+
+<p>Pulse was created in around six weeks. We built the project <a href="https://github.com/18f/pulse">in the open from Day 1</a>, obtained our domain name and relevant cybersecurity approvals in our first couple weeks, and released new versions of the dashboard to <a href="https://pulse.cio.gov">pulse.cio.gov</a> early and often throughout the process.</p>
+
+<p>We also gathered usability feedback throughout development from users both inside and outside of the government, and repeatedly incorporated the results of that feedback into our work. Even though Pulse is only a handful of pages and puts most of its data into a simple table, we wanted to pay attention to detail and take the same user-centered approach 18F takes with our larger projects.</p>
+
+<p>Pulse is a static website whose data is created from a combination of sources:</p>
+
+<ul>
+<li>The <a href="https://github.com/GSA/data/blob/gh-pages/dotgov-domains/2015-03-15-federal.csv">official .gov domain list</a>. This is currently exported manually by GSA staff on a roughly quarterly basis.</li>
+<li>The <a href="https://analytics.usa.gov/data/sites.csv">list of websites</a> which participate in the Digital Analytics Program. This is also currently exported manually by GSA staff on a roughly quarterly basis.</li>
+<li>Data collected from a public scan of how federal domains respond to HTTP and HTTPS, using an open source tool by <a href="https://twitter.com/benbalter">Ben Balter</a> called <a href="https://github.com/benbalter/site-inspector"><code>site-inspector</code></a>.</li>
+<li>Data collected from a public scan of HTTPS configuration details for federal domains, using the <a href="https://github.com/ssllabs/ssllabs-scan/blob/stable/ssllabs-api-docs.md">SSL Labs API</a>.</li>
+</ul>
+
+<p>To coordinate the data collection process, we created <a href="https://github.com/18F/domain-scan"><code>domain-scan</code></a>, a small Python command line tool that runs domains through <code>site-inspector</code> and the SSL Labs API and produces CSV reports.</p>
+
+<p>We then run these CSVs through a <a href="https://github.com/18F/pulse/blob/master/data/data.py">final step</a>, where we take the low-level primitives we gathered during the scanning process and create some higher-level conclusions and save them in a format that Pulse can automatically render into a table.</p>
+
+<p>The process is not fully automated, and so Pulse isn&#39;t updated every day. There&#39;s work to do on all of the above to get to the point of showing fully up-to-date data without human intervention.</p>
+
+<h2 id="measuring-participation-in-the-digital-analytics-program">Measuring participation in the Digital Analytics Program</h2>
+
+<p><a href="https://pulse.cio.gov/analytics/domains/"><img src="/assets/blog/pulse/analytics.png" alt="pulse screenshot of analytics homepage"></a></p>
+
+<p>The <a href="https://www.digitalgov.gov/services/dap/">Digital Analytics Program</a> is a free, shared web analytics service for U.S. federal agencies.</p>
+
+<p>To participate, agencies place some JavaScript on their websites that report to a combined analytics account. The Digital Analytics Program has <a href="https://www.digitalgov.gov/services/dap/common-questions-about-dap-faq/#part-4">privacy controls</a> that anonymize visitor addresses and restrict data sharing.</p>
+
+<p>Access to the account is shared within the federal government, and much of its data is shared publicly on <a href="https://analytics.usa.gov/">analytics.usa.gov</a>. The Digital Analytics Program also regularly publishes a list of around 4,000 participating websites that have reported visitor data in the preceding 2 weeks.</p>
+
+<p><a href="https://pulse.cio.gov/analytics/domains/"><img src="/assets/blog/pulse/analytics-domains.png" alt="pulse screenshot of analytics domains"></a></p>
+
+<p>Pulse measures participation in the simplest way possible: by comparing the .gov domain list to the list of participating websites published by the Digital Analytics Program. It&#39;s not rocket science, but in the future we&#39;d like to automate this process using the <a href="https://github.com/18F/analytics-reporter"><code>analytics-reporter</code></a> tool <a href="https://18f.gsa.gov/2015/03/19/how-we-built-analytics-usa-gov/">we created for analytics.usa.gov</a>.</p>
+
+<h2 id="measuring-https-in-.gov">Measuring HTTPS in .gov</h2>
+
+<p><a href="https://pulse.cio.gov/https/domains/"><img src="/assets/blog/pulse/https.png" alt="pulse screenshot of https homepage"></a></p>
+
+<p>Enforcing strong HTTPS is an <a href="https://18f.gsa.gov/2014/11/13/why-we-use-https-in-every-gov-website-we-make/">important baseline</a> for government websites, and is in the <a href="https://blog.mozilla.org/security/2015/04/30/deprecating-non-secure-http/">process</a> of <a href="https://www.chromium.org/Home/chromium-security/marking-http-as-non-secure">becoming</a> the baseline for the web at large.</p>
+
+<p>HTTPS is simple enough to detect, but characterizing HTTPS support for a domain, precisely and reliably, is trickier than you might expect.</p>
+
+<p>We lean heavily on the open source <a href="https://github.com/benbalter/site-inspector"><code>site-inspector</code></a>, a command line tool written in Ruby. <code>site-inspector</code> measures various useful things about websites, and was originally written by Ben Balter to <a href="http://ben.balter.com/2015/05/11/third-analysis-of-federal-executive-dotgovs/">analyze .gov domains</a>.</p>
+
+<p><a href="https://pulse.cio.gov/https/domains/"><img src="/assets/blog/pulse/https-domains.png" alt="pulse screenshot of https domains"></a></p>
+
+<p>To get the precision we wanted, we needed to take into account several subtle things about domains:</p>
+
+<ul>
+<li>Domains have 4 possible &quot;endpoints&quot; — <code>https://www</code>, <code>https://</code>, <code>http://www</code>, and <code>http://</code> — which may each exhibit very different behavior. Describing a domain&#39;s HTTPS support means detecting which endpoint is &quot;canonical,&quot; as well as looking holistically at which endpoints redirect to others.</li>
+<li>A domain&#39;s HTTPS certificate might be issued for an invalid hostname (e.g. <code>a248.e.akamai.net</code>). In this case, HTTPS is likely an <strong>unsupported</strong> way to access the domain.</li>
+<li>A domain&#39;s HTTPS certificate might have an incomplete or untrusted chain (e.g. missing intermediates, or a private root certificate), in which case HTTPS is likely a <strong>supported</strong> way to access the domain.</li>
+<li>A domain might set an <a href="https://https.cio.gov/hsts/">HSTS</a> policy for <code>www</code>, but neglect to apply one to the bare domain, negating HSTS policy for its other subdomains.</li>
+<li>A domain might support HTTPS with a valid certificate, but have a policy of &quot;downgrading&quot; users by redirecting away from HTTPS to HTTP.</li>
+</ul>
+
+<p>We use <code>site-inspector</code> to look at all of the above factors (and many more) and calculate a bunch of helpful things about a domain&#39;s HTTPS support. If you really want to dive deeply into the methodology, you can read the <a href="https://github.com/benbalter/site-inspector/pull/24">original work discussion</a>.</p>
+
+<p>To measure HTTPS quality, we lean on <a href="https://www.ssllabs.com">SSL Labs</a>. SSL Labs&#39; <a href="https://www.ssllabs.com/downloads/SSL_Server_Rating_Guide.pdf">grading system</a> has become a widely respected, universally referenced gauge of HTTPS quality. (Here&#39;s the <a href="https://www.ssllabs.com/ssltest/analyze.html?d=pulse.cio.gov">report for Pulse itself</a>.)</p>
+
+<p>We used <a href="https://github.com/ssllabs/ssllabs-scan"><code>ssllabs-scan</code></a>, an open source client for the <a href="https://github.com/ssllabs/ssllabs-scan/blob/stable/ssllabs-api-docs.md">SSL Labs API</a>, to collect the top-level grade along with some common relevant issues that are worth addressing (such as forward secrecy, or the use of SHA-1 signatures).</p>
+
+<h2 id="looking-forward">Looking forward</h2>
+
+<p>We&#39;re still in the process of fully documenting the tools we used. If you&#39;re interested in using any of it in your own work, and you have questions about how to get started, <a href="https://github.com/18f/pulse/issues/new">ring in on GitHub</a>. We&#39;re an open source team, and we&#39;d love your contributions!</p>
+
+<p>Pulse is clearly a small and simple website, but we think it&#39;s a promising foundation for celebrating (and motivating) the U.S. government&#39;s progress on making world-class websites and online services.</p>
+
+<p>We&#39;re thrilled we had the opportunity to work with the Office of Government-wide Policy here at GSA to get Pulse started, and we hope others find it useful. Feel free to <a href="https://github.com/18F/pulse/issues/new">leave feedback</a> on the project so far, and where to take Pulse next!</p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/05/29/moveforward-analytics-video/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;Video: What happens when you collect .gov-wide analytics&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/06/03/giving-back-to-open-source/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;Giving back to open source: Everybody wins&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/05/29/moveforward-analytics-video/' class='related_posts'>&ldquo;Video: What happens when you collect .gov-wide analytics&rdquo;</a></li><li><a href='/2015/03/19/how-we-built-analytics-usa-gov/' class='related_posts'>&ldquo;How we built analytics.usa.gov&rdquo;</a></li><li><a href='/2015/07/16/introduction-to-https-webinar/' class='related_posts'>&ldquo;An introduction to HTTPS, by 18F and DigitalGov University&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-06-02-taking-the-pulse-of-the-federal-governments-web-presence.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

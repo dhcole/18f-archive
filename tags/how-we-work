@@ -1,0 +1,2521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/tags/how-we-work/" />
+<link rel="canonical" href="https://18f.gsa.gov/tags/how-we-work/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; how we work</title>
+  <meta property="og:title" content="how we work" />
+
+
+  <meta name="description" content="18F builds effective, user-centric digital services focused on the interaction between government and the people and businesses it serves.">
+  <meta property="og:description" content="18F builds effective, user-centric digital services focused on the interaction between government and the people and businesses it serves." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <!-- until Twitter's card approver fixes itself, need to use summary_large_image here too because we can't get approved for both -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/images/18f-share-image.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+
+  <div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+    <section>
+  
+  <h1>52 posts tagged how we work</h1>
+
+  <div class="container blog-entry " itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/10/02/building-a-better-government-design-team/">Building a better government design team</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-10-02T00:00:00+00:00" itemprop="datePublished">
+                02 Oct 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/events">events</a>
+                  /
+                
+                  <a href="/tags/culture">culture</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Building a high-performing design team is tough under the best of circumstances. Add in governmental regulations, a distributed workforce, and rapid growth of the parent organization, and the process is even tougher.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/10/02/building-a-better-government-design-team/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/09/21/new-citizenship-resources/">New citizenship resources demystify the naturalization process</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-09-21T00:00:00+00:00" itemprop="datePublished">
+                21 Sep 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/design">design</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/our%20projects">our projects</a>
+                  /
+                
+                  <a href="/tags/proactive%20federal%20partner">proactive federal partner</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>For many people, September conjures up happy memories of heading back to school, new backpack and supplies in tow. For new and aspiring citizens, September has additional significance: It’s when the federal government celebrates Constitution Week, a weeklong observance commemorating the adoption of the U.S. Constitution.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/09/21/new-citizenship-resources/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/09/09/how-a-two-day-spring-moved-an-agency-twenty-years-forward/">How a two-day sprint moved an agency twenty years forward</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-09-09T00:00:00+00:00" itemprop="datePublished">
+                09 Sep 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/agile">agile</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/discovery">discovery</a>
+                  /
+                
+                  <a href="/tags/proactive%20federal%20partner">proactive federal partner</a>
+                  /
+                
+                  <a href="/tags/operational%20excellence">operational excellence</a>
+                  /
+                
+                  <a href="/tags/our%20projects">our projects</a>
+                  /
+                
+                  <a href="/tags/user%20research">user research</a>
+                  /
+                
+                  <a href="/tags/consulting">consulting</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>At 18F Consulting, we experiment with ways to empower agencies to build cost-efficient, excellent digital solutions. Recently we partnered with the Department of Labor’s Wage and Hour Division to run a two day “Design/Dev Agile Sprint” to help them modernize their Field Operations Handbook.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/09/09/how-a-two-day-spring-moved-an-agency-twenty-years-forward/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/09/08/reimagining-the-immigration-process/">Reimagining the immigration process</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-09-08T00:00:00+00:00" itemprop="datePublished">
+                08 Sep 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/design">design</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/our%20projects">our projects</a>
+                  /
+                
+                  <a href="/tags/proactive%20federal%20partner">proactive federal partner</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Since November, I’ve been working with a team from 18F and USCIS to develop my.uscis.gov, a customer-facing site to help users navigate their relationship with the agency. USCIS approached 18F about the partnership because they wanted to improve the experience for millions of users like my husband and me.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/09/08/reimagining-the-immigration-process/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/09/03/every-kid-in-a-park/">How to design a government site for kids</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-09-03T00:00:00+00:00" itemprop="datePublished">
+                03 Sep 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/our%20projects">our projects</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/proactive%20federal%20partner">proactive federal partner</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Every Kid in a Park gives U.S. fourth graders free access to all federal lands and water for a full year. Here at 18F, we were proud to develop the site in partnership with the U.S. Department of Interior and other federal land management agencies.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/09/03/every-kid-in-a-park/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/08/10/18f-design-methods/">Introducing 18F Design Methods</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-08-10T00:00:00+00:00" itemprop="datePublished">
+                10 Aug 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/open%20source">open source</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/guides">guides</a>
+                  /
+                
+                  <a href="/tags/documentation">documentation</a>
+                  /
+                
+                  <a href="/tags/design">design</a>
+                  /
+                
+                  <a href="/tags/operational%20excellence">operational excellence</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>We’re thrilled to introduce the beta deck of 18F Design Methods, a collection of research and design practices that we use to better understand and serve the users of our products.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/08/10/18f-design-methods/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/07/06/18f-content-guide/">The 18F content guide: working toward cleaner, more accessible communication</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-07-06T00:00:00+00:00" itemprop="datePublished">
+                06 Jul 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/guides">guides</a>
+                  /
+                
+                  <a href="/tags/content">content</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>We’re proud to announce the release of our 18F Content Guide, a comprehensive handbook to help content creators on our team (and, we hope, elsewhere) create more direct, accessible, and compelling written works.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/07/06/18f-content-guide/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/06/16/fast-company-story/">Making sense of Washington’s tech landscape</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-06-16T00:00:00+00:00" itemprop="datePublished">
+                16 Jun 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/usds">usds</a>
+                  /
+                
+                  <a href="/tags/18f">18f</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>The cover story in this month’s Fast Company offers a great metaphor to better explain the relationship of 18F, the U.S. Digital Service headquarters, and the digital teams inside various agencies.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/06/16/fast-company-story/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/06/15/building-a-better-welcome-wagon/">Building a better welcome wagon</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-06-15T00:00:00+00:00" itemprop="datePublished">
+                15 Jun 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/training">training</a>
+                  /
+                
+                  <a href="/tags/team">team</a>
+                  /
+                
+                  <a href="/tags/the%20hub">the hub</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>As our team expands to meet federal digital needs, we&#39;ve learned to appreciate documentation for its ability to turn new hires into self-sufficient contributors quickly, with minimal disruption to the organization.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/06/15/building-a-better-welcome-wagon/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/05/28/18F-guides/">18F Guides</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-05-28T00:00:00+00:00" itemprop="datePublished">
+                28 May 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/training">training</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>While there&#39;s no substitute for personal instruction and mentorship, that effort scales far more effectively when there are clear, concise materials to introduce the basics. 18F Guides aims to fill that role for our young and growing team, and we hope it may be of use to others as well.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/05/28/18F-guides/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/05/21/TockingTime/">Tocking time</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-05-21T00:00:00+00:00" itemprop="datePublished">
+                21 May 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/18f">18f</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>I recently spent time helping with one of our internal frustrations — how members of 18F track how we spend our time. Ultimately, we opted to try rolling our own simple solution using Django: Tock.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/05/21/TockingTime/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/05/14/18Fpages/">Moving from GitHub Pages to 18F Pages</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-05-14T00:00:00+00:00" itemprop="datePublished">
+                14 May 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/18f">18f</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>As part of 18F&#39;s effort to generate helpful documentation for all digital service teams, we have launched https://pages.18f.gov/, aka “18F Pages,” an ever-growing site that contains guides, best practices, and more.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/05/14/18Fpages/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/05/12/on-culture-change-a-code-of-conduct/">On culture change: A code of conduct</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-05-12T00:00:00+00:00" itemprop="datePublished">
+                12 May 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/culture">culture</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>It has become a standard practice in the software industry to create a “code of conduct” for conferences and events. By creating our own Code of Conduct, we are defining the kind of environment we seek to create.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/05/12/on-culture-change-a-code-of-conduct/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/05/08/layering-innovation/">Layering innovation</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-05-08T00:00:00+00:00" itemprop="datePublished">
+                08 May 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/developer">developer</a>
+                  /
+                
+                  <a href="/tags/coding">coding</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/devops">devops</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>At 18F, we&#39;re changing the way government thinks about software, all the way to provisioning and deployment. To do that, we implemented an open source platform as a service for our developers. Here’s a look at how we created it.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/05/08/layering-innovation/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/05/04/pair-programming-why-two-heads-are-better-than-one/">Pair programming: Why two heads are better than one</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-05-04T00:00:00+00:00" itemprop="datePublished">
+                04 May 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/developer">developer</a>
+                  /
+                
+                  <a href="/tags/coding">coding</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>At 18F, we frequently use pair programming, a technique where two developers work together on one screen. We asked two developers at 18F how they pair program and why they find it useful.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/05/04/pair-programming-why-two-heads-are-better-than-one/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/04/29/18f-how-we-write/">18F: a great place to write</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-04-29T00:00:00+00:00" itemprop="datePublished">
+                29 Apr 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/18f">18f</a>
+                  /
+                
+                  <a href="/tags/open%20source">open source</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>We collaborate on much of what we do at 18F, from the way we work on code to the way we write our blog. Though we have a small editorial team, the blog — and our writing process — extends ownership to the entire 18F team.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/04/29/18f-how-we-write/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/04/28/intersection-of-art-and-technology/">The intersection of art and technology</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-04-28T00:00:00+00:00" itemprop="datePublished">
+                28 Apr 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/design">design</a>
+                  /
+                
+                  <a href="/tags/open%20source">open source</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Earlier this month, I went to the Museum of Modern Art in New York City for the first time. I was there to see a special exhibit featuring the pop singer Bjӧrk, who is currently presenting a retrospective of her life’s work as a musician, artist and technologist. The retrospective spans back from her early beginnings as a childhood folk singer in Iceland all the way through to her most current album release.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/04/28/intersection-of-art-and-technology/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/04/24/agile-developments-secret-weapon-transparency/">Agile development’s secret weapon: transparency</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-04-24T00:00:00+00:00" itemprop="datePublished">
+                24 Apr 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/agile">agile</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/transparency">transparency</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>18F Consulting recommends agile development for several reasons, including agile’s emphasis on user needs, continuous integration, and rapid adaptation to changed circumstances. But there is another important reason we recommend agile: its focus on transparency.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/04/24/agile-developments-secret-weapon-transparency/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/04/21/hackathons-not-just-for-folks-who-code/">Hackathons: not just for folks who code</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-04-21T00:00:00+00:00" itemprop="datePublished">
+                21 Apr 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/hackathons">hackathons</a>
+                  /
+                
+                  <a href="/tags/events">events</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/howto">howto</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>A few members of the 18F team recently published an excellent guide on welcoming new coders to civic hackathons. In the same vein, we’d like to offer a list of strategies for including non-technical folks in your hackathons.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/04/21/hackathons-not-just-for-folks-who-code/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/04/09/flexibility-when-releasing-a-new-product-peace-corps-new-donation-platform/">Flexibility when releasing a new product: Peace Corps' new donations platform</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-04-09T00:00:00+00:00" itemprop="datePublished">
+                09 Apr 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/peace%20corps">peace corps</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>We were proud to provide design and development work for the Peace Corps&#39; new donation platform. We want to share a few reflections around drawing that delivery line for this new product, and explain where we think we made the right call and look at other decisions which still keep us up at night.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/04/09/flexibility-when-releasing-a-new-product-peace-corps-new-donation-platform/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/04/08/day-in-the-life-of-talent-manager/">A day in the life of an 18F talent manager</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-04-08T00:00:00+00:00" itemprop="datePublished">
+                08 Apr 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/18f">18f</a>
+                  /
+                
+                  <a href="/tags/day%20in%20the%20life">day in the life</a>
+                  /
+                
+                  <a href="/tags/culture">culture</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>For this month&#39;s installment of our Day in the Life series, Talent Manager Jamie Albrecht shares the ins and outs of her day — and her power song.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/04/08/day-in-the-life-of-talent-manager/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/04/03/how-to-welcome-new-coders-to-a-civic-hackathon/">How to welcome new coders to a civic hackathon</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-04-03T00:00:00+00:00" itemprop="datePublished">
+                03 Apr 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/18f">18f</a>
+                  /
+                
+                  <a href="/tags/events">events</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/hackathons">hackathons</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>The National Day of Civic Hacking is a great time to attend — or host your first hackathon. We’ve outlined some strategies for first-time hackathon hosts to ensure new participants feel welcome, and help them maximize their contributions.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/04/03/how-to-welcome-new-coders-to-a-civic-hackathon/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/04/03/18f-discussion-should-project-teams-code-first-or-design-first/">18F discussion: Should project teams code first or design first?</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-04-03T00:00:00+00:00" itemprop="datePublished">
+                03 Apr 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/18f">18f</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/design">design</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Recently, three members of our team sat down for a conversation about when teams should start coding on a project.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/04/03/18f-discussion-should-project-teams-code-first-or-design-first/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/03/31/focus-on-accessibility/">Focus on accessibility</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-03-31T00:00:00+00:00" itemprop="datePublished">
+                31 Mar 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/18f">18f</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/accessibility">accessibility</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Accessibility is central to our work here at 18F. Read more about our accessibility efforts and how you can get involved.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/03/31/focus-on-accessibility/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/03/24/making-twitter-images-more-accessible/">Making twitter images accessible</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-03-24T00:00:00+00:00" itemprop="datePublished">
+                24 Mar 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/accessibility">accessibility</a>
+                  /
+                
+                  <a href="/tags/twitter">twitter</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>To make our tweets more accessible, 18F has started responding to our Tweets containing images, with another tweet explaining what the image shows.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/03/24/making-twitter-images-more-accessible/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/03/20/one-year-in-and-looking-forward/">One year in and looking forward</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-03-20T00:00:00+00:00" itemprop="datePublished">
+                20 Mar 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/yearone">yearone</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/success%20stories">success stories</a>
+                  /
+                
+                  <a href="/tags/anniversary">anniversary</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>One year ago we said, &#39;Hello, World&#39; and launched not only a new team, but also the promise of a new way of working with and for the Federal Government. Here&#39;s what we&#39;ve accomplished so far.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/03/20/one-year-in-and-looking-forward/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/03/19/18f-by-the-numbers/">18F by the numbers</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-03-19T18:00:00+00:00" itemprop="datePublished">
+                19 Mar 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/18f">18f</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/anniversary">anniversary</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Today, we’re celebrating our first anniversary. We wanted to take a look at some of the numbers that have helped define 18F during our first year.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/03/19/18f-by-the-numbers/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/03/17/does-18f-pass-the-bechdel-test-for-tech/">Does 18F pass the Bechdel test for tech?</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-03-17T14:00:00+00:00" itemprop="datePublished">
+                17 Mar 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/diversity">diversity</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/bechdel%20test">bechdel test</a>
+                  /
+                
+                  <a href="/tags/culture">culture</a>
+                  /
+                
+                  <a href="/tags/coding">coding</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>How does the Bechdel test, originally designed for evaluating works for fiction, apply to technology projects? To pass, a function written by a woman dev must call a function written by another woman dev.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/03/17/does-18f-pass-the-bechdel-test-for-tech/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/03/13/how-to-protosketch/">How to protosketch</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-03-13T00:00:00+00:00" itemprop="datePublished">
+                13 Mar 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/protosketching">protosketching</a>
+                  /
+                
+                  <a href="/tags/18f%20consulting">18f consulting</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/agile">agile</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>If you are a leading a project, ask for a protosketch. If you are a developer, learn to protosketch. Create imagination-sparking moments, in the meeting.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/03/13/how-to-protosketch/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/03/10/Labor-Category-Descriptions-for-Agile-Procurements/">Labor category descriptions for agile procurements</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-03-10T00:00:00+00:00" itemprop="datePublished">
+                10 Mar 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/18f">18f</a>
+                  /
+                
+                  <a href="/tags/agile">agile</a>
+                  /
+                
+                  <a href="/tags/procurement">procurement</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Clients of 18F Consulting frequently ask for help defining labor categories for agile contracts. We’ve published these definitions in a public GitHub repo so other acquisition professionals can benefit from them, too. Read on for more details.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/03/10/Labor-Category-Descriptions-for-Agile-Procurements/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/03/03/how-to-use-github-and-the-terminal-a-guide/">How to use GitHub and the terminal: a guide</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-03-03T00:00:00+00:00" itemprop="datePublished">
+                03 Mar 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/github">github</a>
+                  /
+                
+                  <a href="/tags/tutorial">tutorial</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/18f">18f</a>
+                  /
+                
+                  <a href="/tags/blog">blog</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>At 18F we hire people from many different backgrounds and each new employee brings a different level of comfort with the specific tools we use on our various projects. The team that runs the 18F website recently started writing down the tools and processes that we use to update the blog and the code that runs the site. We&#39;re sharing that with you today.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/03/03/how-to-use-github-and-the-terminal-a-guide/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/02/25/We-Are-Hiring/">We are hiring</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-02-25T00:00:00+00:00" itemprop="datePublished">
+                25 Feb 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/18f">18f</a>
+                  /
+                
+                  <a href="/tags/team">team</a>
+                  /
+                
+                  <a href="/tags/join%20us">join us</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>You can find 18F in D.C., San Francisco, Chicago, Dayton, and New York. Our rapidly growing team is home to a variety of roles, including these: Software Makers, Experience Designers &amp; Researchers, DevOps, Visual and Interaction Designers, Writers &amp; Content Strategists, Product Managers and whatever other skills you can bring to the team.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/02/25/We-Are-Hiring/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/02/17/three-18f-products-that-will-help-your-workplace/">Three 18F products that will help your workplace</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-02-17T00:00:00+00:00" itemprop="datePublished">
+                17 Feb 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/midas">midas</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/github">github</a>
+                  /
+                
+                  <a href="/tags/snippets">snippets</a>
+                  /
+                
+                  <a href="/tags/the%20hub">the hub</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>I’ve worked at 18F for exactly six days. During those six days, I learned about a few products that I wish I’d known about while at my previous job. These products would not only have saved me hours of work (itself a bonus), but they also would have fostered long-term collaboration.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/02/17/three-18f-products-that-will-help-your-workplace/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/02/11/a-story-of-an-agile-workshop/">A Story of an agile workshop</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-02-11T00:00:00+00:00" itemprop="datePublished">
+                11 Feb 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/longread">longread</a>
+                  /
+                
+                  <a href="/tags/agile">agile</a>
+                  /
+                
+                  <a href="/tags/workshops">workshops</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>The clock was ticking as I stated the single solitary rule: We will have a demo at 10:00, 11:00 and 12:00 no matter what else happens. No matter if we have to stand up and say we got nothing done this sprint!
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/02/11/a-story-of-an-agile-workshop/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/01/21/join-us/">Join us</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-01-21T00:00:00+00:00" itemprop="datePublished">
+                21 Jan 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/usds">usds</a>
+                  /
+                
+                  <a href="/tags/team">team</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>The U.S. Digital Service is a collection of teams across the federal government, working to bring skilled technologists into public service. We are thrilled to be part of this effort, and will continue to lead the charge for making easy things easy and hard things possible.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/01/21/join-us/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/01/16/open-source-for-good-government/">Open source for good government</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-01-16T00:00:00+00:00" itemprop="datePublished">
+                16 Jan 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/open%20source">open source</a>
+                  /
+                
+                  <a href="/tags/gov.uk">gov.uk</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Organizations like 18F and the U.K.’s Government Digital Service (GDS) fully embrace open source, and their combined commitment to openness and transparency is transforming the delivery of government digital services in both countries.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/01/16/open-source-for-good-government/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/01/13/an-open-source-tool-for-easier-database-testing/">An open source tool for easier database testing</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-01-13T00:00:00+00:00" itemprop="datePublished">
+                13 Jan 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/testing">testing</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/open%20source">open source</a>
+                  /
+                
+                  <a href="/tags/developer">developer</a>
+                  /
+                
+                  <a href="/tags/culture">culture</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>18F is dedicated to spreading modern software techniques like rigorous automated testing throughout the federal government; we want to showcase how solid testing enables rapid, high-quality development. When the product is based on a large relational database, this poses a dilemma: the full production dataset is too unwieldy to duplicate to the test and development environments.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/01/13/an-open-source-tool-for-easier-database-testing/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/01/06/protosketch/">Sketching with code: protosketching</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-01-06T00:00:00+00:00" itemprop="datePublished">
+                06 Jan 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/protosketching">protosketching</a>
+                  /
+                
+                  <a href="/tags/18f%20consulting">18f consulting</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Meetings are boring. Prototypes are cool. Use the meeting to build the prototype. We call building a prototype in three hours or less &quot;protosketching.&quot;
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/01/06/protosketch/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2014/12/23/hub/">The 18F Hub</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2014-12-23T00:00:00+00:00" itemprop="datePublished">
+                23 Dec 2014
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/culture">culture</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>The Hub is a Jekyll-based documentation platform that aims to help development teams organize and easily share their information, and to enable easy exploration of the connections between team members, projects, and skill sets. It also serves as a lightweight tool that other teams can experiment with and deploy with a minimum of setup.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2014/12/23/hub/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2014/12/17/snippets/">Snippets</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2014-12-17T00:00:00+00:00" itemprop="datePublished">
+                17 Dec 2014
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/culture">culture</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>18F has begun collecting and publishing team member &quot;snippets,&quot; short lists summarizing what you worked on the previous week and what you plan to work on during the upcoming week. Team members submit their snippets each Monday, and they are published internally for all to peruse. Snippets foster transparency and team cohesion, spark productive interactions, and can be cultivated right away using tools already at-hand.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2014/12/17/snippets/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2014/12/11/large-scale-development-culture-change/">Large scale development culture change: Google and the U.S. government</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2014-12-11T00:00:00+00:00" itemprop="datePublished">
+                11 Dec 2014
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/culture">culture</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>18F exists to demonstrate how Open Source and Agile-inspired methodologies are critical to an effective, efficient, modern delivery process. However, driving adoption of these tools and practices throughout the federal government will require more than setting a good example. My recent talk at the GSA, available on YouTube, connects the dots between grassroots automated testing adoption at Google and the challenges facing similar culture change across Federal IT development.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2014/12/11/large-scale-development-culture-change/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2014/10/21/how-to-run-your-own-3-sprint-agile-workshop/">How to run your own three-sprint agile workshop</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2014-10-21T00:00:00+00:00" itemprop="datePublished">
+                21 Oct 2014
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/agile">agile</a>
+                  /
+                
+                  <a href="/tags/18f%20consulting">18f consulting</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/workshop">workshop</a>
+                  /
+                
+                  <a href="/tags/our%20projects">our projects</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>You can’t learn agile software development from a book any more than you can learn to perform a one-handed jump shot without repeatedly tossing a basketball in the hoop. You can read a book about the basic idea, you can read a book to get started, and you can read a book about refining your technique, but in the end you have to practice.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2014/10/21/how-to-run-your-own-3-sprint-agile-workshop/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2014/10/01/open-source-hack-series-midas/">18F open source hack series: Midas</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2014-10-01T00:00:00+00:00" itemprop="datePublished">
+                01 Oct 2014
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/open%20source">open source</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/midas">midas</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>18F invites designers and developers from inside and outside of government to join us for a flurry of coding and sketching.  Midas is an open source project in active development by 18F, Health &amp; Human Services (HHS) IDEA Lab and the State Department.  A small cross-agency team, dedicated to launching this product to empower passionate civil servants and aspiring diplomats all over the world.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2014/10/01/open-source-hack-series-midas/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2014/09/25/design-studio-onrr/">User-centered design at 18F: a design studio for natural resource revenues</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2014-09-25T00:00:00+00:00" itemprop="datePublished">
+                25 Sep 2014
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/our%20projects">our projects</a>
+                  /
+                
+                  <a href="/tags/open%20data">open data</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/workshop">workshop</a>
+                  /
+                
+                  <a href="/tags/eiti">eiti</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>We recently kicked off a new project with the Department of the Interior’s Office of Natural Resources Revenue (ONRR). Three weeks into the project, we decided to hold a design studio to solve the problem of how to convey complex revenue data. We needed to better understand the difference between onshore revenue (revenue from natural resources extracted from land) and offshore revenue (revenue from resources extracted from Federal offshore or the U.S. outer continental shelf) as it relates to our system. What is a design studio, you ask...
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2014/09/25/design-studio-onrr/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2014/09/18/getting-to-work-for-the-american-people/">Getting to work for the American people</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2014-09-18T19:21:00+00:00" itemprop="datePublished">
+                18 Sep 2014
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/team">team</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Over the last six months, 18F has embarked on a mission to transform the way the U.S. Government builds and buys digital services. We’re currently working with more than half a dozen agencies to help them deliver on their missions in a design-centric, agile, open, and data-driven way.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2014/09/18/getting-to-work-for-the-american-people/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2014/09/08/the-encasement-strategy-on-legacy-systems-and-the/">The encasement strategy: on legacy systems and the importance of APIs</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2014-09-08T00:00:00+00:00" itemprop="datePublished">
+                08 Sep 2014
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/api">api</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>In 1986 a nuclear reactor known as Chernobyl released harmful radioactivity which spread over much of the western USSR and Europe. The core of this reactor remains a glowing, ineradicable mass of deadly radioactive lava in the middle of a large Exclusion Zone unfit for human habitation.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2014/09/08/the-encasement-strategy-on-legacy-systems-and-the/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2014/07/31/working-in-public-from-day-1/">Working in public from day one</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2014-07-31T17:01:47+00:00" itemprop="datePublished">
+                31 Jul 2014
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/open%20source">open source</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Open source your code from day one. Don&#39;t wait for a milestone, don&#39;t wait for it to be stable — do it from the first commit.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2014/07/31/working-in-public-from-day-1/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2014/07/29/18f-an-open-source-team/">18F: an open source team</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2014-07-29T18:01:55+00:00" itemprop="datePublished">
+                29 Jul 2014
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/open%20source">open source</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/culture">culture</a>
+                  /
+                
+                  <a href="/tags/policy">policy</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>At 18F, we place a premium on developing digital tools and services in the open. This means contributing our source code back to the community, actively repurposing our code across projects, and contributing back to the open source tools we use. For a variety of reasons, we believe that doing so improves the final product we create.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2014/07/29/18f-an-open-source-team/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2014/07/15/hot-off-the-press-18fs-api-standards/">Hot off the press: 18F's API standards</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2014-07-15T18:41:00+00:00" itemprop="datePublished">
+                15 Jul 2014
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/api">api</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>We recently released the first version of our API Standards — a set of recommendations and guidelines for API production. It is our intention that every 18F API meet these standards, to help us ensure a baseline quality and consistency across all APIs we offer now and in the future.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2014/07/15/hot-off-the-press-18fs-api-standards/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2014/06/25/intro-to-apis-working-with-urls-json-apis-and-open/">Intro to APIs: Working with URLs, JSON, APIs, and Open Data — without writing any code</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2014-06-25T15:48:00+00:00" itemprop="datePublished">
+                25 Jun 2014
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/api">api</a>
+                  /
+                
+                  <a href="/tags/workshop">workshop</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>June 27, 2014, from 9:30 a.m. to 11:30 a.m. Register now. GSA’s digital teams are offering a user-friendly intro course to APIs. Regardless of your skill level, you will walk away from this lesson understanding what APIs are and how developers use them.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2014/06/25/intro-to-apis-working-with-urls-json-apis-and-open/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2014/05/14/hacking-bureaucracy-improving-hiring-and-software/">Hacking bureaucracy: improving hiring and software deployment</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2014-05-14T15:02:00+00:00" itemprop="datePublished">
+                14 May 2014
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/hacking%20bureaucracy">hacking bureaucracy</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/culture">culture</a>
+                  /
+                
+                  <a href="/tags/hiring">hiring</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>When asked what it is we do, one quick answer is, "we’re hacking bureaucracy." While it may sound provocative, it isn’t.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2014/05/14/hacking-bureaucracy-improving-hiring-and-software/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2014/05/09/a-few-notes-on-notalone-gov/">A few notes on NotAlone.gov</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2014-05-09T17:49:34+00:00" itemprop="datePublished">
+                09 May 2014
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/presidential%20innovation%20fellows">presidential innovation fellows</a>
+                  /
+                
+                  <a href="/tags/18f">18f</a>
+                  /
+                
+                  <a href="/tags/culture">culture</a>
+                  /
+                
+                  <a href="/tags/how%20we%20work">how we work</a>
+                  /
+                
+                  <a href="/tags/1is2many">1is2many</a>
+                  /
+                
+                  <a href="/tags/pif">pif</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>At the end of April, Vice President Biden, while rolling out the final report of the White House&#39;s 90-day Task Force to Protect Students from Sexual Assault, announced the launch of NotAlone.gov, a website built by 18F and the Presidential Innovation Fellows.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2014/05/09/a-few-notes-on-notalone-gov/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+  </div>
+
+</section>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/tags/how-we-work/index.html" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

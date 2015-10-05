@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/04/03/18f-discussion-should-project-teams-code-first-or-design-first/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/04/03/18f-discussion-should-project-teams-code-first-or-design-first/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; 18F discussion: Should project teams code first or design first?</title>
+  <meta property="og:title" content="18F discussion: Should project teams code first or design first?" />
+
+
+  <meta name="description" content="Recently, three members of our team sat down for a conversation about when teams should start coding on a project.">
+  <meta property="og:description" content="Recently, three members of our team sat down for a conversation about when teams should start coding on a project." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/blog/code-design/decisions-blue.png" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/04/03/18f-discussion-should-project-teams-code-first-or-design-first/">18F discussion: Should project teams code first or design first?</a></h1>
+
+      <time datetime="2015-04-03T00:00:00+00:00" itemprop="datePublished">April 3, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/18f">18f</a>
+            /
+          
+            <a href="/tags/how-we-work">how we work</a>
+            /
+          
+            <a href="/tags/design">design</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author melody" style="color: #000">
+    <a href=/team/melody>Melody Kramer</a>
+  </span>
+</p>
+
+
+      <p>When starting a new project, should a team code first or discover first?
+That was the question recently posed to the 18F team by Robert Read, one
+of our developers.</p>
+
+<p><img src="/assets/blog/code-design/decisions-blue.png" alt="18F employees at the white board, deciding how to start."></p>
+
+<p>Rob asked the thought-provoking question hoping it would lead to an
+internal conversation on different approaches to user-centered software
+design. It did, and the result was positively delightful — with
+designers and developers weighing in on everything from <a href="https://18f.gsa.gov/2015/01/06/protosketch/">approaches to
+protosketching</a>
+to usability testing to user-centered design.</p>
+
+<p>I asked Rob and 18F designer Jesse Taggert if they wouldn&#39;t mind
+elaborating on their initial conversation in a more formalized way. They
+were happy to, and so the three of us sat down to debate whether teams
+should code first, design first, or a combination of the two.</p>
+
+<p>Here are highlights from that conversation:</p>
+
+<p><strong>On why it is valuable to code as soon as you can</strong></p>
+
+<p><strong>Robert Read:</strong> My position is that coding is a medium, not unlike
+paper and I would never want to exclude a particular medium from my
+toolkit. As a coder, it always makes sense to be coding as a way to
+explore ideas, in the same way that other people always have a pencil in
+their hands and are doodling in order to explore ideas.</p>
+
+<p>You should always begin by coding as soon as you start talking to a
+customer about something. In saying that, I believe that modern coding
+practices allow you to produce things that are testable extraordinarily
+quickly. Sometimes, if you have someone who is good at coding, you can
+produce a working prototype in just an hour as you&#39;re learning from the
+person what it is that they want. I suggest that this should be a
+standard practice for designers or any team that is servicing a customer
+or an end user.</p>
+
+<p><strong>On why it is sometimes best to wait — the solution isn&#39;t always found
+in the code</strong></p>
+
+<p><strong>Jesse Taggert:</strong> If you start off absolutely with coding, it&#39;s not
+necessarily a bad thing, but it&#39;s a huge presupposition that the answers
+are about technology. What I&#39;m often finding by doing design research is
+that sometimes it&#39;s more about the process or service experiences. And
+we want to understand that more before we start to say, &#39;We&#39;re gonna
+make a new improved, technical experience to answer some of those
+needs.&#39;</p>
+
+<p><strong>When creating a technical prototype is really beneficial to a team</strong></p>
+
+<p><strong>JT:</strong> We were recently talking about a project where the stakeholders
+had envisioned that their solution was going to be a huge technical
+problem. Rob did this prototyping session with one of his colleagues. At
+the end, they had a working, responsive app and demonstrated to these
+folks... that it wasn&#39;t going to be a big, overwhelming project. So
+that&#39;s a win for coding — demonstrating the look and feel and value of
+technology. But coding may not always be the solution to the actual
+problem, which might involve more behavior and process.</p>
+
+<p><strong>I asked both Jesse and Rob if the complexity of the project should
+affect the decision to code first versus conduct design research first</strong></p>
+
+<p><strong>JT:</strong> I would push back against the word complexity versus using words
+like known and unknown. If it&#39;s an unknown project, we want to do a lot
+more discovery and research. And if it&#39;s a known thing, you might be
+more comfortable bringing in the technical stuff.</p>
+
+<p><strong>RR:</strong> I agree with Jesse. It&#39;s not really a question of complexity. It
+makes more sense to think along the dimension of how known or unknown is
+the thing you&#39;re trying to address.</p>
+
+<p><strong>I then asked Rob and Jesse if it could be confusing or risky to show
+users a coded prototype so early in the process.</strong></p>
+
+<p><strong>RR:</strong> The danger is that when you show something like a coded website
+to someone, they will seize on it too quickly as the final solution. I
+think the real risk here is that people will fail to understand that
+something that you code can be thrown away just as easily as it was
+created. The code must be treated as no more significant than a sheet of
+paper that someone made a sketch on.</p>
+
+<p><strong>JT</strong>: I&#39;ve had prototypes where, [you want to] keep it crude, because
+as soon as it looks too good people, whether they say it or not, they
+get attached to it…. There&#39;s always that balance between how it looks
+and feels, which can buy stakeholder or client buy-in, and how you
+manage it moving forward so the clients understand it&#39;s not final. I
+would add that in that scenario, emphasizing the results of task-based
+usability testing is a good way to help clients assess whether the
+product is working or not. A prototype may look great to a stakeholder
+who is swayed by good looking design, but we can say, &#39;We did these
+tests and they didn&#39;t work as intended, so don&#39;t like it too much.”</p>
+
+<p><strong>On developers submerging their egos to serve the end user</strong></p>
+
+<p><strong>RR:</strong> I&#39;ve had the pleasure working with <a href="https://en.wikipedia.org/wiki/Kent_Beck"><em>Kent
+Beck</em></a> in the past and one of
+the things that he focuses on is the fact that developers have to really
+submerge their egos and their personalities and have to recognize that
+they are totally in service to the end user. In the case of having a
+designer on the team, that basically means you&#39;re in service to the
+designer who is interpreting the needs of the end user.</p>
+
+<p>It&#39;s very important that the development team use its intelligence and
+creativity to figure out how to give you things testable to the design
+team as early in the process as possible. So it&#39;s not that you&#39;re
+creating a finished product as early as possible, but the development
+team should be thinking, &#39;Okay the design team wants to test this
+hypothesis or test out this idea — how can we build a fourth of that
+solution which we can give to them and they can valuably do usability
+testing on?&#39;</p>
+
+<p><strong>On how thinking of serving the designer leads to more creative
+thinking</strong></p>
+
+<p><strong>RR:</strong> If you think of it that way it does actually require more
+creativity because the developers — instead of thinking of a perfect
+product, must think of themselves as moving through a swamp or a
+landscape to get there. And it&#39;s the path that&#39;s important, not the end
+product. And the path is in service to the design team being able to
+confirm with their suspicions or test things with the user.</p>
+
+<p><strong>On design research needing space at the beginning of a project</strong></p>
+
+<p><strong>JT:</strong> One of the things about design research is that research often
+needs space at the beginning of a project. I&#39;ve worked on really high
+functioning agile teams and I always called it &#39;the sanctity of the
+backlog.&#39; They worked so hard and they pulled from what&#39;s in the backlog
+and their stories are well thought out and it&#39;s amazing. And if design
+and research doesn&#39;t have enough lead time before that, then it&#39;s a very
+panicked situation because you know you have a team that values what
+those stories are, and you haven&#39;t had enough time to add material to
+field material for a sprint or two. Often it&#39;s called Sprint 0.</p>
+
+<p><strong>RR:</strong> I understand that. Design should always lead development by at
+least two sprints so that the developers know what they&#39;re working on.
+But I guess, to be a little bit provocative, I would say why would a
+designer not want to have the development team at his or her service at
+the very beginning? Why would you ever say, &#39;I don&#39;t want someone
+working for me.&#39; As long as the development team is disciplined about
+understanding that in the end, they are in service to the end user.</p>
+
+<p><strong>JT:</strong> During the research phase, you might not need a developer team,
+but the research team may be composed of developers, designers, etc.</p>
+
+<p><strong>On meeting the needs of the end users</strong></p>
+
+<p><strong>RR:</strong> I would just finish by saying no matter what you do, the most
+important thing is to focus on the experience of the end user.
+Everything else is just a detail about the process for achieving that.
+But the most important thing, from a spiritual or psychological point of
+view is to always be focusing on the end user.</p>
+
+<p><strong>JT:</strong> The meta-thing is absolutely yes. And in this government
+environment, there&#39;s also the user experience of the people in
+government learning this process, and it&#39;s a really fascinating space to
+be in.</p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/04/02/govtechhack-hacking-for-civic-improvement/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;GovTechHack: hacking for civic improvement&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/04/03/how-to-welcome-new-coders-to-a-civic-hackathon/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;How to welcome new coders to a civic hackathon&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/06/16/fast-company-story/' class='related_posts'>&ldquo;Making sense of Washington’s tech landscape&rdquo;</a></li><li><a href='/2015/05/21/TockingTime/' class='related_posts'>&ldquo;Tocking time&rdquo;</a></li><li><a href='/2015/05/19/five-questions-with-dan-brown/' class='related_posts'>&ldquo;Five questions with Dan Brown&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-04-03-18f-discussion-should-project-teams-code-first-or-design-first.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

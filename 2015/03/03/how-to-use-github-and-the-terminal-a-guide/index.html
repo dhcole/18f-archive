@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/03/03/how-to-use-github-and-the-terminal-a-guide/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/03/03/how-to-use-github-and-the-terminal-a-guide/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; How to use GitHub and the terminal: a guide</title>
+  <meta property="og:title" content="How to use GitHub and the terminal: a guide" />
+
+
+  <meta name="description" content="At 18F we hire people from many different backgrounds and each new employee brings a different level of comfort with the specific tools we use on our various projects. The team that runs the 18F website recently started writing down the tools and processes that we use to update the blog and the code that runs the site. We&#39;re sharing that with you today.">
+  <meta property="og:description" content="At 18F we hire people from many different backgrounds and each new employee brings a different level of comfort with the specific tools we use on our various projects. The team that runs the 18F website recently started writing down the tools and processes that we use to update the blog and the code that runs the site. We&#39;re sharing that with you today." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/blog/github-tutorial/image21.png" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/03/03/how-to-use-github-and-the-terminal-a-guide/">How to use GitHub and the terminal: a guide</a></h1>
+
+      <time datetime="2015-03-03T00:00:00+00:00" itemprop="datePublished">March 3, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/github">github</a>
+            /
+          
+            <a href="/tags/tutorial">tutorial</a>
+            /
+          
+            <a href="/tags/how-we-work">how we work</a>
+            /
+          
+            <a href="/tags/18f">18f</a>
+            /
+          
+            <a href="/tags/blog">blog</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author melody" style="color: #000">
+    <a href=/team/melody>Melody Kramer</a>,  and 
+  
+  <span class="author boone" style="color: #000">
+    <a href=/team/boone>Greg Boone</a>
+  </span>
+</p>
+
+
+      <p>We’ve written before how everything we do is open <a href="https://18f.gsa.gov/2014/07/31/working-in-public-from-day-1/">from day one</a>. One of the ways we do that is by building all of our products&mdash;from <a href="https://github.com/18F/18f.gsa.gov/">our blog</a> and <a href="https://github.com/18F/dashboard">our dashboard</a> to a <a href="https://github.com/18F/letgirlslearn">new website</a> for the Peace Corps’ Let Girls Learn Initiative&mdash;using GitHub. We do this so that the public can see the code we’re working on, offer feedback, and copy or fork that code for their own projects. If you’ve never used GitHub before, it can be a little intimidating, so we’d like to share the tutorial our own new employees use when they start with 18F.</p>
+
+<p>We hire people from many different backgrounds and each new employee brings a different level of comfort with the specific tools we use on our various projects. The team that runs the 18F website recently started writing down the tools and processes that we use to update the blog and the code that runs the site.</p>
+
+<p>Because some of the people we hire have never used these tools before, this guide assumes you have no prior knowledge of them either. We&#39;re going to introduce you to <a href="https://github.com">GitHub</a>, the command line (also called Terminal on OS X), and <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> through a guided exercise. Today you&#39;ll learn how to make a blog post on the <a href="https://18f.gsa.gov/news/">18F blog</a>.</p>
+
+<p>Every step will be illustrated with a helpful screenshot or animated GIF that shows you exactly what your screen should look like. We&#39;ll go through each step in order. At the end of this post, you will know how to:</p>
+
+<ol>
+<li><a href="#turn-your-mac-into-a-web-development-machine">Turn Your Mac Into a Web Development Machine</a></li>
+<li><a href="#getting-started-with-github-and-the-terminal">Get Started With GitHub and the Terminal</a></li>
+<li><a href="#clone-a-repo-on-your-computer">Clone a Repo on Your Computer</a></li>
+<li><a href="#build-the-18f-site">Build the 18F Site</a></li>
+<li><a href="#create-a-branch">Create a Branch</a></li>
+<li><a href="#edit-and-commit-a-blog-post">Edit and Commit a Blog Post</a></li>
+<li><a href="#adding-front-matter">Add Front Matter</a></li>
+<li><a href="#learn-how-to-make-a-pull-request">Learn How to Make a Pull Request</a></li>
+</ol>
+
+<blockquote>
+<p><strong>It is worth noting:</strong> There are many different ways to do each of these steps. For example, there are apps for using Git like <a href="https://mac.github.com/">GitHub for Mac</a> and <a href="https://windows.github.com/">Windows,</a> or <a href="http://www.git-tower.com/">Tower</a>; dozens of different text editors; and competitors to GitHub like <a href="https://bitbucket.org/">Bitbucket</a>, or <a href="http://sourceforge.net/">SourceForge</a>. You might explore those on your own. This post is a tutorial meant to prepare people to work with 18F&#39;s Website team.</p>
+</blockquote>
+
+<p>If you have an alternative way of doing any of these steps — or have ways to make this more efficient — please let us know by posting an issue <a href="https://github.com/18f/18f.gsa.gov/issues/new">here</a>. (You don&#39;t have to know how to code to post an issue, but you do need a GitHub account.)</p>
+
+<p><strong>What you need to get started:</strong> <a href="https://github.com/join">a GitHub account</a> and Mac OS X. These instructions are primarily for Macs, but most of the instructions will work the same on a Linux computer. If you are working on Windows, we suggest checking out <a href="https://github.com/18F/18f.gsa.gov/issues/542#issuecomment-75145417">this comment</a> that was posted to GitHub that details how to make these instructions work for Windows machines.</p>
+
+<h2 id="turn-your-mac-into-a-web-development-machine">Turn your Mac into a web development machine</h2>
+
+<blockquote>
+<p>Using Linux? You can skip this section.</p>
+</blockquote>
+
+<p>Our colleague <a href="https://github.com/monfresh">Moncef Belyamani</a> wrote <a href="https://github.com/18F/laptop">a script</a> which turns your Mac into a web development machine in about 15 minutes. You will be asked to enter your computer&#39;s password three different times during the installation. The terminal doesn&#39;t provide any feedback when you type in your password. Just type it in and press <code>enter.</code></p>
+
+<p>If you&#39;d rather not use the script, you can also <a href="http://www.moncefbelyamani.com/how-to-install-xcode-homebrew-git-rvm-ruby-on-mac/#step-1">follow the detailed instructions he wrote on his website</a>. Or follow along with this <a href="https://github.com/18F/laptop/wiki/Detailed-installation-instructions-with-video">video</a> he prepared with step by step instructions to turn your Mac into a web development machine. To use the script, follow the instructions in text below:</p>
+
+<ul>
+<li>Activate terminal by pressing command + space and then typing &quot;Terminal&quot; in the search field.</li>
+</ul>
+
+<p>The terminal icon looks like this:</p>
+
+<p><img src="/assets/blog/github-tutorial/terminal.png" alt="Terminal App"></p>
+
+<p>And you should have a window like this when you open it:</p>
+
+<p><img src="/assets/blog/github-tutorial/terminal-window.png" alt="Screen shot of blank terminal window"></p>
+
+<ul>
+<li><p>Go to Terminal and paste the following <code>curl --remote-name https://raw.githubusercontent.com/18F/laptop/master/mac</code> and press enter.</p></li>
+<li><p>Then paste <code>bash mac 2&gt;&amp;1 | tee ~/laptop.log &amp;&amp; source ~/.rvm/scripts/rvm</code> and press enter. This sets up all of the software you need in order to manage the languages we use at 18F. (For a full list of programs, click <a href="https://github.com/18F/laptop">here</a>).</p></li>
+</ul>
+
+<h2 id="getting-started-with-github-and-the-terminal">Getting started With GitHub and the Terminal</h2>
+
+<blockquote>
+<p>Terminal is a program that lets you send commands to your computer, and the text you pasted above is an example of how those commands work. In this guide, whenever you see text that looks like <code>this</code>, you&#39;re reading a command. Type the commands exactly as you see them here (or copy and paste them into your Terminal) and always press return at the end.</p>
+</blockquote>
+
+<p>You&#39;re going to see the word &quot;directory&quot; a lot in this tutorial. Directory is another word for folder. Directories are specific locations for files on your computer, and the Terminal always takes commands starting from a directory. If we say we are &quot;working in a directory&quot; it means the terminal is starting from that location. Let&#39;s play around with directories a bit:</p>
+
+<ol>
+<li>Type <code>ls</code>: this will show you everything in the directory where you are currently located. If you type <code>ls -1</code> it will list them all in a single column for you. <code>ls</code> stands for &quot;<strong>l</strong>i<strong>s</strong>t&quot; and the <code>-1</code> tells your computer to list the directory in one column. If you are in your home directory, you will probably see a list in Terminal similar to this screenshot:</li>
+</ol>
+
+<p><img src="/assets/blog/github-tutorial/w_screenshot1.png" alt="Screenshot: home directory"></p>
+
+<ol>
+<li>Now type <code>cd Documents</code>: this will take you into your Documents directory, if that was one of the options shown when you used the &#39;ls&#39; command above. <code>cd</code> stands for &quot;<strong>c</strong>hange <strong>d</strong>irectory.&quot;</li>
+<li>Type <code>ls -1</code> again to see all the files inside your Documents directory.</li>
+<li>Type <code>ls -1F</code>: notice a difference? Any item in the list with a <code>/</code> at the end is another directory.</li>
+<li>Type <code>cd ..</code> to go back one directory. Directories stack on top of one another and the directory &quot;above&quot; your current directory is always called <code>..</code></li>
+<li>Type <code>pwd</code>: this command shows you the directory you are currently working in. <code>pwd</code> stands for &quot;<strong>p</strong>rint <strong>w</strong>orking <strong>d</strong>irectory.&quot; You should see something that starts with <code>/Users/</code>, followed by your computer username. This is called your <em>home directory</em> and you can always get here by typing <code>cd ~</code>.</li>
+</ol>
+
+<p>I like to put all my GitHub projects in the same directory. So <strong>the first thing I do is create a directory called &quot;code&quot;:</strong></p>
+
+<ol>
+<li><code>cd ~</code> to make sure you&#39;re in your home directory</li>
+<li><code>mkdir code</code>: to create the directory called <code>code</code> in your home directory. <code>mkdir</code> stands for <strong>M</strong>a<strong>k</strong>e <strong>dir</strong>ectory.</li>
+<li><code>cd code</code> should bring your terminal into your code directory.</li>
+</ol>
+
+<blockquote>
+<p><strong>Pro tip:</strong> You can always get back to your code directory by typing <code>cd ~/code</code></p>
+</blockquote>
+
+<p><img src="/assets/blog/github-tutorial/mkdir-code.gif" alt="Screenshot: typing in mkdir code"></p>
+
+<h2 id="clone-a-repo-on-your-computer">Clone a repo on your computer</h2>
+
+<ul>
+<li>First, you want to log into GitHub. Go to <a href="https://github.com/login">https://github.com/login</a> and sign in with your username and password.</li>
+</ul>
+
+<p>Now we can start working with the website. GitHub is a system that stores files and records changes made to them using a piece of software called <a href="http://git-scm.com/">Git</a>, which allows multiple people to make separate changes to a program at the same time without getting in each others&#39; way. If our program was a five paragraph essay, Git allows Corey to edit the introduction on one computer while Jesse edits the conclusion somewhere else. When both are done, they can move their edits into one copy while preserving the changes from each person.</p>
+
+<p>If you&#39;ve ever used &quot;Track Changes&quot; in word processing (where edits are highlighted to be approved or rejected), Git is like that, but with many more features. In software development, Git and other <strong>version control</strong> tools are helpful when looking for the origin of a bug. Let&#39;s say that some code isn&#39;t working, but 15 people made edits to it in the last week and you aren&#39;t sure where the bug is. With Git, you can load an old version of a program, test for the issue, and then &quot;jump forward&quot; through people&#39;s edits until you find the first one that also has the problem. That tells you the specific edit to search for the mistake.</p>
+
+<p>GitHub is a website that shows information from Git. For example, <a href="https://github.com/18F/18f.gsa.gov/commit/2df683fe1ef04f89ee77672d85ec35a11fec96d3">this link</a> shows a spelling edit to this post by Melody. It also allows easy discussion about proposed changes, or for people who don&#39;t have edit access to write-up problems they see as &quot;issues.&quot; <a href="https://github.com/18F/18f.gsa.gov/issues/542">Here</a> is an issue thread that we made specifically for comments on this post!</p>
+
+<p>In this section you&#39;ll see the words &quot;clone,&quot; &quot;repository,&quot; and its shortened form, &quot;repo.&quot; Every project on GitHub is called a &quot;repository&quot; or a &quot;repo;&quot; you can see 18F&#39;s list of repos at <a href="https://github.com/18F">this link</a>. A repo contains the entire history of the project with pointers called &quot;commits&quot; represented by &quot;SHAs&quot; that indicate when and where every file was changed, and how exactly it changed. When you &quot;clone&quot; a repo, you download the entire project plus its history to your computer. Once you have a project cloned, you can make changes on your computer without affecting the project as it exists on GitHub.</p>
+
+<p>In this step we are going to <em>clone</em> the 18f.gsa.gov project to your computer.</p>
+
+<ul>
+<li>Type in <code>cd ~/code</code> and press enter to get to the <code>code</code> directory we created earlier.</li>
+</ul>
+
+<p><img src="/assets/blog/github-tutorial/cd-code.gif" alt="Screenshot: typing in cd code"></p>
+
+<ul>
+<li>Go to <a href="https://github.com/18F/18f.gsa.gov">18f.gsa.gov&#39;s GitHub page</a> and look on the right side of the page, under the links for &quot;Issues&quot; and &quot;Graphs.&quot; You&#39;ll see it says &quot;You can clone with HTTPS, SSH, or Subversion.&quot; Click on the SSH link and copy the URL (web address) that&#39;s in that text box to your clipboard.</li>
+</ul>
+
+<blockquote>
+<p><strong>If you are not on the 18F team but following these directions,</strong> you will need to &quot;fork&quot; this repo in order to follow the rest of the steps below. You can fork this repo by visiting: <a href="https://github.com/18F/18f.gsa.gov/fork/">https://github.com/18F/18f.gsa.gov/fork/</a>. Then, use the SSH link for <em>your</em> fork instead of the one above. GitHub&#39;s documentation has more <a href="https://help.github.com/articles/fork-a-repo/">information about forks and how to use them</a>.</p>
+</blockquote>
+
+<ul>
+<li>Type in <code>git clone</code> and then paste the URL that you copied to your clipboard. This is now copying the 18f.gsa.gov repo to your local computer.</li>
+</ul>
+
+<p><img src="/assets/blog/github-tutorial/git-clone.gif" alt="screenshot: cloning repo"></p>
+
+<blockquote>
+<p>If you run into an error here and you haven&#39;t used the Laptop script mentioned above, you need to create what&#39;s called an SSH key. You can follow the instructions that are located <a href="https://help.github.com/articles/generating-ssh-keys/">here</a>. (Pro Tip: You type in everything <em>except</em> the <code>$</code>.) You only have to do this once. An SSH key is a small file that sits on your computer and tells GitHub who you are. It&#39;s kind of like a password your computer types in for you automatically. Every time you use this computer to clone a project or pull/push a project, this SSH key will get used. You will have to do this on every computer you have. So, if you plan to work on these projects on a separate computer, you will need to do this process again.</p>
+</blockquote>
+
+<h3 id="branching-and-pull-requests">Branching and pull requests</h3>
+
+<p>Let&#39;s go back to the <a href="https://github.com/18F/18f.gsa.gov">18f.gsa.gov</a> repo from your web browser.</p>
+
+<p>On this page you will see a list of files and folders in this project. All of the blog posts are in a folder called <code>_posts.</code> All of the pages are in a directory called <code>_pages.</code> There&#39;s a <a href="https://github.com/18F/18f.gsa.gov/blob/staging/README.md">readme</a> that explains to anyone browsing 18F&#39;s <code>18f.gsa.gov</code> GitHub repo how some of this works. At the top of that window, you can see a dropdown that says &quot;branch: <em>staging</em>.&quot;</p>
+
+<p>You are seeing on the website is another view of files and folders as shown here:</p>
+
+<p><img src="/assets/blog/github-tutorial/w_screenshot2.png" alt="Screenshot: 18f.gsa.gov&#39;s repo in mac folder"></p>
+
+<p>If you click on the <code>branch:staging</code> button, you can see a list of all of the &quot;branches&quot; that exist on this project. Every time you come directly to <a href="https://github.com/18F/18f.gsa.gov">18f.gsa.gov</a>, it will show you the staging branch because we&#39;ve made that branch the default.</p>
+
+<p>Branches are little sandboxes for other people working on the project to prepare contributions without interfering with the main project. When you&#39;re finished prepping, you issue something called a &quot;pull request&quot; from your branch to another. Usually we issue pull requests to the default branch. This opens a conversation about your contribution and if the team decides it&#39;s okay, we will &quot;merge&quot; the pull request and include your work. The default branch on 18f.gsa.gov is &quot;staging.&quot; In other projects, you might see it called &quot;master.&quot;</p>
+
+<p>In the next step we&#39;re going to create a branch, and later on, when you make a pull request, GitHub will automatically assume you&#39;re trying to contribute to the staging branch.</p>
+
+<p><img src="/assets/blog/github-tutorial/screenshot4.gif" alt="Screenshot: showing what the 18f GitHub site looks like"></p>
+
+<blockquote>
+<p>On the right side, you can also see a list of the existing pull requests and issues. All of the pull requests go to the staging branch. When we merge the pull request to the staging branch, GitHub automatically brings those changes into the project, but does not make them live on https://18f.gsa.gov yet.</p>
+</blockquote>
+
+<p>In Terminal, enter the following commands:</p>
+
+<ul>
+<li><code>cd 18f.gsa.gov</code> to change directories to <code>18f.gsa.gov</code>.</li>
+<li><code>ls -1F</code> to see all of the files and folders in the GitHub repo, just as you saw them on GitHub</li>
+<li><code>git status</code></li>
+</ul>
+
+<p>This last command will show you a little bit of information about what you&#39;re working on right now. Let&#39;s take this apart line by line:</p>
+
+<ul>
+<li><em>&quot;On branch staging&quot;</em> tells you what branch you are currently working on (remember it&#39;s <code>staging</code> by default). If you made any changes and commited them, you&#39;d commit them to the <code>staging</code> branch.</li>
+<li><em>&quot;Your branch is up-to-date with &#39;origin/staging&#39;&quot;</em> means your branch is up to date with the staging branch of the remote location called &quot;origin.&quot; A Git repo can have any number of remote locations it can interact with, called &quot;remotes&quot;. By default, when you clone a GitHub repo, a remote called &quot;origin&quot; is created that points to the repo on the GitHub website. To view your repo&#39;s remote names and their location, type <code>git remote -v</code>. The name &quot;origin&quot; is arbitrary. You could rename it to &quot;github&quot; if you wanted to, but we won&#39;t do that now.</li>
+<li><em>&quot;Nothing to commit / working directory clean&quot;</em> means you&#39;re completely up to date and haven&#39;t made any changes.</li>
+</ul>
+
+<p><img src="/assets/blog/github-tutorial/screenshot5.gif" alt="Screenshot: how to use git status"></p>
+
+<h2 id="build-the-18f-site">Build the 18F site</h2>
+
+<p>Let&#39;s go ahead and get you ready to build the site.</p>
+
+<ul>
+<li>You can do that by typing <code>./go init</code>.</li>
+</ul>
+
+<blockquote>
+<p>This command runs a bunch of commands in the background that you don&#39;t need to worry about. It&#39;s downloading and installing a few things called &quot;gems.&quot; Gems are little bundles of programs written in the Ruby programming language that do really specific things. <a href="http://jekyllrb.com">Jekyll</a> is a gem we use to create the 18f.gsa.gov website, and our version of it needs to use a few other gems to run and make the site work. The last thing it does is build the site out for you. You should only need to do this once.</p>
+</blockquote>
+
+<p>&quot;Building&quot; the site is a process where Jekyll takes all the information in the 18f.gsa.gov directory and creates webpages in a directory called <code>_site</code>. If you want to just build the site, type <code>./go build</code>.</p>
+
+<ul>
+<li>To see what the site looks like, you can type <code>./go serve</code>.</li>
+</ul>
+
+<blockquote>
+<p>This command &quot;builds&quot; the site and gives you an address where you can visit it to see any changes you made. It should be <code>127.0.0.1:4000</code>, or <code>http://localhost:4000</code> for short. You can copy and paste that directly into a browser to double-check. To stop the server, press CTRL + C. If you try to visit <code>http://localhost:4000</code> after pressing CTRL + C, you won&#39;t see anything.</p>
+
+<p><strong>Congratulations! A lot of the steps that you&#39;ve just done are one time steps. You only have to run the <code>laptop</code> script once. You only have to clone the repo once. And you only need to run <code>./go init</code> once. Just wanted to keep your morale high. Onward!</strong></p>
+</blockquote>
+
+<h3 id="create-a-branch">Create a branch</h3>
+
+<p>Okay. Now you&#39;re ready to start editing.</p>
+
+<ul>
+<li><p>Open up a text editor suitable for web development. We use <a href="http://www.sublimetext.com/3">Sublime Text 3</a>, but there are other options like <a href="https://atom.io/">Atom</a> or <a href="http://www.vim.org/"><code>vim</code></a>, but we do not recommend TextEdit or a word processor.</p></li>
+<li><p>Now click File -&gt; Open in the menu bar and find your copy of 18f.gsa.gov, which is located in the directory <code>user/code</code> where <code>user</code> is your username.</p></li>
+<li><p>Click on 18f.gsa.gov and click &quot;open.&quot;</p></li>
+</ul>
+
+<p><strong>Voila! You can now see all of the files that make up the site.</strong> It should look like this.</p>
+
+<p><img src="/assets/blog/github-tutorial/image10.png" alt="Screen Shot: All of the files that make up the 18F site"></p>
+
+<blockquote>
+<p>We now want to create a branch, or a sandbox where you can make changes to the website. On this team we always work on branches. This allows you to collaborate with teammates without interfering with other people&#39;s existing work.</p>
+</blockquote>
+
+<ul>
+<li>To create a new branch, type <code>git checkout -b your-branch-name</code> (The name of the branch can be anything but it should be descriptive.)</li>
+</ul>
+
+<blockquote>
+<p>The command <code>git checkout</code> tells <code>git</code> to work on a different branch. The <code>-b &lt;branch-name&gt;</code> tells it to create the branch if it does not exist yet. You can switch branches by typing <code>git checkout branch-name</code>. Try switching back and forth between the branch you just created and <code>staging</code> to see how this works.</p>
+</blockquote>
+
+<ul>
+<li>Type <code>git status</code> to make sure you&#39;re now on the branch. You should see something that looks like this:</li>
+</ul>
+
+<p><img src="/assets/blog/github-tutorial/screenshot11.gif" alt="Screenshot: git checkout and status"></p>
+
+<h3 id="edit-and-commit-a-blog-post">Edit and commit a blog post</h3>
+
+<p>We&#39;re now going to walk you through creating a new blog post for 18f.gsa.gov.</p>
+
+<ul>
+<li>Type <code>ls -1F</code> to see a list of files and folders that make up 18f.gsa.gov&#39;s repo.</li>
+</ul>
+
+<p><img src="/assets/blog/github-tutorial/image13.png" alt="screen shot: ls -F command"></p>
+
+<ul>
+<li>Go back to Sublime Text and write your post. Then save your post in the <code>_posts</code> directory with the name <code>2015-02-23-new_post.md</code> where &#39;2015-02-23&#39; is today&#39;s date.</li>
+</ul>
+
+<p><img src="/assets/blog/github-tutorial/image14.png" alt="Screen shot: Saving post in _posts directory"></p>
+
+<h3 id="adding-front-matter">Adding front matter</h3>
+
+<p>The next step is to add what&#39;s called front matter. This is metadata for the blog post: extra information Jekyll uses to build parts of the website. It includes things like the title, authors, description, and date. You add front matter by pasting in the following fields starting on line 1 of your text editor:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">---</span>
+<span class="s">title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">How</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">18F</span><span class="nv"> </span><span class="s">website</span><span class="nv"> </span><span class="s">team</span><span class="nv"> </span><span class="s">uses</span><span class="nv"> </span><span class="s">GitHub:</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">tutorial"</span>
+<span class="s">layout</span><span class="pi">:</span> <span class="s">post</span>
+<span class="s">author</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">melody</span>
+<span class="pi">-</span> <span class="s">boone</span>
+<span class="s">tags</span><span class="pi">:</span>
+<span class="pi">-</span> <span class="s">GitHub</span>
+<span class="pi">-</span> <span class="s">Tutorial</span>
+<span class="pi">-</span> <span class="s">How We Work</span>
+<span class="s">excerpt</span><span class="pi">:</span> <span class="s2">"</span><span class="s">This</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">guide</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">assumes</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">have</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">prior</span><span class="nv"> </span><span class="s">knowledge</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">GitHub</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">command</span><span class="nv"> </span><span class="s">line.</span><span class="nv"> </span><span class="s">We're</span><span class="nv"> </span><span class="s">going</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">introduce</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">both</span><span class="nv"> </span><span class="s">GitHub</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">command</span><span class="nv"> </span><span class="s">line</span><span class="nv"> </span><span class="s">through</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">guided</span><span class="nv"> </span><span class="s">exercise.</span><span class="nv"> </span><span class="s">Today</span><span class="nv"> </span><span class="s">you'll</span><span class="nv"> </span><span class="s">learn</span><span class="nv"> </span><span class="s">how</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">make</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">blog</span><span class="nv"> </span><span class="s">post</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">18F</span><span class="nv"> </span><span class="s">blog."</span>
+<span class="s">description</span><span class="pi">:</span> <span class="s2">"</span><span class="s">This</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">guide</span><span class="nv"> </span><span class="s">that</span><span class="nv"> </span><span class="s">assumes</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">have</span><span class="nv"> </span><span class="s">no</span><span class="nv"> </span><span class="s">prior</span><span class="nv"> </span><span class="s">knowledge</span><span class="nv"> </span><span class="s">of</span><span class="nv"> </span><span class="s">GitHub</span><span class="nv"> </span><span class="s">or</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">command</span><span class="nv"> </span><span class="s">line.</span><span class="nv"> </span><span class="s">We're</span><span class="nv"> </span><span class="s">going</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">introduce</span><span class="nv"> </span><span class="s">you</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">both</span><span class="nv"> </span><span class="s">GitHub</span><span class="nv"> </span><span class="s">and</span><span class="nv"> </span><span class="s">using</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">command</span><span class="nv"> </span><span class="s">line</span><span class="nv"> </span><span class="s">through</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">guided</span><span class="nv"> </span><span class="s">exercise.</span><span class="nv"> </span><span class="s">Today</span><span class="nv"> </span><span class="s">you'll</span><span class="nv"> </span><span class="s">learn</span><span class="nv"> </span><span class="s">how</span><span class="nv"> </span><span class="s">to</span><span class="nv"> </span><span class="s">make</span><span class="nv"> </span><span class="s">a</span><span class="nv"> </span><span class="s">blog</span><span class="nv"> </span><span class="s">post</span><span class="nv"> </span><span class="s">on</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">18F</span><span class="nv"> </span><span class="s">blog."</span>
+<span class="s">image</span><span class="pi">:</span> <span class="s">/assets/blog/how-to-github/image.jpg</span>
+<span class="nn">---</span>
+</code></pre></div>
+<p>A <a href="https://github.com/18F/18f.gsa.gov/tree/staging/_posts#metadata-explained">complete explanation for the front-matter</a> can be found on the 18F Blogging Guide. And now you can start writing the text of your blog post on line 16. Say hello! It should look like this:</p>
+
+<p><img src="/assets/blog/github-tutorial/image15.png" alt="Screen Shot: Adding Front Matter and saving the post"></p>
+
+<ul>
+<li><p>When you are done writing, save the post by pressing Command + S.</p></li>
+<li><p>And then return back to Terminal.</p></li>
+</ul>
+
+<blockquote>
+<p>(Don&#39;t worry. You are almost done.)</p>
+</blockquote>
+
+<h3 id="learn-how-to-make-a-pull-request">Learn how to make a pull request</h3>
+
+<ul>
+<li>Type <code>git status</code> again.</li>
+</ul>
+
+<blockquote>
+<p>You&#39;ll notice that <code>git status</code> shows a new section for &quot;untracked files&quot; followed by the name of your blog post. Git has four stages that a file can be in: untracked, modified, staged, and committed. Untracked means git doesn&#39;t know anything about it and will not watch for your changes. Your post is currently untracked and we&#39;re about to move the file through all four stages until it is &quot;committed&quot;.</p>
+</blockquote>
+
+<ul>
+<li>Type in <code>git add _posts/2015-02-23-new-post.md</code> and hit enter. Make sure to type in your actual filename if it has a different date.</li>
+</ul>
+
+<blockquote>
+<p>This moves the file from untracked to staged. You just told <code>git</code> to remember the changes you made to this file. If you make more changes, the file will be &quot;modified&quot; and you will need to run that command again.</p>
+</blockquote>
+
+<ul>
+<li>Type <code>git status</code> again.</li>
+</ul>
+
+<blockquote>
+<p>You&#39;ll see that the file is now listed under changes to be committed.</p>
+</blockquote>
+
+<p><img src="/assets/blog/github-tutorial/screenshot16.gif" alt="Screen Shot: Git Add Post / Status"></p>
+
+<blockquote>
+<p>Well done! At this point, you&#39;ve told Git that this file should be committed, but you haven&#39;t committed anything. So you could work on other things that need to be committed, or you could commit this file right now. We&#39;re going to commit right now.</p>
+</blockquote>
+
+<ul>
+<li>Type <code>git commit -m &quot;My First Post&quot;</code> followed by enter</li>
+</ul>
+
+<p>You will see something that looks like this</p>
+<div class="highlight"><pre><code class="language-" data-lang="">[melody-kramer-post 0b22894] My First Post
+1 file changed, 7 insertions (+)
+create mode 100644 _posts/2015-02-23-new-post.md
+</code></pre></div>
+<blockquote>
+<p>That means one file changed — and it was your blog post! Congrats, you&#39;ve officially committed the file! You&#39;re still at the point where only you can see this file, but it&#39;s now officially been recorded. You&#39;ve recorded the change for yourself and you&#39;re ready to suggest the change to 18F!</p>
+</blockquote>
+
+<ul>
+<li>Type in <code>git status</code> one more time.</li>
+</ul>
+
+<blockquote>
+<p>You should see <code>nothing to commit, working directory clean</code>. That&#39;s because nothing has changed since the last commit.</p>
+
+<p><strong>Note, the following part will work a little differently if you&#39;re not an 18F team member and are working from a fork. We are including them here so you can see what happens when we push the file up to GitHub. The instructions, as they are written here, will work for any repo you own or any of your forks.</strong></p>
+</blockquote>
+
+<ul>
+<li>Type <code>git push origin &lt;branch&gt;</code> (where <code>&lt;branch&gt;</code> is the name you gave your branch) and then hit enter.</li>
+</ul>
+
+<p><img src="/assets/blog/github-tutorial/screenshot17.gif" alt="Screen shot: git commit"></p>
+
+<blockquote>
+<p>This uploads your branch and changes to the 18f.gsa.gov project on GitHub.</p>
+</blockquote>
+
+<ul>
+<li>Now, go back to <a href="https://github.com/18F/18f.gsa.gov">18F on GitHub</a> and you should see that you recently pushed a branch.</li>
+</ul>
+
+<blockquote>
+<p>It will look like this:</p>
+</blockquote>
+
+<p><img src="/assets/blog/github-tutorial/image19.png" alt="Screen shot: Pull Request"></p>
+
+<ul>
+<li>Click <code>Compare and Pull Request</code>. It&#39;s a big green button.</li>
+</ul>
+
+<blockquote>
+<p>You can add a little comment like &quot;I wrote a blog post. Isn&#39;t this the greatest thing?&quot;</p>
+</blockquote>
+
+<ul>
+<li>Then click <code>Create Pull Request</code>.</li>
+</ul>
+
+<p><img src="/assets/blog/github-tutorial/image20.png" alt="Screen Shot: Creating Pull Request"></p>
+
+<blockquote>
+<p>This asks 18F to accept your contribution.</p>
+</blockquote>
+
+<p><img src="/assets/blog/github-tutorial/image21.png" alt="Screen Shot: 18F receiving contribution from user"></p>
+
+<blockquote>
+<p>You always want to make sure what&#39;s on your local machine is as up to date as it can be. So whenever you return to the terminal, make the following a habit:</p>
+</blockquote>
+
+<ul>
+<li>Type <code>git checkout staging</code> followed by <code>git pull</code> again, to make sure your version of the staging branch is current.</li>
+</ul>
+
+<p><img src="/assets/blog/github-tutorial/screenshot22.gif" alt="screenshot: checkout and pull"></p>
+
+<p>After you type <code>git pull</code> one of two things might happen:</p>
+
+<ol>
+<li>It will either say &quot;It&#39;s already to up date&quot;</li>
+<li>Or it will start pulling files which keeps your computer up to date. Your computer is downloading only the changes between your computer and GitHub.</li>
+</ol>
+
+<p>Whenever you run <code>git pull</code> you ask GitHub to download the most recent changes. If you get the first message it means nothing has changed since the last time you worked on it. If you get the second, it means someone from the 18F team merged another pull request.</p>
+
+<p>Once you are all up to date, always remember to create a new branch before making any new changes.</p>
+
+<blockquote>
+<p>If you&#39;d like to make updates to this guide or suggest changes, please add to this <a href="https://github.com/18F/18f.gsa.gov/issues/542">issue</a> and we&#39;ll check it out. Thank you!</p>
+</blockquote>
+
+<p><em><span class="author moncef">Moncef Belyamani</span> contributed significantly to this post, helping us shape it and find our mistakes.</em></p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/03/02/cos-post/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;New resources at CareerOneStop&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/03/04/annoucing-oasis-discovery-making-market-research-easier/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;Announcing OASIS Discovery: making market research easier&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/07/29/style-guide-for-open-source-documentation/' class='related_posts'>&ldquo;18F’s style guide for open source project documentation&rdquo;</a></li><li><a href='/2015/02/17/three-18f-products-that-will-help-your-workplace/' class='related_posts'>&ldquo;Three 18F products that will help your workplace&rdquo;</a></li><li><a href='/2014/04/01/ask-us-almost-anything/' class='related_posts'>&ldquo;Ask us (almost) anything&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-02-24-how-to-use-github-and-the-terminal-a-guide.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

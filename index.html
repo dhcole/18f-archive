@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/" />
+<link rel="canonical" href="https://18f.gsa.gov/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F Digital Services Delivery</title>
+  <meta property="og:title" content="18F Digital Services Delivery" />
+
+
+  <meta name="description" content="18F builds effective, user-centric digital services focused on the interaction between government and the people and businesses it serves.">
+  <meta property="og:description" content="18F builds effective, user-centric digital services focused on the interaction between government and the people and businesses it serves." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <!-- until Twitter's card approver fixes itself, need to use summary_large_image here too because we can't get approved for both -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/images/18f-share-image.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav  global-nav-absolute ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+  <div id="main" role="main" itemscope itemprop="mainContentOfPage">
+    <section class="splash" style="" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+  <img src="/assets/images/logo-18f.png" alt="18F logo" class="logo fadeIn" />
+  <h1>Building the 21st century digital government.</h1>
+  <ul role="presentation" class="rslides">
+    <li>
+      <img src="/assets/images/slideshow/flickr-bay-bridges.jpg" alt="New and old San Francisco Bay Bridge at sunset (Shelly Prevost on Flickr)">
+      <div class="caption">
+        <i class="icon-camera"></i><a href="http://www.flickr.com/photos/photogism/9903236524">New and old San Francisco Bay Bridge at sunset (Shelly Prevost on Flickr)</a>
+      </div>
+    </li>
+    <li>
+      <img src="/assets/images/slideshow/energy-olympus-supercomputer.jpg" alt="The Olympus Supercomputer (ENERGY.GOV)">
+      <div class="caption">
+        <i class="icon-camera"></i><a href="http://energy.gov/articles/photo-week-olympus-supercomputer">The Olympus Supercomputer (ENERGY.GOV)</a>
+      </div>
+    </li>
+    <li>
+      <img src="/assets/images/slideshow/flickr-wind-technology.jpg" alt="National Renewable Energy Laboratory (ENERGY.GOV)">
+      <div class="caption">
+        <i class="icon-camera"></i><a href="http://www.flickr.com/photos/departmentofenergy/9396316654/">National Renewable Energy Laboratory (ENERGY.GOV)</a>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<section class="container" itemscope itemtype="https://schema.org/GovernmentOrganization">
+  <div class="mantra" itemprop="description">
+    <h1>
+      <strong>Delivery</strong> is the strategy.
+    </h1>
+    <p>
+      Built in the spirit of America's top tech startups, 18F is a team of top-notch designers, developers, and product specialists inside the <a href="http://gsa.gov">General Services Administration,</a> headquartered at 18 and F streets in Washington, D.C. 18F is a civic consultancy for the government, inside the government, enabling agencies to rapidly deploy tools and services that are easy to operate, cost efficient, and reusable.
+    </p>
+    <p>
+      We are transforming government from the inside out, creating cultural change by working with teams inside agencies who want to <strong>create great services for the public.</strong>
+    </p>
+  </div>
+</section>
+
+<section class="services" itemprop="makesOffer">
+  <div class="header">
+    <div class="container-fluid">
+      <h1>our work</h1>
+    </div>
+  </div>
+  <article class="container service-entry" itemprop="department">
+    
+      <div class="service-title">
+        <h1><a href="/delivery" class="service-title" itemprop="name">Delivery</a></h1>
+      </div>
+      <div class="service-snippet">
+        <p>Delivery is at the heart of what we do. Our team of designers and developers work to transform government services by building world-class software products and raising standards of software development throughout the government. Learn more about our products by visiting our <a href='/dashboard'>dashboard</a> and you can find more information about <a href='https://pages.18f.gov/guides'>our standards and capabilities</a> through our guides.</p>
+        <p>Learn more about <a href='/dashboard'>what we're building and how we're doing it</a>.</p>
+      </div>
+    
+      <div class="service-title">
+        <h1><a href="/consulting" class="service-title" itemprop="name">Consulting</a></h1>
+      </div>
+      <div class="service-snippet">
+        <p>Our consulting team works alongside other federal agencies as partners. We’re here to roll up our sleeves right alongside you and solve the biggest challenges facing your agency. From developing agile acquisition strategies to evaluating opportunities to improving your digital initiatives, our team sets you up for success.</p>
+        <p>Learn more about the ways we can help you at <a href='/consulting/'>18F Consulting</a>.</p>
+      </div>
+    
+      <div class="service-title">
+        <h1><a href="https://pages.18f.gov/joining-18f" class="service-title" itemprop="name">Join Us</a></h1>
+      </div>
+      <div class="service-snippet">
+        <p>We’re looking for candidates passionate about our mission, with top-notch software development, design, content, and operations skills to match. We’re based in D.C, but our team is distributed all over the country.</p>
+        <p>Learn more about <a href='https://pages.18f.gov/joining-18f'>joining our team</a>.</p>
+      </div>
+    
+</section>
+<section id="news" class="blog">
+  <div class="header">
+    <div class="container-fluid">
+      <h1>blog</h1>
+    </div>
+  </div>
+
+  <article class="container blog-entry" itemprop="about" itemscope itemtype="http://schema.org/about">
+
+    
+      <div class="blog-title">
+        <h1 itemprop="headline">
+          <a href="/2015/10/02/building-a-better-government-design-team/" class="blog-title">Building a better government design team</a>
+        </h1>
+      </div>
+      <div class="blog-meta">
+        <p>
+          Posted on <span class="blog-date"><time datetime="2015-10-02T00:00:00+00:00" itemprop="datePublished">02 October 2015</time></span>.
+        </p>
+        
+<p class="authors">
+  by 
+  <span class="author kate" style="color: #000">
+    <a href=/team/kate>Kate Garklavs</a>
+  </span>
+</p>
+
+
+        <p>
+          Tagged /
+          <span class="blog-tags" itemprop="keywords">
+            
+              <a href="/tags/events" title="click to read other posts tagged: events">events</a>
+              /
+            
+              <a href="/tags/culture" title="click to read other posts tagged: culture">culture</a>
+              /
+            
+              <a href="/tags/how-we-work" title="click to read other posts tagged: how we work">how we work</a>
+              /
+            
+          </span>
+        </p>
+      </div>
+      <div class="blog-snippet" itemprop="articleBody">
+        <p>Building a high-performing design team is tough under the best of circumstances. Add in governmental regulations, a distributed workforce, and rapid growth of the parent organization, and the process is even tougher.</p>
+        <p><a href="/2015/10/02/building-a-better-government-design-team/">Continue reading &ldquo;Building a better government design team&rdquo;...</a></p>
+      </div>
+    
+      <div class="blog-title">
+        <h1 itemprop="headline">
+          <a href="/2015/09/28/web-design-standards/" class="blog-title">Introducing the U.S. Web Design Standards</a>
+        </h1>
+      </div>
+      <div class="blog-meta">
+        <p>
+          Posted on <span class="blog-date"><time datetime="2015-09-28T00:00:00+00:00" itemprop="datePublished">28 September 2015</time></span>.
+        </p>
+        
+<p class="authors">
+  by 
+  <span class="author mollieruskin" style="color: #000">
+    Mollie Ruskin, 
+  
+  <span class="author carolyndew" style="color: #000">
+    Carolyn Dew, 
+  
+  <span class="author mayabenari" style="color: #000">
+    Maya Benari,  and 
+  
+  <span class="author colin" style="color: #000">
+    Colin MacArthur
+  </span>
+</p>
+
+
+        <p>
+          Tagged /
+          <span class="blog-tags" itemprop="keywords">
+            
+              <a href="/tags/proactive-federal-partner" title="click to read other posts tagged: proactive federal partner">proactive federal partner</a>
+              /
+            
+              <a href="/tags/our-projects" title="click to read other posts tagged: our projects">our projects</a>
+              /
+            
+              <a href="/tags/design" title="click to read other posts tagged: design">design</a>
+              /
+            
+              <a href="/tags/usds" title="click to read other posts tagged: usds">usds</a>
+              /
+            
+              <a href="/tags/open-source" title="click to read other posts tagged: open source">open source</a>
+              /
+            
+          </span>
+        </p>
+      </div>
+      <div class="blog-snippet" itemprop="articleBody">
+        <p>The U.S. Web Design Standards is the U.S. government’s very own set of common UI components and visual styles for websites. It’s a resource designed to make things easier for government designers and developers, while raising the bar on what the American people can expect from their digital experiences.</p>
+        <p><a href="/2015/09/28/web-design-standards/">Continue reading &ldquo;Introducing the U.S. Web Design Standards&rdquo;...</a></p>
+      </div>
+    
+      <div class="blog-title">
+        <h1 itemprop="headline">
+          <a href="/2015/09/22/usa-gov-launches-vote-usa-gov-to-help-citizens-register-and-connect-with-states/" class="blog-title">USA.gov launches vote.USA.gov to help citizens register and connect with states</a>
+        </h1>
+      </div>
+      <div class="blog-meta">
+        <p>
+          Posted on <span class="blog-date"><time datetime="2015-09-22T00:00:00+00:00" itemprop="datePublished">22 September 2015</time></span>.
+        </p>
+        
+<p class="authors">
+  by 
+  <span class="author sarahcrane" style="color: #000">
+    Sarah Crane
+  </span>
+</p>
+
+
+        <p>
+          Tagged /
+          <span class="blog-tags" itemprop="keywords">
+            
+              <a href="/tags/proactive-federal-partner" title="click to read other posts tagged: proactive federal partner">proactive federal partner</a>
+              /
+            
+              <a href="/tags/voting" title="click to read other posts tagged: voting">voting</a>
+              /
+            
+              <a href="/tags/our-work" title="click to read other posts tagged: our work">our work</a>
+              /
+            
+              <a href="/tags/presidential-innovation-fellows" title="click to read other posts tagged: presidential innovation fellows">presidential innovation fellows</a>
+              /
+            
+              <a href="/tags/pif" title="click to read other posts tagged: pif">pif</a>
+              /
+            
+          </span>
+        </p>
+      </div>
+      <div class="blog-snippet" itemprop="articleBody">
+        <p>One of the most important rights of American citizens is the right to vote. It is the foundation of our democracy, and in many ways, the basis of our government. This is why the team at USA.gov is excited to announce the launch of vote.USA.gov.</p>
+        <p><a href="/2015/09/22/usa-gov-launches-vote-usa-gov-to-help-citizens-register-and-connect-with-states/">Continue reading &ldquo;USA.gov launches vote.USA.gov to help citizens register and connect with states&rdquo;...</a></p>
+      </div>
+    
+
+    <div class="blog-all">
+      <a href="/news/">See all blog posts.</a>
+    </div>
+  </article>
+
+</section>
+
+<section id="newsletter" class="newsletter">
+  <div class="header">
+    <div class="container-fluid">
+      <h1>
+        newsletter
+      </h1>
+    </div>
+  </div>
+  <div class="container newsletter-box">
+    <div class="newsletter-form">
+      <form action="https://gsa.us9.list-manage.com/subscribe/post?u=6f1977de9eff4c384dc8d6527&amp;id=cbc418738b" method="post" id="contact-form">
+      <div class="form-group"><label class="sr-hide" for="FULLNAME">Your name</label><input type="text" placeholder="Your Name" id="FULLNAME" name="FULLNAME" /></div>
+      <div class="form-group"><label class="sr-hide" for="EMAIL">Your email address (required)</label><input type="text" placeholder="your@email-address.com" id="EMAIL" required name="EMAIL" /></div>
+      <div style="position: absolute; left: -5000px;"><input type="text" name="b_6f1977de9eff4c384dc8d6527_cbc418738b" tabindex="-1" value=""></div>
+      <input type="submit" class="button" value="Sign up to subscribe to our newsletter" />
+      </form>
+    </div>
+    <div class="newsletter-words">
+      <p>Want to know more? Leave us your name and email to receive updates about our work and news from the civic tech community.</p>
+      <p class="small">Your privacy and security are important to us, we'll only share your information as described in <a href="http://www.gsa.gov/portal/content/116609">GSA's Privacy and Security Notice</a>.</p>
+    </div>
+  </div>
+</section>
+
+  </div>
+
+<footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/pages/index.html" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+<!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

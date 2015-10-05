@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2014/10/21/how-to-run-your-own-3-sprint-agile-workshop/" />
+<link rel="canonical" href="https://18f.gsa.gov/2014/10/21/how-to-run-your-own-3-sprint-agile-workshop/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; How to run your own three-sprint agile workshop</title>
+  <meta property="og:title" content="How to run your own three-sprint agile workshop" />
+
+
+  <meta name="description" content="You can’t learn agile software development from a book any more than you can learn to perform a one-handed jump shot without repeatedly tossing a basketball in the hoop. You can read a book about the basic idea, you can read a book to get started, and you can read a book about refining your technique, but in the end you have to practice.">
+  <meta property="og:description" content="You can’t learn agile software development from a book any more than you can learn to perform a one-handed jump shot without repeatedly tossing a basketball in the hoop. You can read a book about the basic idea, you can read a book to get started, and you can read a book about refining your technique, but in the end you have to practice." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <!-- until Twitter's card approver fixes itself, need to use summary_large_image here too because we can't get approved for both -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/images/18f-share-image.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2014/10/21/how-to-run-your-own-3-sprint-agile-workshop/">How to run your own three-sprint agile workshop</a></h1>
+
+      <time datetime="2014-10-21T00:00:00+00:00" itemprop="datePublished">October 21, 2014 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/agile">agile</a>
+            /
+          
+            <a href="/tags/18f-consulting">18f consulting</a>
+            /
+          
+            <a href="/tags/how-we-work">how we work</a>
+            /
+          
+            <a href="/tags/workshop">workshop</a>
+            /
+          
+            <a href="/tags/our-projects">our projects</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author robert" style="color: #000">
+    Dr. Robert L. Read, 
+  
+  <span class="author sarah" style="color: #000">
+    <a href=/team/sarah>Sarah Allen</a>,  and 
+  
+  <span class="author hillary" style="color: #000">
+    <a href=/team/hillary>Hillary Hartley</a>
+  </span>
+</p>
+
+
+      <p>You can’t learn <a href="http://agilemanifesto.org">agile software development</a> from a book any more than you can
+learn to perform a one-handed jump shot without repeatedly tossing a
+basketball in the hoop. You can read a book about the basic idea, you can
+read a book to get started, and you can read a book about refining your
+technique, but in the end you have to practice.</p>
+
+<p>A basketball player performs drills to play better in the game. In
+technology development, we can perform workshops to get better at our main
+business -- delivering software.</p>
+
+<p>This is true whether you are a developer, designer, project manager, or,
+perhaps most importantly, a customer or an executive. It is particularly
+important for executives to appreciate the advantage of agile methodologies,
+and the best way to come to that appreciation is to see it in action. The
+lowest-risk way to do this is to perform an exercise that can be done in a
+single afternoon with any group of willing participants.</p>
+
+<p>A successful workshop will do two things:</p>
+
+<ol>
+<li>It will surprise the participants with how much can be accomplished
+within a short time.</li>
+<li>It will convince people that evaluating early iterations is invaluable for
+making adjustments for the next iterations to achieve the best results overall.</li>
+</ol>
+
+<p>This workshop may be treated as a learning exercise that doesn’t attempt to
+produce anything beyond experience. The participants may be unknown to each
+other, in which case it will be a good team-building exercise, or may be an
+existing team. One could even choose goals which are a valuable work product
+for an existing team valued by an existing customer.</p>
+
+<h2 id="structure">Structure</h2>
+
+<p>The shortest reasonable workshop is comprised of three simulated
+“<a href="https://www.scrumalliance.org/community/articles/2007/march/glossary-of-scrum-terms">sprints</a>”. Each sprint has the same structure, which represents the actual
+structure of a software sprint. In order to fit the workshop into three to
+five hours, each sprint must be very short — 30 to 60 minutes.
+Nevertheless, your participants may be surprised what can be accomplished in
+this short time, if you, as the master of ceremonies, can effectively
+enforce a disciplined structure.</p>
+
+<p>Although one can always adjust the agile process to suit your needs, I
+recommend being strictly dictatorial in your workshop around timekeeping and
+the structure of the sprints. The overall structure is:</p>
+
+<ol>
+<li>An introduction and explanation of the process</li>
+<li>Sprint one</li>
+<li>Sprint two</li>
+<li>Sprint three</li>
+<li>A retrospective and reflection.</li>
+</ol>
+
+<p>This means that there must be a rigid agenda, with sprints one, two, and
+three beginning precisely at the planned time.</p>
+
+<p>Each sprint likewise will consist of:</p>
+
+<ol>
+<li>A period of writing stories on notecards</li>
+<li>A development period that focuses on interaction between the customer and developers</li>
+<li>A demo</li>
+<li>A sprint retrospective which focuses on the process</li>
+<li>A break before the next sprint begins</li>
+</ol>
+
+<p>The time allotted to each of these activities will depend on the overall
+timeframe for your workshop. In general the demo and the retrospective for
+each sprint can be done in five minutes each and the story writing period can
+be five to 10 minutes.</p>
+
+<h2 id="teams">Teams</h2>
+
+<p>You can have one, two, or three teams -- but if you are running a
+workshop for the first time, I recommend starting small. No matter how many
+teams you have, you must enforce a precise agenda for each team. Every
+workshop participant should participate in all demos, and you should
+organize your agenda around consecutive demos.</p>
+
+<p>I prefer not to have the teams compete, but to give each team a different
+goal. It is even better if these goals are complementary.</p>
+
+<p>The teams consist of two clearly distinguished roles. The customer gets
+value from using what is built, but does not care how it is built. It is
+critical that to remember that the customer is the end-user, not the person
+funding the project. For example, a CIO of an agency is the executive in
+charge, but is rarely the customer, except for dashboard and reporting
+projects. It is imperative, especially in government work, to always seek to
+interact with the actual Customer as early in the process as possible. In
+the case of a learning workshop performed as an exercise, the customer may
+be an executive who simply wants to see how agile can work for them, or
+could be a true end-user of an existing team. In many cases, the customer is
+not a technologist, and in all cases they should have no opinion about how
+to accomplish something.</p>
+
+<p>The second role is named developer---by which we mean designer, coder,
+writer, or more generally, maker. The ideal team size is one to two customers and
+two to four developers. If you have more than five developers, there will be natural
+pressure for it to devolve into two teams, particularly in such a short
+workshop.</p>
+
+<h2 id="roles">Roles</h2>
+
+<p>Each participant performs one and only one of the following three roles:</p>
+
+<ol>
+<li>Customer</li>
+<li>Developer (designer, coder, writer, maker)</li>
+<li>Master of ceremonies and coach</li>
+</ol>
+
+<h3 id="the-master-of-ceremonies/coach">The master of ceremonies/coach</h3>
+
+<p>The master of ceremonies/coach enables the rest of the participants to learn
+by performing key responsibilities.</p>
+
+<h4 id="prepare-the-participants">Prepare the participants</h4>
+
+<p>The master of ceremonies must coach the customers ahead of time so that they are prepared to drive their teams. The
+customer must have a clear goal in mind, and sufficient willpower to direct
+the team appropriately. If the customer doesn&#39;t have one ahead of time, the
+master of ceremonies/coach must work with them to develop a goal.</p>
+
+<h4 id="provide-an-effective-physical-workspace">Provide an effective physical workspace</h4>
+
+<p>They must also enable teams to collaborate effectively by making sure that
+the physical space is appropriate, there are appropriate refreshments
+available, and the office supplies are readily at hand. Notecards and pens
+are absolutely required. A whiteboard or flipchart for each team is valuable
+for “scribing” the sprint retrospectives and the final workshop
+retrospective. Finally, they must make sure that the computer and
+audio/visual facilities are properly prepared. Not all workshops will
+require computers or audio/video space, but larger ones may.</p>
+
+<p>Preparation of the non-physical workspace may include establishing ahead of
+time a shared file storage, ideally with version control and easy web
+viewing, open to all participants, such as those offered by a shared code
+repository on <a href="https://github.com">GitHub</a>. This makes it easy for people to collaborate, leaves a
+history, and produces a durable record of the workshop product to be used
+later.</p>
+
+<h4 id="enforce-a-rigid-schedule">Enforce a rigid schedule</h4>
+
+<p>Enthusiastic teams will want a little more time to improve their demo. The
+master of ceremonies/coach must not succumb to pressure to deviate from the
+pre-planned schedule. If a demo is less than impressive because a story is
+not done, this is a learning experience for the team.</p>
+
+<h4 id="coaching-during-the-workshop">Coaching during the workshop</h4>
+
+<p>Coaches should make make sure that stories are written down on
+notecards during the story writing phase. However, even more important is
+that the progress of the development team during the development phase be
+immediately and constantly shown to the customer, who may make adjustments
+in priorities at any time.</p>
+
+<p>Coaches may also provide guidance on agile techniques during the workshop.
+However, this is probably the least important of his or her
+responsibilities. If they can enforce the schedule, he or she need not be a
+terribly experienced agile practitioner. The Teams will learn by doing, and
+if they have properly prepared the customers and created an enabling space,
+the Teams will learn from their failures and/or enjoy their successes based
+on their own merits.</p>
+
+<h4 id="enforce-responding-to-the-customer">Enforce responding to the customer</h4>
+
+<p>The paramount responsibility of the master of ceremonies/coach is to insist
+that all work be shown as soon as possible to the customer and that customer
+changes to direction and priorities be immediately respected by the
+developers.</p>
+
+<h3 id="the-customer">The customer</h3>
+
+<p>The customer is the most important role, and demands
+preparation. The customer is considered part of the team. The customer must
+bring to the workshop a clear idea of something that they would like to have
+produced within the workshop and an ability to flexibly set priorities and
+give feedback based on progress.</p>
+
+<p>The customer must be prepared to participate in a story-writing process that
+is motivated by a clear goal. This goal need not be precise or detailed.
+However, the customer must have in mind what they want and be delighted when
+progress toward this is made. He or she must be prepared to help the group
+articulate very small steps towards the goal and compromisingly choose
+priorities for steps that team can accomplish. The customer must be prepared
+to converse with the developers and make a rapid prioritization based on a
+quick estimate.</p>
+
+<p>A tester or auality assurance person is considered a customer for the
+purpose of such a workshop. An executive who wants to experience agile
+development should probably play the role of customer, because the most
+valuable thing that can happen in the workshop is for them to come to
+appreciate the power of being able to make iterative changes to development
+based on what has been learned from rapid, early development.</p>
+
+<h3 id="the-developer">The developer</h3>
+
+<p>The developer may be a computer programmer, a writer, a designer, or anybody
+else who is making things. The reason the developer role must be clearly
+delineated from the customer is that the developer must not be a bully. That
+is, developer have a a monopoly on making things, so they can easily slip
+into asserting their own ideas about what should be made. This is the one
+thing that developers should not do. They must cede all control over what is
+made to the customer.</p>
+
+<p>It is, however, the developers’ job to teach, (in this case very quickly)
+the customer how much time it will take to make any given story that they
+ask for. The developers must provide quick estimates on the spot. They do
+not have to be accurate, or confident -- they need only be honest.</p>
+
+<h3 id="example-team-goals">Example team goals</h3>
+
+<p>You can run three-sprint agile workshop around a goal of
+producing a valuable end product. However, you may prefer to simply treat it
+as an exercise.</p>
+
+<p>When I did this many years ago in Mumbai with three teams, I used the task
+of building an online calculator. This is a good exercise, because one can
+easily imagine a very weak calculator with features being smoothly added to
+create a powerful calculator.</p>
+
+<p>Looking at great teaching books can provide good ideas for projects. For
+example, a currency conversion calculator sounds simple, but has some
+interesting challenges. This was an effective example from Kent Beck&#39;s book
+<a href="https://en.wikipedia.org/wiki/Test-Driven_Development_by_Example">Test Driven Development by Example</a> introduced shortly after his seminal work
+<a href="https://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development</a>. I have not run a workshop around it, but I believe
+one could run an effective five-hour workshop around this exercise as well.</p>
+
+<p>For a group of participants that did not include strong coders, I might plan
+goals easier to program or which involved no programming at all, such as
+creating a simple blog with <a href="https://pages.github.com">GitHub Pages</a> or <a href="https://wordpress.com">WordPress</a>.</p>
+
+<p>If I had a group of program managers, I might have the developers
+essentially be writers, and suggest goals such as “Build a website that
+informs people about the benefits of regular exercises.” In all cases, I
+would work with the customers ahead of time to make sure they had a clear
+idea of what they wanted to accomplish, but were open to change based on
+what they got from the developers in the First and Second Sprint.</p>
+
+<h3 id="the-surprise-pivot">The surprise pivot</h3>
+
+<p>In order to demonstrate the value of agile development in a fun and
+challenging way, you should prepare ahead of time a little trick to play on
+your teams. This is a “pivot” away from what they were originally thinking to
+a new mandate driven by the customers. Such changes are major risks to
+government software development. Sometimes these are actually driven by
+regulatory changes, sometimes by a changing technical environment, sometimes
+by discovery of a new opportunity.</p>
+
+<p>The pivot should occur in the third sprint. If possible, it should relate the
+multiple teams that you have to each other. It is important that you coach
+your customers ahead of time about the pivot, so that they can correctly
+communicate the new requirement to your teams.</p>
+
+<h2 id="things-that-can-go-wrong">Things that can go wrong</h2>
+
+<p>To some extent, things going wrong is helpful, if the team can learn from
+it. Here are some things that can go wrong:</p>
+
+<ul>
+<li>The team can fail to break the goal into small steps that can be executed
+within the limited time of one sprint, so that they have nothing to demo.</li>
+<li>Developers can be bullies and impose their own desires on what gets built.</li>
+<li>Customers can fail to assert priorities.</li>
+<li>The team can fail to simplify their goal enough to get anything done
+within the workshop.</li>
+<li>A team can be so large that it is difficult for them to coordinate work
+within a sprint. If you know you have that many participants, you should
+increase the number of teams to keep the team size smaller.</li>
+<li>The team may devote too much energy to thinking about the final product in
+the third sprint and thus fail to do good a good job presenting
+functionality in the first demo. A team that does this will also be stung by
+the surprise pivot, which will likely cause some of their work to be wasted.</li>
+</ul>
+
+<h2 id="your-turn!">Your turn!</h2>
+
+<p>If you’ve made it this far, you might be looking for examples or
+more information. You can read more about a recent workshop I led at 18F as
+a team-building exercise. The case study has example goals, projects, and
+pivots to give you ideas for your own workshop.</p>
+
+<h2 id="another-option:-bring-on-18f-as-a-coach">Another option: Bring on 18F as a coach</h2>
+
+<p>18F has recently created a new pilot line of business called <a href="https://18f.gsa.gov/consulting/">18F Consulting</a> which offers agile coaching and other services at cost-recovery
+prices under the Economy Act. If you’d like assistance or you’d like us to
+run a workshop for your team, please <a href="mailto:18f@gsa.gov">get in touch</a>!</p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2014/10/01/open-source-hack-series-midas/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;18F open source hack series: Midas&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2014/11/13/why-we-use-https-in-every-gov-website-we-make/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;Why we use HTTPS for every .gov we make&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/09/09/how-a-two-day-spring-moved-an-agency-twenty-years-forward/' class='related_posts'>&ldquo;How a two-day sprint moved an agency twenty years forward&rdquo;</a></li><li><a href='/2015/08/31/how-playing-with-legos-taught-executives-agile/' class='related_posts'>&ldquo;How 90 minutes with Lego bricks taught these executives agile&rdquo;</a></li><li><a href='/2015/08/28/announcing-the-agile-BPA-awards/' class='related_posts'>&ldquo;Announcing the Agile BPA awards: A conversation about the process&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2014-10-21-how-to-run-your-own-3-sprint-agile-workshop.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

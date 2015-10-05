@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+<link rel="canonical" href="https://hub.18f.gov/standards/slack/" />
+<link rel="vcs-git" href="https://github.com/18F/hub" title="18F Hub code repository" />
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Public Hub" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://hub.18f.gov" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; Slack Standards</title>
+  <meta property="og:title" content="Slack Standards" />
+
+
+
+  <meta name="description" content="The go-to place for all team information ">
+  <meta property="og:description" content="The go-to place for all team information " />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <!-- until Twitter's card approver fixes itself, need to use summary_large_image here too because we can't get approved for both -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://hub.18f.gov/images/logo-18f.png" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/hub/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/hub/assets/images/favicons/favicon.png" />
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/hub/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/hub/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/hub/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/hub/assets/images/favicons/18f-center-144.png">
+
+<!-- CSS
+================================================== -->
+<style>/*! normalize.css v3.0.1 | MIT License | git.io/normalize */html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:bold}dfn{font-style:italic}h1{font-size:2em;margin:0.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-0.5em}sub{bottom:-0.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace, monospace;font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:bold}table{border-collapse:collapse;border-spacing:0}td,th{padding:0}
+
+@font-face{font-family:"18f";src:url("/assets/fonts/18f-font.eot");src:url("/assets/fonts/18f-font.eot?#iefix") format("embedded-opentype"),url("/assets/fonts/18f-font.woff") format("woff"),url("/assets/fonts/18f-font.ttf") format("truetype"),url("/assets/fonts/18f-font.svg#untitled-font-1") format("svg");font-weight:normal;font-style:normal}[data-icon]:before{font-family:"18f" !important;content:attr(data-icon);font-style:normal !important;font-weight:normal !important;font-variant:normal !important;text-transform:none !important;speak:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}[class^="icon-"]:before,[class*=" icon-"]:before{font-family:"18f" !important;font-style:normal !important;font-weight:normal !important;font-variant:normal !important;text-transform:none !important;speak:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.icon-lightbulb:before{content:"a"}.icon-github1:before{content:"b"}.icon-github2:before{content:"c"}.icon-github3:before{content:"d"}.icon-18f-logo:before{content:"e"}.icon-camera:before{content:"f"}.icon-twitter:before{content:"g"}.icon-spinner:before{content:"l"}.icon-email:before{content:"h"}.icon-lastfm:before{content:"i"}.icon-linkedin:before{content:"j"}.icon-anchor:before{content:"k"}body{font-family:'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-weight:300;line-height:1.8em}h1,h2,h3,h4,h5,h6{font-family:'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-weight:600}a{color:#06d;text-decoration:underline}a:hover{color:#c21}.icon-spin{display:inline-block;-webkit-animation:spin 2s infinite linear;-moz-animation:spin 2s infinite linear;-o-animation:spin 2s infinite linear;animation:spin 2s infinite linear}@-webkit-keyframes spin{0%{-webkit-transform:rotate(0deg)}100%{-webkit-transform:rotate(359deg)}}@-moz-keyframes spin{0%{-moz-transform:rotate(0deg)}100%{-moz-transform:rotate(359deg)}}@-o-keyframes spin{0%{-o-transform:rotate(0deg)}100%{-o-transform:rotate(359deg)}}@-ms-keyframes spin{0%{-ms-transform:rotate(0deg)}100%{-ms-transform:rotate(359deg)}}@keyframes spin{0%{transform:rotate(0deg)}100%{transform:rotate(359deg)}}
+
+.hll{background-color:#f8f8f8;border:1px solid #ccc;padding:6px 10px;border-radius:3px}.c{color:#999988;font-style:italic}.err{color:#a61717;background-color:#e3d2d2}.k{font-weight:bold}.o{font-weight:bold}.cm{color:#999988;font-style:italic}.cp{color:#999999;font-weight:bold}.c1{color:#999988;font-style:italic}.cs{color:#999999;font-weight:bold;font-style:italic}.gd{color:#000000;background-color:#ffdddd}.gd .x{color:#000000;background-color:#ffaaaa}.ge{font-style:italic}.gr{color:#aa0000}.gh{color:#999999}.gi{color:#000000;background-color:#ddffdd}.gi .x{color:#000000;background-color:#aaffaa}.go{color:#888888}.gp{color:#555555}.gs{font-weight:bold}.gu{color:#800080;font-weight:bold}.gt{color:#aa0000}.kc{font-weight:bold}.kd{font-weight:bold}.kn{font-weight:bold}.kp{font-weight:bold}.kr{font-weight:bold}.kt{color:#445588;font-weight:bold}.m{color:#009999}.s{color:#dd1144}.n{color:#333333}.na{color:teal}.nb{color:#0086b3}.nc{color:#445588;font-weight:bold}.no{color:teal}.ni{color:purple}.ne{color:#990000;font-weight:bold}.nf{color:#990000;font-weight:bold}.nn{color:#555555}.nt{color:navy}.nv{color:teal}.ow{font-weight:bold}.w{color:#bbbbbb}.mf{color:#009999}.mh{color:#009999}.mi{color:#009999}.mo{color:#009999}.sb{color:#dd1144}.sc{color:#dd1144}.sd{color:#dd1144}.s2{color:#dd1144}.se{color:#dd1144}.sh{color:#dd1144}.si{color:#dd1144}.sx{color:#dd1144}.sr{color:#009926}.s1{color:#dd1144}.ss{color:#990073}.bp{color:#999999}.vc{color:teal}.vg{color:teal}.vi{color:teal}.il{color:#009999}.gc{color:#999;background-color:#EAF2F5}
+
+</style>
+<link href="/hub/assets/css/styles.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway:400,700%7COpen+Sans:300,400,700" rel="stylesheet" type="text/css">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <script src="/hub/hub/assets/ie8/html5shiv-a6f919e96ff9d9ae496cc35446be9fcb.js"></script>
+  <script src="/hub/hub/assets/ie8/respond-7afbda70eacd53d5a5e496cca095fb7f.js"></script>
+  <link href="/hub/hub/assets/ie8/ie-bb34db8e6b885fd6bb7c6d98f5046703.css" rel="stylesheet">
+<![endif]-->
+
+<script>
+// export some helpful site-wide variables
+window.site = {
+  baseurl: "/hub"
+};
+</script>
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="skip-nav">
+    <a href="#anchor">Skip to main content</a>
+  </div>
+
+  <div class="stage-bug">
+    <span>This site is in alpha. <a href="https://18f.gsa.gov/dashboard/stages/"><span class="sr-only">This site is in alpha.</span>Learn more here.</a></span>
+  </div>
+
+<nav class="nav">
+  <ul>
+    <a href="/hub/">
+      <img src="/hub/assets/images/18f-logo-small.png" alt="18F logo">
+    </a>
+    <li>
+      <a href="/hub/onboarding">New to 18F?</a>
+    </li>
+    <li>
+      <a href="/hub/how-to">How to...</a>
+    </li>
+    
+    <li>
+      <a href="/hub/team">Team</a>
+    </li>
+    <li>
+      <a href="/hub/projects">Projects</a>
+    </li>
+    <li>
+      <a href="/hub/guidelines">Guidelines</a>
+    </li>
+    <li>
+      <a href="/hub/about">About the Hub</a>
+    </li>
+  </ul>
+</nav>
+
+
+
+<section class="container bare">
+  <div ng-controller="SearchController" class="bare-content" ng-strict-di>
+  <div class="search-interface skip-nav-anchor" id="anchor" tabindex="-1">
+    <label for="search1" class="sr-only">Search - click or press '/'</label>
+    <live-search id="search1" type="text"
+      live-search-callback="searchCallback"
+      live-search-item-template="<a href='{{result.page.url}}'>{{result.page.title || result.page.url}}</a>"
+      live-search-select="displayTitle"
+      live-search-max-result-size="20"
+      ng-model="searchText"
+      ng-keydown="searchKeyDown($event)"
+      placeholder="Search – click or press '/'"
+      aria-autocomplete="list"
+      aria-activedescendant="search_result_0"
+      aria-haspopup="true"
+    ></live-search>
+  </div>
+  <div ng-hide="searchText"></div>
+</div>
+
+  <div class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+    <h1 id="slack-standards">Slack Standards</h1>
+
+<p>Instead of maintaining our own <a href="https://en.wikipedia.org/wiki/Internet_Relay_Chat">IRC</a> servers for chat capabilities, 18F uses <a href="https://slack.com/">Slack</a>. This living document is the 18F team standards and practices for our use of Slack. <strong>Any change to this standard, or any global technical change to our Slack account, will be announced via an <code>@channel</code> in <code>#news</code></strong> (the default channel to which all users are subscribed and unable to leave).</p>
+
+<h2 id="summary">Summary</h2>
+
+<p>Everything in this standard is <strong>required</strong>, unless explicitly stated otherwise. TL;DR:</p>
+
+<ul>
+<li>Complete <a href="https://18f.slack.com/account/profile">your profile</a></li>
+<li>Adhere to our <a href="https://github.com/18F/code-of-conduct/blob/master/code-of-conduct.md">Code of Conduct</a>, i.e. treat everyone with respect</li>
+<li>Treat Slack as a public forum, i.e. assume you have no privacy</li>
+<li>Use <a href="https://slack.zendesk.com/hc/en-us/articles/204509068-Enabling-two-factor-authentication">two-factor authentication</a></li>
+</ul>
+
+<h2 id="complete-your-profile">Complete your profile</h2>
+
+<p>Because we are a distributed team, Slack is often the first way we &quot;meet&quot; each other. <a href="https://18f.slack.com/account/profile"><strong>Please fully complete your profile</strong></a> so people have a better chance of knowing who you are. This includes first name, last name, a unique profile picture (photos are preferred, but not required), phone number, and a summary of what you do, what teams you&#39;re on, and where you&#39;re located.</p>
+
+<h2 id="code-of-conduct">Code of Conduct</h2>
+
+<p>Just like an in-person meeting or event, conduct on Slack is governed by the all relevant laws and GSA policies, in addition to the <a href="https://github.com/18F/code-of-conduct/blob/master/code-of-conduct.md">18F Code of Conduct</a>. Please read our Code of Conduct carefully. Bottom line: Don&#39;t say something on Slack that you wouldn&#39;t feel comfortable saying to someone&#39;s face. Note that sarcasm is hard to communicate online - sincerity is usually easier to understand.</p>
+
+<p>If you see anyone violating our Code of Conduct, please report it immediately in <code>#admins-slack</code>. If you don&#39;t feel comfortable reporting it there, you can send a direct message to either Noah Kunin [<code>@noah</code>] or Hillary Hartley [<code>@hillary</code>].</p>
+
+<h3 id="who-can-use-slack">Who can use Slack?</h3>
+
+<p>Slack is required for all 18F staff. We can also invite people outside 18F to have access to a <strong>single channel</strong> on our Slack account. These single-channel users are free, and don&#39;t need financial authorization from TeamOps or security clearance from DevOps. These users may include:</p>
+
+<ul>
+<li>vendors <em>under contract</em> (not just a Terms of Service) with 18F</li>
+<li>partners at federal agencies whose projects are under an Interagency Agreement with 18F</li>
+<li>federal staff with government email addresses (for example, friends at the USDS, CFPB, other teams inside GSA, etc.)</li>
+<li>members of the public collaborating on an open source project in a public channel via <a href="https://chat.18f.gov">chat.18f.gov</a></li>
+</ul>
+
+<h4 id="project-stakeholders">Project stakeholders</h4>
+
+<p>Projects are free to invite their government partners to specific channels to foster collaboration and asynchronous communication with the team. Several projects have set up specific channels for this communication that end with <code>-partners</code>. Our partners may be invited as <code>single-channel guests</code> at no cost to the project or agency. If you would like for your partners to have access to more than one channel, this expense will need to be part of the IAA and cleared by TeamOps and DevOps.</p>
+
+<h4 id="friends">Friends</h4>
+
+<p>Friends from other government teams can be invited into a project&#39;s channel or a general purpose channel like <code>#friends</code>. If the individual is a federal employee, and the main purpose of inviting them is to work on government projects, the invite should be sent to their <code>.gov</code> email address. </p>
+
+<h4 id="teammates-from-the-united-states-digital-service-usds">Teammates from the United States Digital Service (USDS)</h4>
+
+<p>One of our biggest collaborators is the USDS. You may see channels that end with <code>-usds</code> — members of the USDS across government are in these channels. In order to keep the signal to noise ratio high, please keep discussion focused on the project or task at hand in each channel. </p>
+
+<h4 id="the-public">The public</h4>
+
+<p>Projects that desire chat-like engagement with the public may create public channels. These channels end with <code>-public</code> to signify a channel the public can join. Treat these channels like you would a town hall or other type of public meeting. Members of the public must also comply with GSA standards and the <a href="https://github.com/18F/code-of-conduct/blob/master/code-of-conduct.md">18F Code of Conduct</a>. To invite people to a public Slack channel, send them to <a href="https://chat.18f.gov/">chat.18f.gov</a> and have them select the appropriate channel from the drop-down.</p>
+
+<h2 id="records-policy">Records policy</h2>
+
+<p>Per the mandatory <a href="http://www.archives.gov/records-mgmt/memos/ac33-2014.html">General Records Schedule 3.1</a> issued by the National Archives and Records Administration (NARA), basically everything in Slack channels and groups is considered at minimum a temporary record. </p>
+
+<p>To ensure compliance with the possibility that we might create permanent or long-lived records in Slack, the records retention policy is set to <strong>retain all messages forever AND also retain edit and deletion logs for all messages</strong>. Users are prohibited from deleting messages. Do not abuse the <code>edit</code> command in Slack to effectively delete your message by replacing it with null or symbolic content. Edits for clarity or typos are fine. If Hubot or Giphy ever posts something inappropriate, please call for a clean-up in <code>admins-slack</code>.</p>
+
+<p>This policy applies to all types of Slack communications: public channels, private groups, even direct messages. <strong>Nothing is private.</strong></p>
+
+<h2 id="security">Security</h2>
+
+<h3 id="two-factor-authentication">Two-factor authentication</h3>
+
+<p>Starting on September 1st, 2015, two-factor authentication (2FA) is required to use Slack. If you don&#39;t have it enabled, your account will be deactivated. <a href="https://slack.zendesk.com/hc/en-us/articles/204509068-Enabling-two-factor-authentication">Activating 2FA is really easy</a>. In general, you should have 2FA enabled <a href="https://twofactorauth.org/">wherever possible</a>.</p>
+
+<h3 id="infrastructure-security">Infrastructure security</h3>
+
+<p>Slack is currently built on Amazon Web Services (AWS), which from a federal security perspective, already has a host of protections verified through GSA&#39;s <a href="https://www.fedramp.gov/marketplace/compliant-systems/amazon-web-services-aws-eastwest-us-public-cloud/">FedRAMP program</a>. </p>
+
+<p>However, there are currently <em>no</em> assurances that Slack employees can&#39;t read any and all of the messages sent via Slack. In fact, Slack <a href="https://slack.com/security">makes it clear</a> that its employees <em>do</em> have this ability, and just don&#39;t use it without customer permission:</p>
+
+<blockquote>
+<p>All of our employees are bound to our policies regarding customer data and we treat these issues as matters of the highest importance within our company. If, in order to diagnose a problem you are having with the service, we would need to do something which would expose your data to one of our employees in a readable form, we will always ask you prior to taking action and will not proceed without your permission. Our platform will automatically generate an audit entry of any such access.</p>
+</blockquote>
+
+<p>This is the case with most software as a service offerings. We&#39;re working with Slack to better map out the process where those permissions are granted. Regardless, we currently do not, and may never, authorize Slack to handle sensitive team or project data. </p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<ul>
+<li><p><strong>Don&#39;t say anything on Slack you would feel uncomfortable being attributed to you in public.</strong> Treating Slack as <em>if</em> it was a public IRC server is a great best practice. Everything you say is one screen shot away from going public.</p></li>
+<li><p><strong>Don&#39;t post anything to Slack that would make our systems vulnerable if it fell into the wrong hands.</strong> If you need to share sensitive data (environmental variables, passwords, etc) use <a href="https://fugacious.18f.gov">Fugacious</a>, an awesome tool built by our very own <a href="https://github.com/jgrevich">@jgrevich</a>, to create a short message that is auto-deleted. If you have something that is very complex, please share it using a GSA Google Drive folder, and then promptly delete it once you&#39;re done sharing.</p></li>
+<li><p><strong>Treat everyone with respect and get to know the <a href="https://github.com/18F/code-of-conduct/blob/master/code-of-conduct.md">18F Code of Conduct</a>.</strong> The same rules of the road apply to Slack that you would use in person, in a meeting, or at an event.</p></li>
+</ul>
+
+
+    <hr/>
+    
+  <div class="edit-info">
+    
+    <p><a href="https://github.com/18F/hub/edit/master/_pages/standards/Slack.md">Edit this page</a></p>
+  </div>
+
+
+  </div>
+</section>
+
+  <footer class="footer">
+  <div class="container">
+    <ul>
+      <li>
+        <a href="/hub/team/">Team</a>
+      </li>
+      <li>
+        <a href="/hub/projects/">Projects</a>
+      </li>
+      <li>
+        <a href="https://pages.18f.gov/guides/">Guides</a>
+      </li>
+      <li>
+        <a href="/hub/how-to/">How to...</a>
+      </li>
+      <li>
+        <a href="/hub/onboarding/">Onboarding guide</a>
+      </li>
+      <li>
+        <a href="/hub/about/">About the Hub</a>
+      </li>
+    </ul>
+
+    <img src="/hub/assets/images/logo-gsa.png" alt="GSA logo"/>
+  </div>
+</footer>
+
+
+</body>
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+  
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+<script src="/hub/assets/js/jquery-2.1.1.min.js"></script>
+<script>
+  SITE_BASEURL = '/hub';
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/hub/assets/18f-67b55d918e46df6a7cd7086cd00e8ed5.js"></script>
+
+
+
+<script>SEARCH_BASEURL = '/hub';</script>
+<script async src="/hub/assets/js/search-bundle.js"></script>
+
+</html>

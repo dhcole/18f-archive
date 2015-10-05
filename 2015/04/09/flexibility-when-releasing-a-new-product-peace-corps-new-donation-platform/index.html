@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/04/09/flexibility-when-releasing-a-new-product-peace-corps-new-donation-platform/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/04/09/flexibility-when-releasing-a-new-product-peace-corps-new-donation-platform/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; Flexibility when releasing a new product: Peace Corps' new donations platform</title>
+  <meta property="og:title" content="Flexibility when releasing a new product: Peace Corps&#39; new donations platform" />
+
+
+  <meta name="description" content="We were proud to provide design and development work for the Peace Corps&#39; new donation platform. We want to share a few reflections around drawing that delivery line for this new product, and explain where we think we made the right call and look at other decisions which still keep us up at night.">
+  <meta property="og:description" content="We were proud to provide design and development work for the Peace Corps&#39; new donation platform. We want to share a few reflections around drawing that delivery line for this new product, and explain where we think we made the right call and look at other decisions which still keep us up at night." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/blog/peacecorps/image04.png" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/04/09/flexibility-when-releasing-a-new-product-peace-corps-new-donation-platform/">Flexibility when releasing a new product: Peace Corps' new donations platform</a></h1>
+
+      <time datetime="2015-04-09T00:00:00+00:00" itemprop="datePublished">April 9, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/peace-corps">peace corps</a>
+            /
+          
+            <a href="/tags/how-we-work">how we work</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author cm" style="color: #000">
+    <a href=/team/cm>CM Lubinski</a>
+  </span>
+</p>
+
+
+      <p><img src="/assets/blog/peacecorps/image04.png" alt="Screenshot of workflow for new Peace Corps donation platform"></p>
+
+<p>We were proud to provide design and development work for the Peace
+Corps&#39; new <a href="https://beta.peacecorps.gov/donate/">donations platform</a>
+which will allow the Peace Corps to further its mission by providing
+funding for volunteer projects. Releasing this project within our tight
+deadline required us to choose the direction of our efforts carefully;
+in some cases we think we chose well, we learned lessons from others.</p>
+
+<p>Deciding when to release a project is always a balancing act. We want to
+build enough features to be useful, but to go live as quickly as
+possible. Even with years of experience, drawing that “release” line is
+challenging; we will always over optimize in some areas and
+under-deliver in others. However, in many cases, a productive
+application that generates real user feedback is well worth making that
+call early.</p>
+
+<p>We want to share a few reflections around drawing that delivery line for
+this new product, and explain where we think we made the right
+call and look at other decisions which still keep us up at night. By
+highlighting some of the bigger (and more contentious) decision points,
+we hope we can help inform your next project(s), as well as our own.</p>
+
+<h2 id="progressive-enhancement">Progressive enhancement</h2>
+
+<p>Our effort to refresh the Peace Corps&#39; donations platform stemmed from
+many goals, such as highlighting volunteer stories (to humanize the
+agency), creating an experience optimized for mobile devices, and
+simplifying the donation process. The last point proved particularly
+challenging, as we had little control over the payment processor and
+minimal flexibility in the collections form. Luckily, we <em>could</em> reduce
+the number of steps between landing on the site and donating. When the
+user found a compelling story, they could select a donation amount
+in-line, turning what used to be a four-step process into a single
+click.</p>
+
+<p><img src="/assets/blog/peacecorps/image03.png" alt="screenshot: workflow of donation pathways on Peace Corps site"></p>
+
+<p>Our ideal interface would have been a seamless user experience, but once
+scoped would have required a heavy lift from our front end and
+accessibility teams. We would need to dynamically generate the interface
+and provide a fallback for users without scripting support. With an eye
+on the clock, we chose instead to create a simpler form using radio
+selectors to allow users to select a donation amount. Though this felt
+clunky and defeated our single-click goal, it worked, so that&#39;s where we
+started. The budget eventually allowed for additional improvements to
+this interface to be prioritized. Currently, the experience for most
+users is roughly one step away from our initial design, but it <em>remains</em>
+a step away. However, since we released without our optimal solution, we
+bought time to build some other features (perhaps skipping payment
+confirmation, perhaps additional sort options). Stepping back and
+re-prioritizing allowed us to make the product better on the whole.</p>
+
+<p>In another situation, starting with a simple solution ultimately led us
+down a worse path. Our most complex user interaction offers multiple
+filters and categorization mechanisms for selecting how a user&#39;s
+donation will be used by the Peace Corps volunteers. A reasonable
+technical architecture for this sort of page would involve asynchronous
+requests, where data is transmitted in chunks instead of in one large
+block, so that the browser only loads what is needed. We chose to start
+with a simpler approach, however, by including all content in the
+initial page load and simply hiding elements based on filters. With
+either strategy, users selecting a specific country would only see
+projects and funds relevant to that country, but the latter approach
+requires much more markup. Not long before launching, we realized that
+this approach led to massive page sizes when using live data. We quickly
+hacked around this problem via compression on our caching layer, and we
+later added additional patches to minimize redundant markup. We&#39;re still
+not where we should be with regards to site load time because our
+initial approach was too simplistic.</p>
+
+<h2 id="zero-downtime-and-caching-overkill">Zero downtime and caching overkill</h2>
+
+<p>During our early planning phases, we were informed there might be a
+couple concurrent announcements by the Peace Corps which could drive
+significant traffic to our site. As a result, we spent many hours
+designing and implementing infrastructure that could tolerate large
+amounts of traffic. We designed an architecture for one component hosted
+on Amazon Web Services S3 and CloudFront to handle the brunt of the
+users. The main donations app is protected by a memcache-based layer to
+keep server load low. It uses tiered caching so that certain data is
+kicked out every five minutes while other pages are generated hourly.
+With several machines primed and auto-scaling capability, we expected to
+handle dozens of requests per second.</p>
+
+<p><img src="/assets/blog/peacecorps/image00.png" alt="screenshot of donation platform for Peace Corps birding for conservation project"></p>
+
+<p>After reviewing the numbers from Peace Corps&#39; media blitz in early
+March, we know that part of our calculus was correct — S3 and CloudFront
+<em>did</em> take the brunt of our user load — but our other estimates were
+wildly off. The absolute number of hits was significantly below our
+capacity.</p>
+
+<p>While there has been good traffic to the site, we made the wrong call
+when architecting. Our caching layers led to additional confusion from
+Peace Corps admin staff, who needed to know that their content may not
+be “live” for an hour. We didn&#39;t actually need this layer and certainly
+not the multi-tiered approach we used out of the gate. Our auto-scaling
+server cluster sits at minimal utilization; we will certainly save money
+once we spin it down. While the peace of mind is certainly appreciated,
+the beefy implementation was overkill. If we had instead started with a
+simpler vision, we would have simpler configuration, leaving less room
+for confusion and waste.</p>
+
+<h2 id="cutting-features">Cutting features</h2>
+
+<p>Replacing legacy (existing, outdated) systems is always a challenge. Not
+only do we need to find all of the technical boundaries, we are also
+expected to match (and exceed) existing functionality. Two features of
+the existing donations portal proved particularly problematic during our
+design process. Our easy-donation strategy did not account for the dozen
+or so pieces of donor information the existing system collected. The
+legacy system also provided a search engine, allowing users to find
+funds based on keywords. One of these features would make it to launch
+but the other would not.</p>
+
+<p><img src="/assets/blog/peacecorps/image02.png" alt="Screenshot: product backlog for Peace Corps sprints"></p>
+
+<p>We pushed hard to cut as many fields as possible from the donor form,
+but knew this would be problematic given the number of stakeholders
+needed for approval. We therefore began a parallel effort to test our
+backend process with a replica of their existing form. Though it wasn&#39;t
+our intent, we ended up using a tweaked version of this for launch
+(after discovering that the process to change the form could delay
+launch by many months). Here, starting with the simpler approach
+(duplicating existing fields) meant we did not waste time as we learned
+our limitations.</p>
+
+<p>We reasoned that the other major missing feature — search — would need
+either a full-blown search index or a tightly coupled database
+implementation. This would add nontrivial design and development time
+that was needed for other, higher-priority features. So we kept the
+search feature in the backlog (a holding area for features not actively
+planned). When it came time to release, the feature was still not
+present. Time will tell whether this tradeoff was worthwhile.</p>
+
+<h2 id="the-road-ahead">The road ahead</h2>
+
+<p>We will no doubt see more dividends and costs associated with our
+technical choices in the coming months, but we have pulled out the above
+as a starting point for analysis. Implementing the simplest solution
+allowed us to add other features (and/or move our launch date up), but
+some of the initial solutions weren&#39;t actually viable. On the other
+hand, some optimization efforts were red herrings (e.g. caching) while
+others now seem like a requirement (e.g. the static site). Ultimately,
+we recommend you start simple but don&#39;t refuse to dive deep when there&#39;s
+a good use case.</p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/04/08/day-in-the-life-of-talent-manager/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;A day in the life of an 18F talent manager&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/04/20/act-iac-event-on-devops-in-the-government/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;ACT-IAC event on DevOps in the government&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/10/02/building-a-better-government-design-team/' class='related_posts'>&ldquo;Building a better government design team&rdquo;</a></li><li><a href='/2015/09/21/new-citizenship-resources/' class='related_posts'>&ldquo;New citizenship resources demystify the naturalization process&rdquo;</a></li><li><a href='/2015/09/09/how-a-two-day-spring-moved-an-agency-twenty-years-forward/' class='related_posts'>&ldquo;How a two-day sprint moved an agency twenty years forward&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-04-09-flexibility-when-releasing-a-new-product-peace-corps-new-donation-platform.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

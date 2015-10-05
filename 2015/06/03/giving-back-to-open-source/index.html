@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/06/03/giving-back-to-open-source/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/06/03/giving-back-to-open-source/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; Giving back to open source: Everybody wins</title>
+  <meta property="og:title" content="Giving back to open source: Everybody wins" />
+
+
+  <meta name="description" content="We love when we&#39;re able to contribure to open source projects from other organizations. Recently, we contributed to Bitly&#39;s open source google_auth_proxy to support our Hub and MyUSA applications, and our contribution has  already helped other OAuth2 providers.">
+  <meta property="og:description" content="We love when we&#39;re able to contribure to open source projects from other organizations. Recently, we contributed to Bitly&#39;s open source google_auth_proxy to support our Hub and MyUSA applications, and our contribution has  already helped other OAuth2 providers." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/blog/google-auth-proxy/bitly-oauth-github.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/06/03/giving-back-to-open-source/">Giving back to open source: Everybody wins</a></h1>
+
+      <time datetime="2015-06-03T00:00:00+00:00" itemprop="datePublished">June 3, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/open-source">open source</a>
+            /
+          
+            <a href="/tags/technical">technical</a>
+            /
+          
+            <a href="/tags/security">security</a>
+            /
+          
+            <a href="/tags/the-hub">the hub</a>
+            /
+          
+            <a href="/tags/our-projects">our projects</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author mbland" style="color: #000">
+    <a href=/team/mbland>Mike Bland</a>
+  </span>
+</p>
+
+
+      <p>Many of our products depend on reusable open source software, and we
+also publish our own work as open source. What&#39;s even cooler is when
+we’re able to contribute to an open source product from another
+organization. <a href="https://github.com/bitly/oauth2_proxy">oauth2_proxy</a>
+(formerly google_auth_proxy) is a program from
+<a href="https://bitly.com/">Bitly</a> (written in <a href="https://golang.org/">the Go programming language</a>) that enables a web service to provide
+authentication via OAuth2 provider accounts, without the need to build
+authentication code directly into the service. This was a perfect fit
+for the needs of the internal <a href="https://18f.gsa.gov/2014/12/23/hub/">18F Hub</a>, which is a
+<a href="http://jekyllrb.com/">Jekyll</a>-generated site containing no
+authentication logic of its own.</p>
+
+<p>Because the <a href="http://googleforwork.blogspot.com/2011/07/gsa-has-gone-google.html">General Services Administration (GSA) is a Google Apps for
+Government customer</a>,
+and because we serve the Hub using the <a href="http://nginx.org/">Nginx web server</a>, it was straightforward to configure Nginx
+and the oauth2_proxy to provide authentication for 18F team members
+(and other guests within the GSA) with no changes required to the Hub
+code.</p>
+
+<p>The basic structure is to create a <code>server</code> block as the public-facing
+internal Hub server that uses the <code>proxy_pass</code> directive to forward
+requests to the oauth2_proxy, listening on <code>localhost:4180</code>. The
+oauth2_proxy, in turn, is configured to redirect authenticated requests
+to a server on <code>localhost:8080</code>, configured as another Nginx
+<code>server</code> block, that just serves the pre-generated Jekyll site:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">server {
+    listen 443 ssl spdy;
+    server_name hub.18f.gov;
+    include ssl/star.18f.gov.conf;
+
+    location /logo.png {
+        alias /home/ubuntu/18f-hub/_site/assets/images/logo-18f-oauth.png;
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:4180/;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+        proxy_connect_timeout 1;
+        proxy_send_timeout 30;
+        proxy_read_timeout 30;
+    }
+}
+
+server {
+    listen 127.0.0.1:8080;
+    server_name hub.18f.gov;
+    port_in_redirect off;
+    error_page 404 /404/index.html;
+
+    location / {
+        ssi on;
+        root /home/ubuntu/hub/_site;
+        index index.html api.json;
+        default_type text/html;
+        set $authenticated_user $http_x_forwarded_email;
+        set $access_token $http_x_forwarded_access_token;
+    }
+}
+</code></pre></div>
+<p>This worked really well for 18F, but there was a problem. Not all
+government agencies use Google Apps, and we wanted to be able to permit
+guests from other agencies access to our internal Hub or set up their
+own. The idea was to use 18F’s own
+<a href="https://18f.gsa.gov/2015/05/18/myusa/">MyUSA</a> product as an <a href="http://oauth.net/articles/authentication/">OAuth2 authentication provider</a>
+instead. However, since the Hub didn’t contain any authentication code
+of its own, the question was how to implement the switch to MyUSA.</p>
+
+<p>Thanks to the fact that Bitly chose to make its oauth2_proxy open
+source, I was able to inspect the code, learn how it worked, fork my own
+copy, and produce a prototype that used MyUSA as the OAuth2 provider.
+Then, <a href="https://github.com/bitly/google_auth_proxy/issues/65">I engaged the oauth2_proxy maintainer</a>,
+Jehiah Czebotar, to get feedback and solicit approval to incorporate
+<a href="https://github.com/bitly/google_auth_proxy/pull/77">an OAuth2 provider generalization</a>
+into the main <code>bitly/oauth2_proxy</code> repository. With that
+generalization interface in place, Jehiah also permitted me to add <a href="https://github.com/bitly/google_auth_proxy/pull/79">the MyUSA provider</a> to
+the main repository, potentially enabling any oauth2_proxy user to use
+MyUSA for authentication. Also, the new generalized provider support
+also paid dividends for others beyond 18F and Bitly, as another
+developer built upon the new interface to add <a href="https://github.com/bitly/google_auth_proxy/pull/84">LinkedIn as an OAuth2 provider</a>, and
+Jehiah added <a href="https://github.com/bitly/oauth2_proxy/pull/98">GitHub as a provider</a>.</p>
+
+<p>While this was a big step forward for 18F’s involvement in the open
+source community, and for MyUSA in particular, the collaboration didn’t
+stop there. We wanted the Hub to be able <a href="https://github.com/18F/hub/pull/211">to integrate with other MyUSA-authenticated services</a>
+serving JSON API endpoints; to do that, we needed access to the MyUSA
+access token, which the oauth2_proxy initially discarded. I added
+<a href="https://github.com/bitly/google_auth_proxy/pull/80">access token pass-through</a> to
+the oauth2_proxy to enable this integration (and <a href="https://github.com/bitly/google_auth_proxy/pull/81">clean it up later</a>).</p>
+
+<p>Since then, I’ve contributed a host of other changes to the main
+oauth2_proxy repository, both to solve minor issues (<a href="https://github.com/bitly/google_auth_proxy/pull/82">sign-in page redirection</a>, email
+address <a href="https://github.com/bitly/google_auth_proxy/pull/83">case sensitivity</a>) and
+to implement handy new features (<a href="https://github.com/bitly/google_auth_proxy/pull/88">automatic refresh</a> of the
+auth cookie, <a href="https://github.com/bitly/google_auth_proxy/pull/89">watching the authenticated emails file</a> for updates,
+blocking crawlers with
+<a href="https://github.com/bitly/google_auth_proxy/pull/90">robots.txt</a>).
+I’ve also figured out how to configure the oauth2_proxy to provide
+<a href="https://github.com/18F/hub/blob/master/deploy/SSO.md">single-sign on across multiple hosts</a>.</p>
+
+<p>The lessons here are twofold. For one, it’s possible to use
+oauth2_proxy, Nginx, and Jekyll to produce a highly functional,
+fully-authenticated web application without the need for complex
+frameworks, databases, or other moving parts requiring vigilant
+maintenance. While the Hub has a ways to go, our team has had a great
+deal of success finding and sharing information with it, particularly
+when it comes to onboarding new team members; and it’s incurred very,
+very low running costs. The new authenticated API integration feature
+promises to make the Hub and its application model even more powerful,
+despite the fact that it remains a statically generated Jekyll site at
+its core. (Fellow 18F team member Dave Cole actually <a href="https://developmentseed.org/blog/2012/07/27/build-cms-free-websites/">advocated for this model three years ago</a>.)</p>
+
+<p>As for the second lesson, it’s often difficult to achieve this degree of
+transparency, collaboration, reuse, and contribution in the same
+organization, let alone between a government agency and a private
+company. However, thanks to a commitment to open source development on
+behalf of both 18F and Bitly, our team members can work together to
+develop features that benefit not just our two organizations, but many
+others who may be able to apply (and adapt!) the oauth2_proxy to their
+needs.</p>
+
+<p>By continuing to explore new ways to develop and deploy applications and
+reuse infrastructure as fully-invested members of the open source
+community, 18F aims to demonstrate to the rest of government, and those
+it serves, that such methods are safe and productive and ultimately
+improve the way government works.</p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/06/02/taking-the-pulse-of-the-federal-governments-web-presence/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;Taking the pulse of the federal government's web presence&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/06/08/the-us-government-is-moving-to-https-everywhere/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;The U.S. government is moving to HTTPS everywhere&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/09/28/web-design-standards/' class='related_posts'>&ldquo;Introducing the U.S. Web Design Standards&rdquo;</a></li><li><a href='/2015/08/10/18f-design-methods/' class='related_posts'>&ldquo;Introducing 18F Design Methods&rdquo;</a></li><li><a href='/2015/07/29/style-guide-for-open-source-documentation/' class='related_posts'>&ldquo;18F’s style guide for open source project documentation&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-06-03-giving-back-to-open-source.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

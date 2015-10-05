@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/02/09/the-first-gov-domains-hardcoded-into-your-browser-as-all-https/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/02/09/the-first-gov-domains-hardcoded-into-your-browser-as-all-https/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; The first .gov domains hardcoded into your browser as all-HTTPS</title>
+  <meta property="og:title" content="The first .gov domains hardcoded into your browser as all-HTTPS" />
+
+
+  <meta name="description" content="Every .gov website, no matter how small, should give its visitors a secure, private connection. Ordinary HTTP (http://) connections are neither secure nor private, and can be easily intercepted and impersonated. In today&#39;s web browsers, the best and easiest way to fix that is to use HTTPS (https://).">
+  <meta property="og:description" content="Every .gov website, no matter how small, should give its visitors a secure, private connection. Ordinary HTTP (http://) connections are neither secure nor private, and can be easily intercepted and impersonated. In today&#39;s web browsers, the best and easiest way to fix that is to use HTTPS (https://)." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/blog/hsts/hsts-preload-list.png" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/02/09/the-first-gov-domains-hardcoded-into-your-browser-as-all-https/">The first .gov domains hardcoded into your browser as all-HTTPS</a></h1>
+
+      <time datetime="2015-02-09T00:00:00+00:00" itemprop="datePublished">February 9, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/https">https</a>
+            /
+          
+            <a href="/tags/security">security</a>
+            /
+          
+            <a href="/tags/policy">policy</a>
+            /
+          
+            <a href="/tags/hsts">hsts</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author eric" style="color: #000">
+    <a href=/team/eric>Eric Mill</a>
+  </span>
+</p>
+
+
+      <p><img src="/assets/blog/hsts/hsts-preload-list.png" alt="A snapshot of .gov websites preloaded as HTTPS-only" style="border: 1px solid #d5d5d5; padding: 10px 0" /></p>
+
+<p>Every <code>.gov</code> website, no matter how small, should give its visitors a secure,
+private connection. Plain HTTP (<code>http://</code>) connections are neither secure nor
+private, and can be easily intercepted and impersonated. In today&#39;s web
+browsers, <a href="https://18f.gsa.gov/2014/11/13/why-we-use-https-in-every-gov-website-we-make/">the best and easiest way to fix that is to use HTTPS</a> (<code>https://</code>).</p>
+
+<p>Now, a number of government websites have taken a step further and are
+becoming <strong>the first .gov domains hardcoded into major web browsers as HTTPS-
+only</strong>.</p>
+
+<p>This means that when visitors type &quot;notalone.gov&quot; or click a link to
+<strong>http://</strong>notalone.gov, the browser will go directly to
+<strong>https://</strong>notalone.gov without ever attempting to connect over
+plain HTTP. This prevents anyone from getting a chance to intercept or
+maliciously redirect the connection, and avoids exposing URLs, metadata, and
+cookies that would otherwise have remained private.</p>
+
+<p>18F worked with a number of government teams to help submit 19 <code>.gov</code> domains
+to be hardcoded as HTTPS-only:</p>
+
+<ul>
+<li>The Federal Trade Commission prepared the Do Not Call Registry, as well as
+their consumer complaint system and a merger filing system, by submitting
+<strong><a href="https://www.donotcall.gov">donotcall.gov</a></strong>, <strong><a href="https://ftccomplaintassistant.gov">ftccomplaintassistant.gov</a></strong>, and <strong><a href="https://www.hsr.gov">hsr.gov</a></strong>.
+The FTC has also <a href="https://www.ftc.gov/news-events/blogs/techftc/2015/02/government-agencies-enable-http-strict-transport-security-public">written about their work</a> on these domains.</li>
+<li>The Inspector General for the US Postal Service submitted <strong><a href="https://uspsoig.gov">uspsoig.gov</a></strong>
+(which includes various <a href="https://uspsoig.gov/form/whistleblower-complaint-form">sensitive complaint forms</a>) after moving entirely to
+HTTPS.</li>
+<li>The <strong><a href="https://www.aids.gov/">AIDS.gov</a></strong> team submitted their domain after moving the main
+website and each subdomain over to HTTPS.</li>
+<li>The Administrative Conference of the US submitted <strong><a href="https://www.acus.gov">acus.gov</a></strong> after
+<a href="https://www.acus.gov/policies">moving to HTTPS</a> while relaunching their website.</li>
+<li>At the state level, the District of Columbia legislature submitted
+<strong><a href="https://dccode.gov">dccode.gov</a></strong> as part of its launch.</li>
+<li>The Federal Register submitted <strong><a href="https://www.federalregister.gov">federalregister.gov</a></strong>, a fully
+HTTPS-enabled website since 2011.</li>
+<li>18F chipped in and submitted <strong><a href="https://www.notalone.gov">notalone.gov</a></strong>, which used HTTPS from the
+start.</li>
+<li>The <a href="https://max.omb.gov">OMB MAX</a> team worked with the White House and the General Services
+Administration to prepare the website for the <a href="https://cio.gov">Federal CIO Council</a> and a
+number of other websites and redirect domains: <a href="https://cio.gov">cio.gov</a>, <a href="https://cao.gov">cao.gov</a>,
+<a href="https://cfo.gov">cfo.gov</a>, <a href="https://max.gov">max.gov</a>, <a href="https://itdashboard.gov">itdashboard.gov</a>, <a href="https://paymentaccuracy.gov">paymentaccuracy.gov</a>,
+<a href="https://earmarks.gov">earmarks.gov</a>, <a href="https://bbfelob.gov">bfelob.gov</a>, <a href="https://save.gov">save.gov</a>, <a href="https://saveaward.gov">saveaward.gov</a>.</li>
+</ul>
+
+<p><strong>To be clear</strong>: the above domains are <em>not</em> the only <code>.gov</code> domains that use
+HTTPS. Many others do. The above domains have taken the extra step of
+verifying that all their subdomains use HTTPS, and are comfortable telling
+browsers to just assume this going forward. This will take effect in Chrome,
+Firefox, and Safari over the course of 2015.</p>
+
+<p>There are <a href="https://18f.gsa.gov/2014/11/13/why-we-use-https-in-every-gov-website-we-make/">many more .gov domains</a>, but we hope this contribution is the
+beginning of something bigger.</p>
+
+<p>Read on for more about <strong><a href="#what-https-does">why HTTPS is important</a></strong>, how to
+<strong><a href="#tightening-up-https-with-strict-transport-security">reliably force HTTPS</a></strong>,
+and how to <strong><a href="#an-hsts-preload-list">submit your own domain to browsers</a></strong>.</p>
+
+<h2 id="what-https-does">What HTTPS does</h2>
+
+<p>We&#39;ve written previously about <a href="https://18f.gsa.gov/2014/11/13/why-we-use-https-in-every-gov-website-we-make/">why HTTPS is good for .gov websites and visitors</a>,
+no matter how important the website may be. To understand why, it helps to
+understand the information that HTTPS protects.</p>
+
+<p>When you visit a website, your computer connects to the website&#39;s computer.
+This means you send information about yourself sprinting across the internet
+at the speed of light, passing through the computers of companies and
+countries from all over the world that sit between you and the website&#39;s
+computer. That&#39;s how the internet works: a sprawling, unpredictable network of
+computers under the control of potentially anyone.</p>
+
+<p>When you connect over ordinary <code>http://</code>, it&#39;s like <strong>sending a postcard in
+the mail</strong>, where every computer in between you and the website gets to see
+your information:</p>
+
+<p><img src="/assets/blog/hsts/with-http-headers.png" style="border: 1px solid" alt="The information sent from you to the website you're requesting over http"/></p>
+
+<p>That includes cookies, the browser you use, and any other data the website
+asks you to send (in this example, your location).</p>
+
+<p>And because it&#39;s like a postcard, any computer in between you and the website
+can freely <strong>erase, change, or add</strong> information on the postcard (imagine it&#39;s
+written in pencil). In fact, because insecure <code>http://</code> connections are so
+common, this happens all the time and it&#39;s often invisible to the ordinary
+user.</p>
+
+<p>When you can connect over <code>https://</code>, it&#39;s like <strong>sending a locked briefcase</strong>
+that only the website&#39;s computer can open. IP addresses and a domain name are
+all that the internet&#39;s computers get to see:</p>
+
+<p><img src="/assets/blog/hsts/with-https-headers.png" style="border: 1px solid" alt="The information sent from you to the website you're requesting over https" /></p>
+
+<p>IP addresses and domain names do still reveal some information, but it&#39;s the
+bare minimum necessary to make the connection.</p>
+
+<p>HTTPS guarantees that the connection between you and the website is secure and
+private.</p>
+
+<h2 id="tightening-up-https-with-strict-transport-security">Tightening up HTTPS with Strict Transport Security</h2>
+
+<p>Even after a website turns on HTTPS, visitors may still end up trying to
+connect over plain HTTP. For example:</p>
+
+<ul>
+<li>When a user types &quot;dccode.gov&quot; into the URL bar, browsers default to using <code>http://</code>.</li>
+<li>A user may click on an old link that mistakenly uses an <code>http://</code> URL.</li>
+<li>A user&#39;s network may be hostile and actively rewrite <code>https://</code> links to <code>http://</code>.</li>
+</ul>
+
+<p>Generally, websites that prefer HTTPS will still listen for connections over
+HTTP in order to redirect the user to the HTTPS URL.</p>
+
+<p>So when a visitor clicks a link to <code>http://dccode.gov</code>, the website will allow
+the connection for just long enough to tell the visitor&#39;s browser to go to
+<code>https://dccode.gov</code>.</p>
+
+<p>However, <strong>that redirect is itself insecure</strong> (it&#39;s on a postcard), and is an
+opportunity for an attacker to capture information about the visitor, or to
+maliciously redirect the user to a phishing site.</p>
+
+<p>Any website can protect their visitors from this scenario by instructing browsers to <em>only</em> connect over HTTPS using an open standard called <strong><a href="https://developer.mozilla.org/en-US/docs/Web/Security/HTTP_strict_transport_security">HTTP Strict Transport Security</a></strong>, or <strong>HSTS</strong>.</p>
+
+<p>Turning on HSTS means adding a <code>Strict-Transport-Security</code> <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers">HTTP header</a> to your website:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">Strict-Transport-Security: max-age=31536000;
+</code></pre></div>
+<p>Any <a href="http://caniuse.com/#search=hsts">browser that supports HSTS</a> that sees
+that header will from then on refuse to issue an <code>http://</code> request to that
+website, issuing an <code>https://</code> request instead.</p>
+
+<p>HSTS greatly increases the security and privacy of a website, and is a very
+easy add-on to HTTPS.</p>
+
+<p>Its main weak point is that the visitor&#39;s <em>first</em> visit to the website is not
+protected (it&#39;s still a postcard!), as the browser needs to visit the website
+once in order to receive the HSTS instruction.</p>
+
+<h2 id="an-hsts-preload-list">An HSTS Preload List</h2>
+
+<p>To solve the &quot;first visit&quot; problem, the Chrome security team created an &quot;HSTS
+preload list&quot;: a <a href="https://chromium.googlesource.com/chromium/src/+/master/net/http/transport_security_state_static.json">list of domains</a> baked into Chrome that get Strict
+Transport Security enabled automatically, even for the first visit.</p>
+
+<p>Firefox and Safari also incorporate Chrome&#39;s list, as will
+<a href="http://blogs.msdn.com/b/ie/archive/2015/02/16/http-strict-transport-security-comes-to-internet-explorer.aspx?Redirected=true">newer versions of Internet Explorer</a>.</p>
+
+<p>While a giant list may sound crude, it&#39;s a simple solution that many of
+today&#39;s most popular websites (including Twitter, Facebook, Google, and
+GitHub) use to protect your visits.</p>
+
+<p>The Chrome security team allows anyone to <a href="https://hstspreload.appspot.com/">submit their domain to the list</a>,
+provided you meet the following requirements:</p>
+
+<ul>
+<li>Enable HTTPS on your root domain (e.g. <code>https://donotcall.gov</code>), and <strong>all
+subdomains</strong> (e.g. <code>https://www.donotcall.gov</code>).</li>
+<li>Your website should redirect from HTTP to HTTPS, at least on the root domain.</li>
+<li>Your root domain should turn on Strict Transport Security for all subdomains,
+with a long <code>max-age</code>, and a <code>preload</code> flag to indicate that the domain owner
+consents to preloading.</li>
+</ul>
+
+<p>If you check out the HTTP headers sent by the <code>.gov</code> domains above, you&#39;ll see
+that they all include the following header:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+</code></pre></div>
+<p>So in short, if you want to add your domain to the list: force HTTPS on the
+whole domain, add that header, and submit the form.</p>
+
+<h2 id="moving-forward">Moving forward</h2>
+
+<p>Obviously, you can&#39;t hardcode the entire internet into a big list.</p>
+
+<p>But the <code>.gov</code> space, by comparison, is quite small. Perhaps someday we&#39;ll be
+able to just delete every individual <code>.gov</code> domain from the list and replace
+them with one entry: <code>*.gov</code>.</p>
+
+<p>In the meantime, the internet&#39;s governing bodies are <a href="https://w3ctag.github.io/web-https/">clearly stating</a> that
+<a href="https://datatracker.ietf.org/doc/rfc7258/">encryption</a> is <a href="http://www.internetsociety.org/news/internet-society-commends-internet-architecture-board-recommendation-encryption-default">the future</a>, and a lot of people are working to make
+HTTPS simpler to deploy. It&#39;s becoming easier to imagine a future where web
+browsers treat HTTPS as the norm, and <a href="https://www.chromium.org/Home/chromium-security/marking-http-as-non-secure">warn visitors away from plain HTTP</a>
+entirely.</p>
+
+<p>Finally, a big thank you to the civil servants across government who took the
+time to prepare their <code>.gov</code> domains.</p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/01/21/join-us/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;Join us&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/02/11/a-story-of-an-agile-workshop/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;A Story of an agile workshop&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/07/16/introduction-to-https-webinar/' class='related_posts'>&ldquo;An introduction to HTTPS, by 18F and DigitalGov University&rdquo;</a></li><li><a href='/2015/06/08/the-us-government-is-moving-to-https-everywhere/' class='related_posts'>&ldquo;The U.S. government is moving to HTTPS everywhere&rdquo;</a></li><li><a href='/2015/06/02/taking-the-pulse-of-the-federal-governments-web-presence/' class='related_posts'>&ldquo;Taking the pulse of the federal government's web presence&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-02-09-the-first-gov-domains-hardcoded-into-your-browser-as-all-https.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

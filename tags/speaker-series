@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/tags/speaker-series/" />
+<link rel="canonical" href="https://18f.gsa.gov/tags/speaker-series/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; speaker series</title>
+  <meta property="og:title" content="speaker series" />
+
+
+  <meta name="description" content="18F builds effective, user-centric digital services focused on the interaction between government and the people and businesses it serves.">
+  <meta property="og:description" content="18F builds effective, user-centric digital services focused on the interaction between government and the people and businesses it serves." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <!-- until Twitter's card approver fixes itself, need to use summary_large_image here too because we can't get approved for both -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/images/18f-share-image.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+
+  <div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+    <section>
+  
+  <h1>7 posts tagged speaker series</h1>
+
+  <div class="container blog-entry " itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/09/21/cfpb-design-speaker-series/">Four questions with the CFPB design team</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-09-21T16:52:00+00:00" itemprop="datePublished">
+                21 Sep 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/events">events</a>
+                  /
+                
+                  <a href="/tags/culture">culture</a>
+                  /
+                
+                  <a href="/tags/design">design</a>
+                  /
+                
+                  <a href="/tags/speaker%20series">speaker series</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Designers Mollie Bates and Natalia Fitzgerald will be speaking tomorrow at 18F on their experience building the design team at the Consumer Financial Protection Bureau (CFPB), as well as more generally on their approaches to user-centered design.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/09/21/cfpb-design-speaker-series/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/08/26/aaron-gustafson-beyond-responsive-design/">Making websites more like M&Ms</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-08-26T00:00:00+00:00" itemprop="datePublished">
+                26 Aug 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/events">events</a>
+                  /
+                
+                  <a href="/tags/design">design</a>
+                  /
+                
+                  <a href="/tags/speaker%20series">speaker series</a>
+                  /
+                
+                  <a href="/tags/operational%20excellence">operational excellence</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Web standards and accessibility expert Aaron Gustafson recently came to 18F to speak about progressive enhancement and to challenge designers to improve user experience across browsers and devices.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/08/26/aaron-gustafson-beyond-responsive-design/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/06/24/thomas-vander-wal-event/">Imagining a water cooler for the digital age</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-06-24T00:00:00+00:00" itemprop="datePublished">
+                24 Jun 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/events">events</a>
+                  /
+                
+                  <a href="/tags/design">design</a>
+                  /
+                
+                  <a href="/tags/speaker%20series">speaker series</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Last week, information architect Thomas Vander Wal came to 18F to lead a discussion on his research into social and internal collaboration in the workspace.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/06/24/thomas-vander-wal-event/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/05/27/dan-brown-conflict-in-design/">Dan Brown: The art of conflict in design process</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-05-27T00:00:00+00:00" itemprop="datePublished">
+                27 May 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/events">events</a>
+                  /
+                
+                  <a href="/tags/design">design</a>
+                  /
+                
+                  <a href="/tags/speaker%20series">speaker series</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>On Friday, author and designer Dan Brown gave a talk at 18F. “Stop fighting, start designing,” centered around the design process and inherent conflict therein.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/05/27/dan-brown-conflict-in-design/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/05/19/five-questions-with-dan-brown/">Five questions with Dan Brown</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-05-19T00:00:00+00:00" itemprop="datePublished">
+                19 May 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/events">events</a>
+                  /
+                
+                  <a href="/tags/speaker%20series">speaker series</a>
+                  /
+                
+                  <a href="/tags/dan%20brown">dan brown</a>
+                  /
+                
+                  <a href="/tags/design">design</a>
+                  /
+                
+                  <a href="/tags/18f">18f</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Dan Brown, co-founder of D.C.-based design firm EightShapes and author of Communicating Design and Designing Together, has spent years studying how and why conflict arises in the workplace, its centrality to good design, the differences between healthy and unhealthy conflict, and more. Dan will be speaking at 18F on Friday, May 22 at 1:30 PM.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/05/19/five-questions-with-dan-brown/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/02/26/Five-Ways-To-Turn-A-Bad-Idea-Into-A-Great-One/">Five ways to turn a bad idea into a great one: Steve Portigal event recap</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-02-26T00:00:00+00:00" itemprop="datePublished">
+                26 Feb 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/18f">18f</a>
+                  /
+                
+                  <a href="/tags/speaker%20series">speaker series</a>
+                  /
+                
+                  <a href="/tags/design">design</a>
+                  /
+                
+                  <a href="/tags/user%20research">user research</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Last Friday, consultant and author Steve Portigal left behind the California sunshine to speak at the 18F headquarters. Steve — principal at Portigal Consulting, author, podcaster, and ramen aficionado — expounded on the topic of bad ideas: Namely, how they add value to the creative process and why we should seek them out.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/02/26/Five-Ways-To-Turn-A-Bad-Idea-Into-A-Great-One/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+        <article class="tag-index">
+          <div class="blog-title">
+            <h1 itemprop="headline"><a href="/2015/02/18/steve-portigal-pre-event-qa-post/">Five questions with steve portigal</a></h1>
+          </div>
+
+          <div class="blog-meta">
+            <p>
+              Posted on
+              <time class="blog-date" datetime="2015-02-18T00:00:00+00:00" itemprop="datePublished">
+                18 Feb 2015
+              </time>
+            </p>
+            <p>
+              Tagged /
+              <span class="blog-tags" itemprop="keywords">
+                
+                  <a href="/tags/speaker%20series">speaker series</a>
+                  /
+                
+                  <a href="/tags/design">design</a>
+                  /
+                
+                  <a href="/tags/user%20research">user research</a>
+                  /
+                
+                  <a href="/tags/user-centered%20design">user-centered design</a>
+                  /
+                
+              </span>
+            </p>
+          </div>
+
+          <div class="blog-snippet" itemprop="articleBody">
+            
+            <p>Since October, 18F has been bringing in noted individuals from the software development world to discuss their work, and we’re excited to kick off a new, design-focused series this Friday, February 20 (10:30 a.m. ET) with Steve Portigal, author of Interviewing Users: How to Uncover Compelling Insights and host of the Dollars to Donuts podcast.
+</p>
+          </div>
+
+          <div class="blog-continue">
+            <p><a href="/2015/02/18/steve-portigal-pre-event-qa-post/">Continue reading this post...</a></p>
+          </div>
+        </article>
+
+    
+  </div>
+
+</section>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/tags/speaker-series/index.html" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>

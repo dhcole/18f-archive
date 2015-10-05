@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Basic Page Needs
+================================================== -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="vmVo2wbQpKGMHVpllQP7bQ0w5gICWD356VH9DNbv5f4" />
+
+
+<!-- Mobile Specific Metas
+================================================== -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<!-- RSS feeds
+================================================== -->
+
+<link rel="alternate" type="application/rss+xml" title="18F Digital Services Delivery &raquo; Feed" href="/feed/" />
+
+<!-- Twitter and OpenGraph data
+================================================== -->
+<meta name="twitter:site" content="@18F">
+<meta name="twitter:creator" content="@18F">
+<meta property="og:site_name" content="18F Digital Services Delivery" />
+<meta property="og:type" content="website" />
+
+<meta property="og:url" content="https://18f.gsa.gov/2015/03/13/how-to-protosketch/" />
+<link rel="canonical" href="https://18f.gsa.gov/2015/03/13/how-to-protosketch/" />
+
+<!-- title, description, and image may change per-page, per-post -->
+
+  <title>18F &mdash; How to protosketch</title>
+  <meta property="og:title" content="How to protosketch" />
+
+
+  <meta name="description" content="If you are a leading a project, ask for a protosketch. If you are a developer, learn to protosketch. Create imagination-sparking moments, in the meeting. Give your team the freedom to play — with ideas, code and data. Minimize risk to your project and the American taxpayer by quickly testing ideas with the end-user in a vivid, clickable form. Develop and evaluate hypotheses on the fly. Protosketch to delight your team, your boss, and your customers.">
+  <meta property="og:description" content="If you are a leading a project, ask for a protosketch. If you are a developer, learn to protosketch. Create imagination-sparking moments, in the meeting. Give your team the freedom to play — with ideas, code and data. Minimize risk to your project and the American taxpayer by quickly testing ideas with the end-user in a vivid, clickable form. Develop and evaluate hypotheses on the fly. Protosketch to delight your team, your boss, and your customers." />
+
+
+<!-- use large summary card for posts with images, normal summary otherwise -->
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta property="og:image" content="https://18f.gsa.gov/assets/images/2014/12/protosketch.jpg" />
+
+
+
+<!-- Favicons
+================================================== -->
+<!-- 128x128 -->
+<link rel="shortcut icon" type="image/ico" href="/assets/images/favicons/favicon.ico" />
+<link rel="icon" type="image/png" href="/assets/images/favicons/favicon.png" />
+
+<!-- 192x192, as recommended for Android
+http://updates.html5rocks.com/2014/11/Support-for-theme-color-in-Chrome-39-for-Android
+-->
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/images/favicons/18f-center-192.png" />
+
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="/assets/images/favicons/18f-center-57.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/images/favicons/18f-center-72.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/images/favicons/18f-center-114.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/images/favicons/18f-center-144.png">
+
+<!-- Mobile "theme" -->
+<meta name="theme-color" content="#1188ff" />
+
+<!-- CSS
+================================================== -->
+<link href="/assets/css/google-fonts.css" rel="stylesheet">
+<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+<link href="/assets/css/fonts.css" rel="stylesheet">
+<link href="/assets/css/normalize.css" rel="stylesheet">
+<link href="/assets/css/styles.css" rel="stylesheet">
+<link href="/assets/css/pygments-theme.css" rel="stylesheet">
+
+<!-- IE
+================================================== -->
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+  <link href="/assets/css/ie8/ie.css" rel="stylesheet">
+<![endif]-->
+
+<!--
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssso        osssssssssso/-.```.-/osssssssssss:            -ossssss
+sssssssssssssssssssssssssssssssssssss++++++-  osssssssso-  `-///-`  -osssssssss-  -+++++++++-ossssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/ossssso/` .ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssss/  /sssssssss/  /ssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso. `/sssssss/` `ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssssssso-  .:///:.  -osssssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssss+:`   ````   -/ossssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssss/.` .:++oooo+/-` `:ossssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osssso-  -+osssssssssso/` `/sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossso. `/ssssssssssssssso-  /ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss-  /ssssssssssssssssso. `osss-            -sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  `sssssssssssssssssss/  /sss-  -+++++++++-sssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss  .sssssssssssssssssss/  :sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss.  ossssssssssssssssss-  +sss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  osss+` .ossssssssssssssss:  -ssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossss+` `/ossssssssssss+-  -sssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssso:` `:+oooooooo/-  .+ssssss-  osssssssssssssssss
+sssssssssssssssssssssssssssssssssssssssssss-  ossssssso/.` ``....`  `-+ssssssss-  osssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssso++ssssssssssso+/::-:://osssssssssss+++ssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+
+Hi there! Great job on pulling back the curtain.
+We're always looking for curious people with diverse skill-sets. Let's talk at 18f@gsa.gov
+
+-->
+
+
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+
+<aside class="usa">
+  <div class="container">
+    <p>
+      An official website of the United States Government <img alt="US flag
+signifying that this is a United States Federal Government website"
+src="/assets/images/us_flag_small.png">
+    </p>
+  </div>
+</aside>
+
+
+<section class="container bare">
+	<a href="#main" class="skips">Skip to main content</a>
+<nav class="global-nav ">
+  <a href="#" class="toggle">Menu</a>
+  <a href="#" class="toggle hidden">Close</a>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/dashboard">Work</a></li>
+    <li class="global-nav-link"><a href="/team">People</a></li>
+    <li class="global-nav-link"><a href="/consulting">Consulting</a></li>
+    <li class="global-nav-link"><a href="https://pages.18f.gov/joining-18f/">Join</a></li>
+  </ul>
+  <span class="sep">|</span>
+  <ul class="hidden global-nav-links">
+    <li class="global-nav-link"><a href="/blog">Blog</a></li>
+    <li class="global-nav-link"><a href="/#newsletter">Newsletter</a></li>
+    <li class="global-nav-link"><a href="/">Home</a></li>
+  </ul>
+</nav>
+
+	<div class="bare-logo" role="banner" itemscope itemtype="http://schema.org/WPHeader">
+    <a href="/">
+      <i class="icon-18f-logo"><p style="display:none;">18F</p></i>
+    </a>
+  
+  </div>
+
+  <div id="main" class="bare-content" role="main" itemscope itemprop="mainContentOfPage">
+
+    <section class="blog-posting" itemprop="blogPosts" itemscope itemtype="http://schema.org/BlogPosting">
+
+      <h1><a href="/2015/03/13/how-to-protosketch/">How to protosketch</a></h1>
+
+      <time datetime="2015-03-13T00:00:00+00:00" itemprop="datePublished">March 13, 2015 </time>
+
+      <p>
+        Tagged /
+        <span class="blog-tags" itemprop="keywords">
+          
+            <a href="/tags/protosketching">protosketching</a>
+            /
+          
+            <a href="/tags/18f-consulting">18f consulting</a>
+            /
+          
+            <a href="/tags/how-we-work">how we work</a>
+            /
+          
+            <a href="/tags/agile">agile</a>
+            /
+          
+        </span>
+      </p>
+      
+<p class="authors">
+  by 
+  <span class="author alan" style="color: #000">
+    <a href=/team/alan>Alan deLevie</a>,  and 
+  
+  <span class="author robert" style="color: #000">
+    Dr. Robert L. Read
+  </span>
+</p>
+
+
+      <p>This post is a follow-on to the 18F blog post:<a href="https://18f.gsa.gov/2015/01/06/protosketch/">
+</a><a href="https://18f.gsa.gov/2015/01/06/protosketch/"><em>&quot;Sketching with Code:
+Protosketching&quot;</em></a>, which
+concludes:</p>
+
+<blockquote>
+<p>If you are a leading a project, ask for a protosketch. If you are a
+developer, learn to protosketch. Create imagination-sparking moments, in
+the meeting. Give your team the freedom to play — with ideas, code and
+data. Minimize risk to your project and the American taxpayer by quickly
+testing ideas with the end-user in a vivid, clickable form. Develop and
+evaluate hypotheses on the fly. Protosketch to delight your team, your
+boss, and your customers.</p>
+</blockquote>
+
+<p>Although not difficult, protosketching demands a definite &quot;bag of
+tricks&quot; that one should understand to rapidly create web-enabled spike
+solutions. Let&#39;s dive a little deeper in.</p>
+
+<h2 id="publicize-your-work-with-github-pages">Publicize your work with GitHub Pages</h2>
+
+<p>Your basic goal is to demonstrate possibilities rapidly. You can do this
+on your personal computer and have people crowd around it---but it is
+far more compelling to create an internet-accessible URL that your
+participants can view on their own devices. A durable URL that survives
+the meeting allows your work to be shown to others conveniently after
+the meeting.</p>
+
+<p>GitHub Pages is a great way to to host static HTML pages. It costs $0
+and has no bureaucratic overhead. This gives you a stable, publishable
+URL for your deliverable. As we will discuss below, by using JSON files
+to simulate a database, you can do a surprising amount of protosketching
+with static pages.</p>
+
+<p>Incidental benefits to using GitHub Pages include the adoption of &quot;open
+source process constraints&quot;. It makes it easy to follow, for example,
+the<a href="https://github.com/18F/open-source-policy/blob/master/policy.md">
+</a><a href="https://github.com/18F/open-source-policy/blob/master/policy.md"><em>18F
+Open Source
+Policy</em></a>,
+&quot;from the first line.&quot;</p>
+
+<h2 id="leverage-design-for-free-using-a-framework">Leverage design for free using a framework</h2>
+
+<p>HTML is the basis of most web-enabled protosktetching. You probably need
+to understand HTML and CSS to protosketch rapidly. However, frameworks,
+such as Bootstrap and its many analogs, make it easy to look good
+quickly without deep knowledge of HTML design. In particular, such
+frameworks are responsive, meaning that sites using them work well on
+devices of different sizes and aspect ratios.</p>
+
+<p>Although you may someday want to build a native mobile app, you will
+generally want to start with a mobile-friendly website instead.</p>
+
+<h2 id="jquery-api-for-mocking-apis-quickly-but-dependably">jQuery API for mocking APIs quickly but dependably</h2>
+
+<p>One common thread in the projects being considered for 18F Consulting is
+a desire to integrate disparate data sources into a single application
+or dashboard-like interface. If feasible, a protosketch could and should
+connect to these data sources via an API to provide a near real-world
+demonstration of the desired product. Feasible within a protosketching
+meeting might mean &quot;accomplishable in 30 minutes.&quot;</p>
+
+<p>You don&#39;t need a working API if you can mock one out with static JSON.
+You can use jQuery to access the file or files to create a design that
+will be structurally similar to one that actually accessed an API or
+database. JavaScript allows you to tie any number of simulated
+datasources together into one HTML page.</p>
+
+<p>As a program manager describes the data types of each source, just add
+samples to the JSON files. Soon enough, ask the program manager to
+refresh the page on their laptop or smartphone, and like magic they will
+see their product needs come to life. In many cases, it will be
+worthwhile to optimize JavaScript code to nicely render arbitrary JSON.
+In other words, the less your JavaScript knows about your data, the more
+flexibly you can sketch in sample data.</p>
+
+<h2 id="making-data-malleable">Making data malleable</h2>
+
+<p>The protosketcher should feel comfortable enough modifying sample data
+so that it feels &quot;malleable&quot;. Paul Graham, in an essay titled<a href="http://www.paulgraham.com/hp.html">
+</a><a href="http://www.paulgraham.com/hp.html"><em>&quot;Hackers and
+Painters&quot;</em></a>, wrote:</p>
+
+<blockquote>
+<p>You should figure out programs as you&#39;re writing them, just as writers
+and painters and architects do.</p>
+</blockquote>
+
+<p>Realizing this has real implications for protosketching and software
+design in general. It means that programs and data should be plastic, by
+which we mean easily moldable and formable. As a programmer, you need to
+select tools that make this easy.</p>
+
+<p>Although Graham was extolling the benefits of LISP in that essay, the
+same lesson applies to protosketching tools. Select tools and design
+code so that you feel comfortable not just expressing your own ideas
+about what should be built, but being an instrument for the program
+manager&#39;s or end-user&#39;s vision. JavaScript and mock APIs give us this
+freedom.</p>
+
+<h2 id="render-rapidly-by-using-public-or-fake-data">Render rapidly by using public or fake data</h2>
+
+<p>It is convenient to work publicly in open-source to avoid security
+issues, which means that we must use public or fake data, instead of
+private or secure data. For the purpose of making a compelling demo in a
+1-3 hour time span, it is usually easy to find public data that gets the
+idea across, even if the final application will contain sensitive data.
+An example of fake text is the famous Lorem Ipsum text. Wikimedia
+Commons is a great source of photographs and visual designs that have
+clearly expressed, open licenses (or lack of licenses).</p>
+
+<p>Running a server</p>
+
+<p>Given the power of JavaScript, you can quickly build impressive demos
+with &quot;fake&quot; data using the JSON and jQuery API trick mentioned above.
+However, you may decide you need to implement a durable, changing data
+store. Such a data store cannot be easily realized with GitHub Pages. If
+you must run a small web server to have a changable data store, such as
+somenthing as simple as Ruby&#39;s Sinatra or Python&#39;s Flask, then<a href="https://localtunnel.me/">
+</a><a href="https://localtunnel.me/"><em>localtunnel</em></a> makes
+it very easy to provide a temporary public URL that points to your
+computer&#39;s localhost.</p>
+
+<p>You need not immediately abandon your JavaScript just because you have
+chosen to have a durable data store on a server. Merely use Flask or
+Sinatra only to implement the API that you have already mocked to
+provide basic create-read-update-delete functionality. If you have used
+Flask before, for example, this might take 20 minutes.</p>
+
+<p>Heroku and similar application hosting platforms provides a more
+permanent and robust solution.</p>
+
+<h2 id="theatrical-devices">Theatrical devices</h2>
+
+<p>Protosketching is a form of coding athleticism--a performance art as a
+well as a compositional art. Don&#39;t be ashamed to use a little
+showmanship.</p>
+
+<p>Here are some of the techniques we have used:</p>
+
+<ul>
+<li><p>For the Navy Reserve, our use of a durable URL let the Captain see
+the working prototype on his phone in the meeting.</p></li>
+<li><p>A logo is easy to copy and cheap to add. A logo quickens simple
+content into a living application.</p></li>
+<li><p>Utilize frameworks like Bootstrap that make it easy to look good
+quickly in a fully responsive way by leveraging other people&#39;s
+design work.</p></li>
+<li><p>Add just enough realistic data that the demo connotes exciting
+possibilities. We did this for GSA Human Resources department, and
+the result allowed them to think more clearly about what they
+wanted in the future.</p></li>
+<li><p>Reuse wherever possible. In a one-hour challenge set by the
+Administrator of the GSA, we re-used our own<a href="https://github.com/18F/answers">
+</a><a href="https://github.com/18F/answers"><em>Answers</em></a>
+open-source project, which itself was forked from a Code for
+America&#39;s Honolulu project. And it worked.</p></li>
+</ul>
+
+<h1 id="motivation:-remember,-you&#39;re-protosketching-for-the-success-of-your-project"><strong>Motivation: Remember, you&#39;re protosketching for the success of your project</strong></h1>
+
+<p>Remember, the reason you are using a bag-of-tricks and theater is not to
+flim-flam anyone or prove how smart you are. Fundamentally we seek to
+de-risk a project by trying out ideas quickly, and that requires
+effective communication of those ideas to all stakeholders. It is our
+duty in any Agile, User-centered Design process to use any tool in our
+kit to accomplish this. Protosketching is a valuable kind of spike
+solution that lets you quickly get feedback from the user.</p>
+
+<h1 id="appendix:-a-technical-example"><strong>Appendix: A technical example</strong></h1>
+
+<p>We exemplify some of the basic techniques mentioned in this article with
+an online, functioning<a href="https://18f.github.io/protosketch-demo/">
+</a><a href="https://18f.github.io/protosketch-demo/"><em>prototype</em></a>
+hosted completely free-of-charge with GitHub Pages. An open-source
+GitHub repo publicizes the code that implements it:<a href="https://github.com/18F/protosketch-demo">
+</a><a href="https://github.com/18F/protosketch-demo"><em>protosketch-demo</em></a>.
+The README.md file explains a technique for running this site locally.
+Feel free to fork this repository if it seems like a good starting point
+for your own protosketching.</p>
+
+<p>At the GitHub repository, you can find<a href="https://github.com/18F/protosketch-demo/blob/master/app.js">
+</a><a href="https://github.com/18F/protosketch-demo/blob/master/app.js"><em>app.js</em></a>,
+which is the heart of the application. At the end of this file you find
+an example of using JQuery to to read from a JSON file, which is
+analogous to a an API call:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">ready</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">$</span><span class="p">.</span><span class="nx">getJSON</span><span class="p">(</span><span class="s2">"orders.json"</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+    <span class="nx">drawTable</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="s2">"#current_order"</span><span class="p">);</span>
+  <span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>The file<a href="https://github.com/18F/protosketch-demo/blob/master/orders.json">
+</a><a href="https://github.com/18F/protosketch-demo/blob/master/orders.json"><em>orders.json</em></a>
+is remarkably simple, and clearly malleable enough to support any basic
+&quot;database-backed website&quot; situation.</p>
+<div class="highlight"><pre><code class="language-json" data-lang="json"><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"01\/12\/2015"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$15.54"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Animal crackers and jelly beans"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12\/01\/2014"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$12.34"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Popcorn"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"11\/01\/2014"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$27.46"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Pretzels, chips, and gummy bears"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"10\/01\/2014"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"cost"</span><span class="p">:</span><span class="w"> </span><span class="s2">"$15.20"</span><span class="p">,</span><span class="w">
+    </span><span class="nt">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Animal crackers and jelly beans"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>The running demo is lightly styled using bootstrap, as you can see from
+the actual<a href="https://github.com/18F/protosketch-demo/blob/master/index.html">
+</a><a href="https://github.com/18F/protosketch-demo/blob/master/index.html"><em>HTML
+file</em></a>.</p>
+
+<p><code>&lt;link rel=&quot;stylesheet&quot;
+href=&quot;https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css&quot; /&gt;</code></p>
+
+<p>Bootstrap does require you to set up your DOM with certain conventions, which you can see in the full file.</p>
+
+
+    </section>
+
+    
+        <section class="blog-pagination">
+          <div>
+            
+              <a href="/2015/03/12/day-in-the-life-of-an-18F-content-designer/">
+                <h1><i class="fa fa-chevron-left"></i> Previous Post</h1>
+                <p>&ldquo;A day in the life of an 18F content designer&rdquo;</p>
+              </a>
+            
+          </div>
+          <div>
+            
+                <a href="/2015/03/17/for-public-comment-the-https-only-standard/">
+                  <h1>Next Post <i class="fa fa-chevron-right"></i></h1>
+                  <p>&ldquo;For public comment: the HTTPS-only standard&rdquo;</p>
+                </a>
+            
+          </div>
+        </section>
+    
+
+    <section class="blog-related">
+      <h1>Related Posts</h1>
+      <ul><li><a href='/2015/01/06/protosketch/' class='related_posts'>&ldquo;Sketching with code: protosketching&rdquo;</a></li><li><a href='/2015/09/04/what-is-technical-debt/' class='related_posts'>&ldquo;What is technical debt?&rdquo;</a></li><li><a href='/2015/08/31/how-playing-with-legos-taught-executives-agile/' class='related_posts'>&ldquo;How 90 minutes with Lego bricks taught these executives agile&rdquo;</a></li></ul
+    </section>
+    <aside class="blog-follow-us">
+      <h1>Follow the latest news from 18F</h1>
+      <ul>
+        <li><i class="fa fa-twitter"></i> <a href="https://twitter.com/18f">@18F</a></li>
+        <li><i class="fa fa-rss"></i> <a href="/feed/">18F News Feed</a></li>
+      </ul>
+
+      <!-- <i class="fa fa-github"></i> <a href="https://github.com/18f">GitHub / 18F</a> -->
+
+    </aside>
+
+  </div>
+
+</section>
+
+  <footer class="footer usa-footer usa-footer-big">
+  <div class="container usa-footer-primary-section">
+    <div class="usa-grid-full">
+        <div class="usa-width-one-sixth footer-content">
+          <img src="/assets/images/logo-gsa.png" alt="GSA logo">
+          <div>
+            <a href="https://github.com/18f"><img src="/assets/images/always-be-shipping_orange.png" alt="Always Be Shipping."></a>
+          </div>
+        </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content" itemscope itemtype="http://schema.org/ContactPoint">
+            <h1>Work</h1>
+              <a href="/delivery" title="Delivery">Delivery</a>
+              </br>
+              <a href="/consulting" title="Consulting">Consulting</a>
+              </br>
+              <a href="/dashboard" title="Dashboard">Dashboard</a>
+              <br/>
+              <a href="https://github.com/18F"><i class="fa fa-github" title="18F GitHub page"></i> github.com/18F</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>People</h1>
+              <a href="/team" title="18F People">Team</a>
+              </br>
+              <a href="https://pages.18f.gov/joining-18f/" title="Joining 18F">Join us</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1> Resources </h1>
+              <a href="/blog" title="18F Blog">Blog</a>
+              </br>
+              <a href="https://pages.18f.gov/guides" title="18F Guides">Guides</a>
+              </br>
+              <a href="/developer/" title="Developer program">Developer program</a>
+            </a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+            <h1>Policies</h1>
+              <a href="/linking-policy/" title="18F Linking policy">Linking</a>
+              <br/>
+              <a href="https://github.com/18F/open-source-policy" title="18F Open source policy">Open source</a>
+              <br/>
+              <a href="https://github.com/18F/18f.gsa.gov/edit/staging/_posts/2015-03-13-how-to-protosketch.md" title="Edit this page">Edit this page</a>
+          </div>
+          <div class="usa-width-one-sixth usa-footer-primary-content footer-content">
+             <h1>Contact Us</h1>
+                <a href="/press" title="Press">Press</a>
+                <br/>
+                <a href="https://twitter.com/18F"><i class="fa fa-twitter" title="18F Twitter"></i> @18F</a>
+                </br>
+                <a href="mailto:18f@gsa.gov" itemprop="email"><i class="fa fa-envelope" title= "email 18F"></i> 18F@gsa.gov</a>
+          </div>
+    </div>
+  </div>
+</footer>
+
+  <!-- JS
+================================================== -->
+<script src="/assets/js/jquery-2.1.1.min.js"></script>
+<script src="/assets/js/responsiveslides.min.js"></script>
+
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if IE 9 ]>
+  <script src="/assets/js/ie8/html5shiv.js"></script>
+  <script src="/assets/js/ie8/respond.js"></script>
+-->
+
+<!--
+  IE detection, used to guide console formatting in subsequent include
+-->
+<script type="text/javascript">window._ie9 = false;</script>
+
+<!--[if IE 9 ]>
+  <script type="text/javascript">window._ie9 = true;</script>
+<![endif]-->
+
+<!--
+ IE10 JS targeting: https://stackoverflow.com/a/17099988
+ IE11 JS targeting: https://stackoverflow.com/a/17447695
+-->
+<script type="text/javascript">
+  window._ie10 = ("onpropertychange" in document && !!window.matchMedia);
+  window._ie11 = !!navigator.userAgent.match(/Trident\/7.0; rv 11/);
+  window._ie = window._ie9 || window._ie10 || window._ie11;
+</script>
+
+<!-- Browser warning, console message -->
+<script src="/assets/js/18f.js"></script>
+
+<!-- Google Analytics -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-48605964-1', 'gsa.gov');
+
+  // anonymize user IPs (chops off the last IP triplet)
+  ga('set', 'anonymizeIp', true);
+
+  // forces HTTPS even if the page were somehow loaded over http://
+  ga('set', 'forceSSL', true);
+
+  ga('send', 'pageview');
+</script>
+
+<!-- Digital Analytics Program roll-up, see https://analytics.usa.gov for data -->
+<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=GSA"></script>
+
+
+</body>
+</html>
